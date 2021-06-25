@@ -78,39 +78,33 @@ class Validator {
         }
         return r;
     }
-    static _getRequestData(e, t, r, s) {
-        const i = new URLSearchParams(),
-            { username: a, password: n, token: o, motherTongue: E, apiServerUrl: _, enVariant: l, deVariant: u, ptVariant: c, caVariant: d } = this._storageController.getSettings(),
-            { hasPaidSubscription: h } = this._storageController.getUIState(),
-            A = { text: e };
-        (s.recipientInfo.address || s.recipientInfo.fullName) && (A.metaData = { EmailToAddress: s.recipientInfo.address, FullName: s.recipientInfo.fullName }), i.append("data", JSON.stringify(A));
-        const g = h || _.startsWith(config.PREMIUM_SERVER_URL);
-        g && a && n ? (i.append("username", a), i.append("password", n)) : g && a && o && (i.append("username", a), i.append("tokenV2", o)),
-            i.append("textSessionId", s.instanceId),
-            h || i.append("enableHiddenRules", "true"),
-            E && i.append("motherTongue", E),
-            "normal" !== s.checkLevel && i.append("level", s.checkLevel.replace("hidden-", ""));
-        if (t) i.append("language", t.code);
-        else {
-            i.append("language", "auto"), i.append("noopLanguages", r.join(",")), i.append("preferredLanguages", r.join(","));
-            const e = this._getPreferredVariants(l, u, c, d);
-            e.length > 0 && i.append("preferredVariants", e.toString());
-        }
-        return i.append("disabledRules", "WHITESPACE_RULE,CONSECUTIVE_SPACES"), i.append("useragent", BrowserDetector.getUserAgentIdentifier()), i;
-    }
-    static _getPreferredVariants(e, t, r, s) {
-        const i = [];
-        return e && i.push(e), t && i.push(t), r && i.push(r), s && i.push(s), i;
-    }
-    static _getValidationRequestData(e, t, r, s) {
-        const i = this._getRequestData(e, t, r, s);
-        return i.append("mode", "textLevelOnly"), i;
-    }
-    static _getPartialValidationRequestData(e, t, r, s, i) {
-        const a = this._getRequestData(e, t, r, s);
-        return a.append("mode", "allButTextLevelOnly"), a.append("allowIncompleteResults", i.toString()), a;
-    }
     static _sendRequest(e, t, r = config.VALIDATION_REQUEST_TIMEOUT) {
+        var matches = [];
+        var index = t.search(/terrible/gi);
+        if (index != -1) {
+            matches = [
+                {
+                    "message": "The word ‘terrible’ has a negative sentiment. Did you want to say something more constructive?",
+                    "shortMessage": "Negative word",
+                    "replacements": [{ "value": "terrible" }, { "value": "not the best" }],
+                    "offset": index,
+                    "length": "terrible".length,
+                    "type": { "typeName": "Other" },
+                    "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": "misspelling", "category": { "id": "TYPOS", "name": "Negative word" } },
+                    "ignoreForIncompleteSentence": false,
+                    "contextForSureMatch": 7
+                }
+            ];
+        }
+
+        // Instead of sending requests, we fake responses here
+        var response = {
+            "language": { "name": "English (US)", "code": "en-US", "detectedLanguage": { "name": "English (US)", "code": "en-US", "confidence": 0.8 } },
+            "matches": matches
+        };
+
+        return Promise.delay(250).then(_ => JSON.parse(response));
+        
         return __awaiter(this, void 0, void 0, function* () {
             const s = fetch(e, t)
                     .catch((t) => {
@@ -371,10 +365,7 @@ class Validator {
             this._abortValidationRequest(s.instanceId),
                 (this._validationAbortControllers[s.instanceId] = new AbortController()),
                 this._useValidationFallbackServer && Date.now() - this._mainServerUnavailabilityTimeStamp >= config.MAIN_SERVER_RECHECK_INTERVAL && (this._useValidationFallbackServer = !1);
-            const a = e.normalize(),
-                n = this._getServerFullUrl(s, !1, i),
-                o = { method: "post", mode: "cors", credentials: "omit", body: this._getValidationRequestData(a, t, r, s), signal: this._validationAbortControllers[s.instanceId].signal };
-            return this._sendRequest(n, o)
+            return this._sendRequest(n, e.normalize())
                 .then((t) => {
                     const { errors: r, premiumErrors: i, pickyErrors: n, premiumPickyErrors: o } = this._processResponse(t, a, e, s);
                     return { language: { code: t.language.code, name: t.language.name }, errors: r, premiumErrors: i, pickyErrors: n, premiumPickyErrors: o };
@@ -407,9 +398,7 @@ class Validator {
                 o = [];
             for (const e of n) {
                 const n = e.map((e) => e.text).join("\n\n"),
-                    E = n.normalize(),
-                    _ = { method: "post", mode: "cors", credentials: "omit", body: this._getPartialValidationRequestData(E, t, r, s, i), signal: this._partialValidationAbortControllers[s.instanceId].signal },
-                    l = this._sendRequest(a, _).then((t) => {
+                    l = this._sendRequest(a, n.normalize()).then((t) => {
                         const { errors: r, premiumErrors: i, pickyErrors: a, premiumPickyErrors: o } = this._processResponse(t, E, n, s, !0),
                             _ = this._correctErrorOffsets(e, r),
                             l = this._correctErrorOffsets(e, i),
