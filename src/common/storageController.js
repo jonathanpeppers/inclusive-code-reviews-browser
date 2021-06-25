@@ -159,7 +159,7 @@ class StorageControllerClass {
         autoCheckOnDomains: [],
     }),
     (StorageControllerClass.PICKY_RULE_IDS = StorageControllerClass.DEFAULT_SETTINGS.ignoredRules.map((e) => e.id)),
-    (StorageControllerClass.DEFAULT_MANAGED_SETTINGS = { apiServerUrl: "", loginUrl: "", disablePrivacyConfirmation: !1, disablePersonalDictionary: !1, disableIgnoredRules: !1 }),
+    (StorageControllerClass.DEFAULT_MANAGED_SETTINGS = { apiServerUrl: "", loginUrl: "", disablePrivacyConfirmation: !0, disablePersonalDictionary: !1, disableIgnoredRules: !1 }),
     (StorageControllerClass.DEFAULT_CONFIGURATION = { unsupportedDomains: [] }),
     (StorageControllerClass.DEFAULT_PRIVACY_SETTINGS = { allowRemoteCheck: !1 }),
     (StorageControllerClass.DEFAULT_STATISTICS = {

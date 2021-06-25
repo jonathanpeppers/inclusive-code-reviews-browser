@@ -23,7 +23,7 @@ if (
         const r = e.getSettings();
         if (r.apiServerUrl === StorageControllerClass.getDefaultSettings().apiServerUrl) {
             const e = BrowserDetector.isSafari() ? "https://languagetool.org/?hidePremium=true" : "https://languagetool.org";
-            n.innerHTML = i18nManager.getMessage("privacyNoteForDefaultServer", [e, "LanguageTool.org"]);
+            n.innerHTML = i18nManager.getMessage("privacyNoteForDefaultServer", [e, "Inclusive Code Comments"]);
         } else n.innerHTML = i18nManager.getMessage("privacyNoteForOtherServer", escapeHTML(r.apiServerUrl));
         const g = BrowserDetector.isSafari() ? "https://languagetool.org/legal/privacy/?hidePremium=true" : "https://languagetool.org/legal/privacy/";
         (a.innerHTML = i18nManager.getMessage("privacyLinkForDefaultServer", [g])),

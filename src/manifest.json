@@ -6,7 +6,7 @@
    "browser_action": {
       "default_icon": "assets/images/icons/icon16.png",
       "default_popup": "popup/popup.html",
-      "default_title": "LanguageTool"
+      "default_title": "Inclusive Code Comments"
    },
    "content_scripts": [ {
       "all_frames": true,

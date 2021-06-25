@@ -1137,7 +1137,7 @@
    },
    "privacyNoteForDefaultServer": {
       "description": "Shown on first start of extension to make user aware of privacy issues when using the default server on languagetool.org",
-      "message": "This extension will check your text by sending it to \u003Ca href='$serverUrl$' target='_blank'>$serverHost$\u003C/a> over an encrypted connection. \u003Cb>Your text will not be stored\u003C/b>. Checking can be disabled at any time.",
+      "message": "This extension will check your text by sending it to a web service over an encrypted connection. \u003Cb>Your text will not be stored\u003C/b>. Checking can be disabled at any time.",
       "placeholders": {
          "serverHost": {
             "content": "$2",
