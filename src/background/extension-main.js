@@ -368,38 +368,7 @@ class BackgroundApp {
         Tracker.trackEvent("Action", t.action, t.label);
     }
     static _onOpenFeedbackFormMessage(e, t) {
-        (this._lastScreenshot = null),
-            (browser.tabs.captureVisibleTab ? browser.tabs.captureVisibleTab(e.tab ? e.tab.windowId : void 0) : Promise.reject())
-                .then((e) => {
-                    this._lastScreenshot = dataURItoBlob(e);
-                })
-                .catch(() => null)
-                .then(() => {
-                    let e = `/feedbackForm/feedbackForm.html?url=${encodeURIComponent(t.url.substr(0, 200))}`;
-                    return (
-                        t.html && (e += `&html=${encodeURIComponent(t.html.substr(0, 600))}`),
-                        t.title && (e += `&title=${encodeURIComponent(t.title)}`),
-                        this._lastScreenshot && (e += `&screenshot=${this._lastScreenshot ? 1 : 0}`),
-                        browser.windows.create({ url: EnvironmentAdapter.getURL(e), type: "popup", width: 380, height: 520 })
-                    );
-                })
-                .then((e) => {
-                    e &&
-                        e.id &&
-                        browser.windows.update(e.id, {
-                            left: Math.round(((BrowserDetector.isChromium() && e.left) || 0) + (screen.availWidth - 380) / 2),
-                            top: Math.round(((BrowserDetector.isChromium() && e.top) || 0) + (screen.availHeight - 520) / 2),
-                        });
-                });
-    }
-    static _onSendFeedbackMessage(e, t) {
-        const a = new FormData();
-        a.append("sender", t.sender),
-            a.append("text", t.text),
-            this._lastScreenshot && t.includeScreenshot && (a.append("screenshot", this._lastScreenshot, `screenshot_${Date.now()}.jpg`), (this._lastScreenshot = null)),
-            fetch(config.FEEDBACK_SERVER_URL, { method: "POST", mode: "cors", credentials: "omit", body: a }).catch(() => {
-                Tracker.trackError("http", "error_send_feedback");
-            });
+        browser.tabs.create({ url: "https://github.com/jonathanpeppers/inclusive-code-comments/issues" });
     }
     static _onOpenOptionsMessage(e, t) {
         let a = "/options/options.html";

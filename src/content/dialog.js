@@ -570,8 +570,9 @@ class Dialog {
             (o.textContent = Dialog.MESSAGES.SCROLL_HINT_TEXT),
             e.appendChild(t),
             e.appendChild(o),
-            this._controls.contentMain.appendChild(e),
-            this._shouldShowTeaser ? this._renderRatingTeaser() : this._renderPremiumErrorsTeaser();
+            this._controls.contentMain.appendChild(e);
+            // Removed rating teaser
+            //this._shouldShowTeaser ? this._renderRatingTeaser() : this._renderPremiumErrorsTeaser();
     }
     _renderTextTooShortState() {
         this._removeTeaser();
@@ -592,8 +593,9 @@ class Dialog {
             (o.textContent = Dialog.MESSAGES.NO_ERRORS_TEXT),
             e.appendChild(t),
             e.appendChild(o),
-            this._controls.contentMain.appendChild(e),
-            this._shouldShowTeaser ? this._renderRatingTeaser() : this._renderPremiumErrorsTeaser();
+            this._controls.contentMain.appendChild(e);
+            // Removed rating teaser
+            //this._shouldShowTeaser ? this._renderRatingTeaser() : this._renderPremiumErrorsTeaser();
     }
     _renderIgnoredErrorsStats() {
         if (!this._state.ignoredErrorsStats) return;

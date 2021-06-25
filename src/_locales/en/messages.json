@@ -593,7 +593,7 @@
    },
    "dialogTooltipSendFeedback": {
       "description": "Tooltip for send feedback icon",
-      "message": "Send feedback"
+      "message": "Report an issue"
    },
    "dialogTooltipSettings": {
       "description": "Tooltip for settings icon",
@@ -1225,7 +1225,7 @@
    },
    "reportAnIssue": {
       "description": "Link text for sending feedback to languagetool.org",
-      "message": "Send feedback"
+      "message": "Report an issue"
    },
    "reviewChromeHeadline": {
       "description": "Headline shown in the teaser that asks user to give a review in the Chrome Store",
@@ -1265,7 +1265,7 @@
    },
    "sendFeedback": {
       "description": "Link text for sending feedback to languagetool.org",
-      "message": "Send feedback"
+      "message": "Report an issue"
    },
    "serverNotAvailable": {
       "description": "Warning shown to the user that the local server isn't available",
