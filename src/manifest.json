@@ -47,7 +47,7 @@
       "page": "options/options.html"
    },
    "permissions": [ "activeTab", "storage", "contextMenus" ],
-   "short_name": "LanguageTool",
+   "short_name": "Inclusive Code Comments",
    "storage": {
       "managed_schema": "managed_settings.json"
    },

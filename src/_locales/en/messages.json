@@ -19,7 +19,7 @@
    },
    "appDesc": {
       "description": "The description of the application, displayed in the web store.",
-      "message": "Check your texts for spelling and grammar problems everywhere on the web"
+      "message": "Checks your comments anywhere on the web: GitHub or Azure DevOps!"
    },
    "appName": {
       "description": "The name of the application, displayed in the web store.",
