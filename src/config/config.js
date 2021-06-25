@@ -11,7 +11,7 @@ const config = {
     TOOLBAR_DECREASE_SIZE_INTERVAL: 900,
     VALIDATION_REQUEST_TIMEOUT: 5e4,
     INSTALL_URL: "https://languagetool.org/webextension/install",
-    UNINSTALL_URL: "https://languagetool.org/webextension/uninstall",
+    UNINSTALL_URL: "https://github.com/jonathanpeppers/inclusive-code-comments",
     MAIN_SERVER_URL: "https://api.languagetool.org/v2",
     MAIN_FALLBACK_SERVER_URL: "https://api-fallback.languagetool.org/v2",
     PREMIUM_SERVER_URL: "https://api.languagetoolplus.com/v2",

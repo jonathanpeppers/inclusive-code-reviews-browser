@@ -2,8 +2,6 @@
 {
     let e, t, s, o;
     const n = document.getElementById("popup-container"),
-        a = document.getElementById("popup-basic-link"),
-        i = document.getElementById("popup-plus-link"),
         p = document.getElementById("onboarding-button"),
         r = document.getElementById("popup-hint"),
         d = document.getElementById("popup-synonym-settings"),
@@ -46,7 +44,7 @@
             }
             reloadContentScriptsIfNecessary(s, t);
             const i = v.getValidationSettings(t, o.getEditorGroupId(e)),
-                p = { enabled: !i.isDomainDisabled && !i.isEditorGroupDisabled, supported: !0, unsupportedMessage: "", capitalization: i.shouldCapitalizationBeChecked };
+                p = { enabled: true, supported: !0, unsupportedMessage: "", capitalization: true };
             o.supported() ? v.isDomainSupported(t) || ((p.supported = !1), (p.unsupportedMessage = browser.i18n.getMessage("siteCannotBeSupported"))) : ((p.supported = !1), (p.unsupportedMessage = o.unsupportedMessage()));
             const d = v.getStatistics(),
                 g = v.getSettings(),

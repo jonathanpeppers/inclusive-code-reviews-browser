@@ -23,7 +23,7 @@
    },
    "appName": {
       "description": "The name of the application, displayed in the web store.",
-      "message": "Grammar and Spell Checker — LanguageTool"
+      "message": "Inclusive Code Comments"
    },
    "appStoreDesc1": {
       "description": "Description item 1 in Google Chrome Web Store (does not appear in the extension itself)",
@@ -1161,7 +1161,7 @@
    },
    "privacyNoteSlogan": {
       "description": "Slogan after 'LanguageTool' shown in privacy dialog at first start",
-      "message": "Your writing assistant"
+      "message": "Online comments, more inclusive"
    },
    "privacyPolicy": {
       "description": "Options dialog: Link to privacy policy",
