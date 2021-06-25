@@ -45,7 +45,7 @@ class RatingTeaser {
         EnvironmentAdapter.openFeedbackForm(this._url, e);
     }
     // Removed rating UI
-    // render() {
+    render() {
     //     loadStylesheet("/teaser/rating/rating.css"),
     //         loadHTML("/teaser/rating/rating.html").then((e) => {
     //             (this._container.innerHTML = e),
@@ -64,5 +64,5 @@ class RatingTeaser {
     //                 this._observe(),
     //                 Tracker.trackEvent("Action", `${this._componentName}:rating_teaser`);
     //         });
-    // }
+    }
 }
