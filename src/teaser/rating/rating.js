@@ -44,24 +44,25 @@ class RatingTeaser {
     _openFeedbackForm(e) {
         EnvironmentAdapter.openFeedbackForm(this._url, e);
     }
-    render() {
-        loadStylesheet("/teaser/rating/rating.css"),
-            loadHTML("/teaser/rating/rating.html").then((e) => {
-                (this._container.innerHTML = e),
-                    (this._element = this._container.querySelector("#rating-teaser")),
-                    (this._link = this._container.querySelector("#rating-teaser-link")),
-                    BrowserDetector.isChrome()
-                        ? (this._element.classList.add("lt-rating-teaser--chrome"), (this._link.href = "https://chrome.google.com/webstore/detail/grammar-and-spell-checker/oldceeleldhonbafppcapldpdifcinji/reviews"))
-                        : BrowserDetector.isFirefox()
-                        ? (this._element.classList.add("lt-rating-teaser--firefox"), (this._link.href = "https://addons.mozilla.org/firefox/addon/languagetool/"))
-                        : BrowserDetector.isOpera()
-                        ? (this._element.classList.add("lt-rating-teaser--opera"), (this._link.href = "https://addons.opera.com/extensions/details/grammar-and-spell-checker-languagetool/"))
-                        : BrowserDetector.isEdge()
-                        ? (this._element.classList.add("lt-rating-teaser--edge"), (this._link.href = "https://microsoftedge.microsoft.com/addons/detail/hfjadhjooeceemgojogkhlppanjkbobc"))
-                        : BrowserDetector.isSafari() && (this._element.classList.add("lt-rating-teaser--safari"), (this._link.href = "https://appstoreconnect.apple.com/apps/1534275760/appstore")),
-                    this._translate(),
-                    this._observe(),
-                    Tracker.trackEvent("Action", `${this._componentName}:rating_teaser`);
-            });
-    }
+    // Removed rating UI
+    // render() {
+    //     loadStylesheet("/teaser/rating/rating.css"),
+    //         loadHTML("/teaser/rating/rating.html").then((e) => {
+    //             (this._container.innerHTML = e),
+    //                 (this._element = this._container.querySelector("#rating-teaser")),
+    //                 (this._link = this._container.querySelector("#rating-teaser-link")),
+    //                 BrowserDetector.isChrome()
+    //                     ? (this._element.classList.add("lt-rating-teaser--chrome"), (this._link.href = "https://chrome.google.com/webstore/detail/grammar-and-spell-checker/oldceeleldhonbafppcapldpdifcinji/reviews"))
+    //                     : BrowserDetector.isFirefox()
+    //                     ? (this._element.classList.add("lt-rating-teaser--firefox"), (this._link.href = "https://addons.mozilla.org/firefox/addon/languagetool/"))
+    //                     : BrowserDetector.isOpera()
+    //                     ? (this._element.classList.add("lt-rating-teaser--opera"), (this._link.href = "https://addons.opera.com/extensions/details/grammar-and-spell-checker-languagetool/"))
+    //                     : BrowserDetector.isEdge()
+    //                     ? (this._element.classList.add("lt-rating-teaser--edge"), (this._link.href = "https://microsoftedge.microsoft.com/addons/detail/hfjadhjooeceemgojogkhlppanjkbobc"))
+    //                     : BrowserDetector.isSafari() && (this._element.classList.add("lt-rating-teaser--safari"), (this._link.href = "https://appstoreconnect.apple.com/apps/1534275760/appstore")),
+    //                 this._translate(),
+    //                 this._observe(),
+    //                 Tracker.trackEvent("Action", `${this._componentName}:rating_teaser`);
+    //         });
+    // }
 }
