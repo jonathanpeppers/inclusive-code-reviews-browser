@@ -1,0 +1,30 @@
+{
+	"type": "object",
+	"properties": {
+		"loginUrl": {
+			"title": "Login URL",
+			"description": "LanguageTool Enterprise supports OpenID/ADFS/oAuth-managed logins. Usually requires apiServerUrl to be also set. Defaults to LanguageTool's own login server. Contact support@languagetoolplus.com for more information.",
+			"type": "string"
+		},
+		"apiServerUrl": {
+			"title": "Custom Server URL",
+			"description": "Check texts against your own LanguageTool server. Defaults to LanguageTool's own login server. Contact support@languagetoolplus.com for more information.",
+			"type": "string"
+		},
+		"disablePrivacyConfirmation": {
+			"title": "Hide privacy confirmation dialog",
+			"description": "Set this to 'true' if your users should not see the privacy confirmation dialog during installation. Defaults to 'false'.",
+			"type": "boolean"
+		},
+		"disablePersonalDictionary": {
+			"title": "Disable Personal Dictionary",
+			"description": "Set this to 'true' if you do not want your users to be able to add words to their dictionary. Defaults to 'false'.",
+			"type": "boolean"
+		},
+		"disableIgnoredRules": {
+			"title": "Disable Ignored Rules",
+			"description": "Set this to 'true' if you do not want your users to be able to ignore grammar rules. Defaults to 'false'.",
+			"type": "boolean"
+		}
+	}
+}

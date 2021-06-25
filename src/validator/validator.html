@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+
+	<title>LanguageTool</title>
+
+	<link rel="stylesheet" href="../common/base.css">
+	<link rel="stylesheet" href="validator.css">
+	<link rel="shortcut icon" href="../assets/images/favicon.ico" />
+</head>
+
+<body class="hidden">
+	<div class="validator">
+		<div id="sidebar" class="validator__sidebar validator__sidebar--collapsed">
+			<a class="validator__logo" target="_blank"
+				href="https://languagetool.org/?pk_campaign=addon2-validator-logo"></a>
+			<div class="validator__upgrade-box">
+				<h2 id="upgrade-headline" data-t="validatorPremiumHeadline"></h2>
+				<ul>
+					<li data-t="validatorPremiumReason1"></li>
+					<li data-t="validatorPremiumReason2"></li>
+					<li data-t="validatorPremiumReason3"></li>
+					<li data-t="validatorPremiumReason4"></li>
+				</ul>
+				<a class="validator__upgrade-button" id="validator-upgrade-button" data-t="validatorPremiumButton"
+					target="_blank"
+					href="https://languagetool.org/premium?pk_campaign=addon2-validator"></a>
+			</div>
+
+			<a class="validator__footer" href="https://languagetool.org/dev" target="_blank">
+				&copy; 2021 LanguageTooler GmbH – We &hearts; Open Source
+			</a>
+		</div>
+		<div class="validator__content">
+			<div class="validator__inner-content">
+				<div id="status-box" class="validator__status-box">
+					<h4 id="status-headline"></h4>
+					<p id="status-text"></p>
+					<div class="validator__status-box__loader"></div>
+					<div id="status-button" class="validator__status-box__button"
+						data-t="validatorHasPremiumErrorsButton"></div>
+				</div>
+				<div data-lt-validator="true" class="validator__text-field" id="text-field" data-t-placeholder="validatorPlaceholder" contenteditable="true"></div>
+			</div>
+		</div>
+	</div>
+
+	<script src="../common/loadFonts.js"></script>
+	<script src="loadValidator.js"></script>
+</body>
+
+</html>

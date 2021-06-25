@@ -1,0 +1,1772 @@
+{
+   "accessDeniedError2": {
+      "description": "Message shown when the server denies access (unclear reason)",
+      "message": "Сервер отправил сообщение «Доступ запрещен» — пожалуйста, проверьте ваш e-mail и пароль в окне настроек и попробуйте ещё раз."
+   },
+   "addToDictionaryTitle": {
+      "description": "Title hover shown in the popup to accept a word to the internal dictionary",
+      "message": "Добавить \"$word$\" в персональный словарь",
+      "placeholders": {
+         "word": {
+            "content": "$1",
+            "example": "foobar"
+         }
+      }
+   },
+   "addonsSiteNotSupported": {
+      "description": "Error shown when Firefox add-on is used on https://addons.mozilla.org, which doesn't work for technical reasons",
+      "message": "Нам жаль, но LanguageTool не работает на сайте Firefox Add-ons (addons.mozilla.org). Но LanguageTool работает на любом другом сайте (например VK, Gmail, Twitter, LinkedIn)."
+   },
+   "appDesc": {
+      "description": "The description of the application, displayed in the web store.",
+      "message": "Проверяйте ваши тексты на наличие орфографических или грамматических ошибок где угодно в Интернете"
+   },
+   "appName": {
+      "description": "The name of the application, displayed in the web store.",
+      "message": "Корректор грамматики и орфографии — LanguageTool"
+   },
+   "appStoreDesc1": {
+      "description": "Description item 1 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "Находит множество ошибок, которые не могут обнаружить простые средства проверки орфографии"
+   },
+   "appStoreDesc10": {
+      "description": "Description paragraph 1 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "С помощью этого расширения вы можете проверить текст, используя LanguageTool — свободную программу для проверки грамматики и стиля. LanguageTool находит много ошибок, которые не удаётся обнаружить при простой проверке орфографии, например повтор слов, использование слов «одеть» или «надеть», а также он может обнаружить некоторые проблемы в грамматике и стиле. Он поддерживает более 25 языков, включая английский, испанский, французский, немецкий, польский и русский."
+   },
+   "appStoreDesc2": {
+      "description": "Description item 2 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "Не требует регистрации"
+   },
+   "appStoreDesc20": {
+      "description": "Description paragraph 2 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "LanguageTool создан с расчётом на простоту использования. Он мгновенно проверяет орфографию и грамматику любого текста в текущем текстовом поле. LanguageTool совместим практически со всеми текстами, независимо от их источника, включая социальные сети, такие как Twitter или LinkedIn, а также e-mail сервисы, такие как Gmail."
+   },
+   "appStoreDesc3": {
+      "description": "Description item 3 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "Поддерживает свыше 25 языков (см. ниже)"
+   },
+   "appStoreDesc30": {
+      "description": "Description paragraph 3 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "LanguageTool предоставляет пользователям полноценный сервис проверки грамматики и орфографии. LanguageTool является полезным расширением, которое поможет иностранцам. А так же LT достаточно умён, чтобы найти ошибки, которые часто делают даже носители языка, и это улучшит ваше письмо в целом. Проверка грамматики и правописания работает для всех вариантов одного языка; и может находить различия например между американским и британским английским. В LanguageTool есть пользовательский словарь. В него можно добавить слова, которые вы могли часто использовать, но отсутствующие в обычном словаре. LanguageTool учтёт эти слова в будущем при проверке грамматики и орфографии."
+   },
+   "appStoreDesc4": {
+      "description": "Description item 4 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "Работает практически на всех сайтах, включая Gmail, Facebook, Twitter"
+   },
+   "appStoreDesc60": {
+      "description": "Description paragraph 5 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "В отличие от Grammarly (или Grammerly :-) и Ginger, LanguageTool работает со множеством языков."
+   },
+   "appStoreDesc70": {
+      "description": "Description paragraph 6a in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "Ваша приватность важна для нас: по умолчанию это расширение будет проверять ваш текст, отправляя его на адрес https://languagetool.org через безопасное зашифрованное соединение. Для использования этого расширения не требуется учётная запись. Мы не запоминаем ваш IP-адрес. Смотрите https://languagetool.org/privacy/ с описанием нашей политики конфиденциальности."
+   },
+   "appStoreDesc71": {
+      "description": "Description paragraph 6b in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "Пожалуйста, присылайте ваши сообщения об ошибках или вопросы на https://forum.languagetool.org"
+   },
+   "appStoreDesc80": {
+      "description": "Description paragraph 7 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "Список поддерживаемых языков: русский, английский (австралийский, канадский, британский, новозеландский, южноафриканский, американский), французский, немецкий (австрийский, немецкий, швейцарский), арабский, астурийский, белорусский, бретонский, галисийский, греческий, датский, испанский, итальянский, каталанский (также валенсийский), китайский, кхмерский, нидерландский, персидский, польский, португальский (бразильский, португальский, ангольский, мозамбикский), румынский, словацкий, словенский, тагальский, тамильский, украинский, шведский, эсперанто, японский"
+   },
+   "ar": {
+      "description": "language name",
+      "message": "Арабский"
+   },
+   "ast": {
+      "description": "language name",
+      "message": "Астурийский"
+   },
+   "attachScreenshot": {
+      "description": "Text shown next to a checkbox that decideds whether a screenshot should be attached to an email",
+      "message": "Прикрепить скриншот страницы"
+   },
+   "autoCheckDesc": {
+      "description": "Options dialog: auto-check on all domains by default",
+      "message": "Включить автопроверку для всех доменов по умолчанию"
+   },
+   "autoCheckOnDomainsDesc": {
+      "description": "Options dialog: text for the textarea with the domains's where the check text will run automatically in background",
+      "message": "Включить автопроверку для этих доменов:"
+   },
+   "be": {
+      "description": "language name",
+      "message": "Белорусский"
+   },
+   "br": {
+      "description": "language name",
+      "message": "Бретонский"
+   },
+   "ca": {
+      "description": "language name",
+      "message": "Каталанский"
+   },
+   "ca_ES_valencia": {
+      "description": "language name",
+      "message": "Каталанский (Валенсия)"
+   },
+   "changelog2020DiscountHeaderDescription": {
+      "description": "Marketing text that is sticky in header and tells users what the offer is about",
+      "message": "Поднимите свое письмо на новый уровень"
+   },
+   "changelog2020DiscountHeaderDiscount": {
+      "description": "20% --> Off \u003C-- The word must come after the percentage",
+      "message": "скидка"
+   },
+   "changelog2020DiscountHeaderHeadline": {
+      "description": "Marketing headline that is sticky in header and tells users what the timer is about",
+      "message": "Ограниченный по времени дисконт"
+   },
+   "changelog2020DiscountHeaderLink": {
+      "description": "Marketing link that is sticky in header and tells users to get the discount now",
+      "message": "Получить дисконт"
+   },
+   "changelog2020FeatureAppLink": {
+      "description": "Link to download the desktop app from the mac appstore",
+      "message": "Скачать бесплатно в Mac App Store"
+   },
+   "changelog2020FeaturePremiumTag": {
+      "description": "Label that is displayed on top of every new feature section to remind the user about the discount",
+      "message": "Скидка 20%"
+   },
+   "changelog2020FeatureSectionAppDescription": {
+      "description": "Headline for the section that explains the desktop App in depth",
+      "message": "С помощью приложения LanguageTool для компьютера Mac у вас есть доступ ко всем вашим текстам в любое время. Используйте общесистемное сочетание клавиш и проверяйте тексты из буфера обмена или обычных текстовых процессоров, не теряя важного форматирования."
+   },
+   "changelog2020FeatureSectionAppHeadline": {
+      "description": "Text for the section that explains the desktop App in depth (up to 200 characters)",
+      "message": "Привет, LanguageTool для Mac!"
+   },
+   "changelog2020FeatureSectionEditorDescription": {
+      "description": "Text for the section that explains the editor in depth (up to 200 characters)",
+      "message": "Редактор LanguageTool даёт возможность писать без отвлечения внимания. Кроме того, «придирчивый режим» LanguageTool предоставляет множество дополнительных предложений по совершенствованию вашего текста."
+   },
+   "changelog2020FeatureSectionEditorHeadline": {
+      "description": "Headline for the section that explains the editor in depth",
+      "message": "Ваш новый «главный» редактор"
+   },
+   "changelog2020FeatureSectionOverleafDescription": {
+      "description": "Headline for the section that explains the Overleaf integration in depth",
+      "message": "Используйте LanguageTool и для научной работы. С помощью интеграции для Overleaf с надстройкой браузера вы можете придать своим текстам последний штрих."
+   },
+   "changelog2020FeatureSectionOverleafHeadline": {
+      "description": "Text for the section that explains the Overleaf integration in depth (up to 200 characters)",
+      "message": "Для науки!"
+   },
+   "changelog2020FeatureSectionServicesDescription": {
+      "description": "Text for the section that explains that LT now supports more services than ever (up to 200 characters)",
+      "message": "LanguageTool теперь поддерживает больше сервисов, чем когда-либо прежде. Независимо от того, где вы любите писать."
+   },
+   "changelog2020FeatureSectionServicesHeadline": {
+      "description": "Headline for the section that explains that LT now supports more services than ever",
+      "message": "LanguageTool — к вашим услугам"
+   },
+   "changelog2020FeatureSectionSlidesDescription": {
+      "description": "Headline for the section that explains the Google Slides integration in depth",
+      "message": "LanguageTool теперь работает и с Google Slides. Произведите впечатление на ваших заинтересованных лиц и коллег безупречной грамматикой и убедительным текстом."
+   },
+   "changelog2020FeatureSectionSlidesHeadline": {
+      "description": "Text for the section that explains the Google Slides integration in depth (up to 200 characters)",
+      "message": "Проверка текста на новых слайдах"
+   },
+   "changelog2020FeatureSectionSpanishPremiumDescription": {
+      "description": "Text for the section that explains the Spanish Premium version is here in depth (up to 200 characters)",
+      "message": "С LanguageTool Premium для испанского языка можно поднять своё письмо на новый уровень: выполнить расширенную проверку и получить дополнительные предложения по стилю текста для улучшения вашего письма."
+   },
+   "changelog2020FeatureSectionSpanishPremiumHeadline": {
+      "description": "Headline for the section that explains the Spanish Premium version is here in depth",
+      "message": "Привет, Премиум!"
+   },
+   "changelog2020FeatureSectionStyleDescription": {
+      "description": "Text for the section that explains the LT style checking in depth (up to 200 characters)",
+      "message": "LanguageTool способен найти много потенциальных проблем со стилем в ваших текстах, поэтому вы сможете писать более профессионально в общении с вашими собеседниками"
+   },
+   "changelog2020FeatureSectionStyleHeadline": {
+      "description": "Headline for the section that explains the LT style checking in depth",
+      "message": "Стиль с содержанием"
+   },
+   "changelog2020FeatureSectionTeamsDescription": {
+      "description": "Text for the section that explains the Team Feature is here in depth (up to 200 characters)",
+      "message": "Управляйте своей командой писателей, чтобы выработать общий стиль. LanguageTool Premium теперь доступен для предприятий и организаций."
+   },
+   "changelog2020FeatureSectionTeamsHeadline": {
+      "description": "Headline for the section that explains the Team Feature is here in depth",
+      "message": "Все на борт"
+   },
+   "changelog2020FeatureSectionTranslateDescription": {
+      "description": "Text for the section that explains the LT inline translation feature in depth (works for DE/EN only; up to 200 characters)",
+      "message": "Вам знакомо это чувство, когда английское слово вертится на кончике языка? Теперь LanguageTool поможет вам перевести слова с немецкого на английский. Просто введите немецкое слово в английском предложении."
+   },
+   "changelog2020FeatureSectionTranslateHeadline": {
+      "description": "Headline for the section that explains the LT translation feature in depth",
+      "message": "Еще раз, что это за слово?"
+   },
+   "changelog2020FeatureTeaserAppDescription": {
+      "description": "Text for the teaser that explains the LT App desktop app (up to 100 characters)",
+      "message": "Редактор LanguageTool вышел и на Mac. Пишите и храните свои тексты в удобной и простой среде."
+   },
+   "changelog2020FeatureTeaserAppHeadline": {
+      "description": "Headline for the teaser that explains the LT App desktop app",
+      "message": "Приложение для Mac"
+   },
+   "changelog2020FeatureTeaserEditorDescription": {
+      "description": "Text for the teaser that explains the editor (up to 100 characters)",
+      "message": "Редактор позволяет корректировать тексты в ненавязчивой среде с расширенной функциональностью."
+   },
+   "changelog2020FeatureTeaserEditorHeadline": {
+      "description": "Headline for the teaser that explains the editor",
+      "message": "Попробовать новый редактор"
+   },
+   "changelog2020FeatureTeaserLink": {
+      "description": "Link that comes with every new feature teaser and scrolls the page down to read more info about the feature",
+      "message": "Подробнее"
+   },
+   "changelog2020FeatureTeaserOverleafDescription": {
+      "description": "Text for the teaser that explains the Overleaf integration (up to 100 characters)",
+      "message": "Расширение для браузера LanguageTool теперь проверяет и документы Overleaf"
+   },
+   "changelog2020FeatureTeaserOverleafHeadline": {
+      "description": "Headline for the teaser that explains the Overleaf integration",
+      "message": "Поддержка Overleaf"
+   },
+   "changelog2020FeatureTeaserSlidesDescription": {
+      "description": "Text for the teaser that explains the Google Slides integration (up to 100 characters)",
+      "message": "Расширение LanguageTool для браузера теперь проверяет тексты и в презентациях Google Slides."
+   },
+   "changelog2020FeatureTeaserSlidesHeadline": {
+      "description": "Headline for the teaser that explains the Google Slides integration",
+      "message": "Поддержка для Google Slides"
+   },
+   "changelog2020FeatureTeaserSpanishPremiumDescription": {
+      "description": "Text for the teaser that explains the Spanish Premium version is here (up to 100 characters)",
+      "message": "Мы много вложили в нашу технологию, чтобы в области проверки грамматики и стиля в испаноязычных странах сделать её передовой."
+   },
+   "changelog2020FeatureTeaserSpanishPremiumHeadline": {
+      "description": "Headline for the teaser that explains the Spanish Premium version is here",
+      "message": "Апгрейд для испанского"
+   },
+   "changelog2020FeatureTeaserStyleDescription": {
+      "description": "Text for the teaser that explains the LT style checking (up to 100 characters)",
+      "message": "LanguageTool поможет вам использовать лучший стиль письма."
+   },
+   "changelog2020FeatureTeaserStyleHeadline": {
+      "description": "Headline for the teaser that explains the LT style checking",
+      "message": "Пишите в соответствии со стилем"
+   },
+   "changelog2020FeatureTeaserTeamsDescription": {
+      "description": "Text for the teaser that explains the Team Feature is here (up to 100 characters)",
+      "message": "От небольших групп до крупных организаций: LanguageTool теперь предлагает расширенные функциональные возможности для команд и предприятий."
+   },
+   "changelog2020FeatureTeaserTeamsHeadline": {
+      "description": "Headline for the teaser that explains the Team Feature is here",
+      "message": "Управляйте своей командой"
+   },
+   "changelog2020FeatureTeaserTranslateDescription": {
+      "description": "Text for the teaser that explains the LT translation feature (up to 100 characters)",
+      "message": "Теперь доступен перевод коротких фраз."
+   },
+   "changelog2020FeatureTeaserTranslateHeadline": {
+      "description": "Headline for the teaser that explains the LT translation feature",
+      "message": "Переводы на немецкий"
+   },
+   "changelog2020FeatureUpgrade2Link": {
+      "description": "Link that comes with every new feature section and redirects the user to the pricing table with a discount assigned",
+      "message": "Скидка 20% на премиум"
+   },
+   "changelog2020FeatureUpgradeLink": {
+      "description": "Link that comes with every new feature section and redirects the user to the pricing table with a discount assigned",
+      "message": "Получить Премиум"
+   },
+   "changelog2020IntroText": {
+      "description": "Subheadline that gives further context on what the page is about (new features)",
+      "message": "Мы были заняты улучшением и развитием нашей популярной системы проверки грамматики и стиля, чтобы предоставить вам наилучший опыт. Сегодня мы с гордостью делимся с вами этими новыми функциями:"
+   },
+   "changelog2020LtInfoText": {
+      "description": "Little notification on top of the page that should raise awareness that it's a LanguageTool offer",
+      "message": "Новости от LanguageTool!"
+   },
+   "changelog2020MainHeadline": {
+      "description": "Headline for a section where all new features are explained",
+      "message": "Обновлённый LanguageTool"
+   },
+   "changelog2020SignUpLink": {
+      "description": "Link that sends the user to the sign up form",
+      "message": "Зарегистрируйтесь бесплатно"
+   },
+   "changelog2020TeamUpgradeLink": {
+      "description": "Link that sends the user to the pricing table to get Premium for their business",
+      "message": "Получить премиальную версию для команды"
+   },
+   "changelog2020TimerHourPlural": {
+      "description": "Label for the hours section of the timer (Plural)",
+      "message": "часа"
+   },
+   "changelog2020TimerHourSingular": {
+      "description": "Label for the hours section of the timer (Singular)",
+      "message": "час"
+   },
+   "changelog2020TimerMinutePlural": {
+      "description": "Label for the minutes section of the timer (Plural)",
+      "message": "минут"
+   },
+   "changelog2020TimerMinuteSingular": {
+      "description": "Label for the minutes section of the timer (Singular)",
+      "message": "минута"
+   },
+   "changelog2020TimerSecondPlural": {
+      "description": "Label for the seconds section of the timer (Plural)",
+      "message": "секунд"
+   },
+   "changelog2020TimerSecondSingular": {
+      "description": "Label for the seconds section of the timer (Singular)",
+      "message": "секунда"
+   },
+   "changelogDiscountExpires": {
+      "description": "Text that stands in front of a dynamic countdown (e.g. 'Expires in 32:24:10')",
+      "message": "Предложение истекает"
+   },
+   "changelogTitle": {
+      "description": "title for the browser tab",
+      "message": "Новые возможности LanguageTool"
+   },
+   "close": {
+      "description": "Link that closes the window",
+      "message": "Закрыть"
+   },
+   "cloudServer": {
+      "description": "Radio button label for the cloud server setting (the default)",
+      "message": "Облачный сервер (languagetool.org)"
+   },
+   "connectionProblem": {
+      "description": "Message shown to the user when extension can't connect to server",
+      "message": "Не удаётся соединиться с $serverUrl$ — проверьте соединение с сетью или попробуйте снова через минуту",
+      "placeholders": {
+         "serverUrl": {
+            "content": "$1",
+            "example": "https://api.languagetool.org/v2"
+         }
+      }
+   },
+   "contextMenuValidate": {
+      "description": "Check text item in context menu",
+      "message": "Проверить орфографию и грамматику..."
+   },
+   "contextMenuValidateInEditor": {
+      "description": "Check text item in context menu",
+      "message": "Проверить текст в редакторе"
+   },
+   "continue": {
+      "description": "Link shown below the privacy note on first use",
+      "message": "Ок, понятно"
+   },
+   "da": {
+      "description": "language name",
+      "message": "Датский"
+   },
+   "da_DK": {
+      "description": "language name",
+      "message": "Датский (Дания)"
+   },
+   "de": {
+      "description": "language name",
+      "message": "Немецкий"
+   },
+   "de_AT": {
+      "description": "language name",
+      "message": "Немецкий (Австрия)"
+   },
+   "de_CH": {
+      "description": "language name",
+      "message": "Немецкий (Швейцария)"
+   },
+   "de_DE": {
+      "description": "language name",
+      "message": "Немецкий (Германия)"
+   },
+   "de_DE_x_simple_language": {
+      "description": "language name",
+      "message": "Немецкий (Простой немецкий)"
+   },
+   "defaultServerLink": {
+      "description": "Options dialog: Link to reset the URL of the API server to the default value",
+      "message": "Использовать настройки по умолчанию"
+   },
+   "deleteWord": {
+      "description": "Label for a button that will remove the selected word or letter",
+      "message": "Удалить"
+   },
+   "dialogAllLanguages": {
+      "description": "Title for a list of all languages that LT supports",
+      "message": "Все языки:"
+   },
+   "dialogCounterCharactersOption": {
+      "description": "Shown as a option that can be selected in the count menu",
+      "message": "Знаков"
+   },
+   "dialogCounterCharactersPlural": {
+      "description": "Shown next to the characters counter",
+      "message": "Знаков: $number$",
+      "placeholders": {
+         "number": {
+            "content": "$1",
+            "example": "20"
+         }
+      }
+   },
+   "dialogCounterCharactersSingular": {
+      "description": "Shown next to the characters counter",
+      "message": "Знаков: 1"
+   },
+   "dialogCounterSentencesOption": {
+      "description": "Shown as a option that can be selected in the count menu",
+      "message": "Предложений"
+   },
+   "dialogCounterSentencesPlural": {
+      "description": "Shown next to the sentences counter",
+      "message": "Предложений: $number$",
+      "placeholders": {
+         "number": {
+            "content": "$1",
+            "example": "20"
+         }
+      }
+   },
+   "dialogCounterSentencesSingular": {
+      "description": "Shown next to the sentences counter",
+      "message": "Предложений: 1"
+   },
+   "dialogCounterWordsOption": {
+      "description": "Shown as a option that can be selected in the count menu",
+      "message": "Слов"
+   },
+   "dialogCounterWordsPlural": {
+      "description": "Shown next to the words counter",
+      "message": "Слов: $number$",
+      "placeholders": {
+         "number": {
+            "content": "$1",
+            "example": "20"
+         }
+      }
+   },
+   "dialogCounterWordsSingular": {
+      "description": "Shown next to the words counter",
+      "message": "Слов: 1"
+   },
+   "dialogDisableMenuDisableChecking": {
+      "description": "Menu item for disabling the plugin for this page",
+      "message": "Отключить для этого сайта"
+   },
+   "dialogDisableMenuPauseChecking": {
+      "description": "Menu item for pausing the plugin for this page for this session",
+      "message": "Отключить только до следующего сеанса"
+   },
+   "dialogEnableInDialogHeadline": {
+      "description": "Shown in popup when add-on is not enabled",
+      "message": "Расширение отключено"
+   },
+   "dialogEnableInDialogText": {
+      "description": "Shown in popup when add-on is not enabled",
+      "message": "Нажмите для включения проверки орфографии и грамматики."
+   },
+   "dialogFailStateHeadline": {
+      "description": "Text shown when somethign went wrong",
+      "message": "Ой..."
+   },
+   "dialogFailStateText": {
+      "description": "Text shown when somethign went wrong",
+      "message": "Что-то пошло не так. Пожалуйста, попробуйте снова."
+   },
+   "dialogMainMenuPickyMode": {
+      "description": "Shown next to the switch that enables picky mode",
+      "message": "Расширенный режим"
+   },
+   "dialogMainMenuPickyModeInfo": {
+      "description": "Shown underneath the picky mode label",
+      "message": "Включите расширенный режим, чтобы улучшить свои тексты."
+   },
+   "dialogMainMenuPremiumMistake": {
+      "description": "Shown in the popup that gives more context about what errors have been found (All apremium errors)",
+      "message": "Премиальные предложения"
+   },
+   "dialogMainMenuRegularMistake": {
+      "description": "Shown in the popup that gives more context about what errors have been found (All errors but premium and picky)",
+      "message": "Предложения"
+   },
+   "dialogMainMenuTextScore": {
+      "description": "Shown in the popup that gives more context about the text score",
+      "message": "Оценка текста"
+   },
+   "dialogPositionMenuDefault": {
+      "description": "Shown next to the setting for default dialog position",
+      "message": "По умолчанию"
+   },
+   "dialogPositionMenuLeft": {
+      "description": "Shown next to the setting for pinned-left dialog position (Dialog stays open on the left side)",
+      "message": "Налево"
+   },
+   "dialogPositionMenuRight": {
+      "description": "Shown next to the setting for pinned-right dialog position (Dialog stays open on the right side)",
+      "message": "Направо"
+   },
+   "dialogPremiumButton": {
+      "description": "Button for when there are hidden matches (errors that only premium users can see)",
+      "message": "Подробнее"
+   },
+   "dialogPremiumHeadlinePlural": {
+      "description": "Headline for when there are hidden matches (errors that only premium users can see)",
+      "message": "Найдено еще $count$ ошибок(-ки)",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "7"
+         }
+      }
+   },
+   "dialogPremiumHeadlineSingular": {
+      "description": "Headline for when there are hidden matches (errors that only premium users can see)",
+      "message": "Найдена ещё одна ошибка"
+   },
+   "dialogPremiumText": {
+      "description": "Text for when there are hidden matches (errors that only premium users can see)",
+      "message": "Получайте ещё больше подсказок по стилистике, пунктуации и грамматике, используя LanguageTool Premium"
+   },
+   "dialogRecommendedLanguages": {
+      "description": "Title for a list of languages that we think the user speaks",
+      "message": "Рекомендованные:"
+   },
+   "dialogScrollHintHeadline": {
+      "description": "Text shown when the dialog cannot show all errors and users have to scroll the document to see all suggestions",
+      "message": "Исправления"
+   },
+   "dialogScrollHintText": {
+      "description": "Text shown when the dialog cannot show all errors and users have to scroll the document to see all suggestions",
+      "message": "Прокрутить текст далее для просмотра полного списка исправлений"
+   },
+   "dialogScrollToLink": {
+      "description": "link that highlights and scrolls to a specific error",
+      "message": "Показать в тексте"
+   },
+   "dialogSelectLanguageLabel": {
+      "description": "Label of dropdown where user can select a language for his text",
+      "message": "Выберите язык"
+   },
+   "dialogTextTooLongButton": {
+      "description": "Button shown when text is too long",
+      "message": "Подробнее"
+   },
+   "dialogTextTooLongHeadline": {
+      "description": "Text shown when text is too long",
+      "message": "Этот текст слишком длинный"
+   },
+   "dialogTextTooLongText": {
+      "description": "Text shown when text is too long",
+      "message": "Перейдите на Премиум версию и получайте расширенные подсказки по грамматике и стилю для длинных текстов."
+   },
+   "dialogTextTooShortHeadline": {
+      "description": "Text shown when text is too short for checking",
+      "message": "Текст слишком короткий"
+   },
+   "dialogTextTooShortText": {
+      "description": "Text shown when text is too short for checking",
+      "message": "Пожалуйста, введите по меньшей мере 5 символов, чтобы начать проверку ошибок"
+   },
+   "dialogTooltipDisableChecking": {
+      "description": "Tooltip for disable checking icon",
+      "message": "Отключить проверку"
+   },
+   "dialogTooltipHelp": {
+      "description": "Tooltip for help icon",
+      "message": "Помощь"
+   },
+   "dialogTooltipHelpCenter": {
+      "description": "Tooltip for go to helpcenter icon",
+      "message": "Перейти в центр помощи"
+   },
+   "dialogTooltipPosition": {
+      "description": "Tooltip for change dialog position icon",
+      "message": "Позиция диалога"
+   },
+   "dialogTooltipSaveText": {
+      "description": "Tooltip for save text icon",
+      "message": "Сохранить текст"
+   },
+   "dialogTooltipSendFeedback": {
+      "description": "Tooltip for send feedback icon",
+      "message": "Отправить отзыв"
+   },
+   "dialogTooltipSettings": {
+      "description": "Tooltip for settings icon",
+      "message": "Настройки"
+   },
+   "dialogUnsupportedLanguageHeadline": {
+      "description": "Shown to the user when the language he's writing is not supported",
+      "message": "Этот язык не поддерживается"
+   },
+   "dialogUnsupportedLanguageLabel": {
+      "description": "Shown to the user when the language he's writing is not supported",
+      "message": "Неподдерживаемый язык"
+   },
+   "dialogUnsupportedLanguageText": {
+      "description": "Shown to the user when the language he's writing is not supported",
+      "message": "LanguageTool поддерживает более 20 других языков (например, английский, немецкий, испанский, французский, португальский, нидерландский или русский)."
+   },
+   "domainsDesc": {
+      "description": "Options dialog: text for the textarea with the domains's where the reminder icon is disabled",
+      "message": "Проверка отключена для некоторых доменов"
+   },
+   "edgeWebstoreSiteNotSupported": {
+      "description": "Error shown when Edge extension is used on https://microsoftedge.microsoft.com, which doesn't work for technical reasons",
+      "message": "Нам жаль, но LanguageTool не работает на сайте Edge Add-on Store. Но LanguageTool работает на любом другом сайте (например VK, Gmail, Twitter, LinkedIn)"
+   },
+   "el": {
+      "description": "language name",
+      "message": "Греческий"
+   },
+   "en": {
+      "description": "language name",
+      "message": "Английский"
+   },
+   "en_AU": {
+      "description": "language name",
+      "message": "Английский (Австралия)"
+   },
+   "en_CA": {
+      "description": "language name",
+      "message": "Английский (Канада)"
+   },
+   "en_GB": {
+      "description": "language name",
+      "message": "Английский (Великобритания)"
+   },
+   "en_NZ": {
+      "description": "language name",
+      "message": "Английский (Новая Зеландия)"
+   },
+   "en_US": {
+      "description": "language name",
+      "message": "Английский (США)"
+   },
+   "en_ZA": {
+      "description": "language name",
+      "message": "Английский (Южная Африка)"
+   },
+   "enableEverywhereButton": {
+      "description": "Shown in popup when add-on is not enabled",
+      "message": "Включить для всех текстовых полей"
+   },
+   "enableHereButton": {
+      "description": "Shown in popup when add-on is not enabled",
+      "message": "Включить только для этого текстового поля"
+   },
+   "enableInDialog": {
+      "description": "Shown in popup when add-on is not enabled",
+      "message": "Кликните, чтобы включить проверку\u003Cbr>орфографии и грамматики"
+   },
+   "enableRuleTooltip": {
+      "description": "Shown when user hover cursor over enable rule button on options page",
+      "message": "Активировать правило"
+   },
+   "eo": {
+      "description": "language name",
+      "message": "Эсперанто"
+   },
+   "errorsIgnoredByDictionary": {
+      "description": "Message shown in popup with count of errors which are ignored because misspelled word contains in user dictionary",
+      "message": "Несколько слов были проигнорированы",
+      "placeholders": {
+         "countIgnoredByDictionary": {
+            "content": "$1",
+            "example": "1"
+         }
+      }
+   },
+   "errorsIgnoredByDictionarySingular": {
+      "description": "Message shown in popup with count of errors which are ignored because misspelled word contains in user dictionary",
+      "message": "Одно слово было проигнорировано"
+   },
+   "errorsIgnoredByRules": {
+      "description": "Message shown in popup with count of errors which are ignored because error rule is ignored",
+      "message": "Несколько правил были проигнорированы",
+      "placeholders": {
+         "countIgnoredByRules": {
+            "content": "$1",
+            "example": "1"
+         }
+      }
+   },
+   "errorsIgnoredByRulesSingular": {
+      "description": "Message shown in popup with count of errors which are ignored because error rule is ignored",
+      "message": "Одно правило было проигнорировано"
+   },
+   "es": {
+      "description": "language name",
+      "message": "Испанский"
+   },
+   "experimentalLink": {
+      "description": "Link to show experimental settings",
+      "message": "Показать экспериментальные настройки (только для продвинутых пользователей)"
+   },
+   "extensionUpdatedHeadline": {
+      "description": "Shown in the dialog when the extension code was updated while the user was typing in a text field",
+      "message": "Расширение было обновлено."
+   },
+   "extensionUpdatedText": {
+      "description": "Shown in the dialog when the extension code was updated while the user was typing in a text field.",
+      "message": "Пожалуйста, нажмите на значок $iconHtml$ на панели инструментов вашего браузера или перезагрузите страницу, чтобы снова включить проверку орфографии и грамматики.",
+      "placeholders": {
+         "iconHtml": {
+            "content": "$1",
+            "example": "\u003Cspan class='lt-placeholder-icon'>\u003C/span>"
+         }
+      }
+   },
+   "fa": {
+      "description": "language name",
+      "message": "Персидский"
+   },
+   "feedbackButton": {
+      "description": "Label for submit button of feedback form",
+      "message": "Отправить сообщение для LanguageTool"
+   },
+   "feedbackDirectMail": {
+      "description": "Text shown on feedback form",
+      "message": "Если вы хотите отправить скриншот, то вы можете отправить нам его в электронном письме на адрес $email$.",
+      "placeholders": {
+         "email": {
+            "content": "$1",
+            "example": "feedback@languagetool.org"
+         }
+      }
+   },
+   "feedbackError": {
+      "description": "Error message, shown to the user when his feedback message wasn't successfully sent",
+      "message": "Извините. Не получается отправить ваше сообщение. Пожалуйста, попробуйте позже ещё раз."
+   },
+   "feedbackHeadline": {
+      "description": "Headline of feedback contact form",
+      "message": "Отправьте свой отзыв на LanguageTool"
+   },
+   "feedbackSenderPlaceholder": {
+      "description": "Placeholder text shown in the email text field of the feedback form",
+      "message": "Введите ваш email …"
+   },
+   "feedbackSuccess": {
+      "description": "Success message, shown to the user when his feedback message was successfully sent",
+      "message": "Спасибо! Мы постараемся ответить на ваш вопрос как можно быстрее."
+   },
+   "feedbackTextPlaceholder": {
+      "description": "Placeholder text shown in the message text field of the feedback form",
+      "message": "Введите ваше сообщение …"
+   },
+   "fr": {
+      "description": "language name",
+      "message": "Французский"
+   },
+   "ga": {
+      "description": "language name",
+      "message": "Ирландский"
+   },
+   "generalSettingsHeadline": {
+      "description": "Headline for the general section on the settings page",
+      "message": "Общие настройки"
+   },
+   "gl": {
+      "description": "language name",
+      "message": "Галисийский"
+   },
+   "googleDocsDisableButton": {
+      "description": "menu bar button in google docs",
+      "message": "Отключить LanguageTool в этом документе"
+   },
+   "googleDocsEnableButton": {
+      "description": "menu bar button in google docs",
+      "message": "Включить LanguageTool"
+   },
+   "googleDocsEnableHint": {
+      "description": "hint pointing to a button in the google docs menu bar",
+      "message": "Вы можете повторно включить LanguageTool для проверки грамматики и стиля здесь"
+   },
+   "googleDocsNewTeaserHeadline": {
+      "description": "headline for a google docs teaser",
+      "message": "LanguageTool для Google Docs уже здесь!"
+   },
+   "googleDocsNewTeaserText": {
+      "description": "text for a google docs teaser",
+      "message": "На боковой стороне каждой страницы теперь можно увидеть, сколько проблем обнаружил LanguageTool."
+   },
+   "googleSlidesDisableButton": {
+      "description": "menu bar button in google slides",
+      "message": "Отключить LanguageTool для этой презентации"
+   },
+   "googleSlidesEnableButton": {
+      "description": "menu bar button in google slides",
+      "message": "Включить LanguageTool"
+   },
+   "googleSlidesEnableHint": {
+      "description": "hint pointing to a button in the google docs menu bar",
+      "message": "Вы можете повторно включить LanguageTool для проверки грамматики и стиля здесь"
+   },
+   "googleSlidesNewTeaserHeadline": {
+      "description": "headline for a google slides teaser",
+      "message": "LanguageTool для Google Slides здесь!"
+   },
+   "googleSlidesNewTeaserText": {
+      "description": "text for a google slides teaser",
+      "message": "Сбоку от каждого слайда теперь можно увидеть, сколько проблем в тексте обнаружил LanguageTool."
+   },
+   "grammarError": {
+      "description": "Type of error (spelling error, style suggestion, grammar error, ...)",
+      "message": "Грамматическая и прочее"
+   },
+   "haveAccountDesc": {
+      "description": "Options dialog: checkbox for account access",
+      "message": "Создать учётную запись"
+   },
+   "historicPremiumErrorsButton": {
+      "description": "Button for new premium teaser, that shows how many grammar issues the user could have avoided with the Premium version.",
+      "message": "Подробнее"
+   },
+   "historicPremiumErrorsHeadline": {
+      "description": "Introduction headline for premium teaser",
+      "message": "А вы знаете?"
+   },
+   "historicPremiumErrorsText": {
+      "description": "Text for new premium teaser, that shows how many grammar issues the user could have avoided with the Premium version.",
+      "message": "С LanguageTool Premium вы могли бы избежать \u003Cstrong>$count$ грамматических и стилистических ошибок\u003C/strong> за последние дни.",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "9"
+         }
+      }
+   },
+   "historicPremiumErrorsText2": {
+      "description": "Text for new premium teaser, that shows how many grammar issues the user could have avoided with the Premium version. Important: The count needs to be at the beginning of the sentence!",
+      "message": "\u003Cstrong>$count$ грамматических и стилистических ошибок\u003C/strong> можно было бы избежать с LanguageTool Premium за последние дни.",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "9"
+         }
+      }
+   },
+   "ignoreDomainsCheckDesc": {
+      "description": "Options dialog: text for the textarea with the domains's where the check text won't run automatically in background",
+      "message": "Отключить автопроверку для этих доменов:"
+   },
+   "ignoreHere": {
+      "description": "Button that allows to ignore a misspelled word or grammar error in the current text field.",
+      "message": "Игнорировать в этом тексте"
+   },
+   "ignoredRules": {
+      "description": "Text shown at the bottom of the popup to turn on turned off rules again",
+      "message": "Эти правила были отключены. Кликните по правилу, чтобы снова включить его:"
+   },
+   "ignoredRulesDesc": {
+      "description": "Shown as title of ignored rules block on options page",
+      "message": "Игнорируемые правила"
+   },
+   "incompleteResult": {
+      "description": "Message shown in dialog when validation return incomplete result",
+      "message": "Результат неполный: проверка была остановлена, так как слишком много ошибок найдено."
+   },
+   "invalidUsernameOrPassword": {
+      "description": "Message shown when user uses their languagetoolplus.com account but could not be authenticated",
+      "message": "Ошибка: проверьте ваш e-mail и пароль в окне настроек"
+   },
+   "is": {
+      "description": "language name",
+      "message": "Исландский"
+   },
+   "it": {
+      "description": "language name",
+      "message": "Итальянский"
+   },
+   "ja": {
+      "description": "language name",
+      "message": "Японский"
+   },
+   "km": {
+      "description": "language name",
+      "message": "Кхмерский"
+   },
+   "language": {
+      "description": "Text shown in the popup to indicate the automatically detected language of the text checked",
+      "message": "Язык:"
+   },
+   "languagetoolNotSupported": {
+      "description": "Languagetool.org is test example, so we show this error",
+      "message": "Расширение не работает на данном сайте, так как сайт предлагает схожий функционал"
+   },
+   "localServer": {
+      "description": "Radio button label for the local server setting, the one that needs manual set-up",
+      "message": "Локальный сервер (localhost) — требуется, чтобы сервер LanguageTool был запущен локально"
+   },
+   "localServerDocs": {
+      "description": "Link to documentation for installing the server locally",
+      "message": "документация"
+   },
+   "lt": {
+      "description": "language name",
+      "message": "Литовский"
+   },
+   "managedLoginButton1": {
+      "description": "Button label for logging in with an account",
+      "message": "Войти"
+   },
+   "managedLoginButton2": {
+      "description": "Button label for logging in with an account",
+      "message": "Войти под вашим корпоративным аккаунтом"
+   },
+   "managedLoginDescription": {
+      "description": "Description for enterprise users who can log in with the account of their employer",
+      "message": "Пожалуйста, войдите в систему под своим корпоративным аккаунтом, чтобы использовать LanguageTool."
+   },
+   "messagePopupTurnOnPrimaryButton": {
+      "description": "Button to close message box; Shown after checking was disabled",
+      "message": "Получить!"
+   },
+   "messagePopupTurnOnSecondaryButton": {
+      "description": "Button to enable checking on page; Shown after checking was disabled",
+      "message": "Перезапустить проверку текста"
+   },
+   "messagePopupTurnOnheadline": {
+      "description": "Instruction headline to enable checking on page; Shown after checking was disabled",
+      "message": "Проверка орфографии отключена для этой страницы"
+   },
+   "messagePopupTurnOntext": {
+      "description": "Instruction text to enable checking on page; Shown after checking was disabled",
+      "message": "Для повторного включения проверки щёлкните по значку LT на панели инструментов и нажмите на переключатель \"Проверка грамматики и орфографии\""
+   },
+   "ml": {
+      "description": "language name",
+      "message": "Малайский"
+   },
+   "moreDetails": {
+      "description": "Link shown to get more details about the error somewhere on the web (not shown for every error)",
+      "message": "Подробнее..."
+   },
+   "motherTongueDesc": {
+      "description": "Options dialog: text next to the 'mother tongue' selection",
+      "message": "Родной язык:"
+   },
+   "motherTongueExpl": {
+      "description": "Options dialog: more descriptive text explaining what selection of mother tongue does",
+      "message": "Выберите ваш родной язык для того, чтобы быть предупреждённым о наличии межъязыковых омонимов при проверке текста, написанного не на вашем родном языке."
+   },
+   "msOnlineOfficeNotSupported": {
+      "description": "Error shown when clicking the toolbar icon at Microsoft Word Online",
+      "message": "Сожалеем, но Microsoft Word Online не поддерживается данным расширением — просто установите \u003Ca target='_blank' href='$url$'>это расширение\u003C/a> взамен",
+      "placeholders": {
+         "url": {
+            "content": "$1",
+            "example": "https://appsource.microsoft.com/de-de/product/office/WA104381727"
+         }
+      }
+   },
+   "nl": {
+      "description": "language name",
+      "message": "Нидерландский"
+   },
+   "no": {
+      "description": "language name",
+      "message": "Норвежский"
+   },
+   "noErrorsFound2": {
+      "description": "Shown in popup when no errors have been found",
+      "message": "Ура, не найдено ни одной ошибки!"
+   },
+   "noErrorsFoundText": {
+      "description": "Shown in popup when no errors have been found as a subheadline",
+      "message": "Вы можете гордиться собой"
+   },
+   "onboardingHeadline": {
+      "description": "Text shown to the user when he accepted the privacy policy and is now ready to use the add-on",
+      "message": "Ваше письмо теперь будет лучше"
+   },
+   "onboardingIntro": {
+      "description": "Text shown to the user when he accepted the privacy policy and is now ready to use the add-on",
+      "message": "Ваш текст теперь будет проверяться во время ввода в большинстве текстовых полей."
+   },
+   "onboardingNote1": {
+      "description": "Installation note. Shown once the user has accepted the privacy policy.",
+      "message": "Перезагрузите все открытые веб-страницы, чтобы активировать расширение"
+   },
+   "onboardingNote2": {
+      "description": "Installation note. Shown once the user has accepted the privacy policy.",
+      "message": "Данное расширение не работает с текстовыми полями на Chrome Web Store или addons.mozilla.org"
+   },
+   "onboardingNote3": {
+      "description": "Installation note. Shown once the user has accepted the privacy policy.",
+      "message": "Чтобы отключить расширение для веб-сайта, кликните по значку «LT» на панели инструментов браузера"
+   },
+   "onboardingNote4": {
+      "description": "Installation note that describes how to use synonyms. Shown once the user has accepted the privacy policy.",
+      "message": "\u003Cstrong>Синонимы\u003C/strong> можно вызвать двойным кликом по слову в текстовом поле (например, в Gmail, VK или Google Docs)"
+   },
+   "otherServer": {
+      "description": "Radio button label for the server URL if neither cloud nor local server is the correct choice",
+      "message": "Внешний сервер — требуется, чтобы на нём был запущен сервер LanguageTool"
+   },
+   "overleafNewTeaserHeadline": {
+      "description": "headline for a overleaf teaser",
+      "message": "LanguageTool для Overleaf здесь!"
+   },
+   "overleafNewTeaserText": {
+      "description": "text for a overleaf teaser",
+      "message": "Прокрутите текст, чтобы увидеть варианты орфографии, грамматики и стиля."
+   },
+   "password": {
+      "description": "Options dialog: password for languagetoolplus.com",
+      "message": "Пароль:"
+   },
+   "pl": {
+      "description": "language name",
+      "message": "Польский"
+   },
+   "popupGeneralSettingsHeadline": {
+      "description": "Headline for general settings shown in the addon popup",
+      "message": "Общие настройки"
+   },
+   "popupOnboardingHeadline": {
+      "description": "Title shown on top of a list explaining how to use the LanguageTool addon",
+      "message": "Добро пожаловать! Теперь вы можете использовать LanguageTool:"
+   },
+   "popupOnboardingStep1": {
+      "description": "List item explaining step by step how to use the LanguageTool addon",
+      "message": "Кликните по любому многострочному текстовому полю (например, на Gmail, Facebook, …)"
+   },
+   "popupOnboardingStep2": {
+      "description": "List item explaining step by step how to use the LanguageTool addon",
+      "message": "В правом нижнем углу вы увидите иконку, которая выглядит как $icon1Html$ или $icon2Html$",
+      "placeholders": {
+         "icon1Html": {
+            "content": "$1",
+            "example": "\u003Cspan class='icon-1'>\u003C/span>"
+         },
+         "icon2Html": {
+            "content": "$2",
+            "example": "\u003Cspan class='icon-2'>\u003C/span>"
+         }
+      }
+   },
+   "popupOnboardingStep3": {
+      "description": "List item explaining step by step how to use the LanguageTool addon",
+      "message": "Введите какой-нибудь текст. Ошибки будут \u003Cu>подчёркнуты\u003C/u>"
+   },
+   "popupOnboardingStep4": {
+      "description": "List item explaining step by step how to use the LanguageTool addon",
+      "message": "Кликните по подчёркнутому слову, чтобы получить предложения по исправлению"
+   },
+   "popupOpenEditorButton": {
+      "description": "Button that opens the LanguageTool Editor",
+      "message": "Открыть редактор"
+   },
+   "popupOptionCaseText": {
+      "description": "Switch in toolbar popup",
+      "message": "Проверять верхний и нижний регистр"
+   },
+   "popupOptionCheckText": {
+      "description": "Switch in toolbar popup",
+      "message": "Проверять грамматику и орфографию"
+   },
+   "popupOptionSynonyms": {
+      "description": "Label for enabling/disabling synonym functionality (displayed next to a checkbox)",
+      "message": "Включить синонимы (на всех сайтах)"
+   },
+   "popupOptionValidate": {
+      "description": "Validate button in toolbar popup",
+      "message": "Проверить выделенный текст"
+   },
+   "popupOptionValidateInEditor": {
+      "description": "Validate button in toolbar popup",
+      "message": "Проверить выделенный текст в редакторе"
+   },
+   "popupPremiumHeadline": {
+      "description": "Premium hint in popup",
+      "message": "Пишите как профессионал"
+   },
+   "popupPremiumLink": {
+      "description": "Premium hint in popup",
+      "message": "Узнать больше"
+   },
+   "popupPremiumText": {
+      "description": "Premium hint in popup",
+      "message": "Обновитесь до LanguageTool Premium, чтобы не только находить ещё больше грамматических и орфографических ошибок, но и стилистические недочеты."
+   },
+   "popupSettingsHeadline": {
+      "description": "Headline for the website specific settings shown in the addon popup",
+      "message": "Настройки для текущего сайта"
+   },
+   "popupSettingsHover": {
+      "description": "Mouse hover over the settings icon",
+      "message": "Расширенные настройки"
+   },
+   "poweredBy": {
+      "description": "Hint that explains who the author of this add-on is",
+      "message": "Работает на движке \u003Cb>LanguageTool\u003C/b>"
+   },
+   "premiumErrorsButton": {
+      "description": "Button shown in premium teaser that sends the user to the pricing table. Button text should be as short as possible",
+      "message": "Подробнее"
+   },
+   "premiumErrorsTextPlural": {
+      "description": "Hint shown in a premium teaser, telling the user that there are more issues that only the premium version found",
+      "message": "Ваш текст содержит \u003Cstrong>$count$ продвинутых письменных ошибок\u003C/strong>",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "7"
+         }
+      }
+   },
+   "premiumErrorsTextSingular": {
+      "description": "Hint shown in a premium teaser, telling the user that there are more issues that only the premium version found",
+      "message": "Ваш текст содержит \u003Cstrong>одну продвинутую письменную ошибку\u003C/strong>"
+   },
+   "privacyLinkForDefaultServer": {
+      "description": "Link to privacy policy",
+      "message": "Для получения дополнительных сведений смотрите \u003Ca href='$privacyUrl$' target='_blank'>нашу политику конфиденциальности\u003C/a>",
+      "placeholders": {
+         "privacyUrl": {
+            "content": "$1",
+            "example": "https://languagetool.org/privacy/"
+         }
+      }
+   },
+   "privacyNoteForDefaultServer": {
+      "description": "Shown on first start of extension to make user aware of privacy issues when using the default server on languagetool.org",
+      "message": "Это расширение будет проверять текст, отправляя его на \u003Ca href='$serverUrl$' target='_blank'>$serverUrl$\u003C/a> через зашифрованное соединение. \u003Cb>Ваш текст не будет сохраняться.\u003C/b> Проверка может быть отключена в любое время.",
+      "placeholders": {
+         "serverHost": {
+            "content": "$2",
+            "example": "LanguageTool.org"
+         },
+         "serverUrl": {
+            "content": "$1",
+            "example": "https://languagetool.org"
+         }
+      }
+   },
+   "privacyNoteForOtherServer": {
+      "description": "Shown on first start of extension to make user aware of privacy issues when using some other than the default server",
+      "message": "Это расширение будет проверять текст путём отправки его на $serverUrl$. Чтобы переключиться обратно на сервер по умолчанию, пожалуйста, посетите страницу с параметрами расширения.",
+      "placeholders": {
+         "serverUrl": {
+            "content": "$1",
+            "example": "http://localhost:8081/"
+         }
+      }
+   },
+   "privacyNoteSlogan": {
+      "description": "Slogan after 'LanguageTool' shown in privacy dialog at first start",
+      "message": "Ваш помощник по письму"
+   },
+   "privacyPolicy": {
+      "description": "Options dialog: Link to privacy policy",
+      "message": "Политика конфиденциальности"
+   },
+   "pt": {
+      "description": "language name",
+      "message": "Португальский"
+   },
+   "pt_AO": {
+      "description": "language name",
+      "message": "Португальский (Ангола, до реформы)"
+   },
+   "pt_BR": {
+      "description": "language name",
+      "message": "Португальский (Бразилия, после реформы)"
+   },
+   "pt_CV": {
+      "description": "language name",
+      "message": "Португальский (Кабо-Верде)"
+   },
+   "pt_MZ": {
+      "description": "language name",
+      "message": "Португальский (Мозамбик, до реформы)"
+   },
+   "pt_PT": {
+      "description": "language name (posAO = post reform)",
+      "message": "Португальский (Португалия, после реформы)"
+   },
+   "pt_PT_post_reform": {
+      "description": "language name (posAO = post reform)",
+      "message": "Португальский (Португалия, после реформы)"
+   },
+   "pt_PT_pre_reform": {
+      "description": "language name (preAO = pre reform)",
+      "message": "Португальский (Португалия, до реформы)"
+   },
+   "punctuationError": {
+      "description": "Type of error (spelling error, style suggestion, grammar error, ...)",
+      "message": "Пунктуационная"
+   },
+   "ratingHeadline": {
+      "description": "Headline shown in the teaser that asks user to rate the add-on",
+      "message": "Вам нравится наш корректор текста?"
+   },
+   "ratingText": {
+      "description": "Text shown in the teaser that asks user to rate the add-on",
+      "message": "Оставьте свой отзыв"
+   },
+   "ratingThankYou": {
+      "description": "Message shown to the user after he rated",
+      "message": "Благодарим вас."
+   },
+   "ratingUnhappyQuestion": {
+      "description": "If user gives a negative rating, we ask the user why he's unhappy",
+      "message": "Пожалуйста, расскажите нам, почему вы недовольны расширением"
+   },
+   "removeExtraWhitespace": {
+      "description": "Button to remove consecutive white space",
+      "message": "Убрать лишние пробелы"
+   },
+   "reportAnIssue": {
+      "description": "Link text for sending feedback to languagetool.org",
+      "message": "Отправить отзыв"
+   },
+   "reviewChromeHeadline": {
+      "description": "Headline shown in the teaser that asks user to give a review in the Chrome Store",
+      "message": "Не могли бы вы оценить наше расширение в Chrome Store?"
+   },
+   "reviewEdgeHeadline": {
+      "description": "Headline shown in the teaser that asks user to give a review in the Edge Add-On Store",
+      "message": "Не могли бы вы оценить наше расширение в Edge Add-on Store?"
+   },
+   "reviewFirefoxHeadline": {
+      "description": "Headline shown in the teaser that asks user to give a review in the Firefox Add-On Store",
+      "message": "Не могли бы вы оценить наше расширение в Firefox Store?"
+   },
+   "reviewLink": {
+      "description": "Call-to-action link (should be kept short)",
+      "message": "Оценить"
+   },
+   "reviewOperaHeadline": {
+      "description": "Headline shown in the teaser that asks user to give a review in the Opera Add-On Store",
+      "message": "Не могли бы вы оценить наше расширение в Opera Add-on Store?"
+   },
+   "reviewSafariHeadline": {
+      "description": "Headline shown in the teaser that asks user to give a review in the Apple App Store",
+      "message": "Не могли бы вы поставить нам оценку в App Store?"
+   },
+   "ro": {
+      "description": "language name",
+      "message": "Румынский"
+   },
+   "ru": {
+      "description": "language name",
+      "message": "Русский"
+   },
+   "save": {
+      "description": "Options dialog: save button",
+      "message": "Сохранить"
+   },
+   "sendFeedback": {
+      "description": "Link text for sending feedback to languagetool.org",
+      "message": "Отправить отзыв"
+   },
+   "serverNotAvailable": {
+      "description": "Warning shown to the user that the local server isn't available",
+      "message": "Локальный сервер недоступен"
+   },
+   "serverText": {
+      "description": "Options dialog: description of the text field for the API server URL",
+      "message": "URL-адрес сервера LanguageTool API:"
+   },
+   "serverUrlIsInvalid": {
+      "description": "Options dialog: error shown if server URL is not valid, e.g. doesn't start with http or https",
+      "message": "URL не является действительным"
+   },
+   "settingsAccountBulletListEditor": {
+      "description": "Advantage of account login in the account login section on the settings page",
+      "message": "Используйте редактор как удобную минималистическую среду для письма"
+   },
+   "settingsAccountBulletListSave": {
+      "description": "Advantage of account login in the account login section on the settings page",
+      "message": "Сохраняйте тексты на потом "
+   },
+   "settingsAccountBulletListSync": {
+      "description": "Advantage of account login in the account login section on the settings page",
+      "message": "Синхронизирует настройки и личный словарь между несколькими браузерами и устройствами"
+   },
+   "settingsAccountDescription": {
+      "description": "Description for the account login section on the settings page",
+      "message": "Войдите в систему и воспользуйтесь следующими преимуществами:"
+   },
+   "settingsAccountHeadline": {
+      "description": "Headline for the account login section on the settings page",
+      "message": "Аккаунт"
+   },
+   "settingsAccountSubheadline": {
+      "description": "Subheadline for the account login section on the settings page",
+      "message": "Войти с учётной записью LanguageTool"
+   },
+   "settingsAddAutoCheckDomainHint": {
+      "description": "Text shown when the entered domain doesn't exist yet in the list of autocheck domains",
+      "message": "Этот домен ещё не был добавлен. Нажмите Enter, чтобы добавить его."
+   },
+   "settingsAddDomainHint": {
+      "description": "Text shown when the entered domain doesn't exist yet in the list of ignored domains",
+      "message": "Этот домен ещё не добавлен. Нажмите Enter, чтобы добавить его."
+   },
+   "settingsAddIgnoredDomainHint": {
+      "description": "Text shown when the entered domain doesn't exist yet in the list of ignored domains",
+      "message": "Этот домен ещё не был добавлен. Нажмите Enter, чтобы добавить его."
+   },
+   "settingsAddOrFilterAutoCheckDomains": {
+      "description": "Placeholder text for input field where user can enter web domains where the addon should autocheck texts",
+      "message": "Добавить или найти домен …"
+   },
+   "settingsAddOrFilterDomains": {
+      "description": "Placeholder text for input field where user can enter web domains where the addon shouldn't run on",
+      "message": "Добавить или найти домен …"
+   },
+   "settingsAddOrFilterIgnoredDomains": {
+      "description": "Placeholder text for input field where user can enter web domains where the addon shouldn't autocheck texts",
+      "message": "Добавить или найти домен …"
+   },
+   "settingsAddOrFilterWords": {
+      "description": "Placeholder text for input field where user can enter new words for his dictionary (he can use the input field also for searching in his dictionary)",
+      "message": "Добавить или найти слово..."
+   },
+   "settingsAddWordHint": {
+      "description": "Text shown when the entered word doesn't exist yet in the personal dictionary",
+      "message": "Это слово отсутствует в вашем словаре. Нажмите Enter, чтобы добавить его."
+   },
+   "settingsAreYouSure": {
+      "description": "Confirmation message for when the user wants to clear or delete something.",
+      "message": "Вы уверены? Это нельзя будет отменить."
+   },
+   "settingsClearAll": {
+      "description": "Button text that deletes all items in a list",
+      "message": "Удалить все"
+   },
+   "settingsCopyDictionary": {
+      "description": "Button text that copy all words from personal dictionary to clipboard",
+      "message": "Скопировать"
+   },
+   "settingsCopyDictionarySuccessful": {
+      "description": "Message shown when dictionary copied to clipboard successful.",
+      "message": "Скопировано в буфер обмена"
+   },
+   "settingsDeleteAutoCheckDomain": {
+      "description": "Button for removing a domain from the list of autocheck domains",
+      "message": "Удалить домен"
+   },
+   "settingsDeleteIgnoredDomain": {
+      "description": "Button for removing a domain from the list of ignored domains",
+      "message": "Удалить домен"
+   },
+   "settingsDictionaryHeadline": {
+      "description": "Headline for the personal dictionary section on the settings page",
+      "message": "Персональный словарь"
+   },
+   "settingsDomainInvalid": {
+      "description": "Error message shown when the domain the user entered is not valid or is already in the list",
+      "message": "Пожалуйста, введите действительный домен, который ещё не был добавлен."
+   },
+   "settingsEmptyAutoCheckDomains": {
+      "description": "Text shown when autocheck domains list doesn't contain any domains (yet)",
+      "message": "Вы ещё не включали автопроверку на каком-либо сайте"
+   },
+   "settingsEmptyDictionary": {
+      "description": "Text shown when personal dictionary doesn't contain any words (yet)",
+      "message": "Ваш персональный словарь пока пуст"
+   },
+   "settingsEmptyDomainList": {
+      "description": "Text shown when disabled-domain list doesn't contain any domains (yet)",
+      "message": "Вы ещё не отключили ни один сайт"
+   },
+   "settingsEmptyIgnoredDomains": {
+      "description": "Text shown when ignored domains list doesn't contain any domains (yet)",
+      "message": "Вы ещё не отключали автопроверку на каком-либо сайте"
+   },
+   "settingsEmptyIgnoredRules": {
+      "description": "Text shown when there are no ignored rules (yet)",
+      "message": "Вы ещё не игнорируете ни одного правила"
+   },
+   "settingsEnableAllRules": {
+      "description": "Button text that enables all grammar rules that were previously disabled",
+      "message": "Активировать все"
+   },
+   "settingsEnableDomain": {
+      "description": "Button for removing a domain from the list of disabled-domains",
+      "message": "Активировать домен"
+   },
+   "settingsExperimentalSuccess": {
+      "description": "Success message shown when the user saves the experimental settings",
+      "message": "Ваши настройки успешно сохранены."
+   },
+   "settingsForgotPasswordLink": {
+      "description": "Placeholder text for password text field",
+      "message": "Забыли пароль?"
+   },
+   "settingsHeadline": {
+      "description": "Headline for the settings page",
+      "message": "Настройки"
+   },
+   "settingsLoggedInAs": {
+      "description": "Text shown for users who have logged in with their LanguageTool account",
+      "message": "Вы вошли как $email$.",
+      "placeholders": {
+         "email": {
+            "content": "$1",
+            "example": "\u003Cstrong>foo@foobar.com\u003C/strong>"
+         }
+      }
+   },
+   "settingsLoginButton": {
+      "description": "Button for logging in with email and password",
+      "message": "Войти"
+   },
+   "settingsLoginError": {
+      "description": "Error message shown when the user credentials (email and password) are wrong",
+      "message": "Ошибка авторизации. Пожалуйста, проверьте ваш e-mail и пароль."
+   },
+   "settingsLoginSuccess": {
+      "description": "Success message shown when the user logged in",
+      "message": "Теперь вы авторизированны"
+   },
+   "settingsLogoutButton": {
+      "description": "Button for logging out",
+      "message": "Выйти"
+   },
+   "settingsLogoutSuccess": {
+      "description": "Success message shown when the user logged out",
+      "message": "Вы деавторизовались"
+   },
+   "settingsManageAccountButton": {
+      "description": "Button for going to the account section",
+      "message": "Настройка аккаунта"
+   },
+   "settingsPasswordPlaceholder": {
+      "description": "Placeholder text for password text field",
+      "message": "Пароль"
+   },
+   "settingsPremiumButton": {
+      "description": "Button text for a teaser on the settings page promoting the premium functionality",
+      "message": "Откройте для себя LanguageTool Premium"
+   },
+   "settingsPremiumFeaturesActivated": {
+      "description": "Text shown for users who have logged in with their LanguageTool account and who have a paid subscription",
+      "message": "Все \u003Cstrong>премиум возможности\u003C/strong> активированы."
+   },
+   "settingsPremiumHeadline": {
+      "description": "Headline for a teaser on the settings page promoting the premium functionality",
+      "message": "Улучшите качество вашего письма"
+   },
+   "settingsPremiumText": {
+      "description": "Text for a teaser on the settings page promoting the premium functionality",
+      "message": "Находите продвинутые грамматические, стилистические и пунктуационные ошибки или проверяйте тексты длиной более 60 000 символов."
+   },
+   "settingsUnknownError": {
+      "description": "Generic error message",
+      "message": "Произошла непредвиденная ошибка"
+   },
+   "siteCannotBeSupported": {
+      "description": "Some sites are too complex and can probably never be supported, so we show this error",
+      "message": "Нам жаль, но мы не поддерживаем технологию редактирования текста, используемую на этом сайте. Пожалуйста, свяжитесь с владельцем сайта и попросите его интегрировать LanguageTool."
+   },
+   "sk": {
+      "description": "language name",
+      "message": "Словацкий"
+   },
+   "sl": {
+      "description": "language name",
+      "message": "Словенский"
+   },
+   "spellingError": {
+      "description": "Type of error (spelling error, style suggestion, grammar error, ...)",
+      "message": "Орфографическая"
+   },
+   "sr": {
+      "description": "language name",
+      "message": "Сербский"
+   },
+   "sr_BA": {
+      "description": "language name",
+      "message": "Сербский (Босния)"
+   },
+   "sr_HR": {
+      "description": "language name",
+      "message": "Сербский (Хорватия)"
+   },
+   "sr_ME": {
+      "description": "language name",
+      "message": "Сербский (Черногория)"
+   },
+   "sr_RS": {
+      "description": "language name",
+      "message": "Сербский (Сербия)"
+   },
+   "statusIconEnableLT": {
+      "description": "Shown when hovering over the status icon (not the toolbar one) in disabled state",
+      "message": "Включить LanguageTool — корректор грамматики и орфографии"
+   },
+   "statusIconError": {
+      "description": "Shown when hovering over the status icon (not the toolbar one) in error state",
+      "message": "Ошибка"
+   },
+   "statusIconMoreErrors": {
+      "description": "Shown when hovering over the status icon (not the toolbar one) in incomplete result state",
+      "message": "Результат неполный: проверка была остановлена, так как слишком много ошибок найдено."
+   },
+   "statusIconPermissionRequired": {
+      "description": "Shown when hover over the status icon (not the toolbar one) in permission required state (i.e. user has not confirmed privacy dialog on first start)",
+      "message": "Проверка текста невозможна — сначала примите политику конфиденциальности"
+   },
+   "statusIconReload": {
+      "description": "Shown when hovering over the status icon (not the toolbar one) in reload needed state",
+      "message": "Расширение было обновлено. Пожалуйста, перезагрузите страницу, чтобы активировать проверку орфографии и грамматики."
+   },
+   "statusIconToolTip": {
+      "description": "Shown when hovering over the status icon (not the toolbar one)",
+      "message": "LanguageTool — корректор грамматики и орфографии"
+   },
+   "suggestionError": {
+      "description": "Type of error (spelling error, style suggestion, grammar error, ...)",
+      "message": "Стилистическая"
+   },
+   "sv": {
+      "description": "language name",
+      "message": "Шведский"
+   },
+   "switchToAmericanEnglish": {
+      "description": "Link that changes language variant",
+      "message": "Переключиться на американский английский"
+   },
+   "switchToAustralianEnglish": {
+      "description": "Link that changes language variant",
+      "message": "Переключиться на австралийский английский"
+   },
+   "switchToBritishEnglish": {
+      "description": "Link that changes language variant",
+      "message": "Переключиться на британский английский"
+   },
+   "switchToCanadianEnglish": {
+      "description": "Link that changes language variant",
+      "message": "Переключиться на канадский английский"
+   },
+   "switchToNewZealandEnglish": {
+      "description": "Link that changes language variant",
+      "message": "Переключиться на новозеландский английский"
+   },
+   "switchToSouthAfricanEnglish": {
+      "description": "Link that changes language variant",
+      "message": "Переключиться на южноафриканский английский"
+   },
+   "synonymsCardGeneralError": {
+      "description": "Generic error message shown when there was an issue getting a synonym from the server",
+      "message": "При загрузке синонимов произошла ошибка"
+   },
+   "synonymsCardHeadline": {
+      "description": "Headline for the box that offers thesaurus synonyms",
+      "message": "Синонимы"
+   },
+   "synonymsCardLanguageNotSupported": {
+      "description": "Message shown when synonyms are not supported for the current text language",
+      "message": "Работа с синонимами для этого языка пока не поддерживается."
+   },
+   "synonymsCardLoading": {
+      "description": "Text shown when synonyms are still being loaded from the server",
+      "message": "Загрузка …"
+   },
+   "synonymsCardNoSynonymsAvailable": {
+      "description": "Message shown when there are no synonyms for the given word",
+      "message": "Для этого слова нет подходящих синонимов"
+   },
+   "synonymsCardTooltipReadText": {
+      "description": "Tool tip for text to speach button, reads out loud a word or text",
+      "message": "Произнесите слово"
+   },
+   "synonymsTutorialHeadline": {
+      "description": "Headline for a small box that explains how the new synonym feature works",
+      "message": "Как получить синонимы здесь"
+   },
+   "synonymsTutorialText": {
+      "description": "Text in a small box that explains how the new synonym feature works",
+      "message": "Получите синонимы для любого слова двойным кликом! Это работает для любого текстового поля, которое поддерживает LanguageTool."
+   },
+   "ta": {
+      "description": "language name",
+      "message": "Тамильский"
+   },
+   "textTooLong": {
+      "description": "Message shown to the user when his text is too large to be checked",
+      "message": "Извините, но этот текст слишком большой для проверки."
+   },
+   "timeoutError": {
+      "description": "Error message shown if API server doesn't respond timely",
+      "message": "Тайм-аут сервера — попробуйте позже ($serverUrl$)",
+      "placeholders": {
+         "serverUrl": {
+            "content": "$1",
+            "example": "https://languagetool.org:8081/"
+         }
+      }
+   },
+   "tl": {
+      "description": "language name",
+      "message": "Тагальский"
+   },
+   "tooManyErrors": {
+      "description": "Message shown to the user when his text contains too many errors",
+      "message": "В этом тексте слишком много ошибок. Выбран правильный язык?"
+   },
+   "tooManyRequests": {
+      "description": "Message shown to the user when they have sent too many and/or large requests",
+      "message": "Превышен лимит запросов — пожалуйста, подождите минуту и LanguageTool опять станет доступным."
+   },
+   "tr": {
+      "description": "language name",
+      "message": "Турецкий"
+   },
+   "tryAgain": {
+      "description": "Link the user can click on when they got a warning that the local server isn't available",
+      "message": "Попробовать ещё раз"
+   },
+   "turnOffRule": {
+      "description": "Link shown in the popup to turn off, i.e. ignore, a rule (the rule - not just this match)",
+      "message": "Выключить правило везде"
+   },
+   "turnOnHint": {
+      "description": "Message in hint popup",
+      "message": "Вы можете вновь активировать расширение здесь"
+   },
+   "uk": {
+      "description": "language name",
+      "message": "Украинский"
+   },
+   "unknownError": {
+      "description": "Message shown to the user when his text is too large to be checked",
+      "message": "Извините, но во время проверки текста что-то пошло не так. Перезапуск браузера, возможно, сможет исправить эту проблему."
+   },
+   "upgradeTeaserDiscount": {
+      "description": "discount percentage",
+      "message": "Сэкономьте $percent$%",
+      "placeholders": {
+         "percent": {
+            "content": "$1",
+            "example": "20"
+         }
+      }
+   },
+   "upgradeTeaserDiscountHeadline": {
+      "description": "Headline for the discount teaser that should raise urgency",
+      "message": "Ограниченное по времени предложение"
+   },
+   "username": {
+      "description": "Options dialog: user name for languagetoolplus.com",
+      "message": "E-Mail:"
+   },
+   "validatorHasMistakesHeadlinePlural": {
+      "description": "Text displayed on top of text when the text contains spelling, punctuation or grammar errors",
+      "message": "$count$ замечаний(-ия) найдено",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "7"
+         }
+      }
+   },
+   "validatorHasMistakesHeadlineSingular": {
+      "description": "Text displayed on top of text when the text contains spelling, punctuation or grammar errors",
+      "message": "Найдено одно замечание"
+   },
+   "validatorHasMistakesText": {
+      "description": "Text displayed on top of text when the text contains spelling, punctuation or grammar errors",
+      "message": "Щёлкните по выделенным словам, чтобы их исправить."
+   },
+   "validatorHasPremiumErrorsButton": {
+      "description": "Button that sends the user to the upgrade/pricing page",
+      "message": "Подробнее"
+   },
+   "validatorHasPremiumErrorsHeadlinePlural": {
+      "description": "Text shown when the text contains writing issues that are only found in the premium version",
+      "message": "Ваш текст содержит $count$ продвинутых письменных ошибок",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "7"
+         }
+      }
+   },
+   "validatorHasPremiumErrorsHeadlineSingular": {
+      "description": "Text shown when the text contains writing issues that are only found in the premium version",
+      "message": "Ваш текст содержит одну продвинутую письменную ошибку"
+   },
+   "validatorHasPremiumErrorsText": {
+      "description": "Text shown when the text contains writing issues that are only found in the premium version",
+      "message": "Перейдите на LanguageTool Premium, чтобы находить намного больше грамматических, стилистических и пунктуационных ошибок"
+   },
+   "validatorLoadingHint": {
+      "description": "Loading status, shown when text is currently being checked",
+      "message": "Проверяем текст…"
+   },
+   "validatorNoMistakesHeadline": {
+      "description": "Text displayed on top of text when the text doesn't contain any errors",
+      "message": "Отлично, ошибок не найдено!"
+   },
+   "validatorNoTextStatus": {
+      "description": "Text shown above validator text field when it doesn't have enough characters to be checked",
+      "message": "Введите или вставьте ваш текст для проверки"
+   },
+   "validatorPlaceholder": {
+      "description": "Text shown in text field when it's empty",
+      "message": "Пожалуйста, введите или вставьте ваш текст здесь..."
+   },
+   "validatorPremiumButton": {
+      "description": "Label for a button. Clicking it will send the user to the website where he can buy the premium version",
+      "message": "Обновление"
+   },
+   "validatorPremiumHeadline": {
+      "description": "Title for a bullet point list of features the premium version has",
+      "message": "Найдите больше проблем с правописанием и улучшите свой текст"
+   },
+   "validatorPremiumReason1": {
+      "description": "Reason for buying the premium version",
+      "message": "Более продвинутый анализ грамматики, пунктуации и стиля"
+   },
+   "validatorPremiumReason2": {
+      "description": "Reason for buying the premium version",
+      "message": "Проверка длинных текстов (до 60 000 символов)"
+   },
+   "validatorPremiumReason3": {
+      "description": "Reason for buying the premium version",
+      "message": "Автоматическое определение неверных номеров (например IBAN, ISBN, …)"
+   },
+   "validatorPremiumReason4": {
+      "description": "Reason for buying the premium version",
+      "message": "Расширение для Microsoft Office"
+   },
+   "validatorTextTooLongStatus": {
+      "description": "Text shown above validator text field when text is too long for validation",
+      "message": "Извините, но этот текст слишком большой для проверки."
+   },
+   "variantCaDesc": {
+      "description": "Options dialog: set the language variant",
+      "message": "Использовать этот вариант каталанского:"
+   },
+   "variantDeDesc": {
+      "description": "Options dialog: set the language variant",
+      "message": "Использовать этот вариант немецкого:"
+   },
+   "variantEnDesc": {
+      "description": "Options dialog: set the language variant",
+      "message": "Использовать этот вариант английского:"
+   },
+   "variantPtDesc": {
+      "description": "Options dialog: set the language variant",
+      "message": "Использовать этот вариант португальского:"
+   },
+   "webstoreSiteNotSupported": {
+      "description": "Error shown when Chrome extension is used on https://chrome.google.com/webstore, which doesn't work for technical reasons",
+      "message": "Нам жаль, но LanguageTool не работает на сайте Chrome Web Store. Но LanguageTool работает на любом другом сайте (например VK, Gmail, Twitter, LinkedIn)."
+   },
+   "zh": {
+      "description": "language name",
+      "message": "Китайский"
+   }
+}

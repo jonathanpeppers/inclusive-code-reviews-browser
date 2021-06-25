@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+
+	<title>LanguageTool</title>
+
+	<link rel="stylesheet" href="../common/base.css">
+	<link rel="stylesheet" href="./popup.css">
+</head>
+
+<body>
+	<div id="popup-container" class="lt-popup">
+		<div class="lt-popup__header">
+			<a target="_blank" href="https://languagetool.org/?pk_campaign=addon2-popup-logo"
+				class="lt-popup__headline"
+				id="lt-popup-logo">
+				LanguageTool
+				<span class="lt-popup__header__slogan" data-t="privacyNoteSlogan">Proofreading Software</span>
+			</a>
+			<a class="lt-popup__header__badge lt-popup__header__badge--basic" id="popup-basic-link">Basic</a>
+			<a class="lt-popup__header__badge lt-popup__header__badge--plus" id="popup-plus-link">Premium</a>
+		</div>
+
+		<div id="popup-onboarding" class="lt-popup__onboarding">
+			<h2 data-t="popupOnboardingHeadline"></h2>
+			<ol>
+				<li>
+					<p id="popup-onboarding-text-1"></p>
+				</li>
+				<li>
+					<p id="popup-onboarding-text-2"></p>
+				</li>
+				<li>
+					<p id="popup-onboarding-text-3"></p>
+				</li>
+				<li>
+					<p id="popup-onboarding-text-4"></p>
+				</li>
+			</ol>
+			<div class="lt-popup__button--secondary" id="onboarding-button" data-t="continue"></div>
+		</div>
+
+		<div id="popup-hint" class="lt-popup__hint"></div>
+
+		<div class="lt-popup__settings" id="popup-website-settings">
+			<h2 data-t="popupSettingsHeadline"></h2>
+			<div id="popup-option-check" class="lt-popup__option">
+				<span data-t="popupOptionCheckText"></span>
+				<span class="lt-popup__switch"></span>
+			</div>
+			<div id="popup-option-capitalization" class="lt-popup__option">
+				<span data-t="popupOptionCaseText"></span>
+				<span class="lt-popup__switch"></span>
+			</div>
+		</div>
+
+		<div class="lt-popup__settings" id="popup-synonym-settings">
+			<div id="popup-option-synonyms" class="lt-popup__option">
+				<span data-t="popupOptionSynonyms"></span>
+				<span class="lt-popup__switch lt-popup__switch--off"></span>
+			</div>
+			<div id="popup-synonyms-tutorial" class="lt-popup__tutorial lt-popup__tutorial--hide">
+				<h3 class="lt-popup__tutorial__headline">
+					<span class="lt-popup__beta-sign">BETA</span>
+					<span data-t="synonymsTutorialHeadline"></span>
+
+				</h3>
+				<p class="lt-popup__tutorial__text" data-t="synonymsTutorialText"></p>
+				<span class="lt-popup__tutorial__close" id="popup-tutorial-close"></span>
+			</div>
+		</div>
+
+		<div class="lt-popup__validator lt-popup__validator--hide" id="popup-validator">
+			<div class="lt-popup__button" id="popup-validator-button" data-t="popupOptionValidate"></div>
+		</div>
+		<div id="popup-teaser" class="lt-popup__teaser"></div>
+	</div>
+	<div class="lt-popup__footer">
+		<span class="lt-popup__feedback-link" data-t="sendFeedback" id="feedback-link"></span>
+		<span id="popup-more-options-link" class="lt-popup__moreOptionsLink" data-t-title="settingsHeadline"></span>
+	</div>
+
+	<script src="/common/browser-polyfill.min.js"></script>
+	<script src="/config/config.js"></script>
+	<script src="/common/loadFonts.js"></script>
+	<script src="/common/browserDetector.js"></script>
+	<script src="/common/utils.js"></script>
+	<script src="/common/eventBus.js"></script>
+	<script src="/common/messages.js"></script>
+	<script src="/common/i18nManager.js"></script>
+	<script src="/common/extensioni18nManager.js"></script>
+	<script src="/common/languageManager.js"></script>
+	<script src="/common/storageController.js"></script>
+	<script src="/common/extensionStorageController.js"></script>
+	<script src="/common/environmentAdapter.js"></script>
+	<script src="/common/extensionEnvironmentAdapter.js"></script>
+	<script src="/common/extension-init.js"></script>
+	<script src="/common/tracker.js"></script>
+	<script src="/common/googleDocs.js"></script>
+	<script src="/common/googleSlides.js"></script>
+	<script src="/common/tweaksManager.js"></script>
+	<script src="/teaser/historicPremiumErrors/historicPremiumErrors.js"></script>
+	<script src="/teaser/rating/rating.js"></script>
+	<script src="reloadContentScriptsIfNecessary.js"></script>
+	<script src="/components/premiumTeaser/premiumTeaser.js"></script>
+	<script src="popup.js"></script>
+</body>
+
+</html>

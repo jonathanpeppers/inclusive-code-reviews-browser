@@ -1,0 +1,2 @@
+/*! (C) Copyright 2020 LanguageTooler GmbH. All rights reserved. */
+{const e=new URL(location.href);new HistoricPremiumErrorsTeaser(document.querySelector("#container"),"",e.searchParams.get("historicMatches"),0).render(),document.documentElement.addEventListener("mousedown",e=>e.preventDefault())}

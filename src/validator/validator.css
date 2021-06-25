@@ -1,0 +1,244 @@
+body {
+	overflow: hidden;
+}
+
+.validator {
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+}
+
+.validator__sidebar {
+	flex: 1 1 28%;
+	min-width: 320px;
+	max-width: 420px;
+	background-color: #45A8FC;
+	padding: 32px 20px 10px;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.validator__sidebar--collapsed {
+	min-width: 40px;
+	max-width: 40px;
+}
+
+.validator__sidebar--collapsed .validator__footer {
+	display: none;
+}
+
+.validator__sidebar--collapsed .validator__upgrade-box {
+	display: none;
+}
+
+.validator__content {
+	flex: 1 1 72%;
+	background-color: #fff;
+	overflow-y: scroll;
+	overflow-x: auto;
+	position: relative;
+	height: 100vh;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.validator__content::before {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.validator__inner-content {
+	text-align: left;
+	display: inline-block;
+	vertical-align: middle;
+	min-width: 640px;
+	width: 70%;
+	margin: 32px 0 80px -0.25em;
+	padding: 0;
+	box-sizing: border-box;
+	white-space: normal;
+}
+
+.validator__status-box {
+	opacity: 0;
+	transform: translateY(-150px);
+	transition: opacity 0.4s, transform 0.4s;
+	transition-delay: 0.3s;
+	border: 1px solid #DBDDE5;
+	border-radius: 12px;
+	padding: 16px 120px 16px 68px;
+	margin: 0 15px 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 76px;
+	box-sizing: border-box;
+	background: url(../assets/images/validator_no_errors.svg) no-repeat 16px center;
+}
+
+.validator__status-box[data-initialized=true] {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.validator__status-box h4 {
+	font-size: 14px;
+	margin: 0;
+	line-height: 20px;
+	font-weight: 600;
+}
+
+.validator__status-box p {
+	font-size: 14px;
+	margin: 0;
+	line-height: 20px;
+}
+
+.validator__status-box--has-errors {
+	background: url(../assets/images/validator_has_errors.svg) no-repeat 16px center;
+}
+
+.validator__status-box--has-premium-errors {
+	background: url(../assets/images/validator_has_premium_errors.svg) no-repeat 16px center;
+}
+
+.validator__status-box__loader {
+	display: none;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	border: 3px solid white;
+	overflow: hidden;
+	background: #45A8FC url(../assets/images/progress_2x.gif) no-repeat center center;
+	background-size: 30px 30px;
+	position: absolute;
+	left: 16px;
+	top: 50%;
+	margin-top: -18px;
+}
+
+.validator__status-box__button {
+	background: #F5A623;
+	color: #fff;
+	border-radius: 8px;
+	white-space: nowrap;
+	line-height: 28px;
+	padding: 0 8px;
+	font-weight: 600;
+	cursor: pointer;
+	display: none;
+	position: absolute;
+	right: 16px;
+	top: 50%;
+	margin-top: -14px;
+}
+
+.validator__status-box--has-premium-errors .validator__status-box__button {
+	display: block;
+}
+
+.validator__status-box--in-progress {
+	background: none;
+}
+
+.validator__status-box--in-progress .validator__status-box__loader {
+	display: block;
+}
+
+.validator__status-box--has-exception {
+	background: url(../assets/images/validator_has_exception.svg) no-repeat 11px center;
+	background-size: 46px auto;
+}
+
+.validator__logo {
+	display: inline-block;
+	margin: 0 0 20px;
+	padding: 0;
+	width: 40px;
+	height: 34px;
+	background: url(../assets/images/lt-logo_white.svg) no-repeat center center;
+	background-size: contain;
+}
+
+.validator__upgrade-box {
+	background: #fff url(../assets/images/upgrade_icon.svg) center 70px no-repeat;
+	background-size: auto 96px;
+	padding: 200px 20px 20px;
+	border-radius: 8px;
+	color: #3C3F49;
+}
+
+.validator__upgrade-box h2 {
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 30px;
+	padding: 0;
+	text-align: center;
+	margin: 0 20px 20px;
+}
+
+.validator__upgrade-box ul {
+	list-style: none;
+	margin: 0 10px 35px;
+	padding: 0;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.validator__upgrade-box li {
+	margin: 0 0 12px;
+	background: url(../assets/images/upgrade_check.svg) left 3px no-repeat;
+	padding: 0 0 0 26px;
+}
+
+.validator__upgrade-button {
+	border-radius: 8px;
+	line-height: 40px;
+	background-color: #1fcc8a;
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	width: 100%;
+	border: 0;
+	outline: 0;
+	font-weight: bold;
+	text-align: center;
+	font-size: 16px;
+}
+
+.validator__upgrade-button:hover {
+	background-color: #1db57b;
+}
+
+.validator__footer {
+	font-size: 13px;
+	color: rgba(255, 255, 255, 0.75);
+	line-height: 24px;
+	margin: 0;
+	text-align: center;
+	text-decoration: none;
+}
+
+.validator__text-field {
+	white-space: pre-wrap;
+	width: 100%;
+	display: block;
+	min-height: 100px;
+	padding: 10px 40px;
+	font-size: 24px;
+	line-height: 40px;
+	border: 0;
+	resize: none;
+	box-sizing: border-box;
+	outline: 0;
+}
+
+@media only screen and (max-height: 720px) {
+	.validator__footer {
+		display: none;
+	}
+}

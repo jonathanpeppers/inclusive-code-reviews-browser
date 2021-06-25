@@ -1,0 +1,80 @@
+body {
+    overflow-y: auto;
+}
+
+.lt-feedback-form {
+    padding: 10px 20px 20px;
+    color: #3C3F49;
+	margin: 0 auto;
+	max-width: 540px;
+}
+
+.lt-feedback-form h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 14px 0;
+    padding: 54px 0 0 0;
+    background: url(../assets/images/lt-logo.png) no-repeat center top;
+    background-size: auto 54px;
+    text-align: center;
+}
+
+.lt-feedback-form .lt-feedback-form__sender,
+.lt-feedback-form .lt-feedback-form__text {
+    box-sizing: border-box;
+    outline: 0;
+    border: 1px solid #ccc;
+    width: 100%;
+    font-size: 14px;
+    border-radius: 6px;
+}
+
+.lt-feedback-form .lt-feedback-form__sender {
+    padding: 10px 12px;
+    color: inherit;
+    margin: 0 0 12px 0;
+}
+
+.lt-feedback-form .lt-feedback-form__text {
+    height: 180px;
+    padding: 12px;
+    margin: 0 0 12px 0;
+}
+
+.lt-feedback-form .lt-feedback-form__checkbox {
+	margin: 0 0 12px 0;
+	display: block;
+	cursor: pointer;
+	display: none;
+}
+
+.lt-feedback-form .lt-feedback-form__button {
+    width: 100% !important;
+    border-radius: 8px;
+    background: #45A8FC;
+    line-height: 40px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    border: 0;
+    outline: 0;
+}
+
+.lt-feedback-form__success {
+    display: none;
+    text-align: center;
+    padding: 100px 20px 20px;
+}
+
+.lt-feedback-form .lt-feedback-form__direct-mail {
+    text-align: center;
+    color: #889FAC;
+    margin-bottom: 12px;
+}
+
+.lt-feedback-form .lt-feedback-form__direct-mail a {
+    text-decoration: underline;
+    color: inherit;
+}

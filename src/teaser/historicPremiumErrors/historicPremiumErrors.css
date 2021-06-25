@@ -1,0 +1,69 @@
+.lt-historic-premium-errors-teaser {
+    padding: 12px;
+    text-align: left;
+    overflow: hidden;
+    background: #F5A523 url("../../assets/images/upgrade_bg_orange.svg") no-repeat center bottom;
+    display: block;
+    background-size: cover;
+    text-decoration: none;
+    transition: background-color 0.25s;
+	color: #fff;
+}
+
+.lt-historic-premium-errors-teaser__headline {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: rgba(255, 255, 255, 0.8);
+
+}
+
+.lt-historic-premium-errors-teaser__text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 20px;
+    margin-bottom: 12px;
+}
+
+.lt-historic-premium-errors-teaser__text strong {
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    color: #fff;
+    line-height: 30px;
+}
+
+.lt-historic-premium-errors-teaser__button {
+    white-space: nowrap;
+    padding: 0 8px;
+    font-weight: 600;
+    color: #e99923;
+    padding-right: 24px;
+    transition: background-color 0.2s, color 0.2s;
+    background: #fff;
+    border-radius: 8px;
+    line-height: 32px;
+    text-align: center;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.lt-historic-premium-errors-teaser__button:hover {
+	color: #E97E08;
+	background-color: #f0f0f0;
+}
+
+.lt-historic-premium-errors-teaser-discount-expires {
+	color: #777;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 20px;
+	display: block;
+	margin-top: -6px;
+	padding-bottom: 6px;
+}
+
+.lt-historic-premium-errors-teaser-discount {
+	font-weight: bold;
+	font-size: 16px;
+}

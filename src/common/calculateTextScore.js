@@ -1,0 +1,1 @@
+class TextScore{calculateTextScore(r,o,t,c){if(r<100)return 0;let e=0,a=0,l=0;const s=r=>{r.isSpellingError?l++:r.isStyleError?a++:e++};o.forEach(s),t.forEach(s),c.forEach(s);const f=3*e+4*l+2*a;return Math.max(0,Math.floor((r-f)/r*100))}}

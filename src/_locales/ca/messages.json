@@ -1,0 +1,1772 @@
+{
+   "accessDeniedError2": {
+      "description": "Message shown when the server denies access (unclear reason)",
+      "message": "El servidor ha enviat un missatge d'accés denegat. Reviseu l'adreça electrònica i la contrasenya en el diàleg d'opcions i torneu-ho a provar."
+   },
+   "addToDictionaryTitle": {
+      "description": "Title hover shown in the popup to accept a word to the internal dictionary",
+      "message": "Afegiu \"$word$\" al diccionari personal",
+      "placeholders": {
+         "word": {
+            "content": "$1",
+            "example": "foobar"
+         }
+      }
+   },
+   "addonsSiteNotSupported": {
+      "description": "Error shown when Firefox add-on is used on https://addons.mozilla.org, which doesn't work for technical reasons",
+      "message": "LanguageTool no funciona en el lloc web dels complements de Firefox (addons.mozilla.org). Funciona en qualsevol altre lloc on escrigueu (p. ex. Facebook, Gmail, Twitter, LinkedIn)."
+   },
+   "appDesc": {
+      "description": "The description of the application, displayed in the web store.",
+      "message": "Reviseu l'ortografia i la gramàtica dels vostres texts en qualsevol lloc web."
+   },
+   "appName": {
+      "description": "The name of the application, displayed in the web store.",
+      "message": "Revisió ortogràfica i gramatical — LanguageTool"
+   },
+   "appStoreDesc1": {
+      "description": "Description item 1 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "Troba molts errors que un simple corrector ortogràfic no pot detectar"
+   },
+   "appStoreDesc10": {
+      "description": "Description paragraph 1 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "Amb aquesta extensió podeu revisar el text amb el corrector gramatical i d'estil gratuït LanguageTool. LanguageTool troba molts més errors dels que troba un simple corrector ortogràfic, com ara accents diacrítics, apostrofacions, repeticions de paraules i molts altres. Funciona en més de 25 idiomes, incloent-hi català, anglès, castellà, francès, alemany i polonès."
+   },
+   "appStoreDesc2": {
+      "description": "Description item 2 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "No cal registrar-se"
+   },
+   "appStoreDesc20": {
+      "description": "Description paragraph 2 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "LanguageTool s'ha dissenyat amb l'objectiu de la simplicitat. LanguageTool revisa l'ortografia i la gramàtica de qualsevol text seleccionat. LanguageTool és compatible amb gairebé tots els textos, independentment de la font, incloent-hi xarxes socials com Twitter o LinkedIn i serveis de correu electrònic en línia, com Gmail."
+   },
+   "appStoreDesc3": {
+      "description": "Description item 3 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "Admet més de 25 idiomes (vegeu més avall)"
+   },
+   "appStoreDesc30": {
+      "description": "Description paragraph 3 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "L'objectiu de LanguageTool és oferir als usuaris un verificador complet de gramàtica i d'estil que els permeti tenir control i confiança sobre els continguts que generen. LanguageTool és una extensió vital per a parlants no natius de la llengua, però també reconeix molts errors comesos sovint per parlants natius. La revisió funciona amb les principals variants geogràfiques del català. LanguageTool també té un diccionari personal per a excepcions o paraules que useu sovint, però que no són en els diccionaris convencionals. LanguageTool reconeixerà aquestes paraules en les següents revisions."
+   },
+   "appStoreDesc4": {
+      "description": "Description item 4 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "Funciona en gairebé en tots els llocs web, incloent-hi Gmail, Facebook i Twitter."
+   },
+   "appStoreDesc60": {
+      "description": "Description paragraph 5 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "A diferència d'altres correctors, LanguageTool funciona per a moltes llengües."
+   },
+   "appStoreDesc70": {
+      "description": "Description paragraph 6a in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "La vostra privacitat és important per a nosaltres. Per defecte, aquesta extensió revisa els textos enviant-lso a https://languagetool.org en una connexió xifrada segura. No cal tenir un compte per a utilitzar l'extensió. No desem la vostra adreça IP. Vegeu la nostra política de privacitat en https://languagetool.org/privacy/."
+   },
+   "appStoreDesc71": {
+      "description": "Description paragraph 6b in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "Envieu comentaris o reports d'errors a https://forum.languagetool.org"
+   },
+   "appStoreDesc80": {
+      "description": "Description paragraph 7 in Google Chrome Web Store (does not appear in the extension itself)",
+      "message": "Llista de llengües compatibles: anglès (Austràlia, Canadà, Regne Unit, Nova Zelanda, Sud-àfrica, Estats Units), francès, alemany (Àustria, Alemanya, Suïssa), asturià, bielorús, bretó, català (també valencià), xinès, danès, holandès, Esperanto, gallec, grec, italià, japonès, khmer, persa, polonès, portuguès (Brasil, Portugal, Angola, Moçambic), romanès, rus, eslovac, eslovè, espanyol, suec, tàmil, tàmil, ucraïnès, àrab."
+   },
+   "ar": {
+      "description": "language name",
+      "message": "àrab"
+   },
+   "ast": {
+      "description": "language name",
+      "message": "asturià"
+   },
+   "attachScreenshot": {
+      "description": "Text shown next to a checkbox that decideds whether a screenshot should be attached to an email",
+      "message": "Adjunta la captura de pantalla de la pàgina"
+   },
+   "autoCheckDesc": {
+      "description": "Options dialog: auto-check on all domains by default",
+      "message": "Revisió automàtica en tots els dominis per defecte"
+   },
+   "autoCheckOnDomainsDesc": {
+      "description": "Options dialog: text for the textarea with the domains's where the check text will run automatically in background",
+      "message": "Revisa el text automàticament en aquests dominis:"
+   },
+   "be": {
+      "description": "language name",
+      "message": "bielorús"
+   },
+   "br": {
+      "description": "language name",
+      "message": "bretó"
+   },
+   "ca": {
+      "description": "language name",
+      "message": "català"
+   },
+   "ca_ES_valencia": {
+      "description": "language name",
+      "message": "català (valencià)"
+   },
+   "changelog2020DiscountHeaderDescription": {
+      "description": "Marketing text that is sticky in header and tells users what the offer is about",
+      "message": "Porteu la vostra escriptura a un nivell superior"
+   },
+   "changelog2020DiscountHeaderDiscount": {
+      "description": "20% --> Off \u003C-- The word must come after the percentage",
+      "message": "de descompte"
+   },
+   "changelog2020DiscountHeaderHeadline": {
+      "description": "Marketing headline that is sticky in header and tells users what the timer is about",
+      "message": "Descompte per temps limitat en Premium!"
+   },
+   "changelog2020DiscountHeaderLink": {
+      "description": "Marketing link that is sticky in header and tells users to get the discount now",
+      "message": "Aconseguiu ara el descompte"
+   },
+   "changelog2020FeatureAppLink": {
+      "description": "Link to download the desktop app from the mac appstore",
+      "message": "Descarregueu-la gratis en la Mac App Store"
+   },
+   "changelog2020FeaturePremiumTag": {
+      "description": "Label that is displayed on top of every new feature section to remind the user about the discount",
+      "message": "20% DE DESCOMPTE"
+   },
+   "changelog2020FeatureSectionAppDescription": {
+      "description": "Headline for the section that explains the desktop App in depth",
+      "message": "Amb l’aplicació d’escriptori de LanguageTool per a Mac, teniu accés a tots els vostres textos en qualsevol moment. Useu la drecera de teclat del sistema i comproveu els textos del porta-retalls o dels processadors de text habituals sense perdre el format."
+   },
+   "changelog2020FeatureSectionAppHeadline": {
+      "description": "Text for the section that explains the desktop App in depth (up to 200 characters)",
+      "message": "Hola LanguageTool per a Mac"
+   },
+   "changelog2020FeatureSectionEditorDescription": {
+      "description": "Text for the section that explains the editor in depth (up to 200 characters)",
+      "message": "L'editor LanguageTool és aquí per a oferir-vos una experiència d'escriptura lliure de distraccions. Més encara, el nostre \"mode perfeccionista\" us donarà molts suggeriments addicionals per a millorar els vostres texts."
+   },
+   "changelog2020FeatureSectionEditorHeadline": {
+      "description": "Headline for the section that explains the editor in depth",
+      "message": "El vostre nou editor en cap"
+   },
+   "changelog2020FeatureSectionOverleafDescription": {
+      "description": "Headline for the section that explains the Overleaf integration in depth",
+      "message": "Useu LanguageTool en el vostre treball científic. Amb la integració en Overleaf del complement del navegador, podeu donar el toc final als vostres textos."
+   },
+   "changelog2020FeatureSectionOverleafHeadline": {
+      "description": "Text for the section that explains the Overleaf integration in depth (up to 200 characters)",
+      "message": "Per a la ciència!"
+   },
+   "changelog2020FeatureSectionServicesDescription": {
+      "description": "Text for the section that explains that LT now supports more services than ever (up to 200 characters)",
+      "message": "LanguageTool ara ofereix més serveis que mai. Tant se val on vulgueu escriure. Ho tenim cobert."
+   },
+   "changelog2020FeatureSectionServicesHeadline": {
+      "description": "Headline for the section that explains that LT now supports more services than ever",
+      "message": "LanguageTool, al vostre servei!"
+   },
+   "changelog2020FeatureSectionSlidesDescription": {
+      "description": "Headline for the section that explains the Google Slides integration in depth",
+      "message": "LanguageTool ara funciona amb les presentacions de Google Slides. Impressioneu socis i col·legues amb una gramàtica impecable i un llenguatge atractiu."
+   },
+   "changelog2020FeatureSectionSlidesHeadline": {
+      "description": "Text for the section that explains the Google Slides integration in depth (up to 200 characters)",
+      "message": "Ara també en les presentacions de Google Slide"
+   },
+   "changelog2020FeatureSectionSpanishPremiumDescription": {
+      "description": "Text for the section that explains the Spanish Premium version is here in depth (up to 200 characters)",
+      "message": "Amb LanguageTool Premium per a espanyol, portareu la vostra escriptura a un nivell superior. Trobeu qüestions avançades i obteniu suggeriments d'estil per a millorar la vostra escriptura."
+   },
+   "changelog2020FeatureSectionSpanishPremiumHeadline": {
+      "description": "Headline for the section that explains the Spanish Premium version is here in depth",
+      "message": "¡Hola, Premium!"
+   },
+   "changelog2020FeatureSectionStyleDescription": {
+      "description": "Text for the section that explains the LT style checking in depth (up to 200 characters)",
+      "message": "LanguageTool troba moltes qüestions d'estil en els vostres texts, de manera que sonareu més professional quan escriviu als col·legues."
+   },
+   "changelog2020FeatureSectionStyleHeadline": {
+      "description": "Headline for the section that explains the LT style checking in depth",
+      "message": "Estil amb substància"
+   },
+   "changelog2020FeatureSectionTeamsDescription": {
+      "description": "Text for the section that explains the Team Feature is here in depth (up to 200 characters)",
+      "message": "Gestioneu el vostre equip d'escriptors i desenvolupeu un estil comú. LanguageTool Premium ara està disponible per a empreses i organitzacions."
+   },
+   "changelog2020FeatureSectionTeamsHeadline": {
+      "description": "Headline for the section that explains the Team Feature is here in depth",
+      "message": "Tothom a bord"
+   },
+   "changelog2020FeatureSectionTranslateDescription": {
+      "description": "Text for the section that explains the LT inline translation feature in depth (works for DE/EN only; up to 200 characters)",
+      "message": "¿Coneixeu aquella sensació de tenir una paraula anglesa a la punta de la llengua? Ara LanguageTool us ajuda a traduir paraules de l’alemany a l’anglès. Simplement escriviu una paraula alemanya en una frase anglesa."
+   },
+   "changelog2020FeatureSectionTranslateHeadline": {
+      "description": "Headline for the section that explains the LT translation feature in depth",
+      "message": "Quina era aquella paraula altra vegada?"
+   },
+   "changelog2020FeatureTeaserAppDescription": {
+      "description": "Text for the teaser that explains the LT App desktop app (up to 100 characters)",
+      "message": "L'editor de LanguageTool arriba al Mac. Escriviu i deseu els vostres  textos en un entorn lliure de distraccions."
+   },
+   "changelog2020FeatureTeaserAppHeadline": {
+      "description": "Headline for the teaser that explains the LT App desktop app",
+      "message": "Aplicació d'escriptori Mac"
+   },
+   "changelog2020FeatureTeaserEditorDescription": {
+      "description": "Text for the teaser that explains the editor (up to 100 characters)",
+      "message": "L'editor us permet revisar texts en un entorn lliure de distraccions amb moltes funcions extres."
+   },
+   "changelog2020FeatureTeaserEditorHeadline": {
+      "description": "Headline for the teaser that explains the editor",
+      "message": "Prova el nou editor"
+   },
+   "changelog2020FeatureTeaserLink": {
+      "description": "Link that comes with every new feature teaser and scrolls the page down to read more info about the feature",
+      "message": "Més informació"
+   },
+   "changelog2020FeatureTeaserOverleafDescription": {
+      "description": "Text for the teaser that explains the Overleaf integration (up to 100 characters)",
+      "message": "L'extensió de navegador de LanguageTool ara revisa els documents Overleaf."
+   },
+   "changelog2020FeatureTeaserOverleafHeadline": {
+      "description": "Headline for the teaser that explains the Overleaf integration",
+      "message": "Suport per a Overleaf"
+   },
+   "changelog2020FeatureTeaserSlidesDescription": {
+      "description": "Text for the teaser that explains the Google Slides integration (up to 100 characters)",
+      "message": "L'extensió de navegador de LanguageTool ara també comprova les presentacions de Google Slides."
+   },
+   "changelog2020FeatureTeaserSlidesHeadline": {
+      "description": "Headline for the teaser that explains the Google Slides integration",
+      "message": "Suport per a presentacions de Google Slides"
+   },
+   "changelog2020FeatureTeaserSpanishPremiumDescription": {
+      "description": "Text for the teaser that explains the Spanish Premium version is here (up to 100 characters)",
+      "message": "Hem invertit molt en la nostra tecnologia per a fer-ne el verificador de gramàtica i d'estil líder en els països de parla hispana."
+   },
+   "changelog2020FeatureTeaserSpanishPremiumHeadline": {
+      "description": "Headline for the teaser that explains the Spanish Premium version is here",
+      "message": "L'espanyol s'ha actualitzat"
+   },
+   "changelog2020FeatureTeaserStyleDescription": {
+      "description": "Text for the teaser that explains the LT style checking (up to 100 characters)",
+      "message": "LanguageTool us ajuda a adoptar un millor estil d'escriptura."
+   },
+   "changelog2020FeatureTeaserStyleHeadline": {
+      "description": "Headline for the teaser that explains the LT style checking",
+      "message": "Escriviu amb estil"
+   },
+   "changelog2020FeatureTeaserTeamsDescription": {
+      "description": "Text for the teaser that explains the Team Feature is here (up to 100 characters)",
+      "message": "Des de grups petits fins a grans organitzacions: LanguageTool ara ofereix funcions avançades per a equips i empreses."
+   },
+   "changelog2020FeatureTeaserTeamsHeadline": {
+      "description": "Headline for the teaser that explains the Team Feature is here",
+      "message": "Gestió del vostre equip"
+   },
+   "changelog2020FeatureTeaserTranslateDescription": {
+      "description": "Text for the teaser that explains the LT translation feature (up to 100 characters)",
+      "message": "Ara hi ha disponibles traduccions per a frases curtes."
+   },
+   "changelog2020FeatureTeaserTranslateHeadline": {
+      "description": "Headline for the teaser that explains the LT translation feature",
+      "message": "Traduccions per a l'alemany"
+   },
+   "changelog2020FeatureUpgrade2Link": {
+      "description": "Link that comes with every new feature section and redirects the user to the pricing table with a discount assigned",
+      "message": "Descompte del 20% en Premium"
+   },
+   "changelog2020FeatureUpgradeLink": {
+      "description": "Link that comes with every new feature section and redirects the user to the pricing table with a discount assigned",
+      "message": "Vull obtenir Premium"
+   },
+   "changelog2020IntroText": {
+      "description": "Subheadline that gives further context on what the page is about (new features)",
+      "message": "Hem estat ocupats millorant el nostre popular verificador de gramàtica i d'estil per a oferir-vos la millor experiència possible. Avui ens complau anunciar-vos aquestes funcions noves:"
+   },
+   "changelog2020LtInfoText": {
+      "description": "Little notification on top of the page that should raise awareness that it's a LanguageTool offer",
+      "message": "Ei! Novetats de LanguageTool! "
+   },
+   "changelog2020MainHeadline": {
+      "description": "Headline for a section where all new features are explained",
+      "message": "El nou LanguageTool ja és aquí"
+   },
+   "changelog2020SignUpLink": {
+      "description": "Link that sends the user to the sign up form",
+      "message": "Crea un compte gratuït"
+   },
+   "changelog2020TeamUpgradeLink": {
+      "description": "Link that sends the user to the pricing table to get Premium for their business",
+      "message": "Vull obtenir Premium per al meu equip"
+   },
+   "changelog2020TimerHourPlural": {
+      "description": "Label for the hours section of the timer (Plural)",
+      "message": "hores"
+   },
+   "changelog2020TimerHourSingular": {
+      "description": "Label for the hours section of the timer (Singular)",
+      "message": "hora"
+   },
+   "changelog2020TimerMinutePlural": {
+      "description": "Label for the minutes section of the timer (Plural)",
+      "message": "minuts"
+   },
+   "changelog2020TimerMinuteSingular": {
+      "description": "Label for the minutes section of the timer (Singular)",
+      "message": "minut"
+   },
+   "changelog2020TimerSecondPlural": {
+      "description": "Label for the seconds section of the timer (Plural)",
+      "message": "segons"
+   },
+   "changelog2020TimerSecondSingular": {
+      "description": "Label for the seconds section of the timer (Singular)",
+      "message": "segon"
+   },
+   "changelogDiscountExpires": {
+      "description": "Text that stands in front of a dynamic countdown (e.g. 'Expires in 32:24:10')",
+      "message": "L'oferta caduca en"
+   },
+   "changelogTitle": {
+      "description": "title for the browser tab",
+      "message": "Noves funcions de LanguageTool"
+   },
+   "close": {
+      "description": "Link that closes the window",
+      "message": "Tanca"
+   },
+   "cloudServer": {
+      "description": "Radio button label for the cloud server setting (the default)",
+      "message": "Servidor en el núvol (languagetool.org)"
+   },
+   "connectionProblem": {
+      "description": "Message shown to the user when extension can't connect to server",
+      "message": "No es pot connectar a $serverUrl$. Comproveu la connexió a internet o torneu a intentar-ho d'aquí a una estona.",
+      "placeholders": {
+         "serverUrl": {
+            "content": "$1",
+            "example": "https://api.languagetool.org/v2"
+         }
+      }
+   },
+   "contextMenuValidate": {
+      "description": "Check text item in context menu",
+      "message": "Revisa ortografia i gramàtica..."
+   },
+   "contextMenuValidateInEditor": {
+      "description": "Check text item in context menu",
+      "message": "Revisa el text en l'editor"
+   },
+   "continue": {
+      "description": "Link shown below the privacy note on first use",
+      "message": "Entesos, som-hi"
+   },
+   "da": {
+      "description": "language name",
+      "message": "danès"
+   },
+   "da_DK": {
+      "description": "language name",
+      "message": "danès (Dinamarca)"
+   },
+   "de": {
+      "description": "language name",
+      "message": "alemany"
+   },
+   "de_AT": {
+      "description": "language name",
+      "message": "alemany (Àustria)"
+   },
+   "de_CH": {
+      "description": "language name",
+      "message": "alemany (Suïssa)"
+   },
+   "de_DE": {
+      "description": "language name",
+      "message": "alemany (Alemanya)"
+   },
+   "de_DE_x_simple_language": {
+      "description": "language name",
+      "message": "alemany (alemany fàcil)"
+   },
+   "defaultServerLink": {
+      "description": "Options dialog: Link to reset the URL of the API server to the default value",
+      "message": "Fes servir el servidor per defecte"
+   },
+   "deleteWord": {
+      "description": "Label for a button that will remove the selected word or letter",
+      "message": "Suprimeix"
+   },
+   "dialogAllLanguages": {
+      "description": "Title for a list of all languages that LT supports",
+      "message": "Tots els idiomes:"
+   },
+   "dialogCounterCharactersOption": {
+      "description": "Shown as a option that can be selected in the count menu",
+      "message": "Caràcters"
+   },
+   "dialogCounterCharactersPlural": {
+      "description": "Shown next to the characters counter",
+      "message": "$number$ caràcters",
+      "placeholders": {
+         "number": {
+            "content": "$1",
+            "example": "20"
+         }
+      }
+   },
+   "dialogCounterCharactersSingular": {
+      "description": "Shown next to the characters counter",
+      "message": "1 caràcter"
+   },
+   "dialogCounterSentencesOption": {
+      "description": "Shown as a option that can be selected in the count menu",
+      "message": "Frases"
+   },
+   "dialogCounterSentencesPlural": {
+      "description": "Shown next to the sentences counter",
+      "message": "$number$ frases",
+      "placeholders": {
+         "number": {
+            "content": "$1",
+            "example": "20"
+         }
+      }
+   },
+   "dialogCounterSentencesSingular": {
+      "description": "Shown next to the sentences counter",
+      "message": "1 frase"
+   },
+   "dialogCounterWordsOption": {
+      "description": "Shown as a option that can be selected in the count menu",
+      "message": "Paraules"
+   },
+   "dialogCounterWordsPlural": {
+      "description": "Shown next to the words counter",
+      "message": "$number$ paraula",
+      "placeholders": {
+         "number": {
+            "content": "$1",
+            "example": "20"
+         }
+      }
+   },
+   "dialogCounterWordsSingular": {
+      "description": "Shown next to the words counter",
+      "message": "1 paraula"
+   },
+   "dialogDisableMenuDisableChecking": {
+      "description": "Menu item for disabling the plugin for this page",
+      "message": "Desactiva en aquest lloc web"
+   },
+   "dialogDisableMenuPauseChecking": {
+      "description": "Menu item for pausing the plugin for this page for this session",
+      "message": "Desactiva sols fins a una altra visita"
+   },
+   "dialogEnableInDialogHeadline": {
+      "description": "Shown in popup when add-on is not enabled",
+      "message": "El complement és desactivat"
+   },
+   "dialogEnableInDialogText": {
+      "description": "Shown in popup when add-on is not enabled",
+      "message": "Feu clic per a activar la revisió ortogràfica i gramatical"
+   },
+   "dialogFailStateHeadline": {
+      "description": "Text shown when somethign went wrong",
+      "message": "Ai..."
+   },
+   "dialogFailStateText": {
+      "description": "Text shown when somethign went wrong",
+      "message": "Ha fallat alguna cosa. Torneu a intentar-ho."
+   },
+   "dialogMainMenuPickyMode": {
+      "description": "Shown next to the switch that enables picky mode",
+      "message": "Mode perfeccionista"
+   },
+   "dialogMainMenuPickyModeInfo": {
+      "description": "Shown underneath the picky mode label",
+      "message": "Habiliteu el mode perfeccionista per a depurar la vostra escriptura."
+   },
+   "dialogMainMenuPremiumMistake": {
+      "description": "Shown in the popup that gives more context about what errors have been found (All apremium errors)",
+      "message": "Suggeriments prèmium"
+   },
+   "dialogMainMenuRegularMistake": {
+      "description": "Shown in the popup that gives more context about what errors have been found (All errors but premium and picky)",
+      "message": "Suggeriments"
+   },
+   "dialogMainMenuTextScore": {
+      "description": "Shown in the popup that gives more context about the text score",
+      "message": "Valoració del text"
+   },
+   "dialogPositionMenuDefault": {
+      "description": "Shown next to the setting for default dialog position",
+      "message": "per defecte"
+   },
+   "dialogPositionMenuLeft": {
+      "description": "Shown next to the setting for pinned-left dialog position (Dialog stays open on the left side)",
+      "message": "esquerra"
+   },
+   "dialogPositionMenuRight": {
+      "description": "Shown next to the setting for pinned-right dialog position (Dialog stays open on the right side)",
+      "message": "dreta"
+   },
+   "dialogPremiumButton": {
+      "description": "Button for when there are hidden matches (errors that only premium users can see)",
+      "message": "Més informació"
+   },
+   "dialogPremiumHeadlinePlural": {
+      "description": "Headline for when there are hidden matches (errors that only premium users can see)",
+      "message": "$count$ problemes més d’escriptura trobats",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "7"
+         }
+      }
+   },
+   "dialogPremiumHeadlineSingular": {
+      "description": "Headline for when there are hidden matches (errors that only premium users can see)",
+      "message": "S'ha trobat un problema més d’escriptura"
+   },
+   "dialogPremiumText": {
+      "description": "Text for when there are hidden matches (errors that only premium users can see)",
+      "message": "Obteniu encara més suggeriments d’estil, de puntuació i de gramàtica amb LanguageTool Premium"
+   },
+   "dialogRecommendedLanguages": {
+      "description": "Title for a list of languages that we think the user speaks",
+      "message": "Recomanat per a vós:"
+   },
+   "dialogScrollHintHeadline": {
+      "description": "Text shown when the dialog cannot show all errors and users have to scroll the document to see all suggestions",
+      "message": "Suggeriments"
+   },
+   "dialogScrollHintText": {
+      "description": "Text shown when the dialog cannot show all errors and users have to scroll the document to see all suggestions",
+      "message": "Desplaceu-vos pel document per a veure més suggeriments"
+   },
+   "dialogScrollToLink": {
+      "description": "link that highlights and scrolls to a specific error",
+      "message": "Mostra-ho en el text"
+   },
+   "dialogSelectLanguageLabel": {
+      "description": "Label of dropdown where user can select a language for his text",
+      "message": "Selecciona l'idioma"
+   },
+   "dialogTextTooLongButton": {
+      "description": "Button shown when text is too long",
+      "message": "Més informació"
+   },
+   "dialogTextTooLongHeadline": {
+      "description": "Text shown when text is too long",
+      "message": "Aquest text és una mica llarg"
+   },
+   "dialogTextTooLongText": {
+      "description": "Text shown when text is too long",
+      "message": "Actualitzeu a Premium i obtindreu suggeriments avançats de gramàtica i estil per a texts llargs."
+   },
+   "dialogTextTooShortHeadline": {
+      "description": "Text shown when text is too short for checking",
+      "message": "El text és massa curt"
+   },
+   "dialogTextTooShortText": {
+      "description": "Text shown when text is too short for checking",
+      "message": "Introduïu com a mínim 5 caràcters per a començar a revisar."
+   },
+   "dialogTooltipDisableChecking": {
+      "description": "Tooltip for disable checking icon",
+      "message": "Desactiva la revisió"
+   },
+   "dialogTooltipHelp": {
+      "description": "Tooltip for help icon",
+      "message": "Ajuda"
+   },
+   "dialogTooltipHelpCenter": {
+      "description": "Tooltip for go to helpcenter icon",
+      "message": "Vés al centre d'ajuda"
+   },
+   "dialogTooltipPosition": {
+      "description": "Tooltip for change dialog position icon",
+      "message": "Posició del quadre de diàleg"
+   },
+   "dialogTooltipSaveText": {
+      "description": "Tooltip for save text icon",
+      "message": "Desa el text"
+   },
+   "dialogTooltipSendFeedback": {
+      "description": "Tooltip for send feedback icon",
+      "message": "Envieu comentaris"
+   },
+   "dialogTooltipSettings": {
+      "description": "Tooltip for settings icon",
+      "message": "Configuració"
+   },
+   "dialogUnsupportedLanguageHeadline": {
+      "description": "Shown to the user when the language he's writing is not supported",
+      "message": "No funciona amb aquest idioma"
+   },
+   "dialogUnsupportedLanguageLabel": {
+      "description": "Shown to the user when the language he's writing is not supported",
+      "message": "Idioma no admès"
+   },
+   "dialogUnsupportedLanguageText": {
+      "description": "Shown to the user when the language he's writing is not supported",
+      "message": "A part del català, LanguageTool admet més de vint idiomes (per exemple, anglès, alemany, espanyol, francès, portuguès, neerlandès o rus)."
+   },
+   "domainsDesc": {
+      "description": "Options dialog: text for the textarea with the domains's where the reminder icon is disabled",
+      "message": "Inhabiliteu la comprovació en alguns llocs web"
+   },
+   "edgeWebstoreSiteNotSupported": {
+      "description": "Error shown when Edge extension is used on https://microsoftedge.microsoft.com, which doesn't work for technical reasons",
+      "message": "LanguageTool no funciona en el lloc web d'extensions d'Edge. Funciona en molts altres llocs (p. ex. Facebook, Gmail, Twitter, LinkedIn)."
+   },
+   "el": {
+      "description": "language name",
+      "message": "grec"
+   },
+   "en": {
+      "description": "language name",
+      "message": "anglès"
+   },
+   "en_AU": {
+      "description": "language name",
+      "message": "anglès (Austràlia)"
+   },
+   "en_CA": {
+      "description": "language name",
+      "message": "anglès (Canadà)"
+   },
+   "en_GB": {
+      "description": "language name",
+      "message": "anglès (Regne Unit)"
+   },
+   "en_NZ": {
+      "description": "language name",
+      "message": "anglès (Nova Zelanda)"
+   },
+   "en_US": {
+      "description": "language name",
+      "message": "anglès (EUA)"
+   },
+   "en_ZA": {
+      "description": "language name",
+      "message": "anglès (Sud-àfrica)"
+   },
+   "enableEverywhereButton": {
+      "description": "Shown in popup when add-on is not enabled",
+      "message": "Activa per a tots els camps de text"
+   },
+   "enableHereButton": {
+      "description": "Shown in popup when add-on is not enabled",
+      "message": "Activa només per a aquest camp de text"
+   },
+   "enableInDialog": {
+      "description": "Shown in popup when add-on is not enabled",
+      "message": "Feu clic per a habilitar la revisió\u003Cbr>ortogràfica i gramatical"
+   },
+   "enableRuleTooltip": {
+      "description": "Shown when user hover cursor over enable rule button on options page",
+      "message": "Feu clic per a habilitar la regla"
+   },
+   "eo": {
+      "description": "language name",
+      "message": "esperanto"
+   },
+   "errorsIgnoredByDictionary": {
+      "description": "Message shown in popup with count of errors which are ignored because misspelled word contains in user dictionary",
+      "message": "S'han ignorat $countIgnoredByDictionary$ paraules",
+      "placeholders": {
+         "countIgnoredByDictionary": {
+            "content": "$1",
+            "example": "1"
+         }
+      }
+   },
+   "errorsIgnoredByDictionarySingular": {
+      "description": "Message shown in popup with count of errors which are ignored because misspelled word contains in user dictionary",
+      "message": "S'ha ignorat una paraula"
+   },
+   "errorsIgnoredByRules": {
+      "description": "Message shown in popup with count of errors which are ignored because error rule is ignored",
+      "message": "$countIgnoredByRules$ regles s'han ignorat",
+      "placeholders": {
+         "countIgnoredByRules": {
+            "content": "$1",
+            "example": "1"
+         }
+      }
+   },
+   "errorsIgnoredByRulesSingular": {
+      "description": "Message shown in popup with count of errors which are ignored because error rule is ignored",
+      "message": "S'ha ignorat una regla"
+   },
+   "es": {
+      "description": "language name",
+      "message": "espanyol"
+   },
+   "experimentalLink": {
+      "description": "Link to show experimental settings",
+      "message": "Configuració experimental (sols per a usuaris avançats)"
+   },
+   "extensionUpdatedHeadline": {
+      "description": "Shown in the dialog when the extension code was updated while the user was typing in a text field",
+      "message": "L'extensió s'ha actualitzat."
+   },
+   "extensionUpdatedText": {
+      "description": "Shown in the dialog when the extension code was updated while the user was typing in a text field.",
+      "message": "Feu clic en la icona $iconHtml$ en la barra d'eines del vostre navegador o torneu a carregar la pàgina per a habilitar l'ortografia i la verificació gramatical de nou.",
+      "placeholders": {
+         "iconHtml": {
+            "content": "$1",
+            "example": "\u003Cspan class='lt-placeholder-icon'>\u003C/span>"
+         }
+      }
+   },
+   "fa": {
+      "description": "language name",
+      "message": "persa"
+   },
+   "feedbackButton": {
+      "description": "Label for submit button of feedback form",
+      "message": "Envia el missatge a LanguageTool"
+   },
+   "feedbackDirectMail": {
+      "description": "Text shown on feedback form",
+      "message": "Si voleu enviar-nos captures de pantalla, ho podeu fer amb un correu electrònic a $email$.",
+      "placeholders": {
+         "email": {
+            "content": "$1",
+            "example": "feedback@languagetool.org"
+         }
+      }
+   },
+   "feedbackError": {
+      "description": "Error message, shown to the user when his feedback message wasn't successfully sent",
+      "message": "No s'ha pogut enviar el missatge. Intenteu-ho més tard."
+   },
+   "feedbackHeadline": {
+      "description": "Headline of feedback contact form",
+      "message": "Envieu els vostres comentaris a LanguageTool"
+   },
+   "feedbackSenderPlaceholder": {
+      "description": "Placeholder text shown in the email text field of the feedback form",
+      "message": "Introduïu la vostra adreça de correu electrònic…"
+   },
+   "feedbackSuccess": {
+      "description": "Success message, shown to the user when his feedback message was successfully sent",
+      "message": "Gràcies. Intentarem respondre la vostra sol·licitud tan aviat com sigui possible."
+   },
+   "feedbackTextPlaceholder": {
+      "description": "Placeholder text shown in the message text field of the feedback form",
+      "message": "Introduïu els vostres comentaris…"
+   },
+   "fr": {
+      "description": "language name",
+      "message": "francès"
+   },
+   "ga": {
+      "description": "language name",
+      "message": "irlandès"
+   },
+   "generalSettingsHeadline": {
+      "description": "Headline for the general section on the settings page",
+      "message": "Configuració general"
+   },
+   "gl": {
+      "description": "language name",
+      "message": "gallec"
+   },
+   "googleDocsDisableButton": {
+      "description": "menu bar button in google docs",
+      "message": "Deshabilita LanguageTool en aquest document"
+   },
+   "googleDocsEnableButton": {
+      "description": "menu bar button in google docs",
+      "message": "Habilita LanguageTool"
+   },
+   "googleDocsEnableHint": {
+      "description": "hint pointing to a button in the google docs menu bar",
+      "message": "Podeu habilitar de nou aquí el corrector gramatical i d'estil LanguageTool"
+   },
+   "googleDocsNewTeaserHeadline": {
+      "description": "headline for a google docs teaser",
+      "message": "Ha arribat LanguageTool per a Google Docs!"
+   },
+   "googleDocsNewTeaserText": {
+      "description": "text for a google docs teaser",
+      "message": "Al lateral de cada pàgina podeu veure quants problemes detecta LanguageTool."
+   },
+   "googleSlidesDisableButton": {
+      "description": "menu bar button in google slides",
+      "message": "Desactiva LanguageTool en aquesta presentació."
+   },
+   "googleSlidesEnableButton": {
+      "description": "menu bar button in google slides",
+      "message": "Activa LanguageTool"
+   },
+   "googleSlidesEnableHint": {
+      "description": "hint pointing to a button in the google docs menu bar",
+      "message": "Aquí podeu reactivar la revisió gramatical i d'estil de LanguageTool"
+   },
+   "googleSlidesNewTeaserHeadline": {
+      "description": "headline for a google slides teaser",
+      "message": "Ja és aquí LanguageTool per a Google Slides!"
+   },
+   "googleSlidesNewTeaserText": {
+      "description": "text for a google slides teaser",
+      "message": "Al costat de cada diapositiva ara podeu veure quants problemes ha detectat LanguageTool."
+   },
+   "grammarError": {
+      "description": "Type of error (spelling error, style suggestion, grammar error, ...)",
+      "message": "Gramàtica i altres"
+   },
+   "haveAccountDesc": {
+      "description": "Options dialog: checkbox for account access",
+      "message": "Crea un compte gratuït en"
+   },
+   "historicPremiumErrorsButton": {
+      "description": "Button for new premium teaser, that shows how many grammar issues the user could have avoided with the Premium version.",
+      "message": "Més informació"
+   },
+   "historicPremiumErrorsHeadline": {
+      "description": "Introduction headline for premium teaser",
+      "message": "Ho sabíeu?"
+   },
+   "historicPremiumErrorsText": {
+      "description": "Text for new premium teaser, that shows how many grammar issues the user could have avoided with the Premium version.",
+      "message": "Podríeu haver evitat \u003Cstrong> $count$ problemes de gramàtica i d’estil\u003C/strong> en els darrers dies amb LanguageTool Premium.",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "9"
+         }
+      }
+   },
+   "historicPremiumErrorsText2": {
+      "description": "Text for new premium teaser, that shows how many grammar issues the user could have avoided with the Premium version. Important: The count needs to be at the beginning of the sentence!",
+      "message": "\u003Cstrong>$count$ problemes de gramàtica i d’estil\u003C/strong> podrien haver-se evitat en els darrers dies amb LanguageTool Premium.",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "9"
+         }
+      }
+   },
+   "ignoreDomainsCheckDesc": {
+      "description": "Options dialog: text for the textarea with the domains's where the check text won't run automatically in background",
+      "message": "No facis revisió automàtica en aquests dominis:"
+   },
+   "ignoreHere": {
+      "description": "Button that allows to ignore a misspelled word or grammar error in the current text field.",
+      "message": "Ignora-ho en aquest text"
+   },
+   "ignoredRules": {
+      "description": "Text shown at the bottom of the popup to turn on turned off rules again",
+      "message": "Aquestes regles s'han desactivat. Feu clic en una regla per a activar-la de nou:"
+   },
+   "ignoredRulesDesc": {
+      "description": "Shown as title of ignored rules block on options page",
+      "message": "Regles desactivades"
+   },
+   "incompleteResult": {
+      "description": "Message shown in dialog when validation return incomplete result",
+      "message": "Els resultats són incomplets: la revisió del text s'ha aturat perquè hi ha massa errors."
+   },
+   "invalidUsernameOrPassword": {
+      "description": "Message shown when user uses their languagetoolplus.com account but could not be authenticated",
+      "message": "Error: Comproveu l'adreça electrònica i la contrasenya en el diàleg d'opcions"
+   },
+   "is": {
+      "description": "language name",
+      "message": "islandès"
+   },
+   "it": {
+      "description": "language name",
+      "message": "italià"
+   },
+   "ja": {
+      "description": "language name",
+      "message": "japonès"
+   },
+   "km": {
+      "description": "language name",
+      "message": "khmer"
+   },
+   "language": {
+      "description": "Text shown in the popup to indicate the automatically detected language of the text checked",
+      "message": "Idioma:"
+   },
+   "languagetoolNotSupported": {
+      "description": "Languagetool.org is test example, so we show this error",
+      "message": "L'extensió no funciona en aquest lloc web, perquè el lloc web ofereix la mateixa funcionalitat."
+   },
+   "localServer": {
+      "description": "Radio button label for the local server setting, the one that needs manual set-up",
+      "message": "Servidor local (localhost): requereix un servidor de LanguageTool que s'executi localment"
+   },
+   "localServerDocs": {
+      "description": "Link to documentation for installing the server locally",
+      "message": "Documentació"
+   },
+   "lt": {
+      "description": "language name",
+      "message": "lituà"
+   },
+   "managedLoginButton1": {
+      "description": "Button label for logging in with an account",
+      "message": "Inicia la sessió"
+   },
+   "managedLoginButton2": {
+      "description": "Button label for logging in with an account",
+      "message": "Inicieu la sessió amb el vostre compte corporatiu"
+   },
+   "managedLoginDescription": {
+      "description": "Description for enterprise users who can log in with the account of their employer",
+      "message": "Inicieu la sessió amb el vostre compte corporatiu per a utilitzar LanguageTool."
+   },
+   "messagePopupTurnOnPrimaryButton": {
+      "description": "Button to close message box; Shown after checking was disabled",
+      "message": "Entesos!"
+   },
+   "messagePopupTurnOnSecondaryButton": {
+      "description": "Button to enable checking on page; Shown after checking was disabled",
+      "message": "Reactiva la revisió de text"
+   },
+   "messagePopupTurnOnheadline": {
+      "description": "Instruction headline to enable checking on page; Shown after checking was disabled",
+      "message": "La verificació ortogràfica és desactivada per a aquesta pàgina"
+   },
+   "messagePopupTurnOntext": {
+      "description": "Instruction text to enable checking on page; Shown after checking was disabled",
+      "message": "Per a reactivar-la, feu clic en la icona de LT en la vostra barra d'eines i en el botó 'Revisa ortografia i gramàtica'."
+   },
+   "ml": {
+      "description": "language name",
+      "message": "malaiàlam"
+   },
+   "moreDetails": {
+      "description": "Link shown to get more details about the error somewhere on the web (not shown for every error)",
+      "message": "Més informació..."
+   },
+   "motherTongueDesc": {
+      "description": "Options dialog: text next to the 'mother tongue' selection",
+      "message": "Idioma matern:"
+   },
+   "motherTongueExpl": {
+      "description": "Options dialog: more descriptive text explaining what selection of mother tongue does",
+      "message": "Establiu idioma matern si voleu que us advertim sobre falsos amics quan reviseu texts no escrits en el vostre idioma matern."
+   },
+   "msOnlineOfficeNotSupported": {
+      "description": "Error shown when clicking the toolbar icon at Microsoft Word Online",
+      "message": "Microsoft Word Online no és compatible amb aquesta extensió: només cal que instal·leu \u003Ca target='_blank' href='$url$'>aquesta extensió\u003C/a>.",
+      "placeholders": {
+         "url": {
+            "content": "$1",
+            "example": "https://appsource.microsoft.com/de-de/product/office/WA104381727"
+         }
+      }
+   },
+   "nl": {
+      "description": "language name",
+      "message": "neerlandès"
+   },
+   "no": {
+      "description": "language name",
+      "message": "noruec"
+   },
+   "noErrorsFound2": {
+      "description": "Shown in popup when no errors have been found",
+      "message": "Bé! No s'ha trobat cap error!"
+   },
+   "noErrorsFoundText": {
+      "description": "Shown in popup when no errors have been found as a subheadline",
+      "message": "Molt bona feina."
+   },
+   "onboardingHeadline": {
+      "description": "Text shown to the user when he accepted the privacy policy and is now ready to use the add-on",
+      "message": "Millorarà la vostra escriptura"
+   },
+   "onboardingIntro": {
+      "description": "Text shown to the user when he accepted the privacy policy and is now ready to use the add-on",
+      "message": "Els vostres texts es revisaran en la majoria de camps de text mentre escriviu."
+   },
+   "onboardingNote1": {
+      "description": "Installation note. Shown once the user has accepted the privacy policy.",
+      "message": "Torneu a carregar totes les pàgines web obertes per a activar l'extensió"
+   },
+   "onboardingNote2": {
+      "description": "Installation note. Shown once the user has accepted the privacy policy.",
+      "message": "Aquesta extensió no funciona amb camps de text en Chrome Web Store o en addons.mozilla.org"
+   },
+   "onboardingNote3": {
+      "description": "Installation note. Shown once the user has accepted the privacy policy.",
+      "message": "Per a desactivar l'extensió en un lloc web, feu clic en la icona LT de la barra d'eines del navegador"
+   },
+   "onboardingNote4": {
+      "description": "Installation note that describes how to use synonyms. Shown once the user has accepted the privacy policy.",
+      "message": "Es poden demanar \u003Cstrong>sinònims\u003C/strong> fent doble clic sobre  una paraula en un camp de text (p. ex. Gmail, Facebook o Google Docs)."
+   },
+   "otherServer": {
+      "description": "Radio button label for the server URL if neither cloud nor local server is the correct choice",
+      "message": "un altre servidor: requereix un servidor LanguageTool en execució"
+   },
+   "overleafNewTeaserHeadline": {
+      "description": "headline for a overleaf teaser",
+      "message": "Ja és aquí LanguageTool per a Overleaf!"
+   },
+   "overleafNewTeaserText": {
+      "description": "text for a overleaf teaser",
+      "message": "Desplaceu-vos pel text per a veure suggeriments d'ortografia, gramàtica i estil."
+   },
+   "password": {
+      "description": "Options dialog: password for languagetoolplus.com",
+      "message": "Contrasenya:"
+   },
+   "pl": {
+      "description": "language name",
+      "message": "polonès"
+   },
+   "popupGeneralSettingsHeadline": {
+      "description": "Headline for general settings shown in the addon popup",
+      "message": "Configuració general"
+   },
+   "popupOnboardingHeadline": {
+      "description": "Title shown on top of a list explaining how to use the LanguageTool addon",
+      "message": "Benvingut! Ara podeu utilitzar LanguageTool:"
+   },
+   "popupOnboardingStep1": {
+      "description": "List item explaining step by step how to use the LanguageTool addon",
+      "message": "Feu clic en qualsevol camp de text de múltiples línies (p. ex. en Gmail, Facebook…)."
+   },
+   "popupOnboardingStep2": {
+      "description": "List item explaining step by step how to use the LanguageTool addon",
+      "message": "Trobareu una icona com $icon1Html$ o $icon2Html$ a l'extrem inferior dret.",
+      "placeholders": {
+         "icon1Html": {
+            "content": "$1",
+            "example": "\u003Cspan class='icon-1'>\u003C/span>"
+         },
+         "icon2Html": {
+            "content": "$2",
+            "example": "\u003Cspan class='icon-2'>\u003C/span>"
+         }
+      }
+   },
+   "popupOnboardingStep3": {
+      "description": "List item explaining step by step how to use the LanguageTool addon",
+      "message": "Escriviu un text. Els problemes d'escriptura seran \u003Cu>subratllats\u003C/u>."
+   },
+   "popupOnboardingStep4": {
+      "description": "List item explaining step by step how to use the LanguageTool addon",
+      "message": "Feu clic en una paraula subratllada per a obtenir suggeriments."
+   },
+   "popupOpenEditorButton": {
+      "description": "Button that opens the LanguageTool Editor",
+      "message": "Obre l'editor"
+   },
+   "popupOptionCaseText": {
+      "description": "Switch in toolbar popup",
+      "message": "Revisa majúscules i minúscules"
+   },
+   "popupOptionCheckText": {
+      "description": "Switch in toolbar popup",
+      "message": "Revisa ortografia i gramàtica"
+   },
+   "popupOptionSynonyms": {
+      "description": "Label for enabling/disabling synonym functionality (displayed next to a checkbox)",
+      "message": "Activa els sinònims (tots els llocs web)"
+   },
+   "popupOptionValidate": {
+      "description": "Validate button in toolbar popup",
+      "message": "Revisa el text seleccionat"
+   },
+   "popupOptionValidateInEditor": {
+      "description": "Validate button in toolbar popup",
+      "message": "Revisa el text seleccionat en l'editor"
+   },
+   "popupPremiumHeadline": {
+      "description": "Premium hint in popup",
+      "message": "Escriviu com un professional"
+   },
+   "popupPremiumLink": {
+      "description": "Premium hint in popup",
+      "message": "Més informació"
+   },
+   "popupPremiumText": {
+      "description": "Premium hint in popup",
+      "message": "Actualitzeu a LanguageTool Premium per a trobar errors no sols de gramàtica i puntuació sinó també d'estil."
+   },
+   "popupSettingsHeadline": {
+      "description": "Headline for the website specific settings shown in the addon popup",
+      "message": "Configuració del lloc web"
+   },
+   "popupSettingsHover": {
+      "description": "Mouse hover over the settings icon",
+      "message": "Configuració avançada"
+   },
+   "poweredBy": {
+      "description": "Hint that explains who the author of this add-on is",
+      "message": "Funciona amb \u003Cb>LanguageTool\u003C/b>"
+   },
+   "premiumErrorsButton": {
+      "description": "Button shown in premium teaser that sends the user to the pricing table. Button text should be as short as possible",
+      "message": "Més informació"
+   },
+   "premiumErrorsTextPlural": {
+      "description": "Hint shown in a premium teaser, telling the user that there are more issues that only the premium version found",
+      "message": "El vostre text conté \u003Cstrong>$count$ problemes d’escriptura avançats\u003C/strong>",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "7"
+         }
+      }
+   },
+   "premiumErrorsTextSingular": {
+      "description": "Hint shown in a premium teaser, telling the user that there are more issues that only the premium version found",
+      "message": "El vostre text conté \u003Cstrong>un problema d’escriptura avançat\u003C/strong>"
+   },
+   "privacyLinkForDefaultServer": {
+      "description": "Link to privacy policy",
+      "message": "Per a més informació, consulteu \u003Ca href='$privacyUrl$\" target='_blank'> la nostra política de privacitat \u003C/a>",
+      "placeholders": {
+         "privacyUrl": {
+            "content": "$1",
+            "example": "https://languagetool.org/privacy/"
+         }
+      }
+   },
+   "privacyNoteForDefaultServer": {
+      "description": "Shown on first start of extension to make user aware of privacy issues when using the default server on languagetool.org",
+      "message": "Aquesta extensió comprovarà el text enviant-lo a \u003Ca href='$serverUrl$'target='_blank'>$serverHost$\u003C/a> amb una connexió xifrada. \u003Cb>El vostre text no s’emmagatzemarà.\u003C/b>",
+      "placeholders": {
+         "serverHost": {
+            "content": "$2",
+            "example": "LanguageTool.org"
+         },
+         "serverUrl": {
+            "content": "$1",
+            "example": "https://languagetool.org"
+         }
+      }
+   },
+   "privacyNoteForOtherServer": {
+      "description": "Shown on first start of extension to make user aware of privacy issues when using some other than the default server",
+      "message": "Aquesta extensió revisarà el vostre text enviant-lo a $serverUrl$. Per a tornar al servidor per defecte, visiteu la pàgina d'opcions de l'extensió.",
+      "placeholders": {
+         "serverUrl": {
+            "content": "$1",
+            "example": "http://localhost:8081/"
+         }
+      }
+   },
+   "privacyNoteSlogan": {
+      "description": "Slogan after 'LanguageTool' shown in privacy dialog at first start",
+      "message": "El vostre assistent d'escriptura"
+   },
+   "privacyPolicy": {
+      "description": "Options dialog: Link to privacy policy",
+      "message": "Política de privacitat"
+   },
+   "pt": {
+      "description": "language name",
+      "message": "portuguès"
+   },
+   "pt_AO": {
+      "description": "language name",
+      "message": "portuguès (Angola preAO)"
+   },
+   "pt_BR": {
+      "description": "language name",
+      "message": "portuguès (Brasil posAO)"
+   },
+   "pt_CV": {
+      "description": "language name",
+      "message": "portuguès (Cap Verd)"
+   },
+   "pt_MZ": {
+      "description": "language name",
+      "message": "portuguès (Moçambic preAO)"
+   },
+   "pt_PT": {
+      "description": "language name (posAO = post reform)",
+      "message": "portuguès (Portugal posAO)"
+   },
+   "pt_PT_post_reform": {
+      "description": "language name (posAO = post reform)",
+      "message": "portuguès (Portugal, post-reforma)"
+   },
+   "pt_PT_pre_reform": {
+      "description": "language name (preAO = pre reform)",
+      "message": "portuguès (Portugal, pre-reforma)"
+   },
+   "punctuationError": {
+      "description": "Type of error (spelling error, style suggestion, grammar error, ...)",
+      "message": "Puntuació"
+   },
+   "ratingHeadline": {
+      "description": "Headline shown in the teaser that asks user to rate the add-on",
+      "message": "Us agrada el corrector?"
+   },
+   "ratingText": {
+      "description": "Text shown in the teaser that asks user to rate the add-on",
+      "message": "Doneu-nos la vostra opinió"
+   },
+   "ratingThankYou": {
+      "description": "Message shown to the user after he rated",
+      "message": "Gràcies."
+   },
+   "ratingUnhappyQuestion": {
+      "description": "If user gives a negative rating, we ask the user why he's unhappy",
+      "message": "Expliqueu-nos per què no esteu satisfet."
+   },
+   "removeExtraWhitespace": {
+      "description": "Button to remove consecutive white space",
+      "message": "Suprimeix espais en blanc sobrants"
+   },
+   "reportAnIssue": {
+      "description": "Link text for sending feedback to languagetool.org",
+      "message": "Envieu comentaris"
+   },
+   "reviewChromeHeadline": {
+      "description": "Headline shown in the teaser that asks user to give a review in the Chrome Store",
+      "message": "Ens faríeu una valoració en la botiga de Chrome?"
+   },
+   "reviewEdgeHeadline": {
+      "description": "Headline shown in the teaser that asks user to give a review in the Edge Add-On Store",
+      "message": "Ens donareu una qualificació a la botiga de complements d'Edge?"
+   },
+   "reviewFirefoxHeadline": {
+      "description": "Headline shown in the teaser that asks user to give a review in the Firefox Add-On Store",
+      "message": "Ens faríeu una valoració en la botiga de Firefox?"
+   },
+   "reviewLink": {
+      "description": "Call-to-action link (should be kept short)",
+      "message": "Qualifiqueu ara"
+   },
+   "reviewOperaHeadline": {
+      "description": "Headline shown in the teaser that asks user to give a review in the Opera Add-On Store",
+      "message": "Ens faríeu una valoració en la botiga de complements d'Opera?"
+   },
+   "reviewSafariHeadline": {
+      "description": "Headline shown in the teaser that asks user to give a review in the Apple App Store",
+      "message": "Ens donaríeu una qualificació a l'App Store?"
+   },
+   "ro": {
+      "description": "language name",
+      "message": "romanès"
+   },
+   "ru": {
+      "description": "language name",
+      "message": "rus"
+   },
+   "save": {
+      "description": "Options dialog: save button",
+      "message": "Desa"
+   },
+   "sendFeedback": {
+      "description": "Link text for sending feedback to languagetool.org",
+      "message": "Envia comentaris"
+   },
+   "serverNotAvailable": {
+      "description": "Warning shown to the user that the local server isn't available",
+      "message": "El servidor local no està disponible"
+   },
+   "serverText": {
+      "description": "Options dialog: description of the text field for the API server URL",
+      "message": "URL de l'API del servidor de LanguageTool:"
+   },
+   "serverUrlIsInvalid": {
+      "description": "Options dialog: error shown if server URL is not valid, e.g. doesn't start with http or https",
+      "message": "L'URL no és vàlid"
+   },
+   "settingsAccountBulletListEditor": {
+      "description": "Advantage of account login in the account login section on the settings page",
+      "message": "Useu l'editor com a entorn d'escriptura lliure de distraccions."
+   },
+   "settingsAccountBulletListSave": {
+      "description": "Advantage of account login in the account login section on the settings page",
+      "message": "Deseu els textos per a més tard. "
+   },
+   "settingsAccountBulletListSync": {
+      "description": "Advantage of account login in the account login section on the settings page",
+      "message": "Sincronitzeu la configuració i el diccionari personal en diferents navegadors i dispositius."
+   },
+   "settingsAccountDescription": {
+      "description": "Description for the account login section on the settings page",
+      "message": "Inicieu la sessió i obteniu aquests avantatges:"
+   },
+   "settingsAccountHeadline": {
+      "description": "Headline for the account login section on the settings page",
+      "message": "Compte"
+   },
+   "settingsAccountSubheadline": {
+      "description": "Subheadline for the account login section on the settings page",
+      "message": "Inicieu la sessió amb el vostre compte de LanguageTool"
+   },
+   "settingsAddAutoCheckDomainHint": {
+      "description": "Text shown when the entered domain doesn't exist yet in the list of autocheck domains",
+      "message": "El domini encara no s'ha afegit. Premeu Retorn per a afegir-lo."
+   },
+   "settingsAddDomainHint": {
+      "description": "Text shown when the entered domain doesn't exist yet in the list of ignored domains",
+      "message": "El domini encara no s’ha afegit. Premeu RETORN per a afegir-lo."
+   },
+   "settingsAddIgnoredDomainHint": {
+      "description": "Text shown when the entered domain doesn't exist yet in the list of ignored domains",
+      "message": "El domini encara no s'ha afegit. Premeu Retorn per a afegir-lo."
+   },
+   "settingsAddOrFilterAutoCheckDomains": {
+      "description": "Placeholder text for input field where user can enter web domains where the addon should autocheck texts",
+      "message": "Afegiu o cerqueu un domini…"
+   },
+   "settingsAddOrFilterDomains": {
+      "description": "Placeholder text for input field where user can enter web domains where the addon shouldn't run on",
+      "message": "Afegiu o cerqueu un domini…"
+   },
+   "settingsAddOrFilterIgnoredDomains": {
+      "description": "Placeholder text for input field where user can enter web domains where the addon shouldn't autocheck texts",
+      "message": "Afegiu o cerqueu un domini …"
+   },
+   "settingsAddOrFilterWords": {
+      "description": "Placeholder text for input field where user can enter new words for his dictionary (he can use the input field also for searching in his dictionary)",
+      "message": "Afegiu o cerqueu una paraula…"
+   },
+   "settingsAddWordHint": {
+      "description": "Text shown when the entered word doesn't exist yet in the personal dictionary",
+      "message": "Aquesta paraula encara no existeix en el diccionari. Premeu RETORN per a afegir-la."
+   },
+   "settingsAreYouSure": {
+      "description": "Confirmation message for when the user wants to clear or delete something.",
+      "message": "Esteu segur? No es podrà desfer."
+   },
+   "settingsClearAll": {
+      "description": "Button text that deletes all items in a list",
+      "message": "Desmarca-ho tot"
+   },
+   "settingsCopyDictionary": {
+      "description": "Button text that copy all words from personal dictionary to clipboard",
+      "message": "Copia al porta-retalls"
+   },
+   "settingsCopyDictionarySuccessful": {
+      "description": "Message shown when dictionary copied to clipboard successful.",
+      "message": "S'ha copiat al porta-retalls"
+   },
+   "settingsDeleteAutoCheckDomain": {
+      "description": "Button for removing a domain from the list of autocheck domains",
+      "message": "Esborra el domini"
+   },
+   "settingsDeleteIgnoredDomain": {
+      "description": "Button for removing a domain from the list of ignored domains",
+      "message": "Esborra el domini"
+   },
+   "settingsDictionaryHeadline": {
+      "description": "Headline for the personal dictionary section on the settings page",
+      "message": "Diccionari personal"
+   },
+   "settingsDomainInvalid": {
+      "description": "Error message shown when the domain the user entered is not valid or is already in the list",
+      "message": "Introduïu un domini vàlid que encara no s'hagi afegit."
+   },
+   "settingsEmptyAutoCheckDomains": {
+      "description": "Text shown when autocheck domains list doesn't contain any domains (yet)",
+      "message": "Encara no heu activat la revisió automàtica en cap lloc web"
+   },
+   "settingsEmptyDictionary": {
+      "description": "Text shown when personal dictionary doesn't contain any words (yet)",
+      "message": "El diccionari personal és buit"
+   },
+   "settingsEmptyDomainList": {
+      "description": "Text shown when disabled-domain list doesn't contain any domains (yet)",
+      "message": "Encara no heu desactivat cap domini"
+   },
+   "settingsEmptyIgnoredDomains": {
+      "description": "Text shown when ignored domains list doesn't contain any domains (yet)",
+      "message": "Encara no heu desactivat la revisió automàtica en cap lloc web"
+   },
+   "settingsEmptyIgnoredRules": {
+      "description": "Text shown when there are no ignored rules (yet)",
+      "message": "Encara no heu ignorat cap regla"
+   },
+   "settingsEnableAllRules": {
+      "description": "Button text that enables all grammar rules that were previously disabled",
+      "message": "Activa-ho tot"
+   },
+   "settingsEnableDomain": {
+      "description": "Button for removing a domain from the list of disabled-domains",
+      "message": "Habilita el domini"
+   },
+   "settingsExperimentalSuccess": {
+      "description": "Success message shown when the user saves the experimental settings",
+      "message": "La configuració s’ha desat correctament."
+   },
+   "settingsForgotPasswordLink": {
+      "description": "Placeholder text for password text field",
+      "message": "Heu oblidat la contrasenya?"
+   },
+   "settingsHeadline": {
+      "description": "Headline for the settings page",
+      "message": "Configuració"
+   },
+   "settingsLoggedInAs": {
+      "description": "Text shown for users who have logged in with their LanguageTool account",
+      "message": "Heu iniciat la sessió com a $email$.",
+      "placeholders": {
+         "email": {
+            "content": "$1",
+            "example": "\u003Cstrong>foo@foobar.com\u003C/strong>"
+         }
+      }
+   },
+   "settingsLoginButton": {
+      "description": "Button for logging in with email and password",
+      "message": "Inicia la sessió"
+   },
+   "settingsLoginError": {
+      "description": "Error message shown when the user credentials (email and password) are wrong",
+      "message": "No s'ha pogut iniciar la sessió. Comproveu l'adreça electrònica i la contrasenya."
+   },
+   "settingsLoginSuccess": {
+      "description": "Success message shown when the user logged in",
+      "message": "Heu iniciat la sessió"
+   },
+   "settingsLogoutButton": {
+      "description": "Button for logging out",
+      "message": "Tanca la sessió"
+   },
+   "settingsLogoutSuccess": {
+      "description": "Success message shown when the user logged out",
+      "message": "Heu tancat la sessió"
+   },
+   "settingsManageAccountButton": {
+      "description": "Button for going to the account section",
+      "message": "Gestiona el compte"
+   },
+   "settingsPasswordPlaceholder": {
+      "description": "Placeholder text for password text field",
+      "message": "Contrasenya"
+   },
+   "settingsPremiumButton": {
+      "description": "Button text for a teaser on the settings page promoting the premium functionality",
+      "message": "Descobriu LanguageTool Plus Premium"
+   },
+   "settingsPremiumFeaturesActivated": {
+      "description": "Text shown for users who have logged in with their LanguageTool account and who have a paid subscription",
+      "message": "Totes les funcions \u003Cstrong>premium\u003C/strong> són activades."
+   },
+   "settingsPremiumHeadline": {
+      "description": "Headline for a teaser on the settings page promoting the premium functionality",
+      "message": "Milloreu la vostra escriptura"
+   },
+   "settingsPremiumText": {
+      "description": "Text for a teaser on the settings page promoting the premium functionality",
+      "message": "Trobeu problemes de gramàtica, d'estil i puntuació avançats o reviseu text fins a 60.000 caràcters."
+   },
+   "settingsUnknownError": {
+      "description": "Generic error message",
+      "message": "S'ha produït un error inesperat"
+   },
+   "siteCannotBeSupported": {
+      "description": "Some sites are too complex and can probably never be supported, so we show this error",
+      "message": "Aquest lloc web utilitza una tecnologia per a l'edició de text que no és compatible. Poseu-vos en contacte amb els propietaris del lloc i demaneu-los que integrin el LanguageTool."
+   },
+   "sk": {
+      "description": "language name",
+      "message": "eslovac"
+   },
+   "sl": {
+      "description": "language name",
+      "message": "eslovè"
+   },
+   "spellingError": {
+      "description": "Type of error (spelling error, style suggestion, grammar error, ...)",
+      "message": "Ortografia"
+   },
+   "sr": {
+      "description": "language name",
+      "message": "serbi"
+   },
+   "sr_BA": {
+      "description": "language name",
+      "message": "serbi (Bòsnia)"
+   },
+   "sr_HR": {
+      "description": "language name",
+      "message": "serbi (Croàcia)"
+   },
+   "sr_ME": {
+      "description": "language name",
+      "message": "serbi (Montenegro)"
+   },
+   "sr_RS": {
+      "description": "language name",
+      "message": "serbi (Sèrbia)"
+   },
+   "statusIconEnableLT": {
+      "description": "Shown when hovering over the status icon (not the toolbar one) in disabled state",
+      "message": "Habiliteu LanguageTool: revisió ortogràfica i gramatical"
+   },
+   "statusIconError": {
+      "description": "Shown when hovering over the status icon (not the toolbar one) in error state",
+      "message": "Error"
+   },
+   "statusIconMoreErrors": {
+      "description": "Shown when hovering over the status icon (not the toolbar one) in incomplete result state",
+      "message": "Els resultats són incomplets: la comprovació del text s'ha aturat a causa d'haver-hi massa errors."
+   },
+   "statusIconPermissionRequired": {
+      "description": "Shown when hover over the status icon (not the toolbar one) in permission required state (i.e. user has not confirmed privacy dialog on first start)",
+      "message": "No es pot revisar el text: confirmeu la política de privacitat primer."
+   },
+   "statusIconReload": {
+      "description": "Shown when hovering over the status icon (not the toolbar one) in reload needed state",
+      "message": "L'extensió s'ha actualitzat. Torneu a carregar la pàgina per a habilitar la revisió ortogràfica i gramatical."
+   },
+   "statusIconToolTip": {
+      "description": "Shown when hovering over the status icon (not the toolbar one)",
+      "message": "LanguageTool: revisió ortogràfica i gramatical"
+   },
+   "suggestionError": {
+      "description": "Type of error (spelling error, style suggestion, grammar error, ...)",
+      "message": "Estil"
+   },
+   "sv": {
+      "description": "language name",
+      "message": "suec"
+   },
+   "switchToAmericanEnglish": {
+      "description": "Link that changes language variant",
+      "message": "Canvia a anglès americà"
+   },
+   "switchToAustralianEnglish": {
+      "description": "Link that changes language variant",
+      "message": "Canvia a anglès d'Austràlia"
+   },
+   "switchToBritishEnglish": {
+      "description": "Link that changes language variant",
+      "message": "Canvia a anglès britànic"
+   },
+   "switchToCanadianEnglish": {
+      "description": "Link that changes language variant",
+      "message": "Canvia a anglès del Canadà"
+   },
+   "switchToNewZealandEnglish": {
+      "description": "Link that changes language variant",
+      "message": "Canvia a anglès de Nova Zelanda"
+   },
+   "switchToSouthAfricanEnglish": {
+      "description": "Link that changes language variant",
+      "message": "Canvia a anglès de Sud-àfrica"
+   },
+   "synonymsCardGeneralError": {
+      "description": "Generic error message shown when there was an issue getting a synonym from the server",
+      "message": "Hi ha hagut un error carregant els sinònims"
+   },
+   "synonymsCardHeadline": {
+      "description": "Headline for the box that offers thesaurus synonyms",
+      "message": "Sinònims"
+   },
+   "synonymsCardLanguageNotSupported": {
+      "description": "Message shown when synonyms are not supported for the current text language",
+      "message": "Encara no hi ha servei per als sinònims d'aquesta llengua."
+   },
+   "synonymsCardLoading": {
+      "description": "Text shown when synonyms are still being loaded from the server",
+      "message": "Carregant…"
+   },
+   "synonymsCardNoSynonymsAvailable": {
+      "description": "Message shown when there are no synonyms for the given word",
+      "message": "No hi ha sinònims disponibles per a aquesta paraula"
+   },
+   "synonymsCardTooltipReadText": {
+      "description": "Tool tip for text to speach button, reads out loud a word or text",
+      "message": "Pronuncia la paraula"
+   },
+   "synonymsTutorialHeadline": {
+      "description": "Headline for a small box that explains how the new synonym feature works",
+      "message": "Com podeu obtenir sinònims"
+   },
+   "synonymsTutorialText": {
+      "description": "Text in a small box that explains how the new synonym feature works",
+      "message": "Obteniu els sinònims de qualsevol paraula fent-hi doble clic. Funciona en tots els camps de text compatibles amb LanguageTool."
+   },
+   "ta": {
+      "description": "language name",
+      "message": "tàmil"
+   },
+   "textTooLong": {
+      "description": "Message shown to the user when his text is too large to be checked",
+      "message": "Aquest text és massa llarg per a ser revisat."
+   },
+   "timeoutError": {
+      "description": "Error message shown if API server doesn't respond timely",
+      "message": "Temps d'espera esgotat. Proveu-ho més tard ($serverUrl$).",
+      "placeholders": {
+         "serverUrl": {
+            "content": "$1",
+            "example": "https://languagetool.org:8081/"
+         }
+      }
+   },
+   "tl": {
+      "description": "language name",
+      "message": "tagàlog"
+   },
+   "tooManyErrors": {
+      "description": "Message shown to the user when his text contains too many errors",
+      "message": "Fa l'efecte que aquest text conté massa errors. ¿Esteu segur que heu seleccionat l'idioma correcte?"
+   },
+   "tooManyRequests": {
+      "description": "Message shown to the user when they have sent too many and/or large requests",
+      "message": "S'ha superat el límit de sol·licituds. Espereu un minut i LanguageTool estarà disponible de nou."
+   },
+   "tr": {
+      "description": "language name",
+      "message": "turc"
+   },
+   "tryAgain": {
+      "description": "Link the user can click on when they got a warning that the local server isn't available",
+      "message": "Intenteu-ho de nou"
+   },
+   "turnOffRule": {
+      "description": "Link shown in the popup to turn off, i.e. ignore, a rule (the rule - not just this match)",
+      "message": "Desactiva la regla a tot arreu"
+   },
+   "turnOnHint": {
+      "description": "Message in hint popup",
+      "message": "Podeu tornar a activar l'extensió aquí"
+   },
+   "uk": {
+      "description": "language name",
+      "message": "ucraïnès"
+   },
+   "unknownError": {
+      "description": "Message shown to the user when his text is too large to be checked",
+      "message": "S'ha produït un error en revisar el text. Una manera de resoldre el problema és reinicialitzar el navegador."
+   },
+   "upgradeTeaserDiscount": {
+      "description": "discount percentage",
+      "message": "Estalvieu $percent$%",
+      "placeholders": {
+         "percent": {
+            "content": "$1",
+            "example": "20"
+         }
+      }
+   },
+   "upgradeTeaserDiscountHeadline": {
+      "description": "Headline for the discount teaser that should raise urgency",
+      "message": "Oferta per temps limitat"
+   },
+   "username": {
+      "description": "Options dialog: user name for languagetoolplus.com",
+      "message": "Adreça electrònica:"
+   },
+   "validatorHasMistakesHeadlinePlural": {
+      "description": "Text displayed on top of text when the text contains spelling, punctuation or grammar errors",
+      "message": "$count$ errors trobats",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "7"
+         }
+      }
+   },
+   "validatorHasMistakesHeadlineSingular": {
+      "description": "Text displayed on top of text when the text contains spelling, punctuation or grammar errors",
+      "message": "S'ha trobat un error"
+   },
+   "validatorHasMistakesText": {
+      "description": "Text displayed on top of text when the text contains spelling, punctuation or grammar errors",
+      "message": "Feu clic en les paraules ressaltades per a corregir-les."
+   },
+   "validatorHasPremiumErrorsButton": {
+      "description": "Button that sends the user to the upgrade/pricing page",
+      "message": "Més informació"
+   },
+   "validatorHasPremiumErrorsHeadlinePlural": {
+      "description": "Text shown when the text contains writing issues that are only found in the premium version",
+      "message": "El text conté $count$ problemes de redacció avançats",
+      "placeholders": {
+         "count": {
+            "content": "$1",
+            "example": "7"
+         }
+      }
+   },
+   "validatorHasPremiumErrorsHeadlineSingular": {
+      "description": "Text shown when the text contains writing issues that are only found in the premium version",
+      "message": "El text conté un problema de redacció avançat"
+   },
+   "validatorHasPremiumErrorsText": {
+      "description": "Text shown when the text contains writing issues that are only found in the premium version",
+      "message": "Actualitzeu a LanguageTool Premium per a trobar molts més errors de gramàtica, estil i puntuació."
+   },
+   "validatorLoadingHint": {
+      "description": "Loading status, shown when text is currently being checked",
+      "message": "Revisant el text…"
+   },
+   "validatorNoMistakesHeadline": {
+      "description": "Text displayed on top of text when the text doesn't contain any errors",
+      "message": "Enhorabona, no s'ha trobat cap error!"
+   },
+   "validatorNoTextStatus": {
+      "description": "Text shown above validator text field when it doesn't have enough characters to be checked",
+      "message": "Escriviu o enganxeu el text per a revisar-lo"
+   },
+   "validatorPlaceholder": {
+      "description": "Text shown in text field when it's empty",
+      "message": "Introduïu o enganxeu el text aquí…"
+   },
+   "validatorPremiumButton": {
+      "description": "Label for a button. Clicking it will send the user to the website where he can buy the premium version",
+      "message": "Actualització"
+   },
+   "validatorPremiumHeadline": {
+      "description": "Title for a bullet point list of features the premium version has",
+      "message": "Trobeu més problemes d'escriptura i esdevindreu un escriptor més bo."
+   },
+   "validatorPremiumReason1": {
+      "description": "Reason for buying the premium version",
+      "message": "Una revisió més completa de gramàtica, puntuació i estil"
+   },
+   "validatorPremiumReason2": {
+      "description": "Reason for buying the premium version",
+      "message": "Reviseu texts més llargs (de fins a 60.000 caràcters)"
+   },
+   "validatorPremiumReason3": {
+      "description": "Reason for buying the premium version",
+      "message": "Detecció automàtica de nombres invàlids (p. ex. IBAN, ISBN…)"
+   },
+   "validatorPremiumReason4": {
+      "description": "Reason for buying the premium version",
+      "message": "Complement per a Microsoft Office"
+   },
+   "validatorTextTooLongStatus": {
+      "description": "Text shown above validator text field when text is too long for validation",
+      "message": "Aquest text és massa llarg per a ser revisat."
+   },
+   "variantCaDesc": {
+      "description": "Options dialog: set the language variant",
+      "message": "Assumeix aquesta variant de català:"
+   },
+   "variantDeDesc": {
+      "description": "Options dialog: set the language variant",
+      "message": "Assumeix aquesta variant d'alemany:"
+   },
+   "variantEnDesc": {
+      "description": "Options dialog: set the language variant",
+      "message": "Assumeix aquesta variant d'anglès:"
+   },
+   "variantPtDesc": {
+      "description": "Options dialog: set the language variant",
+      "message": "Assumeix aquesta variant de portuguès:"
+   },
+   "webstoreSiteNotSupported": {
+      "description": "Error shown when Chrome extension is used on https://chrome.google.com/webstore, which doesn't work for technical reasons",
+      "message": "Google Chrome impedeix a les extensions accedir a Chrome Web Store. Funciona en qualsevol altre lloc on escrigueu (p. ex. Facebook, Gmail, Twitter, LinkedIn)."
+   },
+   "zh": {
+      "description": "language name",
+      "message": "xinès"
+   }
+}
