@@ -128,21 +128,6 @@ class BackgroundApp {
                 : (browser.browserAction.setBadgeBackgroundColor && browser.browserAction.setBadgeBackgroundColor({ tabId: e, color: "#F53987" }),
                   browser.browserAction.setBadgeText({ tabId: e, text: BrowserDetector.isOpera() ? "" : "OFF" }));
     }
-    static _updateUninstallURL(e = "unknown") {
-        const t = this._storageController.getSettings(),
-            a = this._storageController.getPrivacySettings(),
-            s = this._storageController.getStatistics(),
-            o = this._storageController.getTestFlags(),
-            n = browser.runtime.getManifest(),
-            r = (n && n.version) || "unknown";
-        e = e.replace("www.", "").slice(0, 25);
-        let i = `${config.UNINSTALL_URL}?autoCheck=${t.autoCheck}`;
-        (i += `&host=${encodeURIComponent(e)}&v=${r}&privacyConfirmed=${a.allowRemoteCheck}`), (i += `&usages=${s.usageCount}&sessions=${s.sessionCount}`);
-        const c = this._storageController.getUniqueId();
-        c && (i += `&matomo=${c}`);
-        for (const e in o) o.hasOwnProperty(e) && (i += `&${e}=${o[e]}`);
-        EnvironmentAdapter.isProductionEnvironment() || (i += "&dev"), (i = i.slice(0, 255)), browser.runtime.setUninstallURL(i);
-    }
     static _setMotherTongue() {
         this._storageController.onReady(() => {
             const { motherTongue: e, geoIpLanguages: t } = this._storageController.getSettings();
@@ -166,7 +151,7 @@ class BackgroundApp {
         } else s && o && navigator.onLine && (a = getAutoLoginUrl(s, o, t)), browser.tabs.create({ url: a });
     }
     static _onDataLoaded() {
-        Tracker.trackActivity(), this._updateUninstallURL(), this._applyManagedSettings(), this._setContextMenu();
+        Tracker.trackActivity(), this._applyManagedSettings(), this._setContextMenu();
     }
     static _checkForChangelogPage() {
         const e = this._storageController.isRelevantForChangelogCoupon();
@@ -239,7 +224,6 @@ class BackgroundApp {
                     EnvironmentAdapter.isProductionEnvironment() || (e += "&dev"),
                         browser.tabs.create({ url: e }),
                         this._assignToTestGroups(),
-                        this._updateUninstallURL(),
                         LanguageManager.getLanguagesForGeoIPCountry()
                             .then((e) => {
                                 const t = { geoIpLanguages: e.geoIpLanguages, geoIpCountry: e.geoIpCountry || "" };
@@ -280,7 +264,7 @@ class BackgroundApp {
                         Tracker.trackInstall();
                 }
             } else if ("update" === t) {
-                this._assignToTestGroups(), this._updateUninstallURL(), this._migrate(), this._checkForChangelogPage();
+                this._assignToTestGroups(), this._migrate(), this._checkForChangelogPage();
                 const e = browser.runtime.getManifest(),
                     t = (e && e.version) || "unknown";
                 a !== t && Tracker.trackEvent("Action", "update", String(t));
@@ -360,7 +344,6 @@ class BackgroundApp {
                 .catch((e) => {
                     console.error("Error detecting language", e);
                 }),
-            this._updateUninstallURL(getDomain(e.tab.url)),
             this._updateBadge(a, s);
     }
     static _onLTAssistantStatusChangedMessage(e, t) {
@@ -459,7 +442,7 @@ class BackgroundApp {
         const s = this._getPreferredLanguages(e);
         t.metaData.elementLanguage && s.push(LanguageManager.getPrimaryLanguageCode(t.metaData.elementLanguage));
         const o = this._storageController.getStatistics().usageCount + 1;
-        this._storageController.updateStatistics({ usageCount: o }), this._updateUninstallURL(getDomain(t.metaData.url));
+        this._storageController.updateStatistics({ usageCount: o });
         const n = [];
         return (
             t.options.useFullValidation
