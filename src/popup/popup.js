@@ -22,11 +22,9 @@
         translateElement("#popup-onboarding-text-3", { key: "popupOnboardingStep3", isHTML: !0 }),
         translateElement("#popup-onboarding-text-4", { key: "popupOnboardingStep4", isHTML: !0 }),
         L.setAttribute("title", i18nManager.getMessage("popupSettingsHover")),
-        [L, a, i].forEach((e) => {
-            e.addEventListener("click", () => {
-                EnvironmentAdapter.openOptionsPage(void 0, e === L ? "popup-icon" : "popup-badge"), window.close();
-            });
-        }),
+        L.addEventListener("click", () => {
+            EnvironmentAdapter.openOptionsPage(void 0, e === L ? "popup-icon" : "popup-badge"), window.close();
+        });
         w.addEventListener("click", (e) => {
             browser.runtime.sendMessage({ command: "OPEN_URL", url: w.href }), e.preventDefault(), window.close();
         }),
