@@ -475,28 +475,7 @@ class Validator {
                 });
         });
     }
-    static checkForPaidSubscription(e, t, r) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return new Promise((s, i) => {
-                this._storageController.onReady(() => {
-                    let a = this._storageController.isUsedCustomServer() ? this._storageController.getCustomServerUrl() : config.PREMIUM_SERVER_URL;
-                    a += a.endsWith("/") ? "check" : "/check";
-                    const n = new URLSearchParams();
-                    n.append("language", "en-us"),
-                        n.append("data", JSON.stringify({ text: "The languagetool testrule 8634756." })),
-                        e && t ? (n.append("username", e), n.append("password", t)) : e && r && (n.append("username", e), n.append("tokenV2", r));
-                    const o = { method: "post", mode: "cors", credentials: "omit", body: n };
-                    this._sendRequest(a, o)
-                        .then((e) => {
-                            const t = e.matches.some((e) => "PREMIUM_FAKE_RULE" === e.rule.id);
-                            s(t);
-                        })
-                        .catch((e) => {
-                            403 !== e.status ? i(e) : s(!1);
-                        });
-                });
-            });
-        });
+    static checkForPaidSubscription() {
     }
 }
 (Validator.NL_PREMIUM_RULES = [
