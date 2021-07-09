@@ -95,11 +95,7 @@
                 p.enabled || (c.classList.add("lt-popup__switch--off"), I(), O()),
                 v.isUsedCustomServer() && O(),
                 p.capitalization || l.classList.add("lt-popup__switch--off"),
-                g.hasSynonymsEnabled ? u.classList.remove("lt-popup__switch--off") : u.classList.add("lt-popup__switch--off"),
                 !b.hasSeenSynonymsTutorial && g.hasSynonymsEnabled && m.classList.remove("lt-popup__tutorial--hide"),
-                l.addEventListener("click", () => y()),
-                c.addEventListener("click", () => S()),
-                u.addEventListener("click", () => f()),
                 setTimeout(() => {
                     n.classList.add("lt-popup--animations-enabled");
                 }, 500),
@@ -159,8 +155,5 @@
         U = () => {
             v && m.classList.remove("lt-popup__tutorial--hide");
         };
-    g.addEventListener("click", () => {
-        v.updateUIState({ hasSeenSynonymsTutorial: !0 }), H();
-    }),
         BrowserDetector.isSafari() && (n.classList.add("lt-popup--safari"), (w.href = w.href + (w.href.includes("?") ? "&" : "?") + "hidePremium=true"));
 }
