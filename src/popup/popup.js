@@ -29,7 +29,8 @@
             browser.runtime.sendMessage({ command: "OPEN_URL", url: w.href }), e.preventDefault(), window.close();
         }),
         p.addEventListener("click", () => {
-            n.classList.remove("lt-popup--show-onboarding"), n.classList.remove("lt-popup--disabled"), v.updateUIState({ hasSeenOnboarding: !0 }), Tracker.trackEvent("Action", "popup:onboarding_banner:close");
+            Tracker.trackEvent("Action", "popup:onboarding_banner:close");
+            window.close();
         }),
         b.addEventListener("click", () => EnvironmentAdapter.openFeedbackForm(e));
     let v = StorageController.create();

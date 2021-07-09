@@ -1031,11 +1031,11 @@
    },
    "popupOnboardingHeadline": {
       "description": "Title shown on top of a list explaining how to use the LanguageTool addon",
-      "message": "Welcome! You can now use LanguageTool:"
+      "message": "Welcome! You can now get suggestions to make your online comments more inclusive:"
    },
    "popupOnboardingStep1": {
       "description": "List item explaining step by step how to use the LanguageTool addon",
-      "message": "Click in any multi-line text field (e.g. on Gmail, Facebook, …)"
+      "message": "Click in any multi-line text field (e.g. on Github, Azure DevOps …)"
    },
    "popupOnboardingStep2": {
       "description": "List item explaining step by step how to use the LanguageTool addon",
@@ -1053,7 +1053,7 @@
    },
    "popupOnboardingStep3": {
       "description": "List item explaining step by step how to use the LanguageTool addon",
-      "message": "Type some text. Writing issues will be \u003Cu>underlined\u003C/u>"
+      "message": "Type some text. Issues will be \u003Cu>underlined\u003C/u>"
    },
    "popupOnboardingStep4": {
       "description": "List item explaining step by step how to use the LanguageTool addon",
