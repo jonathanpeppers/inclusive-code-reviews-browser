@@ -443,28 +443,6 @@ class Validator {
                 });
         });
     }
-    static detectLanguage(e, t, r, s) {
-        return __awaiter(this, void 0, void 0, function* () {
-            if (((e = this._prepareText(e)), t || !e.trim() || /^( *\n)* *$/g.test(e))) return { language: t, errors: [], premiumErrors: [], pickyErrors: [], premiumPickyErrors: [] };
-            this._abortLanguageDetectionRequest(s.instanceId),
-                (this._languageDetectionAbortControllers[s.instanceId] = new AbortController()),
-                this._useLanguageDetectionFallbackServer && Date.now() - this._mainServerUnavailabilityTimeStamp >= config.MAIN_SERVER_RECHECK_INTERVAL && (this._useLanguageDetectionFallbackServer = !1);
-            const i = e.substr(0, 1e3).normalize(),
-                a = this._getServerFullUrl(s, !1),
-                n = { method: "post", mode: "cors", credentials: "omit", body: this._getValidationRequestData(i, t, r, s), signal: this._languageDetectionAbortControllers[s.instanceId].signal };
-            return this._sendRequest(a, n)
-                .then((e) => ({ language: { code: e.language.code, name: e.language.name }, errors: [], premiumErrors: [], premiumPickyErrors: [], pickyErrors: [] }))
-                .catch((i) => {
-                    if (this._isConnectionOrServerIssue(i)) {
-                        this._abortLanguageDetectionRequest(s.instanceId);
-                        const a = this.getServerBaseUrl(!1, !1);
-                        if (((i.message = i.message || i18nManager.getMessage("connectionProblem", a) + " (#1, code=" + i.status + ")"), !this._storageController.isUsedCustomServer() && !this._useLanguageDetectionFallbackServer))
-                            return (this._useLanguageDetectionFallbackServer = !0), (this._mainServerUnavailabilityTimeStamp = Date.now()), this.detectLanguage(e, t, r, s);
-                    }
-                    throw i;
-                });
-        });
-    }
     static checkForPaidSubscription() {
     }
 }
