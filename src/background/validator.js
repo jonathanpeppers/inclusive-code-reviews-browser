@@ -102,6 +102,36 @@ class Validator {
     }
     static _sendRequest(e, t, r = config.VALIDATION_REQUEST_TIMEOUT) {
         return __awaiter(this, void 0, void 0, function* () {
+            var matches = [];
+            if (t.body.get('mode') == 'textLevelOnly') {
+                var length = "terrible".length
+                var index = t.body.get('data').search(/terrible/gi);
+                if (index != -1) {
+                    matches = [
+                        {
+                            "message": "The word ‘terrible’ has a negative sentiment. Did you want to say something more constructive?",
+                            "shortMessage": "Negative word",
+                            "replacements": [{ "value": "terrible" }, { "value": "not the best" }, { "value": "terrible" }, { "value": "could be better" }],
+                            "offset": index - length - 1,
+                            "length": length,
+                            "type": { "typeName": "Other" },
+                            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": "misspelling", "category": { "id": "TYPOS", "name": "Negative word" } },
+                            "ignoreForIncompleteSentence": false,
+                            "contextForSureMatch": 7
+                        }
+                    ];
+                }
+            }
+
+            // Instead of sending requests, we fake responses here
+            var response = {
+                "language": { "name": "English (US)", "code": "en-US", "detectedLanguage": { "name": "English (US)", "code": "en-US", "confidence": 0.8 } },
+                "matches": matches
+            };
+
+            return Promise.resolve(response);
+
+            // We should never get here
             const s = fetch(e, t)
                     .catch((t) => {
                         throw "AbortError" === t.name
