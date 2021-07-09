@@ -153,7 +153,7 @@ class ExtensionStorageController extends StorageControllerClass {
     isUsedCustomServer() {
         return this._managedSettings && this._managedSettings.apiServerUrl
             ? this._managedSettings.apiServerUrl !== StorageControllerClass.DEFAULT_SETTINGS.apiServerUrl
-            : Boolean(this._settings && this._settings.apiServerUrl && this._settings.apiServerUrl.trim() && this._settings.apiServerUrl !== config.MAIN_SERVER_URL && this._settings.apiServerUrl !== config.PREMIUM_SERVER_URL);
+            : Boolean(this._settings && this._settings.apiServerUrl && this._settings.apiServerUrl.trim() && this._settings.apiServerUrl !== config.MAIN_SERVER_URL);
     }
     getCustomServerUrl() {
         return this.isUsedCustomServer() ? this._managedSettings.apiServerUrl || this._settings.apiServerUrl : null;

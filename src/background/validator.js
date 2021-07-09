@@ -36,18 +36,8 @@ class Validator {
         this._isInitialized || ((this._checkForException = this._checkForException.bind(Validator)), (this._isInitialized = !0));
     }
     static getServerBaseUrl(e = !1, t = !0) {
-        const { hasPaidSubscription: r } = this._storageController.getUIState(),
-            { apiServerUrl: s } = this._storageController.getSettings(),
-            i = t && (e ? this._usePartialValidationFallbackServer : this._useValidationFallbackServer) && !this._storageController.isUsedCustomServer();
-        return this._storageController.isUsedCustomServer()
-            ? this._storageController.getCustomServerUrl()
-            : r || s === config.PREMIUM_SERVER_URL
-            ? i
-                ? config.PREMIUM_FALLBACK_SERVER_URL
-                : config.PREMIUM_SERVER_URL
-            : i
-            ? config.MAIN_FALLBACK_SERVER_URL
-            : config.MAIN_SERVER_URL;
+        return this._storageController.isUsedCustomServer() ?
+            this._storageController.getCustomServerUrl() : config.MAIN_SERVER_URL
     }
     static _getServerFullUrl(e, t = !1, r = !1) {
         let s = this.getServerBaseUrl(t);
@@ -84,7 +74,7 @@ class Validator {
             { hasPaidSubscription: h } = this._storageController.getUIState(),
             A = { text: e };
         (s.recipientInfo.address || s.recipientInfo.fullName) && (A.metaData = { EmailToAddress: s.recipientInfo.address, FullName: s.recipientInfo.fullName }), i.append("data", JSON.stringify(A));
-        const g = h || _.startsWith(config.PREMIUM_SERVER_URL);
+        const g = h;
         g && a && n ? (i.append("username", a), i.append("password", n)) : g && a && o && (i.append("username", a), i.append("tokenV2", o)),
             i.append("textSessionId", s.instanceId),
             h || i.append("enableHiddenRules", "true"),

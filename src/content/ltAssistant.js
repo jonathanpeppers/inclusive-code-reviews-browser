@@ -812,7 +812,7 @@ class LTAssistant {
         this._options.motherTongue && this._storageController.updateSettings({ motherTongue: e.motherTongue }), this._options.preferredLanguages && this._storageController.updateSettings({ geoIpLanguages: e.preferredLanguages });
     }
     updateUser(e) {
-        this._storageController.updateSettings({ username: e.email, token: e.token, havePremiumAccount: !0, apiServerUrl: e.apiServerUrl || config.PREMIUM_SERVER_URL }),
+        this._storageController.updateSettings({ username: e.email, token: e.token, havePremiumAccount: !0, apiServerUrl: e.apiServerUrl || config.MAIN_SERVER_URL }),
             e.premium && this._storageController.updateUIState({ hasPaidSubscription: !0 });
     }
     setLocale(e) {
