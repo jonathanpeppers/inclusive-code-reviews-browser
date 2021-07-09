@@ -156,20 +156,6 @@ class ErrorCard {
                 this._eventListeners.push(addUseCaptureEvent(t, "click", this._onTemporarilyIgnoreRuleClick.bind(this))),
                 e.appendChild(t);
         }
-        if (this._uiOptions.showFooter) {
-            const t = this._document.createElement("lt-div");
-            t.classList.add("lt-card__footer"), e.appendChild(t);
-            const r = this._document.createElement("lt-div");
-            r.classList.add("lt-card__logo"), t.appendChild(r), this._eventListeners.push(addUseCaptureEvent(r, "click", this._onLogoClicked.bind(this)));
-            const i = this._document.createElement("lt-div");
-            i.classList.add("lt-card__badge-container"), t.appendChild(i);
-            const s = this._document.createElement("lt-div");
-            s.classList.add("lt-card__name"), (s.textContent = "LanguageTool"), i.appendChild(s);
-            const n = this._document.createElement("lt-div");
-            this._uiOptions.isPremiumAccount ? (n.classList.add("lt-card__badge--premium"), (n.textContent = config.PACKAGE.PREMIUM)) : (n.classList.add("lt-card__badge--basic"), (n.textContent = config.PACKAGE.BASIC)),
-                i.appendChild(n),
-                this._eventListeners.push(addUseCaptureEvent(i, "click", this._onBadgeClicked.bind(this)));
-        }
     }
     _onBadgeClicked(e) {
         e.stopImmediatePropagation();

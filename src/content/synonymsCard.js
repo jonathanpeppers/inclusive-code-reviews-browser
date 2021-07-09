@@ -10,7 +10,6 @@ class SynonymsCard {
             (this._language = s),
             (this._motherLanguage = i),
             (this._hasSubscription = a),
-            (this._showFooter = o),
             (this._tts = [n.word]),
             (this.selection = { start: n.position.start, end: n.position.end || n.position.start }),
             (this._referenceArea = t),
@@ -140,20 +139,9 @@ class SynonymsCard {
         }
     }
     _renderContent(t) {
-        if (((this._content = this._document.createElement("lt-div")), this._content.classList.add("lt-synonymscard__content"), this._setMessage(SynonymsCard.MESSAGES.LOADING), t.appendChild(this._content), this._showFooter)) {
-            const e = this._document.createElement("lt-div");
-            e.classList.add("lt-card__footer"), t.appendChild(e);
-            const n = this._document.createElement("lt-div");
-            n.classList.add("lt-card__logo"), e.appendChild(n), this._eventListeners.push(addUseCaptureEvent(n, "click", this._onLogoClicked.bind(this)));
-            const s = this._document.createElement("lt-div");
-            s.classList.add("lt-card__badge-container"), e.appendChild(s);
-            const i = this._document.createElement("lt-div");
-            i.classList.add("lt-card__name"), (i.textContent = "LanguageTool"), s.appendChild(i);
-            const a = this._document.createElement("lt-div");
-            this._hasSubscription ? (a.classList.add("lt-card__badge--premium"), (a.textContent = config.PACKAGE.PREMIUM)) : (a.classList.add("lt-card__badge--basic"), (a.textContent = config.PACKAGE.BASIC)),
-                s.appendChild(a),
-                this._eventListeners.push(addUseCaptureEvent(a, "click", this._onBadgeClicked.bind(this)));
-        }
+        this._content = this._document.createElement("lt-div");
+        this._content.classList.add("lt-synonymscard__content");
+        this._setMessage(SynonymsCard.MESSAGES.LOADING), t.appendChild(this._content);
     }
     _renderSynonyms(t) {
         if (!this._content) return;
