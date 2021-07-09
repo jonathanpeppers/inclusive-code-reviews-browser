@@ -66,12 +66,7 @@
         const { hasPaidSubscription: e } = se.getUIState();
         document.body.classList.toggle("lt-options--plus", e),
             (function () {
-                const { havePremiumAccount: e, username: t } = se.getSettings(),
-                    n = document.getElementById("lt-login"),
-                    o = document.getElementById("lt-account");
-                e
-                    ? ((n.style.display = "none"), (o.style.display = "block"), (A.style.display = "none"), translateElement("#account-text", { key: "settingsLoggedInAs", isHTML: !0, interpolations: [`<strong>${t}</strong>`] }))
-                    : ((n.style.display = "block"), (o.style.display = "none"), (A.style.display = "block"));
+                // do nothing
             })(),
             le();
     }
@@ -82,17 +77,12 @@
             d && ((k.style.display = "none"), (f.style.display = "none")),
             o && ((A.style.display = "none"), (e.style.display = "none")),
             c && ((e.style.display = "none"), (t.style.display = "none"), (n.style.display = "none"), (s.style.display = "none"), (i.style.display = ""), (l.style.display = ""));
-        const p = document.getElementById("managed-login-box"),
-            y = document.getElementById("managed-logout-box");
-        r
-            ? ((p.style.display = "none"), (y.style.display = "block"), translateElement("#managed-account-text", { key: "settingsLoggedInAs", isHTML: !0, interpolations: [`<strong>${u}</strong>`] }))
-            : ((p.style.display = "block"), (y.style.display = "none"));
     }
     function de() {
-        se && (u.classList.add("lt-toggle--checked"), se.updateSettings({ hasSynonymsEnabled: !0 }));
+        // do nothing
     }
     function ce() {
-        se && (u.classList.remove("lt-toggle--checked"), se.updateSettings({ hasSynonymsEnabled: !1 }));
+        // do nothing
     }
     function re(e = Dictionary.getSorted(), t = 0 === Dictionary.get().length) {
         p.innerHTML = "";
@@ -304,9 +294,6 @@
         }
     }
     translateSection(document.documentElement),
-        BrowserDetector.isSafari()
-            ? (document.getElementById("haveAccountDesc").style.display = "none")
-            : (document.getElementById("haveAccountDesc").innerHTML = i18nManager.getMessage("haveAccountDesc") + " <a target='_blank' href='https://languagetool.org'>LanguageTool.org</a>"),
         (document.getElementById("privacyPolicy").innerHTML = "<a target='_blank' href='https://languagetool.org/privacy/'>" + i18nManager.getMessage("privacyPolicy") + "</a>"),
         Array.from(document.querySelectorAll("[data-premium-link]")).forEach((e) => {
             e.addEventListener("click", (e) => {
@@ -352,81 +339,6 @@
         }),
         Dictionary.init(se),
         Tracker.trackPageView(),
-        o.addEventListener("click", (e) => {
-            e.preventDefault(),
-                (function () {
-                    const e = document.getElementById("login-success"),
-                        t = document.getElementById("login-error");
-                    se.updateSettings({ username: "", password: "", userId: null, token: "", isDictionarySynced: !1, havePremiumAccount: !1 })
-                        .then(() => {
-                            Tracker.trackEvent("Action", "logout"), (e.style.display = "block"), translateElement(e, "settingsLogoutSuccess");
-                        })
-                        .catch(() => {
-                            (t.style.display = "block"), translateElement(t, "settingsUnknownError");
-                        })
-                        .then(() => {
-                            se.checkForPaidSubscription().then(ie), browser.runtime.sendMessage({ command: "LOGOUT" });
-                        });
-                })();
-        }),
-        s.addEventListener("click", (e) => {
-            e.preventDefault(), window.open("https://languagetool.org/editor/settings/account", "_blank");
-        }),
-        d.addEventListener("click", (e) => {
-            e.preventDefault(),
-                (function () {
-                    const { loginUrl: e } = se.getManagedSettings();
-                    goToManagedLogin(
-                        e,
-                        (e, t) => (
-                            se.updatePrivacySettings({ allowRemoteCheck: !0 }),
-                            se
-                                .updateSettings({ username: e, password: "", token: t, knownEmail: e, havePremiumAccount: !0 })
-                                .then(() => (le(), se.checkForPaidSubscription()))
-                                .then(() => {
-                                    ie(), browser.runtime.sendMessage({ command: "START_DICTIONARY_SYNC" }), browser.runtime.sendMessage({ command: "LOGIN" });
-                                })
-                        )
-                    );
-                })();
-        }),
-        c.addEventListener("click", (e) => {
-            e.preventDefault(),
-                se.updateSettings({ username: "", password: "", userId: null, token: "", isDictionarySynced: !1, havePremiumAccount: !1 }).then(() => {
-                    le(), se.checkForPaidSubscription().then(ie), browser.runtime.sendMessage({ command: "LOGOUT" });
-                });
-        }),
-        a.addEventListener("click", (e) => {
-            e.preventDefault(),
-                (function () {
-                    const e = config.CLIENT_LOGIN_URL,
-                        t = document.getElementById("login-error"),
-                        n = document.getElementById("login-success");
-                    goToLogin(
-                        e,
-                        (e, o) => (
-                            se.updatePrivacySettings({ allowRemoteCheck: !0 }),
-                            se
-                                .updateSettings({ username: e, password: "", token: o, knownEmail: e, havePremiumAccount: !0, apiServerUrl: config.MAIN_SERVER_URL })
-                                .then(() => (Tracker.trackEvent("Action", "login", e), (n.style.display = "block"), translateElement(n, "settingsLoginSuccess"), le(), se.checkForPaidSubscription()))
-                                .then(() => {
-                                    ie(), EnvironmentAdapter.startDictionarySync();
-                                })
-                                .catch(() => {
-                                    Tracker.trackEvent("Action", "login_error", e), (t.style.display = "block"), translateElement(t, "settingsLoginError");
-                                })
-                                .then(() => {
-                                    browser.runtime.sendMessage({ command: "LOGIN" });
-                                })
-                        )
-                    );
-                })();
-        }),
-        u.addEventListener("click", () => {
-            u.classList.contains("lt-toggle--checked")
-                ? (ce(), Tracker.trackEvent("Action", "disable_synonyms", LanguageManager.getUserLanguageCodes()[0]))
-                : (de(), Tracker.trackEvent("Action", "enable_synonyms", LanguageManager.getUserLanguageCodes()[0]));
-        }),
         g.addEventListener("click", () => {
             m.classList.toggle("lt-options-visible"), g.classList.toggle("lt-options-toggle-visible") && y.focus();
         }),
