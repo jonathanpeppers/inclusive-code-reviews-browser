@@ -443,6 +443,11 @@ class Validator {
                 });
         });
     }
+    static detectLanguage(e, t, r, s) {
+        return __awaiter(this, void 0, void 0, function* () {
+            // do nothing
+        });
+    }
     static checkForPaidSubscription() {
     }
 }
