@@ -1,4 +1,4 @@
-# inclusive-online-comments
+# inclusive-code-comments
 
 A chrome web extension for improving online comments.
 
