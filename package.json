@@ -1,0 +1,50 @@
+{
+    "name": "inclusive-code-comments",
+    "description": "Checks your comments anywhere on the web: GitHub or Azure DevOps!",
+    "version": "0.1.0",
+    "homepage": "https://github.com/jonathanpeppers/inclusive-code-comments",
+    "author": "Jonathan Peppers",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jonathanpeppers/inclusive-code-comments"
+    },
+    "scripts": {
+        "start": "xt-build -e dev -w",
+        "start:firefox": "xt-build -e dev -p firefox -w",
+        "build": "xt-build -e prod",
+        "build:firefox": "xt-build -e prod -p firefox",
+        "clean": "xt-clean",
+        "docs": "xt-docs",
+        "test": "xt-test",
+        "sync": "xt-sync"
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env"
+        ]
+    },
+    "eslintIgnore": [
+        "test/**/*"
+    ],
+    "devDependencies": {
+        "extension-cli": "latest"
+    },
+    "xtdocs": {
+        "source": {
+            "include": [
+                "src"
+            ]
+        },
+        "templates": {
+            "systemName": "inclusive-code-comments",
+            "systemSummary": "Checks your comments anywhere on the web: GitHub or Azure DevOps!",
+            "systemColor": "#4CAF50"
+        }
+    },
+    "xtbuild": {
+        "js_bundles": [ ],
+        "copyAsIs": [
+            "./src/**/*"
+        ]
+    }
+}

@@ -2,11 +2,23 @@
 
 A chrome web extension for improving online comments.
 
+This is built using the `extension-cli` module:
+
+https://www.npmjs.com/package/extension-cli
+
+To build:
+
+    npx xt-build
+
+To run tests:
+
+    npx xt-test
+
 To install in Edge:
 
 1. Navigate to `edge://extensions/`
 1. Enable the `Developer Mode` toggle in the bottom left
-1. Click `Load Unpacked` and select the `src` folder in this repo
+1. Click `Load Unpacked` and select the `dist` folder that was produced by `xt-build`
 
 ## Attribution
 
