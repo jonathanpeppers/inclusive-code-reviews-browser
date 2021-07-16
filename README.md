@@ -14,11 +14,26 @@ To run tests:
 
     npx xt-test
 
+For the tests to work, create a file named `.apikey` in the root of
+the repo with a valid key.
+
 To install in Edge:
 
 1. Navigate to `edge://extensions/`
 1. Enable the `Developer Mode` toggle in the bottom left
 1. Click `Load Unpacked` and select the `dist` folder that was produced by `xt-build`
+
+## Links & Docs
+
+Extension CLI
+
+* https://www.npmjs.com/package/extension-cli
+
+Azure Text Analytics
+
+* https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/overview
+* https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0
+* https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment/console
 
 ## Attribution
 

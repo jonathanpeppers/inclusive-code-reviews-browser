@@ -77,3 +77,6 @@ typings/
 
 # Build output
 dist/
+
+# API keys we don't commit
+.apikey
