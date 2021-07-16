@@ -42,9 +42,12 @@
         }
     },
     "xtbuild": {
-        "js_bundles": [ ],
+        "js_bundles": [],
         "copyAsIs": [
             "./src/**/*"
         ]
+    },
+    "dependencies": {
+        "@azure/ai-text-analytics": "^5.1.0"
     }
 }
