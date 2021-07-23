@@ -748,21 +748,6 @@ const getColorLuminosity = (function () {
         return 100;
     };
 })();
-function getHistoricPremiumErrors(t) {
-    let e = 0;
-    const n = Date.now();
-    let o = 0;
-    for (const r of t.hiddenErrors) {
-        const t = +new Date(r.day);
-        if (n - t > 864e6) break;
-        if (((o = t), (e += r.count) > 300)) {
-            e = 300;
-            break;
-        }
-    }
-    let r = String(e);
-    return e >= 300 && (r = "300+"), { hiddenErrorsCount: e, hiddenErrorsCountStr: r, dayCount: Math.ceil((n - o) / 1e3 / 60 / 60 / 24) };
-}
 function isTinyMCE(t) {
     return t.classList.contains("mce-content-body") || t.classList.contains("mceContentBody");
 }

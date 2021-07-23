@@ -53,5 +53,5 @@
    },
    "update_url": "https://clients2.google.com/service/update2/crx",
    "version": "0.1.0",
-   "web_accessible_resources": [ "assets/fonts/*.woff2", "assets/styles/*", "common/*.css", "common/*.js", "content/*.css", "content/*.js", "config/*.js", "privacyConfirmationDialog/*.js", "privacyConfirmationDialog/managedLoginRedirectUri.html", "privacyConfirmationDialog/loginRedirectUri.html", "content/iframes/rating/*.html", "content/iframes/premiumErrors/*.html", "content/iframes/historicPremiumErrors/*.html", "assets/images/*" ]
+   "web_accessible_resources": [ "assets/fonts/*.woff2", "assets/styles/*", "common/*.css", "common/*.js", "content/*.css", "content/*.js", "config/*.js", "privacyConfirmationDialog/*.js", "privacyConfirmationDialog/managedLoginRedirectUri.html", "privacyConfirmationDialog/loginRedirectUri.html", "content/iframes/rating/*.html", "content/iframes/premiumErrors/*.html", "assets/images/*" ]
 }

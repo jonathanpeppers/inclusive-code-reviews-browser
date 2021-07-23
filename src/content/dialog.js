@@ -635,8 +635,7 @@ class Dialog {
             (EnvironmentAdapter.isRuntimeConnected() &&
                 StorageController.create().onReady((e) => {
                     if (e.getUIState().hasPaidSubscription) return;
-                    const t = e.getStatistics(),
-                        o = getHistoricPremiumErrors(t);
+                    const t = e.getStatistics();
                     e.startChangelogCoupon();
                     const n = e.getActiveCoupon();
                     if (this._state.premiumErrors.length) {
@@ -653,12 +652,6 @@ class Dialog {
                             hiddenPunctuationMatches: t,
                             textLanguage: this._languageCode || void 0,
                         });
-                    } else if (o.hiddenErrorsCount > 5) {
-                        const e = "dialog:historic_premium_teaser",
-                            t = browser.i18n.getMessage("historicPremiumErrorsHeadline"),
-                            n = browser.i18n.getMessage("historicPremiumErrorsText2", [o.hiddenErrorsCount, o.dayCount]),
-                            i = browser.i18n.getMessage("historicPremiumErrorsButton");
-                        this._premiumTeaser = new PremiumTeaser(this._controls.contentBottom, e, t, n, i, { campaign: "addon2-dialog-historic-premium-errors", historicMatches: o.hiddenErrorsCountStr });
                     } else if (n) {
                         const e = "dialog:premium_teaser";
                         this._premiumTeaser = new PremiumTeaser(this._controls.contentBottom, e, null, null, null, { campaign: "addon2-dialog" });

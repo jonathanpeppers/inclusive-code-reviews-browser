@@ -823,34 +823,6 @@
       "description": "Options dialog: checkbox for account access",
       "message": "Create a free account at"
    },
-   "historicPremiumErrorsButton": {
-      "description": "Button for new premium teaser, that shows how many grammar issues the user could have avoided with the Premium version.",
-      "message": "Learn more"
-   },
-   "historicPremiumErrorsHeadline": {
-      "description": "Introduction headline for premium teaser",
-      "message": "Did you know?"
-   },
-   "historicPremiumErrorsText": {
-      "description": "Text for new premium teaser, that shows how many grammar issues the user could have avoided with the Premium version.",
-      "message": "You could have avoided \u003Cstrong>$count$ grammar & style issues\u003C/strong> in the last days with LanguageTool Premium.",
-      "placeholders": {
-         "count": {
-            "content": "$1",
-            "example": "9"
-         }
-      }
-   },
-   "historicPremiumErrorsText2": {
-      "description": "Text for new premium teaser, that shows how many grammar issues the user could have avoided with the Premium version. Important: The count needs to be at the beginning of the sentence!",
-      "message": "\u003Cstrong>$count$ grammar and style issues\u003C/strong> could have been avoided in the last days with LanguageTool Premium.",
-      "placeholders": {
-         "count": {
-            "content": "$1",
-            "example": "9"
-         }
-      }
-   },
    "ignoreDomainsCheckDesc": {
       "description": "Options dialog: text for the textarea with the domains's where the check text won't run automatically in background",
       "message": "Don't auto-check on these domains:"

@@ -53,21 +53,7 @@
                 n.classList.add("lt-popup--show-onboarding"), n.classList.add("lt-popup--disabled"), Tracker.trackEvent("Action", "popup:onboarding_banner", t);
             else if (p.supported && !v.isUsedCustomServer())
                 if (!b.hasPaidSubscription && ("like" === d.ratingValue || d.appliedSuggestions > 7 || L > 432e5)) {
-                    const e = getHistoricPremiumErrors(d);
-                    if (e.hiddenErrorsCount > 5) {
-                        const t = "popup:historic_premium_teaser",
-                            s = browser.i18n.getMessage("historicPremiumErrorsHeadline"),
-                            o = browser.i18n.getMessage("historicPremiumErrorsText2", [e.hiddenErrorsCount, e.dayCount]),
-                            n = browser.i18n.getMessage("historicPremiumErrorsButton");
-                        E.classList.remove("lt-popup__teaser--hide"), new PremiumTeaser(E, t, s, o, n, { campaign: "addon2-popup-historic-premium-errors", historicMatches: e.hiddenErrorsCountStr });
-                    } else {
-                        const e = "popup:premium_teaser",
-                            t = browser.i18n.getMessage("popupPremiumHeadline"),
-                            s = browser.i18n.getMessage("popupPremiumText"),
-                            o = browser.i18n.getMessage("popupPremiumLink");
-                        E.classList.remove("lt-popup__teaser--hide"), new PremiumTeaser(E, e, t, s, o, { campaign: "addon2-popup" });
-                    }
-                    Tracker.trackEvent("Action", "popup:upgrade_teaser", `hidden_errors:${e.hiddenErrorsCountStr}`);
+                    // do nothing
                 } else b.hasRated || BrowserDetector.isSafari() || (E.classList.remove("lt-popup__teaser--hide"), new RatingTeaser(E, "popup", e).render());
             b.hasPaidSubscription && n.classList.add("lt-popup--plus"),
                 v.hasLanguageToolAccount() &&
