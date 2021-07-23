@@ -153,32 +153,6 @@ class BackgroundApp {
     static _onDataLoaded() {
         Tracker.trackActivity(), this._applyManagedSettings(), this._setContextMenu();
     }
-    static _checkForChangelogPage() {
-        const e = this._storageController.isRelevantForChangelogCoupon();
-        if (!e.status) return void Tracker.trackEvent("Action", "changelog:dont_open_page", String(e.reason));
-        const { lastChangelog2021Seen: t } = this._storageController.getUIState();
-        if (t) return void Tracker.trackEvent("Action", "changelog:dont_open_page", "already_seen");
-        const a = navigator.userAgent.includes("Macintosh;"),
-            { isGoogleSlidesUser: s, isOverleafUser: o } = this._storageController.getStatistics();
-        a || o || s
-            ? this._storageController.updateUIState({ lastChangelog2021Seen: Date.now() }).then(() => {
-                  this._openChangelogPage();
-              })
-            : Tracker.trackEvent("Action", "changelog:dont_open_page", "99");
-    }
-    static _openChangelogPage() {
-        const e = browser.runtime.getURL("/changelog/changelog.html");
-        browser.windows.getAll({ windowTypes: ["normal"] }).then(
-            (t) => {
-                Tracker.trackEvent("Action", "changelog:open_page", t.length ? "existing-window" : "empty-window");
-                const a = (t || []).find((e) => e.focused && "normal" === e.type);
-                a ? browser.tabs.create({ windowId: a.id, active: !1, url: e }) : browser.tabs.create({ active: !1, url: e });
-            },
-            () => {
-                Tracker.trackError("other", "changelog:get_window_error");
-            }
-        );
-    }
     static _applyManagedSettings() {
         const { disablePrivacyConfirmation: e } = this._storageController.getManagedSettings();
         !0 === e && this._storageController.updatePrivacySettings({ allowRemoteCheck: !0 });
@@ -263,11 +237,6 @@ class BackgroundApp {
                             }),
                         Tracker.trackInstall();
                 }
-            } else if ("update" === t) {
-                this._assignToTestGroups(), this._migrate(), this._checkForChangelogPage();
-                const e = browser.runtime.getManifest(),
-                    t = (e && e.version) || "unknown";
-                a !== t && Tracker.trackEvent("Action", "update", String(t));
             }
         });
     }
