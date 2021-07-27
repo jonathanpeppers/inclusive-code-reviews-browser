@@ -613,14 +613,6 @@ class Dialog {
         }
         this._controls.contentMain.appendChild(e), this._eventListeners.push(addUseCaptureEvent(e, "click", this._onIgnoredErrorsClick.bind(this)));
     }
-    _renderRatingTeaser() {
-        let e = EnvironmentAdapter.getURL("/content/iframes/rating/rating.html");
-        (e += `?componentName=dialog&url=${encodeURIComponent(getCurrentUrl().substr(0, 150))}`),
-            (this._controls.teaserElement = this._document.createElement("iframe")),
-            (this._controls.teaserElement.src = e),
-            (this._controls.teaserElement.className = "lt-dialog-iframe lt-dialog-rating-iframe"),
-            this._controls.contentMain.after(this._controls.teaserElement);
-    }
     _renderPremiumState() {
         const e = this._document.createElement("lt-div");
         e.className = "lt-dialog__text-wrapper";
