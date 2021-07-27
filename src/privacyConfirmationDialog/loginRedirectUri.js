@@ -1,1 +1,0 @@
-!function(){const o=location.href.match(/email=(.+?)(&|$|#)/),e=location.href.match(/token=(.+?)(&|$|#)/);if(o&&e){const t=decodeURIComponent(o[1]),n=decodeURIComponent(e[1]),c=JSON.stringify([t,n]);try{browser.storage.local.set({loginCredentials:c})}catch(o){}}setTimeout(()=>{window.close()},200)}();
