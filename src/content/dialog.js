@@ -51,7 +51,7 @@ class Dialog {
             this._eventListeners.push(addUseCaptureEvent(document, "keydown", this._onKeydown.bind(this))),
             (this._inApplyFixMode = !1),
             (this._inInsignificantChangeMode = !0),
-            (this._shouldShowTeaser = !n.premiumErrors.length && !this._controls.teaserElement && !this._uiOptions.disableRatingTeaser && EnvironmentAdapter.isRuntimeConnected() && 0 === Math.floor(2 * Math.random()));
+            (this._shouldShowTeaser = false);
     }
     _render() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -361,10 +361,6 @@ class Dialog {
                 ? (this._renderHeadline(), this._renderCompletedState())
                 : e === VALIDATION_STATUS.DISABLED
                 ? this._renderDisabledState()
-                : e === VALIDATION_STATUS.TEXT_TOO_SHORT
-                ? (this._renderHeadline(), this._renderTextTooShortState(), this._renderPremiumErrorsTeaser())
-                : e === VALIDATION_STATUS.TEXT_TOO_LONG
-                ? (this._renderHeadline(), this._renderTextTooLongState(), this._renderDiscountTimerTeaser())
                 : e === VALIDATION_STATUS.UNSUPPORTED_LANGUAGE
                 ? (this._renderHeadline(), this._renderLanguageUnsupportedState())
                 : e === VALIDATION_STATUS.DISCONNECTED
@@ -460,7 +456,6 @@ class Dialog {
     }
     _renderErrors() {
         this._controls.content.classList.add("lt-dialog__has-errors"),
-            this._state.premiumErrors && this._state.premiumErrors.length && this._renderPremiumErrorsTeaser(),
             this._state.displayedErrors.forEach((e) => {
                 const t = this._document.createElement("lt-div");
                 t.className = "lt-dialog__error-item";
@@ -571,8 +566,6 @@ class Dialog {
             e.appendChild(t),
             e.appendChild(o),
             this._controls.contentMain.appendChild(e);
-            // Removed rating teaser
-            //this._shouldShowTeaser ? this._renderRatingTeaser() : this._renderPremiumErrorsTeaser();
     }
     _renderTextTooShortState() {
         this._removeTeaser();
@@ -594,8 +587,6 @@ class Dialog {
             e.appendChild(t),
             e.appendChild(o),
             this._controls.contentMain.appendChild(e);
-            // Removed rating teaser
-            //this._shouldShowTeaser ? this._renderRatingTeaser() : this._renderPremiumErrorsTeaser();
     }
     _renderIgnoredErrorsStats() {
         if (!this._state.ignoredErrorsStats) return;
@@ -630,50 +621,9 @@ class Dialog {
             (this._controls.teaserElement.className = "lt-dialog-iframe lt-dialog-rating-iframe"),
             this._controls.contentMain.after(this._controls.teaserElement);
     }
-    _renderPremiumErrorsTeaser() {
-        this._controls.teaserElement ||
-            (EnvironmentAdapter.isRuntimeConnected() &&
-                StorageController.create().onReady((e) => {
-                    if (e.getUIState().hasPaidSubscription) return;
-                    const t = e.getStatistics();
-                    e.startChangelogCoupon();
-                    const n = e.getActiveCoupon();
-                    if (this._state.premiumErrors.length) {
-                        const e = this._state.premiumErrors.filter((e) => !e.isStyleError && !e.isPunctuationError).length,
-                            t = this._state.premiumErrors.filter((e) => e.isPunctuationError).length,
-                            o = this._state.premiumErrors.filter((e) => e.isStyleError).length,
-                            n = "dialog:premium_teaser",
-                            i = 1 === e + t + o ? i18nManager.getMessage("premiumErrorsTextSingular") : i18nManager.getMessage("premiumErrorsTextPlural", [this._state.premiumErrors.length]),
-                            s = i18nManager.getMessage("premiumErrorsButton");
-                        this._premiumTeaser = new PremiumTeaser(this._controls.contentTop, n, null, i, s, {
-                            campaign: "addon2-dialog-premium-errors",
-                            hiddenGrammarMatches: e,
-                            hiddenStyleMatches: o,
-                            hiddenPunctuationMatches: t,
-                            textLanguage: this._languageCode || void 0,
-                        });
-                    } else if (n) {
-                        const e = "dialog:premium_teaser";
-                        this._premiumTeaser = new PremiumTeaser(this._controls.contentBottom, e, null, null, null, { campaign: "addon2-dialog" });
-                    }
-                    e.destroy();
-                }));
-    }
-    _renderDiscountTimerTeaser() {
-        StorageController.create().onReady((e) => {
-            if ((e.startChangelogCoupon(), e.getActiveCoupon())) {
-                const e = "dialog:premium_teaser";
-                this._premiumTeaser = new PremiumTeaser(this._controls.contentBottom, e, null, null, null, { campaign: "addon2-dialog-premium" });
-            }
-            e.destroy();
-        });
-    }
     _renderPremiumState() {
         const e = this._document.createElement("lt-div");
         e.className = "lt-dialog__text-wrapper";
-        const t = this._document.createElement("lt-div");
-        (t.className = "lt-dialog__premium__headline"),
-            (t.textContent = 1 === this._state.premiumErrors.length ? i18nManager.getMessage("dialogPremiumHeadlineSingular") : i18nManager.getMessage("dialogPremiumHeadlinePlural", [this._state.premiumErrors.length]));
         const o = this._document.createElement("lt-div");
         (o.className = "lt-dialog__premium__text"), (o.textContent = i18nManager.getMessage("dialogPremiumText"));
         const n = this._document.createElement("lt-div");
@@ -694,9 +644,7 @@ class Dialog {
             e.appendChild(n),
             this._controls.contentMain.appendChild(e),
             StorageController.create().onReady((e) => {
-                e.startChangelogCoupon(),
-                    e.getActiveCoupon() && ((r = r.replace("addon2", "addon2-changelog")), (this._premiumTeaser = new PremiumTeaser(this._controls.contentBottom, "dialog:premium_teaser", null, null, null, { campaign: r }))),
-                    e.destroy();
+                e.destroy();
             });
     }
     _renderDisabledState() {

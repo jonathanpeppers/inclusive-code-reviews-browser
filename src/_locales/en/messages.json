@@ -1079,24 +1079,6 @@
       "description": "Hint that explains who the author of this add-on is",
       "message": "Powered by \u003Cb>LanguageTool\u003C/b>"
    },
-   "premiumErrorsButton": {
-      "description": "Button shown in premium teaser that sends the user to the pricing table. Button text should be as short as possible",
-      "message": "Learn more"
-   },
-   "premiumErrorsTextPlural": {
-      "description": "Hint shown in a premium teaser, telling the user that there are more issues that only the premium version found",
-      "message": "Your text contains \u003Cstrong>$count$ advanced writing issues\u003C/strong>",
-      "placeholders": {
-         "count": {
-            "content": "$1",
-            "example": "7"
-         }
-      }
-   },
-   "premiumErrorsTextSingular": {
-      "description": "Hint shown in a premium teaser, telling the user that there are more issues that only the premium version found",
-      "message": "Your text contains \u003Cstrong>one advanced writing issue\u003C/strong>"
-   },
    "privacyLinkForDefaultServer": {
       "description": "Link to privacy policy",
       "message": "For details, see \u003Ca href='$privacyUrl$' target='_blank'>our privacy policy\u003C/a>",
@@ -1650,28 +1632,6 @@
    "validatorHasMistakesText": {
       "description": "Text displayed on top of text when the text contains spelling, punctuation or grammar errors",
       "message": "Click on the highlighted words to correct them."
-   },
-   "validatorHasPremiumErrorsButton": {
-      "description": "Button that sends the user to the upgrade/pricing page",
-      "message": "Learn more"
-   },
-   "validatorHasPremiumErrorsHeadlinePlural": {
-      "description": "Text shown when the text contains writing issues that are only found in the premium version",
-      "message": "Your text contains $count$ advanced writing issues",
-      "placeholders": {
-         "count": {
-            "content": "$1",
-            "example": "7"
-         }
-      }
-   },
-   "validatorHasPremiumErrorsHeadlineSingular": {
-      "description": "Text shown when the text contains writing issues that are only found in the premium version",
-      "message": "Your text contains one advanced writing issue"
-   },
-   "validatorHasPremiumErrorsText": {
-      "description": "Text shown when the text contains writing issues that are only found in the premium version",
-      "message": "Upgrade to LanguageTool Premium to find many more grammar, style and punctuation mistakes"
    },
    "validatorLoadingHint": {
       "description": "Loading status, shown when text is currently being checked",

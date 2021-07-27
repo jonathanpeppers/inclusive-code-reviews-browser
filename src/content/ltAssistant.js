@@ -485,9 +485,7 @@ class LTAssistant {
             }),
             (this._onBadgeClicked = () => {
                 this._hideAllErrorCards(), this._hideAllSynonymsCards();
-                let e = !1;
-                this._options.onPremiumTeaserClick && (e = this._options.onPremiumTeaserClick()),
-                    e || EnvironmentAdapter.openOptionsPage(void 0, "errorcard"),
+                EnvironmentAdapter.openOptionsPage(void 0, "errorcard"),
                     Tracker.trackEvent("Action", "check_trigger:badge:clicked", String(`premium:${this._storageController.getUIState().hasPaidSubscription}`));
             }),
             (this._onLogoClicked = () => {
