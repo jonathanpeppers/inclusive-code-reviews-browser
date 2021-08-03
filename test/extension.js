@@ -1,11 +1,7 @@
+const { api_key } = require("../src/packed/secrets");
 import regeneratorRuntime from "regenerator-runtime";
 
 describe('Test extension', () => {
-
-    const fs = require('fs');
-
-    //NOTE: create this file in the root of the repo, we don't commit it to the repo
-    const api_key = fs.readFileSync('.apikey', 'utf8');
     const server_url = "https://westus.api.cognitive.microsoft.com/";
     const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
     const client = new TextAnalyticsClient(server_url, new AzureKeyCredential(api_key));

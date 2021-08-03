@@ -1,7 +1,7 @@
 import regeneratorRuntime from "regenerator-runtime";
 
 describe('Test extension', () => {
-    const client = require('../src/validator/textAnalytics');
+    const client = require('../src/packed/textAnalytics');
 
     it('Negative sentiment', async () => {
         const result = await client.analyzeSentiment("This is terrible!");

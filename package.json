@@ -42,7 +42,12 @@
         }
     },
     "xtbuild": {
-        "js_bundles": [],
+        "js_bundles": [
+            {
+                "name": "packed",
+                "src": "./src/packed/*.js"
+            }
+        ],
         "copyAsIs": [
             "./src/**/*"
         ]

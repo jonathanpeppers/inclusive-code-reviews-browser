@@ -6,6 +6,10 @@ This is built using the `extension-cli` module:
 
 https://www.npmjs.com/package/extension-cli
 
+To setup your API key, create a `src/packed/secrets.js` file with:
+
+    export const api_key = "<put the real key here>";
+
 To build:
 
     npx xt-build
@@ -21,7 +25,9 @@ To install in Edge:
 
 1. Navigate to `edge://extensions/`
 1. Enable the `Developer Mode` toggle in the bottom left
-1. Click `Load Unpacked` and select the `dist` folder that was produced by `xt-build`
+1. Drag the `release.zip` file produced by the build into Edge.
+
+Instructions should be similar for Google Chrome.
 
 ## Links & Docs
 
