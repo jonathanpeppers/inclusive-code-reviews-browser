@@ -5,6 +5,6 @@ describe('Test extension', () => {
 
     it('Negative sentiment', async () => {
         const result = await client.analyzeSentiment("This is terrible!");
-        expect(result).to.be.equal("negative");
+        expect(result.sentences[0].sentiment).to.be.equal("negative");
     });
 });
