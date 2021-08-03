@@ -1,6 +1,5 @@
 const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
-const fs = require('fs');
-const api_key = fs.readFileSync('.apikey', 'utf8');
+const api_key = 'not a key';
 const server_url = "https://westus.api.cognitive.microsoft.com/";
 const client = new TextAnalyticsClient(server_url, new AzureKeyCredential(api_key));
 

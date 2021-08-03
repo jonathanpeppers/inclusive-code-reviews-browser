@@ -1,4 +1,5 @@
 /*! (C) Copyright 2020 LanguageTooler GmbH. All rights reserved. */
+import { StorageController } from "../common/storageController";
 !(function () {
     const e = document.getElementById("banner"),
         t = document.getElementById("login"),

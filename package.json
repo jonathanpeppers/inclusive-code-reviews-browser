@@ -42,9 +42,16 @@
         }
     },
     "xtbuild": {
-        "js_bundles": [],
+        "js_bundles": [
+            {
+                "name": "background",
+                "src": "./src/**/*.js"
+            }
+        ],
         "copyAsIs": [
-            "./src/**/*"
+            "./src/**/*.css",
+            "./src/**/*.html",
+            "./src/managed_settings.json"
         ]
     },
     "dependencies": {

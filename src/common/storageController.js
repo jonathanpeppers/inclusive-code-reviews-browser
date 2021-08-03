@@ -1,4 +1,8 @@
 /*! (C) Copyright 2020 LanguageTooler GmbH. All rights reserved. */
+import { config } from "../config/config";
+import { LanguageManager } from "../common/languageManager"
+import { ExtensionStorageController } from "../common/extensionStorageController";
+import { EventBus } from "../common/eventBus";
 class StorageControllerClass {
     constructor(e) {
         (this._eventBus = new EventBus()), (this._onReadyCallbacks = []), e && this._onReadyCallbacks.push(e);
@@ -198,10 +202,8 @@ class StorageControllerClass {
     }),
     (StorageControllerClass.DEFAULT_TEST_FLAGS = {});
 class StorageController {
-    static init(e) {
-        this._instanceFactory = e;
-    }
     static create() {
-        return this._instanceFactory();
+        return new ExtensionStorageController();
     }
 }
+export { StorageController, StorageControllerClass }

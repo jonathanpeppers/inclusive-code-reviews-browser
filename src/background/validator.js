@@ -1,4 +1,6 @@
 /*! (C) Copyright 2020 LanguageTooler GmbH. All rights reserved. */
+import { StorageController } from "../common/storageController";
+
 var __awaiter =
     (this && this.__awaiter) ||
     function (e, t, r, s) {

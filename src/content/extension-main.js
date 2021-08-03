@@ -38,3 +38,7 @@ function onDestroyMessage(e, t) {
     } catch (e) {}
 }
 window.ltAssistant || (initLTAssistant(), browser.runtime.onMessage.addListener(onMessage));
+
+module.exports = {
+    devtool: '#source-maps'
+}

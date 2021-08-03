@@ -21,7 +21,9 @@ To install in Edge:
 
 1. Navigate to `edge://extensions/`
 1. Enable the `Developer Mode` toggle in the bottom left
-1. Click `Load Unpacked` and select the `dist` folder that was produced by `xt-build`
+1. Drag the `release.zip` file produced by the build into Edge.
+
+Instructions should be similar for Google Chrome.
 
 ## Links & Docs
 

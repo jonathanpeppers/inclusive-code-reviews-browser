@@ -1,3 +1,5 @@
+import { StorageController } from "../common/storageController";
+
 var __awaiter =
     (this && this.__awaiter) ||
     function (e, t, a, s) {

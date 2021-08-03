@@ -1,31 +1,26 @@
 {
    "author": "Jonathan Peppers, LanguageTooler GmbH",
    "background": {
-      "scripts": [ "common/browser-polyfill.min.js", "config/config.js", "common/browserDetector.js", "common/utils.js", "common/eventBus.js", "common/messages.js", "common/i18nManager.js", "common/extensioni18nManager.js", "common/languageManager.js", "common/storageController.js", "common/extensionStorageController.js", "common/environmentAdapter.js", "common/extensionEnvironmentAdapter.js", "common/extension-init.js", "common/tracker.js", "background/graphemeSplitter.js", "background/validator.js", "background/dictionarySync.js", "background/synonyms.js", "background/extension-main.js" ]
+      "scripts": [ "background.js" ]
    },
    "browser_action": {
       "default_icon": "assets/images/icons/icon16.png",
-      "default_popup": "popup/popup.html",
+      "default_popup": "popup.html",
       "default_title": "Inclusive Code Comments"
    },
    "content_scripts": [ {
       "all_frames": true,
-      "js": [ "common/browser-polyfill.min.js", "common/sbd.js", "common/textStatistics.js", "common/calculateTextScore.js", "common/smoothscroll.js", "config/config.js", "common/browserDetector.js", "common/textToSpeech.js", "common/utils.js", "common/eventBus.js", "common/messages.js", "common/stringMap.js", "common/mutationObserversHub.js", "common/domMeasurement.js", "common/i18nManager.js", "common/extensioni18nManager.js", "common/languageManager.js", "common/storageController.js", "common/extensionStorageController.js", "common/environmentAdapter.js", "common/extensionEnvironmentAdapter.js", "common/extension-init.js", "common/localStorageWrapper.js", "common/tracker.js", "common/googleDocs.js", "common/googleSlides.js", "common/latexParser.js", "common/overleaf.js", "common/dictionary.js", "common/tweaksManager.js", "content/debounce.js", "content/domWalker.js", "content/validationStatus.js", "content/ceElementInspector.js", "content/inputAreaWrapper.js", "content/mirror.js", "content/highlighter.js", "content/toolbar.js", "content/dialog.js", "content/errorCard.js", "content/synonymsCard.js", "content/ltAssistant.js", "content/extension-main.js", "privacyConfirmationDialog/privacyConfirmationDialog.js", "components/select/select.js", "components/icon/icon.js", "components/menu/menu.js", "components/score/score.js", "components/toggle/toggle.js", "components/hint/hint.js", "components/messagePopup/messagePopup.js" ],
+      "js": [ "background.js" ],
       "match_about_blank": true,
       "matches": [ "\u003Call_urls>" ],
       "run_at": "document_end"
    }, {
       "all_frames": true,
-      "css": [ "common/fonts.css", "content/styles/styles.css" ],
+      "css": [ "fonts.css", "styles.css" ],
       "match_about_blank": true,
       "matches": [ "\u003Call_urls>" ],
       "run_at": "document_end"
-   }, {
-      "all_frames": false,
-      "js": [ "content/gdocs/injector.js" ],
-      "matches": [ "*://docs.google.com/document/*" ],
-      "run_at": "document_start"
-   } ],
+   }],
    "default_locale": "en",
    "description": "__MSG_appDesc__",
    "homepage_url": "https://github.com/jonathanpeppers/inclusive-code-comments",
@@ -44,7 +39,7 @@
    "options_ui": {
       "chrome_style": false,
       "open_in_tab": true,
-      "page": "options/options.html"
+      "page": "options.html"
    },
    "permissions": [ "activeTab", "storage", "contextMenus" ],
    "short_name": "Inclusive Code Comments",
@@ -53,5 +48,5 @@
    },
    "update_url": "https://clients2.google.com/service/update2/crx",
    "version": "0.1.0",
-   "web_accessible_resources": [ "assets/fonts/*.woff2", "assets/styles/*", "common/*.css", "common/*.js", "content/*.css", "content/*.js", "config/*.js", "privacyConfirmationDialog/*.js", "assets/images/*" ]
+   "web_accessible_resources": [ "assets/fonts/*.woff2", "assets/styles/*", "*.css", "assets/images/*" ]
 }

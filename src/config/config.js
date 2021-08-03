@@ -41,3 +41,4 @@ const config = {
     COUPON_INTERVAL: 5184e6,
     PACKAGE: { BASIC: "Basic", PREMIUM: "Premium" },
 };
+export { config }

@@ -1,4 +1,5 @@
 /*! (C) Copyright 2020 LanguageTooler GmbH. All rights reserved. */
+import { StorageControllerClass } from "./storageController";
 class ExtensionStorageController extends StorageControllerClass {
     constructor() {
         super(),
@@ -252,3 +253,4 @@ class ExtensionStorageController extends StorageControllerClass {
         } catch (t) {}
     }
 }
+export { ExtensionStorageController }

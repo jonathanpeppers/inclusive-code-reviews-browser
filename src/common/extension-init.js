@@ -1,2 +1,3 @@
 /*! (C) Copyright 2020 LanguageTooler GmbH. All rights reserved. */
-i18nManager.init(new Extensioni18nManager),StorageController.init(()=>new ExtensionStorageController),EnvironmentAdapter.init(new ExtensionEnvironmentAdapter);
+import { Extensioni18nManager } from "../common/extensioni18nManager";
+i18nManager.init(new Extensioni18nManager),EnvironmentAdapter.init(new ExtensionEnvironmentAdapter);
