@@ -18,9 +18,6 @@ To run tests:
 
     npx xt-test
 
-For the tests to work, create a file named `.apikey` in the root of
-the repo with a valid key.
-
 To install in Edge:
 
 1. Navigate to `edge://extensions/`
