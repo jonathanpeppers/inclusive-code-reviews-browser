@@ -108,8 +108,11 @@ class Validator {
             var text = JSON.parse(t.body.get('data')).text;
             const result = await window.analyzeSentiment(text);
             result.sentences.forEach(sentence => {
-                console.log(sentence);
                 if (sentence.sentiment === "negative") {
+                    console.log(`Index: ${sentence.offset}, Negative sentiment: ${sentence.confidenceScores.negative}`)
+                    if (sentence.confidenceScores.negative <= 0.75)
+                        return;
+
                     matches.push({
                         "message": "This phrase has a negative sentiment. Did you want to say something more constructive?",
                         "shortMessage": "Negative sentiment",
