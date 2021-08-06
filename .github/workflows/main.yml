@@ -29,3 +29,9 @@ jobs:
 
       - name: run tests
         run: npx xt-test
+        
+      - name: archive release.zip
+        uses: actions/upload-artifact@v2
+        with:
+          name: release
+          path: release.zip
