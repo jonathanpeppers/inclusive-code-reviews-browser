@@ -16,6 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: set api key
+        env:
+          API_KEY: ${{ secrets.AZURE_COGNITIVE_SERVICES_API_KEY }}
+        run: echo "export const api_key = \"$API_KEY\";" > src/packed/secrets.js
+
       - name: npm install
         run: npm install
 
