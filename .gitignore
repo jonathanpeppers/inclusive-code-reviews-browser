@@ -74,3 +74,10 @@ typings/
 
 # FuseBox cache
 .fusebox/
+
+# Build output
+dist/
+release.zip
+
+# Secrets we don't commit
+secrets.js

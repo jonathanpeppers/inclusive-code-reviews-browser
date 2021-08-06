@@ -823,34 +823,6 @@
       "description": "Options dialog: checkbox for account access",
       "message": "Create a free account at"
    },
-   "historicPremiumErrorsButton": {
-      "description": "Button for new premium teaser, that shows how many grammar issues the user could have avoided with the Premium version.",
-      "message": "Learn more"
-   },
-   "historicPremiumErrorsHeadline": {
-      "description": "Introduction headline for premium teaser",
-      "message": "Did you know?"
-   },
-   "historicPremiumErrorsText": {
-      "description": "Text for new premium teaser, that shows how many grammar issues the user could have avoided with the Premium version.",
-      "message": "You could have avoided \u003Cstrong>$count$ grammar & style issues\u003C/strong> in the last days with LanguageTool Premium.",
-      "placeholders": {
-         "count": {
-            "content": "$1",
-            "example": "9"
-         }
-      }
-   },
-   "historicPremiumErrorsText2": {
-      "description": "Text for new premium teaser, that shows how many grammar issues the user could have avoided with the Premium version. Important: The count needs to be at the beginning of the sentence!",
-      "message": "\u003Cstrong>$count$ grammar and style issues\u003C/strong> could have been avoided in the last days with LanguageTool Premium.",
-      "placeholders": {
-         "count": {
-            "content": "$1",
-            "example": "9"
-         }
-      }
-   },
    "ignoreDomainsCheckDesc": {
       "description": "Options dialog: text for the textarea with the domains's where the check text won't run automatically in background",
       "message": "Don't auto-check on these domains:"
@@ -1106,24 +1078,6 @@
    "poweredBy": {
       "description": "Hint that explains who the author of this add-on is",
       "message": "Powered by \u003Cb>LanguageTool\u003C/b>"
-   },
-   "premiumErrorsButton": {
-      "description": "Button shown in premium teaser that sends the user to the pricing table. Button text should be as short as possible",
-      "message": "Learn more"
-   },
-   "premiumErrorsTextPlural": {
-      "description": "Hint shown in a premium teaser, telling the user that there are more issues that only the premium version found",
-      "message": "Your text contains \u003Cstrong>$count$ advanced writing issues\u003C/strong>",
-      "placeholders": {
-         "count": {
-            "content": "$1",
-            "example": "7"
-         }
-      }
-   },
-   "premiumErrorsTextSingular": {
-      "description": "Hint shown in a premium teaser, telling the user that there are more issues that only the premium version found",
-      "message": "Your text contains \u003Cstrong>one advanced writing issue\u003C/strong>"
    },
    "privacyLinkForDefaultServer": {
       "description": "Link to privacy policy",
@@ -1678,28 +1632,6 @@
    "validatorHasMistakesText": {
       "description": "Text displayed on top of text when the text contains spelling, punctuation or grammar errors",
       "message": "Click on the highlighted words to correct them."
-   },
-   "validatorHasPremiumErrorsButton": {
-      "description": "Button that sends the user to the upgrade/pricing page",
-      "message": "Learn more"
-   },
-   "validatorHasPremiumErrorsHeadlinePlural": {
-      "description": "Text shown when the text contains writing issues that are only found in the premium version",
-      "message": "Your text contains $count$ advanced writing issues",
-      "placeholders": {
-         "count": {
-            "content": "$1",
-            "example": "7"
-         }
-      }
-   },
-   "validatorHasPremiumErrorsHeadlineSingular": {
-      "description": "Text shown when the text contains writing issues that are only found in the premium version",
-      "message": "Your text contains one advanced writing issue"
-   },
-   "validatorHasPremiumErrorsText": {
-      "description": "Text shown when the text contains writing issues that are only found in the premium version",
-      "message": "Upgrade to LanguageTool Premium to find many more grammar, style and punctuation mistakes"
    },
    "validatorLoadingHint": {
       "description": "Loading status, shown when text is currently being checked",

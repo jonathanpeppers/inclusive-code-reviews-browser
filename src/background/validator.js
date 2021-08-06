@@ -100,53 +100,41 @@ class Validator {
         const a = this._getRequestData(e, t, r, s);
         return a.append("mode", "allButTextLevelOnly"), a.append("allowIncompleteResults", i.toString()), a;
     }
-    static _sendRequest(e, t, r = config.VALIDATION_REQUEST_TIMEOUT) {
-        return __awaiter(this, void 0, void 0, function* () {
-            var matches = [];
-            if (t.body.get('mode') == 'textLevelOnly') {
-                var length = "terrible".length
-                var index = t.body.get('data').search(/terrible/gi);
-                if (index != -1) {
-                    matches = [
-                        {
-                            "message": "The word ‘terrible’ has a negative sentiment. Did you want to say something more constructive?",
-                            "shortMessage": "Negative word",
-                            "replacements": [{ "value": "terrible" }, { "value": "not the best" }, { "value": "terrible" }, { "value": "could be better" }],
-                            "offset": index - length - 1,
-                            "length": length,
-                            "type": { "typeName": "Other" },
-                            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": "misspelling", "category": { "id": "TYPOS", "name": "Negative word" } },
-                            "ignoreForIncompleteSentence": false,
-                            "contextForSureMatch": 7
-                        }
-                    ];
+    static async _sendRequest(e, t, r = config.VALIDATION_REQUEST_TIMEOUT) {
+        var matches = [];
+        if (t.body.get('mode') == 'textLevelOnly') {
+            // TODO: This is terrible, but the request is already JSON at this point
+            // If we parse the JSON, and look at the 'text' property. This is the data.
+            var text = JSON.parse(t.body.get('data')).text;
+            const result = await window.analyzeSentiment(text);
+            result.sentences.forEach(sentence => {
+                if (sentence.sentiment === "negative") {
+                    console.log(`Index: ${sentence.offset}, Negative sentiment: ${sentence.confidenceScores.negative}`)
+                    if (sentence.confidenceScores.negative <= 0.75)
+                        return;
+
+                    matches.push({
+                        "message": "This phrase has a negative sentiment. Did you want to say something more constructive?",
+                        "shortMessage": "Negative sentiment",
+                        "offset": sentence.offset,
+                        "length": sentence.length,
+                        "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": "misspelling", "category": { "id": "TYPOS", "name": "Negative word" } },
+                        // Stuff that has to be filled out
+                        "replacements": [],
+                        "type": { "typeName": "Other" },
+                        "ignoreForIncompleteSentence": false,
+                        "contextForSureMatch": 7
+                    });
                 }
-            }
+            });
+        }
 
-            // Instead of sending requests, we fake responses here
-            var response = {
-                "language": { "name": "English (US)", "code": "en-US", "detectedLanguage": { "name": "English (US)", "code": "en-US", "confidence": 0.8 } },
-                "matches": matches
-            };
+        var response = {
+            "language": { "name": "English (US)", "code": "en-US", "detectedLanguage": { "name": "English (US)", "code": "en-US", "confidence": 0.8 } },
+            "matches": matches
+        };
 
-            return Promise.resolve(response);
-
-            // We should never get here
-            const s = fetch(e, t)
-                    .catch((t) => {
-                        throw "AbortError" === t.name
-                            ? { reason: "AbortError", status: 0, message: "", response: t.message || "" }
-                            : { reason: "ConnectionError", status: 0, message: i18nManager.getMessage("connectionProblem", e.replace(/\?.*/, "")) + " (#1, code=" + t.status + ")", response: t.message || "" };
-                    })
-                    .then(this._checkForException)
-                    .then((e) => e.json()),
-                i = new Promise((t, s) => {
-                    setTimeout(() => {
-                        s({ reason: "TimeoutError", status: 0, message: i18nManager.getMessage("connectionProblem", e.replace(/\?.*/, "")) + " (#1, timeout)", response: "" });
-                    }, r);
-                });
-            return Promise.race([s, i]);
-        });
+        return Promise.resolve(response);
     }
     static _checkForException(e) {
         return e.ok
