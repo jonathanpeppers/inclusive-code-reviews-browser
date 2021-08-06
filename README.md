@@ -12,6 +12,7 @@ To setup your API key, create a `src/packed/secrets.js` file with:
 
 To build:
 
+    npm install
     npx xt-build
 
 To run tests:
