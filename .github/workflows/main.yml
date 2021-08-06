@@ -16,8 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build extension
+      - name: npm install
+        run: npm install
+
+      - name: build extension
         run: npx xt-build
 
-      - name: Run tests
+      - name: run tests
         run: npx xt-test
