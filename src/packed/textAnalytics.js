@@ -7,7 +7,3 @@ export async function analyzeSentiment(text) {
     const [result] = await client.analyzeSentiment([text]);
     return result;
 }
-
-// For use inside the extension (which isn't using webpack)
-// The best I came up with for now is to add this function to window.
-window.analyzeSentiment = analyzeSentiment;

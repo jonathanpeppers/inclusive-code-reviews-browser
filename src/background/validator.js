@@ -106,27 +106,7 @@ class Validator {
             // TODO: This is terrible, but the request is already JSON at this point
             // If we parse the JSON, and look at the 'text' property. This is the data.
             var text = JSON.parse(t.body.get('data')).text;
-            const result = await window.analyzeSentiment(text);
-            result.sentences.forEach(sentence => {
-                if (sentence.sentiment === "negative") {
-                    console.log(`Index: ${sentence.offset}, Negative sentiment: ${sentence.confidenceScores.negative}`)
-                    if (sentence.confidenceScores.negative <= 0.75)
-                        return;
-
-                    matches.push({
-                        "message": "This phrase has a negative sentiment. Did you want to say something more constructive?",
-                        "shortMessage": "Negative sentiment",
-                        "offset": sentence.offset,
-                        "length": sentence.length,
-                        "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": "misspelling", "category": { "id": "TYPOS", "name": "Negative word" } },
-                        // Stuff that has to be filled out
-                        "replacements": [],
-                        "type": { "typeName": "Other" },
-                        "ignoreForIncompleteSentence": false,
-                        "contextForSureMatch": 7
-                    });
-                }
-            });
+            await window.getMatches(text, matches);
         }
 
         var response = {
