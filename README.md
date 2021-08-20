@@ -1,6 +1,42 @@
 # inclusive-code-comments
 
-A chrome web extension for improving online comments.
+A chrome web extension for improving online comments such as code
+reviews on Github or Azure DevOps. The idea is that the extension
+would make suggestions *before* you post a comment. This gives
+developers a chance to think about their phrasing and reword the
+comment.
+
+For example, you might use the term "whitelist" in a code review on
+Azure DevOps:
+
+![negative word](docs/negative-word.png)
+
+The word "allowlist" might be better (and more inclusive) terminology:
+
+![negative word fixed](docs/negative-word-fixed.png)
+
+We welcome changes to [suggestions.js](src/packed/suggestions.js), if
+you know other words and terminology we can suggest. Please send a PR!
+
+## Sentiment Analysis
+
+In addition to checking commonly-used words, your comments are sent to
+[Azure Text Analytics][text-analytics] for sentiment analysis. No text
+is stored anywhere, at any time.
+
+For example, you might make a comment on a Github pull request. Seems
+OK, right? Is it a "mean" comment?
+
+![negative sentiment](docs/negative-sentiment.png)
+
+We could certainly reword this be be better -- more inclusive and
+generally friendlier:
+
+![negative sentiment fixed](docs/negative-sentiment-fixed.png)
+
+[text-analytics]: https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/overview
+
+## Contributing
 
 This is built using the `extension-cli` module:
 
@@ -35,9 +71,9 @@ Extension CLI
 
 Azure Text Analytics
 
-* https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/overview
-* https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0
-* https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment/console
+* [Documentation][text-analytics]
+* [npm package](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0)
+* [API Test Console](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment/console)
 
 ## Attribution
 
