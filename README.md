@@ -84,4 +84,4 @@ This is a prototype based on:
 * https://languagetool.org/
 * [Chrome Extension](https://chrome.google.com/webstore/detail/grammar-and-spell-checker/oldceeleldhonbafppcapldpdifcinji)
 * [Github Repo](https://github.com/languagetool-org/languagetool)
-* See [COPYING.txt](COPYING.txt) for original license.
+* See [LICENSE](LICENSE) for original GPL license.
