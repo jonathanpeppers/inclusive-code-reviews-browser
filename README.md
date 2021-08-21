@@ -1,10 +1,12 @@
 # inclusive-code-comments
 
-A chrome web extension for improving online comments such as code
-reviews on Github or Azure DevOps. The idea is that the extension
-would make suggestions *before* you post a comment. This gives
-developers a chance to think about their phrasing and reword the
+A *prototype* chrome web extension for improving online comments such
+as code reviews on Github or Azure DevOps. The idea is that the
+extension would make suggestions *before* you post a comment. This
+gives developers a chance to think about their phrasing and reword the
 comment.
+
+![popup](docs/popup.png)
 
 For example, you might use the term "whitelist" in a code review on
 Azure DevOps:
