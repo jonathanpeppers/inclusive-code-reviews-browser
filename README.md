@@ -57,6 +57,11 @@ To run tests:
 
     npx xt-test
 
+If you don't want to build the extension from source, you can also
+download build artifacts from Github actions:
+
+![artifacts](docs/artifacts.png)
+
 To install in Edge:
 
 1. Navigate to `edge://extensions/`
