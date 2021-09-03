@@ -1,5 +1,5 @@
 describe('validator', () => {
-    const client = require('../src/packed/validator');
+    const client = require('../src-packed/validator');
 
     it('No match', async () => {
         var matches = [];

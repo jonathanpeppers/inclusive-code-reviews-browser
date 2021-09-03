@@ -1,5 +1,5 @@
 describe('textAnalytics', () => {
-    const client = require('../src/packed/textAnalytics');
+    const client = require('../src-packed/textAnalytics');
 
     it('Negative', async () => {
         const result = await client.analyzeSentiment("This is terrible!");
