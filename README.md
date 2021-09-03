@@ -17,7 +17,7 @@ The word "allowlist" might be better (and more inclusive) terminology:
 
 ![negative word fixed](docs/negative-word-fixed.png)
 
-We welcome changes to [suggestions.js](src/packed/suggestions.js), if
+We welcome changes to [suggestions.js](src-packed/suggestions.js), if
 you know other words and terminology we can suggest. Please send a PR!
 
 ## Sentiment Analysis
@@ -44,7 +44,7 @@ This is built using the `extension-cli` module:
 
 https://www.npmjs.com/package/extension-cli
 
-To setup your API key, create a `src/packed/secrets.js` file with:
+To setup your API key, create a `src-packed/secrets.js` file with:
 
     export const api_key = "<put the real key here>";
 

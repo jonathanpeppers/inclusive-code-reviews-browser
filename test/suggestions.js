@@ -1,5 +1,5 @@
 describe('suggestions', () => {
-    const client = require('../src/packed/suggestions');
+    const client = require('../src-packed/suggestions');
 
     it('No match', async () => {
         var result = client.getSuggestions("This code is amazing!");
