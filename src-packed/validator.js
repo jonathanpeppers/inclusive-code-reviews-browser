@@ -3,10 +3,16 @@
 const suggestions = require('./suggestions');
 const textAnalytics = require('./textAnalytics');
 
-export async function getMatches(text, matches) {
+export async function getMatches(text, matches, track) {
+
+    let appinsights = null;
+    if (track)
+        appinsights = require('./appinsights');
 
     // Suggestions, based on a dictionary
     suggestions.getSuggestions(text).forEach(suggestion => {
+        if (appinsights) appinsights.trackEvent('negativeWord');
+
         matches.push({
             "message": "This word has a negative connotation. Did you want to use a different word?",
             "shortMessage": "Negative word",
@@ -32,6 +38,8 @@ export async function getMatches(text, matches) {
         console.log(`Index: ${sentence.offset}, Negative sentiment: ${sentence.confidenceScores.negative}`)
         if (sentence.confidenceScores.negative <= 0.75)
             return;
+
+        if (appinsights) appinsights.trackEvent('negativeSentence', sentence.confidenceScores);
 
         matches.push({
             "message": "This phrase could be considered negative. Would you like to rephrase?",

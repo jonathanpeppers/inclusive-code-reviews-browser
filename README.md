@@ -47,6 +47,7 @@ https://www.npmjs.com/package/extension-cli
 To setup your API key, create a `src-packed/secrets.js` file with:
 
     export const api_key = "<put the real key here>";
+    export const appinsights_key = "<put the app insights connection string here>";
 
 To build:
 
