@@ -27,7 +27,7 @@
         "test/**/*"
     ],
     "devDependencies": {
-        "extension-cli": "latest"
+        "extension-cli": "^1.2.2"
     },
     "xtdocs": {
         "source": {
