@@ -6,8 +6,10 @@ const textAnalytics = require('./textAnalytics');
 export async function getMatches(text, matches, track) {
 
     let appinsights = null;
-    if (track)
+    if (track) {
         appinsights = require('./appinsights');
+        appinsights.trackPageView();
+    }
 
     // Suggestions, based on a dictionary
     suggestions.getSuggestions(text).forEach(suggestion => {
