@@ -32,4 +32,10 @@ describe('suggestions', () => {
             replacements: [ { value: "master" }, { value: "main" } ],
         });
     });
+
+    // This used to match "hang" within "changes"
+    it('No match within word', async () => {
+        var result = client.getSuggestions("These changes look great!");
+        expect(result.length).to.be.equal(0);
+    });
 });
