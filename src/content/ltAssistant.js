@@ -1220,6 +1220,7 @@ class LTAssistant {
         r && (this._initElementTimeouts.delete(e.inputArea), clearTimeout(r)), this._enableOtherSpellCheckers(e.inputArea), this._savePremiumErrorCount(e), this._trackEditor(e);
     }
     _showErrorCard(e, t, r) {
+        window.aiTrackPageView();
         const i = this._storageController.getManagedSettings(),
             o = {
                 disableIgnoringRule: void 0 !== this._options.disableRuleIgnore ? this._options.disableRuleIgnore : i.disableIgnoredRules,
@@ -1431,9 +1432,11 @@ class LTAssistant {
             .forEach((e) => {
                 e.ignoredWords.push(t), this._updateDisplayedErrors(e), this._highlight(e), this._updateState(e);
             });
+        window.aiTrackEvent('ignoreSuggestion');
     }
     _temporarilyIgnoreRule(e, t) {
         e.ignoredRules.push(t), this._updateDisplayedErrors(e), this._highlight(e), this._updateState(e);
+        window.aiTrackEvent('ignoreSuggestion');
     }
     _clearTemporarilyIgnoredRules(e) {
         (e.ignoredRules = []), this._updateDisplayedErrors(e), this._highlight(e), this._updateState(e);
@@ -1446,7 +1449,9 @@ class LTAssistant {
             o = { offset: t.start, length: t.length, replacementText: i, editor: e };
         e.callbacks.onBeforeErrorCorrect && e.callbacks.onBeforeErrorCorrect(t), this._tweaks.applyFix(o), wait(100).then(() => this._validateEditor(e));
         const { appliedSuggestions: n } = this._storageController.getStatistics();
-        this._storageController.updateStatistics({ appliedSuggestions: n + 1 });
+        let appliedSuggestions = n + 1;
+        this._storageController.updateStatistics({ appliedSuggestions: appliedSuggestions });
+        window.aiTrackEvent('appliedSuggestion', { total: appliedSuggestions });
     }
 }
 (LTAssistant.events = { UPDATE: "_lt-state-updated", DESTROY: "_lt-destroy" }),

@@ -194,6 +194,7 @@ class Toolbar {
         this.destroy();
     }
     _onClick(t) {
+        window.aiTrackPageView();
         const e = t.target;
         if (![this._controls.wrapper, this._controls.statusIcon, this._controls.premiumIcon].includes(e)) return;
         t.stopImmediatePropagation();
