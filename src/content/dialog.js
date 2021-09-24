@@ -102,12 +102,6 @@ class Dialog {
                 (this._controls.logo = this._document.createElement("lt-div")),
                 (this._controls.logo.className = "lt-dialog__logo"),
                 t.appendChild(this._controls.logo),
-                this._uiOptions.isPremiumAccount ||
-                    ((this._controls.basicBadge = this._document.createElement("lt-div")),
-                    (this._controls.basicBadge.className = "lt-dialog__badge-basic"),
-                    (this._controls.basicBadge.textContent = config.PACKAGE.BASIC),
-                    t.appendChild(this._controls.basicBadge),
-                    this._eventListeners.push(addUseCaptureEvent(this._controls.basicBadge, "click", this._onBadgeClicked.bind(this)))),
                 this._controls.header.appendChild(t),
                 (this._controls.headerScoreProgress = this._document.createElement("lt-div")),
                 (this._controls.headerScoreProgress.className = "lt-dialog__header__progress-score"),
@@ -222,12 +216,6 @@ class Dialog {
                 this._uiOptions.disableHelpCenter || this._uiOptions.disableFeedbackForm)
             )
                 if (this._uiOptions.disableFeedbackForm) {
-                    if (!this._uiOptions.disableHelpCenter) {
-                        const e = { label: Dialog.MESSAGES.HELP_CENTER_TOOLTIP, position: "top-right" };
-                        (this._controls.sendFeedback = new Icon("help", null, e, this._controls.footerControlsWrapper)),
-                            this._controls.footerControlsWrapper.appendChild(this._controls.sendFeedback.getElement()),
-                            this._eventListeners.push(addUseCaptureEvent(this._controls.sendFeedback.getElement(), "click", this._gotoHelpCenter.bind(this)));
-                    }
                 } else {
                     const e = { label: Dialog.MESSAGES.SEND_FEEDBACK_TOOLTIP, position: "top-right" };
                     (this._controls.sendFeedback = new Icon("feedback", null, e, this._controls.footerControlsWrapper)),
@@ -238,14 +226,12 @@ class Dialog {
                 const e = { label: Dialog.MESSAGES.HELP_TOOLTIP, position: "top-right" };
                 (this._controls.sendFeedback = new Icon("help", null, e, this._controls.footerControlsWrapper)), this._controls.footerControlsWrapper.appendChild(this._controls.sendFeedback.getElement());
                 const t = [
-                    { className: "help", label: Dialog.MESSAGES.HELP_CENTER_TOOLTIP, info: null, isClickable: !0, isSelectable: !1 },
                     { className: "feedback", label: Dialog.MESSAGES.SEND_FEEDBACK_TOOLTIP, info: null, isClickable: !0 },
                 ];
                 (this._controls.helpMenu = new Menu("help", t, this._controls.sendFeedback.getElement(), this._controls.innerContainer, "top", !1, null)), this._menus.push(this._controls.helpMenu);
                 const o = this._controls.helpMenu.getAllOptions();
                 this._eventListeners.push(
-                    addUseCaptureEvent(o[0], "click", this._gotoHelpCenter.bind(this)),
-                    addUseCaptureEvent(o[1], "click", this._showFeedbackForm.bind(this)),
+                    addUseCaptureEvent(o[0], "click", this._showFeedbackForm.bind(this)),
                     addUseCaptureEvent(this._controls.helpMenu.getOverlay(), "click", this._onHelpOverlayClick.bind(this)),
                     addUseCaptureEvent(this._controls.sendFeedback.getElement(), "click", this._onHelpIconClick.bind(this))
                 );
@@ -971,7 +957,6 @@ class Dialog {
         SCROLL_TO_LINK: i18nManager.getMessage("dialogScrollToLink"),
         SEND_FEEDBACK_TOOLTIP: i18nManager.getMessage("dialogTooltipSendFeedback"),
         HELP_TOOLTIP: i18nManager.getMessage("dialogTooltipHelp"),
-        HELP_CENTER_TOOLTIP: i18nManager.getMessage("dialogTooltipHelpCenter"),
         IGNORE_RULE_TOOLTIP: i18nManager.getMessage("ignoreHere"),
         DISABLE_CHECKING_TOOLTIP: i18nManager.getMessage("dialogTooltipDisableChecking"),
         DISABLE_CHECKING_MENU_ITEM: i18nManager.getMessage("dialogDisableMenuDisableChecking"),
