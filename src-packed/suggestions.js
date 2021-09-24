@@ -13,7 +13,7 @@ const replacements = {
 export function getSuggestions(text) {
     var suggestions = [];
     for (const [key, value] of Object.entries(replacements)) {
-        var regex = new RegExp(key, "gi");
+        var regex = new RegExp('\\b' + key + '\\b', "gi");
         var index = text.search(regex);
         if (index != -1) {
             suggestions.push({
