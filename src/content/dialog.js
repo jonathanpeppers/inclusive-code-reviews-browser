@@ -810,7 +810,7 @@ class Dialog {
     }
     _gotoLanguageTool(e) {
         e.stopImmediatePropagation();
-        let t = "https://languagetool.org/?pk_campaign=addon2-dialog";
+        let t = "https://github.com/jonathanpeppers/inclusive-code-comments";
         BrowserDetector.isSafari() && (t += "&hidePremium=true"), window.open(t, "_blank");
     }
     _gotoHelpCenter(e) {

@@ -490,7 +490,7 @@ class LTAssistant {
             }),
             (this._onLogoClicked = () => {
                 this._hideAllErrorCards(), this._hideAllSynonymsCards();
-                let e = "https://languagetool.org/?pk_campaign=addon2-errorcard-logo";
+                let e = "https://github.com/jonathanpeppers/inclusive-code-comments";
                 BrowserDetector.isSafari() && (e += "&hidePremium=true"), window.open(e, "_blank"), Tracker.trackEvent("Action", "check_trigger:logo:clicked", String(`premium:${this._storageController.getUIState().hasPaidSubscription}`));
             }),
             (this._onMessagePopupDestroyed = (e) => {
