@@ -18,7 +18,6 @@ class ErrorCard {
             HEADLINE_PUNCTUATION_ERROR: i18nManager.getMessage("punctuationError"),
             HEADLINE_GRAMMAR_ERROR: i18nManager.getMessage("grammarError"),
             LINK_MORE_DETAILS: i18nManager.getMessage("moreDetails"),
-            LINK_IGNORE_RULE: i18nManager.getMessage("turnOffRule"),
             LINK_IGNORE_HERE: i18nManager.getMessage("ignoreHere"),
             EN_US_LINK: i18nManager.getMessage("switchToAmericanEnglish"),
             EN_CA_LINK: i18nManager.getMessage("switchToCanadianEnglish"),
@@ -146,10 +145,6 @@ class ErrorCard {
                 this._eventListeners.push(addUseCaptureEvent(t, "click", this._onTemporarilyIgnoreWordClick.bind(this))),
                 e.appendChild(t);
         } else {
-            if (!this._uiOptions.disableIgnoringRule) {
-                const t = this._document.createElement("lt-div");
-                t.classList.add("lt-errorcard__ignore-rule"), (t.textContent = ErrorCard.MESSAGES.LINK_IGNORE_RULE), this._eventListeners.push(addUseCaptureEvent(t, "click", this._onIgnoreRuleClick.bind(this))), e.appendChild(t);
-            }
             const t = this._document.createElement("lt-div");
             t.classList.add("lt-errorcard__temporarily-ignore-rule"),
                 (t.textContent = ErrorCard.MESSAGES.LINK_IGNORE_HERE),

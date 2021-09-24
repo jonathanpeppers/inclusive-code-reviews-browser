@@ -540,17 +540,6 @@ class Dialog {
                             ),
                             t.appendChild(o);
                     }
-                } else if (!this._uiOptions.disableIgnoringRule) {
-                    const o = this._document.createElement("lt-div");
-                    o.classList.add("lt-dialog__ignore-rule"),
-                        o.setAttribute("data-lt-prevent-focus", ""),
-                        (o.textContent = i18nManager.getMessage("turnOffRule")),
-                        this._eventListeners.push(
-                            addUseCaptureEvent(o, "click", (o) => {
-                                this._onIgnoreRuleClick(e, o), t.remove();
-                            })
-                        ),
-                        t.appendChild(o);
                 }
                 this._controls.contentMain.appendChild(t);
             });
