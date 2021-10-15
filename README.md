@@ -82,6 +82,7 @@ Azure Text Analytics
 * [Documentation][text-analytics]
 * [npm package](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0)
 * [API Test Console](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment/console)
+* [Telemetry Docs](docs/telemetry.md)
 
 ## Attribution
 
