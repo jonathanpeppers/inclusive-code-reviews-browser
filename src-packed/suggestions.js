@@ -1,4 +1,4 @@
-const replacements = {
+const allReplacements = {
     "terrible": ["not so great"],
     "whitelist": ["allowlist"],
     "blacklist": ["denylist"],
@@ -12,7 +12,7 @@ const replacements = {
 // returns suggestions for certain words
 export function getSuggestions(text) {
     var suggestions = [];
-    for (const [key, values] of Object.entries(replacements)) {
+    for (const [key, values] of Object.entries(allReplacements)) {
         var regex = new RegExp('\\b' + key + '\\b', "gi");
         var index = text.search(regex);
         var replacements = [];
