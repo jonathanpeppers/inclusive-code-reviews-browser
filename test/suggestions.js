@@ -7,20 +7,20 @@ describe('suggestions', () => {
     });
 
     it('Match at beginning', async () => {
-        var result = client.getSuggestions("Terrible code!");
+        var result = client.getSuggestions("Master this");
         expect(result[0]).to.eql({
             index: 0,
-            length: 8,
-            replacements: [ { value: "terrible" }, { value: "not so great" } ],
+            length: 6,
+            replacements: [ { value: "master" }, { value: "main" }, { value: "master" }, { value: "primary" } ],
         });
     });
 
     it('Match at end', async () => {
-        var result = client.getSuggestions("This is terrible");
+        var result = client.getSuggestions("Merge this to master");
         expect(result[0]).to.eql({
-            index: 8,
-            length: 8,
-            replacements: [ { value: "terrible" }, { value: "not so great" } ],
+            index: 14,
+            length: 6,
+            replacements: [ { value: "master" }, { value: "main" }, { value: "master" }, { value: "primary" } ],
         });
     });
 
