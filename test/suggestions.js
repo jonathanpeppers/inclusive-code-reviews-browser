@@ -11,7 +11,7 @@ describe('suggestions', () => {
         expect(result[0]).to.eql({
             index: 0,
             length: 8,
-            replacements: [ { value: "terrible" }, { value: "not so great" } ],
+            replacements: [[ { value: "terrible" }, { value: "not so great" } ]],
         });
     });
 
@@ -20,7 +20,7 @@ describe('suggestions', () => {
         expect(result[0]).to.eql({
             index: 8,
             length: 8,
-            replacements: [ { value: "terrible" }, { value: "not so great" } ],
+            replacements: [[ { value: "terrible" }, { value: "not so great" } ]],
         });
     });
 
@@ -29,7 +29,7 @@ describe('suggestions', () => {
         expect(result[0]).to.eql({
             index: 17,
             length: 6,
-            replacements: [ { value: "master" }, { value: "main" } ],
+            replacements: [[ { value: "master" }, { value: "main" } ], [ { value: "master" }, { value: "primary" } ]],
         });
     });
 
