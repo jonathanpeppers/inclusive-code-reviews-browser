@@ -29,7 +29,7 @@ describe('suggestions', () => {
         expect(result[0]).to.eql({
             index: 17,
             length: 6,
-            replacements: [ { value: "master" }, { value: "main" } ],
+            replacements: [ { value: "master" }, { value: "main" }, { value: "master" }, { value: "primary" } ],
         });
     });
 
