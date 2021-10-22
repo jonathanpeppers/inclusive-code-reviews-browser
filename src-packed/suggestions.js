@@ -16,7 +16,10 @@ export function getSuggestions(text) {
         var regex = new RegExp('\\b' + key + '\\b', "gi");
         var index = text.search(regex);
         var replacements = [];
-        values.forEach(value => replacements.push([{ value: key }, { value: value }]));
+        values.forEach(value => {
+            replacements.push({ value: key });
+            replacements.push({ value: value });
+        });
         if (index != -1) {
             suggestions.push({
                 index: index,
