@@ -33,6 +33,15 @@ describe('suggestions', () => {
         });
     });
 
+    it('Retrieve suggestions despite spaces in key', async () => {
+        var result = client.getSuggestions("You're crushing it!");
+        expect(result[0]).to.eql({
+            index: 7,
+            length: 11,
+            replacements: [ { value: "crushing it" }, { value: "elevating" }, { value: "crushing it" }, { value: "exceeding expectations" }, { value: "crushing it" }, { value: "excelling" } ],
+        });
+    });
+
     // This used to match "hang" within "changes"
     it('No match within word', async () => {
         var result = client.getSuggestions("These changes look great!");

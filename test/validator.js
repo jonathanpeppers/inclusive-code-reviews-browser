@@ -19,4 +19,10 @@ describe('validator', () => {
         expect(matches.length).to.be.equal(1);
     });
 
+    it('Suggestion and negative', async () => {
+        var matches = [];
+        await client.getMatches('This is crazy', matches);
+        expect(matches.length).to.be.equal(2);
+    });
+
 });
