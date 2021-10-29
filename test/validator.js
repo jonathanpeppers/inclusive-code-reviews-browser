@@ -21,7 +21,8 @@ describe('validator', () => {
 
     it('Suggestion and negative', async () => {
         var matches = [];
-        await client.getMatches('This is terrible', matches);
+        await client.getMatches('This is crazy', matches);
         expect(matches.length).to.be.equal(2);
     });
+
 });

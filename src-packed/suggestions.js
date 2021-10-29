@@ -1,12 +1,68 @@
+/*
+    Some sources: 
+    - https://medium.com/pm101/inclusive-language-guide-for-tech-companies-and-startups-f5b254d4a5b7
+    - https://buffer.com/resources/inclusive-language-tech/
+    - https://www.aswf.io/blog/inclusive-language/
+    - https://www.it.northwestern.edu/about/it-projects/dei/glossary.html
+*/
 const allReplacements = {
-    "terrible": ["not so great"],
-    "whitelist": ["allowlist"],
-    "blacklist": ["denylist"],
+    // socially charged
+    "whitelist": ["allowlist", "inclusion list", "safe list"],
+    "blacklist": ["denylist", "exclusion list", "block list", "banned list"],
+    "blackbox": ["closed box", "mystery box"],
+    "whitebox": ["open box", "clear box"],
+    "blackhat": ["criminal", "unethical hacker"],
+    "whitehat": ["ethical hacker"],
+    "grayhat": ["hacktivist"],
+    "mob programming": ["team"],
+    "whitespace": ["empty space", "blank"],
     "master": ["main", "primary"],
-    "slave": ["secondary"],
-    "crazy": ["weird"],
+    "scrum master": ["agile lead", "agile program manager", "scrum coach", "scrum leader"],
+    "web master": ["web product owner"],
+    "slave": ["secondary", "replica", "standby"],
+    "culture fit": ["values fit", "cultural contribution"],
+    "minority": ["marginalized groups, underrepresented groups"],
+    "native": ["core", "built-in", "unmanaged"],
+    // gendered 
+    "guys": ["folks", "friends", "people", "you all", "y'all", "all", "everyone"],
+    "ladies": ["folks", "friends", "people", "you all", "y'all", "all", "everyone"],
+    "manpower": ["labor"],
+    "man hours": ["labor hours", "person hours", "engineer hours", "hours of effort"],
+    "chairman": ["chairperson"],
+    "foreman": ["foreperson"],
+    "girl": ["woman"],
+    "female": ["woman"],
+    "male cable": ["input"],
+    "male connector": ["input"],
+    "female cable": ["socket"],
+    "female connector": ["socket"],
+    "middleman": ["middle person", "mediator", "liaison"],
+    "hacker": ["engineer", "developer"],
+    "housekeeping": ["maintenance", "cleanup"],
+    "wife": ["spouse", "partner"],
+    "husband": ["spouse", "partner"],
+    "boyfriend": ["spouse", "partner"],
+    "girlfriend": ["spouse", "partner"],
+    "mother": ["parent"],
+    "father": ["parent"],
+    "mom test": ["user test"],
+    "girlfriend test": ["user test"],
+    // ableist
+    "normal": ["typical"],
+    "abnormal": ["atypical"],
+    "crazy": ["unexpected", "unpredictable"],
+    "OCD": ["organized", "detail-oriented"],
+    "sanity check": ["quick check", "confidence check", "coherence check"],
+    "dummy": ["placeholder", "sample"],
+    "handicapped": ["disabled", "person with disabilities"],
+    // violent
     "hang": ["freeze"],
-    "hanging": ["frozen"]
+    "hanging": ["frozen"],
+    "crushing it": ["elevating", "exceeding expectations", "excelling"],
+    "killing it": ["elevating", "exceeding expectations", "excelling"],
+    // ageist
+    "grandfather": ["flagship", "established", "rollover", "carryover", "classic"],
+    "legacy": ["flagship", "established", "rollover", "carryover", "classic"],
 };
 
 // returns suggestions for certain words

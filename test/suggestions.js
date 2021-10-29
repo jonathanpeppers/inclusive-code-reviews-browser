@@ -7,20 +7,20 @@ describe('suggestions', () => {
     });
 
     it('Match at beginning', async () => {
-        var result = client.getSuggestions("Terrible code!");
+        var result = client.getSuggestions("Master this");
         expect(result[0]).to.eql({
             index: 0,
-            length: 8,
-            replacements: [ { value: "terrible" }, { value: "not so great" } ],
+            length: 6,
+            replacements: [ { value: "master" }, { value: "main" }, { value: "master" }, { value: "primary" } ],
         });
     });
 
     it('Match at end', async () => {
-        var result = client.getSuggestions("This is terrible");
+        var result = client.getSuggestions("Merge this to master");
         expect(result[0]).to.eql({
-            index: 8,
-            length: 8,
-            replacements: [ { value: "terrible" }, { value: "not so great" } ],
+            index: 14,
+            length: 6,
+            replacements: [ { value: "master" }, { value: "main" }, { value: "master" }, { value: "primary" } ],
         });
     });
 
@@ -30,6 +30,15 @@ describe('suggestions', () => {
             index: 17,
             length: 6,
             replacements: [ { value: "master" }, { value: "main" }, { value: "master" }, { value: "primary" } ],
+        });
+    });
+
+    it('Retrieve suggestions despite spaces in key', async () => {
+        var result = client.getSuggestions("You're crushing it!");
+        expect(result[0]).to.eql({
+            index: 7,
+            length: 11,
+            replacements: [ { value: "crushing it" }, { value: "elevating" }, { value: "crushing it" }, { value: "exceeding expectations" }, { value: "crushing it" }, { value: "excelling" } ],
         });
     });
 
