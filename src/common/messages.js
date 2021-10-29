@@ -2,6 +2,12 @@
 function isPageLoadedMessage(n) {
     return "PAGE_LOADED" === n.command;
 }
+function isPageView(n) {
+    return "TRACK_PAGE_VIEW" === n.command;
+}
+function isTrackCustomEvent(n) {
+    return "TRACK_CUSTOM_EVENT" === n.command;
+}
 function isAppliedSuggestion(n) {
     return "APPLIED_SUGGESTION" === n.command;
 }

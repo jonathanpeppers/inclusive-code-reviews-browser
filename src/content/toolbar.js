@@ -194,7 +194,7 @@ class Toolbar {
         this.destroy();
     }
     _onClick(t) {
-        window.aiTrackPageView();
+        browser.runtime.sendMessage({ command: "TRACK_PAGE_VIEW", location: { name: document.title, uri: window.location.href } });
         const e = t.target;
         if (![this._controls.wrapper, this._controls.statusIcon, this._controls.premiumIcon].includes(e)) return;
         t.stopImmediatePropagation();

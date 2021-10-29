@@ -27,7 +27,7 @@ export function telemetryInitializer (envelope) {
         if (url.hostname == "github.com") {
             var parts = url.pathname.split('/');
             envelope.baseData.name = 'github';
-            if (parts.length > 3) {
+            if (parts.length > 2) {
                 envelope.baseData.uri = 'https://github.com/' + parts[1] + "/" + parts[2];
             } else {
                 envelope.baseData.uri = 'https://github.com';
@@ -50,8 +50,12 @@ export function telemetryInitializer (envelope) {
         envelope.ext.trace.name = envelope.baseData.name;
 }
 
-export function trackPageView() {
-    appinsights.trackPageView();
+export function trackPageView(url) {
+    if (url) {
+        appinsights.trackPageView(url);
+    } else {
+        appinsights.trackPageView();
+    }
 }
 
 export function trackEvent(name, customDimensions) {
