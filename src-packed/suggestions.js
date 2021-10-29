@@ -22,7 +22,7 @@ const allReplacements = {
     "slave": ["secondary", "replica", "standby"],
     "culture fit": ["values fit", "cultural contribution"],
     "minority": ["marginalized groups, underrepresented groups"],
-    "native": ["core", "built-in"],
+    "native": ["core", "built-in", "unmanaged"],
     // gendered 
     "guys": ["folks", "people", "you all", "y'all", "all", "everyone"],
     "ladies": ["folks", "people", "you all", "y'all", "all", "everyone"],
@@ -32,6 +32,10 @@ const allReplacements = {
     "foreman": ["foreperson"],
     "girl": ["woman"],
     "female": ["woman"],
+    "male cable": ["input"],
+    "male connector": ["input"],
+    "female cable": ["socket"],
+    "female connector": ["socket"],
     "middleman": ["middle person", "mediator", "liaison"],
     "hacker": ["engineer", "developer"],
     "housekeeping": ["maintenance", "cleanup"],
@@ -57,8 +61,8 @@ const allReplacements = {
     "crushing it": ["elevating", "exceeding expectations", "excelling"],
     "killing it": ["elevating", "exceeding expectations", "excelling"],
     // ageist
-    "grandfather": ["flagship", "established", "rollover", "carryover"],
-    "legacy": ["flagship", "established", "rollover", "carryover"],
+    "grandfather": ["flagship", "established", "rollover", "carryover", "classic"],
+    "legacy": ["flagship", "established", "rollover", "carryover", "classic"],
 };
 
 // returns suggestions for certain words
