@@ -41,6 +41,17 @@ We also report a running total since the extension was installed via `customMeas
 {"total":1}
 ```
 
+## manualFix
+
+This is somewhat more complicated scenario:
+
+1. The user typed some text.
+1. The extension recommended a change (either via `negativeWord` or `negativeSentence`).
+1. The user changed the text.
+1. Now the extension finds no issues.
+
+`appliedSuggestion` should not trigger `manualFix`, file a bug if it does!
+
 ## ignoreSuggestion
 
 The user clicked `Ignore in this text`:

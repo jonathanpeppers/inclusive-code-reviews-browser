@@ -2,6 +2,9 @@
 function isPageLoadedMessage(n) {
     return "PAGE_LOADED" === n.command;
 }
+function isAppliedSuggestion(n) {
+    return "APPLIED_SUGGESTION" === n.command;
+}
 function isLTAssistantStatusChangedMessage(n) {
     return "LTASSISTANT_STATUS_CHANGED" === n.command;
 }

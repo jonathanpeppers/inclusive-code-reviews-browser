@@ -1451,7 +1451,7 @@ class LTAssistant {
         const { appliedSuggestions: n } = this._storageController.getStatistics();
         let appliedSuggestions = n + 1;
         this._storageController.updateStatistics({ appliedSuggestions: appliedSuggestions });
-        window.aiTrackEvent('appliedSuggestion', { total: appliedSuggestions });
+        browser.runtime.sendMessage({ command: "APPLIED_SUGGESTION", appliedSuggestions: appliedSuggestions });
     }
 }
 (LTAssistant.events = { UPDATE: "_lt-state-updated", DESTROY: "_lt-destroy" }),
