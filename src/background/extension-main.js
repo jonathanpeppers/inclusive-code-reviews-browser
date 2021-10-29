@@ -246,6 +246,8 @@ class BackgroundApp {
         return (
             isPageLoadedMessage(e)
                 ? (s = this._onPageLoadedMessage(t, e))
+                : isAppliedSuggestion(e)
+                ? (s = this._onAppliedSuggestionMessage(t, e))
                 : isLTAssistantStatusChangedMessage(e)
                 ? (s = this._onLTAssistantStatusChangedMessage(t, e))
                 : isCheckForPaidSubscriptionMessage(e)
@@ -314,6 +316,9 @@ class BackgroundApp {
                     console.error("Error detecting language", e);
                 }),
             this._updateBadge(a, s);
+    }
+    static _onAppliedSuggestionMessage(e, t) {;
+        window.appliedSuggestion(t.appliedSuggestions);
     }
     static _onLTAssistantStatusChangedMessage(e, t) {
         const a = t.tabId || e.tab.id;

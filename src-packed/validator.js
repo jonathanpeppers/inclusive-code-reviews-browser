@@ -2,18 +2,20 @@
 
 const suggestions = require('./suggestions');
 const textAnalytics = require('./textAnalytics');
+var appinsights = null;
+var hasFoundSuggestionsBefore = false; // If a problem has been found before
 
-export async function getMatches(text, matches, track) {
+// Load appinsights lazily, so we aren't tracking until this method is called
+function loadAppInsights() {
+    if (!appinsights) appinsights = require('./appinsights');
+}
 
-    let appinsights = null;
-    if (track) {
-        appinsights = require('./appinsights');
-        appinsights.trackPageView();
-    }
+export async function getMatches(text, matches) {
+    loadAppInsights();
 
     // Suggestions, based on a dictionary
     suggestions.getSuggestions(text).forEach(suggestion => {
-        if (appinsights) appinsights.trackEvent('negativeWord');
+        appinsights.trackEvent('negativeWord');
 
         matches.push({
             "message": "This word has a negative connotation. Did you want to use a different word?",
@@ -41,7 +43,7 @@ export async function getMatches(text, matches, track) {
         if (sentence.confidenceScores.negative <= 0.75)
             return;
 
-        if (appinsights) appinsights.trackEvent('negativeSentence', sentence.confidenceScores);
+        appinsights.trackEvent('negativeSentence', sentence.confidenceScores);
 
         matches.push({
             "message": "This phrase could be considered negative. Would you like to rephrase?",
@@ -56,8 +58,39 @@ export async function getMatches(text, matches, track) {
             "contextForSureMatch": 7
         });
     });
+
+    // 'manualFix' event
+    if (shouldReportManualFix(matches)) {
+        appinsights.trackEvent('manualFix');
+    }
+}
+
+// clears the state of 'hasFoundSuggestionsBefore'
+export function clearState() {
+    hasFoundSuggestionsBefore = false;
+}
+
+// Sends the 'appliedSuggestion' event and clears the state of 'hasFoundSuggestionsBefore'
+export function appliedSuggestion(appliedSuggestions) {
+    clearState();
+    loadAppInsights();
+    appinsights.trackEvent('appliedSuggestion', { total: appliedSuggestions });
+}
+
+// Returns true if the 'manualFix' event should be sent
+export function shouldReportManualFix(matches) {
+    if (matches) {
+        if (hasFoundSuggestionsBefore && matches.length == 0) {
+            hasFoundSuggestionsBefore = false;
+            return true;
+        } else if (matches.length > 0) {
+            hasFoundSuggestionsBefore = true;
+        }
+    }
+    return false;
 }
 
 // For use inside the extension (which isn't using webpack)
 // The best I came up with for now is to add this function to window.
 window.getMatches = getMatches;
+window.appliedSuggestion = appliedSuggestion;
