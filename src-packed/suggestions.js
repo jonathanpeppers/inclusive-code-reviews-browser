@@ -24,8 +24,8 @@ const allReplacements = {
     "minority": ["marginalized groups, underrepresented groups"],
     "native": ["core", "built-in", "unmanaged"],
     // gendered 
-    "guys": ["folks", "people", "you all", "y'all", "all", "everyone"],
-    "ladies": ["folks", "people", "you all", "y'all", "all", "everyone"],
+    "guys": ["folks", "friends", "people", "you all", "y'all", "all", "everyone"],
+    "ladies": ["folks", "friends", "people", "you all", "y'all", "all", "everyone"],
     "manpower": ["labor"],
     "man hours": ["labor hours", "person hours", "engineer hours", "hours of effort"],
     "chairman": ["chairperson"],
