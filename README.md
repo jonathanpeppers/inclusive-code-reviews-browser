@@ -58,6 +58,11 @@ To run tests:
 
     npx xt-test
 
+If you don't want to build the extension from source, you can also
+download build artifacts from Github actions:
+
+![artifacts](docs/artifacts.png)
+
 To install in Edge:
 
 1. Navigate to `edge://extensions/`
@@ -73,11 +78,6 @@ You can use the debugging menu in VS Code to run tests:
 ![VS Code breakpoint](docs/debugging-tests.png)
 
 This allows breakpoints to work, as well as looking at the value of current variables.
-
-If you don't want to build the extension from source, you can also
-download build artifacts from Github actions:
-
-![artifacts](docs/artifacts.png)
 
 ## Links & Docs
 
