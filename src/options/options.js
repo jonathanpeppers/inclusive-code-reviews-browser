@@ -1,18 +1,6 @@
 /*! (C) Copyright 2020 LanguageTooler GmbH. All rights reserved. */
 !(function () {
     const 
-        //e = document.getElementById("banner"),
-        // t = document.getElementById("login"),
-        // n = document.getElementById("login-options"),
-        // o = document.getElementById("logout-button"),
-        // s = document.getElementById("manage-account-button"),
-        // a = document.getElementById("login-popup-button"),
-        // i = document.getElementById("managed-login"),
-        // l = document.getElementById("managed-login-options"),
-        // d = document.getElementById("managed-login-button"),
-        // c = document.getElementById("managed-logout-button"),
-        r = document.getElementById("lt-options-discount"),
-        // u = document.getElementById("toggleSynonymsSwitch"),
         g = document.getElementById("personalDictionary"),
         m = document.getElementById("personalDictionary-options"),
         p = document.getElementById("personalDictionaryList"),
@@ -30,31 +18,6 @@
         _ = document.getElementById("disabledDomainsInput"),
         C = document.getElementById("addToDisabledDomains"),
         B = document.getElementById("disabledDomains-options__clearAll"),
-        // M = document.getElementById("experimental"),
-        // T = document.getElementById("experimental-options"),
-        // A = document.getElementById("serverUrl"),
-        // w = document.getElementById("serverType-cloud"),
-        // R = document.getElementById("serverType-local"),
-        // O = document.getElementById("serverType-custom"),
-        // U = document.getElementById("localServerAvailabilityWarning"),
-        // x = document.getElementById("retryLocalServer"),
-        // N = document.getElementById("customServerUrl"),
-        // P = document.getElementById("motherTongue"),
-        // V = document.getElementById("variant-en"),
-        // H = document.getElementById("variant-de"),
-        // $ = document.getElementById("variant-pt"),
-        // G = document.getElementById("variant-ca"),
-        // q = document.getElementById("autoCheckAllDomains"),
-        // Y = document.getElementById("autoCheckDomains-options"),
-        // F = document.getElementById("autoCheckDomains"),
-        // W = document.getElementById("autoCheckDomainInput"),
-        // z = document.getElementById("addToAutoCheckDomains"),
-        // j = document.getElementById("autoCheckDomains-options__clearAll"),
-        // J = document.getElementById("ignoredDomains-options"),
-        // K = document.getElementById("ignoredDomains"),
-        // Q = document.getElementById("ignoredDomainInput"),
-        // X = document.getElementById("addToIgnoredDomains"),
-        // Z = document.getElementById("ignoredDomains-options__clearAll"),
         ee = document.getElementById("copyright-link"),
         te = /^(https?:\/\/)?localhost(:[0-9]{1,5})?(\/.*)?$/i,
         ne = /^(https?:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,15}(:[0-9]{1,5})?(\/.*)?$/i,
@@ -63,28 +26,13 @@
     function ae(e) {
         return te.test(e) || ne.test(e) || oe.test(e);
     }
-    // function ie() {
-    //     const { hasPaidSubscription: e } = se.getUIState();
-    //     document.body.classList.toggle("lt-options--plus", e),
-    //         (function () {
-    //             // do nothing
-    //         })(),
-    //         le();
-    // }
-    // function le() {
-    //     const { apiServerUrl: o, disablePersonalDictionary: a, disableIgnoredRules: d, loginUrl: c } = se.getManagedSettings(),
-    //         { havePremiumAccount: r, username: u } = se.getSettings();
-    //     a && ((g.style.display = "none"), (m.style.display = "none")),
-    //         d && ((k.style.display = "none"), (f.style.display = "none")),
-    //         o && ((A.style.display = "none"), (e.style.display = "none")),
-    //         c && ((e.style.display = "none"), (t.style.display = "none"), (n.style.display = "none"), (s.style.display = "none"), (i.style.display = ""), (l.style.display = ""));
-    // }
-    // function de() {
-    //     // do nothing
-    // }
-    // function ce() {
-    //     // do nothing
-    // }
+    function le() {
+        const { apiServerUrl: o, disablePersonalDictionary: a, disableIgnoredRules: d, loginUrl: c } = se.getManagedSettings();
+        a && ((g.style.display = "none"), (m.style.display = "none")),
+            d && ((k.style.display = "none"), (f.style.display = "none")),
+            o && ((A.style.display = "none"), (e.style.display = "none")),
+            c && ((e.style.display = "none"), (t.style.display = "none"), (n.style.display = "none"), (s.style.display = "none"), (i.style.display = ""), (l.style.display = ""));
+    }
     function re(e = Dictionary.getSorted(), t = 0 === Dictionary.get().length) {
         p.innerHTML = "";
         for (const t of e) {
@@ -190,24 +138,6 @@
             se.updateSettings({ disabledDomains: e }).then(he);
         }
     }
-    // function fe() {
-    //     be(O.checked), R.checked ? De() : (U.style.display = "none");
-    // }
-    // function be(e = !1) {
-    //     (N.style.display = e ? "block" : "none"), (N.required = e), e ? (N.value = N.dataset.prevValue || "") : ((N.dataset.prevValue = N.value), (N.value = ""));
-    // }
-    // function De() {
-    //     fetch(config.LOCAL_SERVER_URL + "/languages", { method: "GET", mode: "cors" })
-    //         .then(() => {
-    //             U.style.display = "none";
-    //         })
-    //         .catch(() => {
-    //             U.style.display = "block";
-    //         });
-    // }
-    // function Se(e = !1) {
-    //     (Y.style.display = e ? "none" : ""), (J.style.display = e ? "" : "none");
-    // }
     function Ie(e = se.getSettings().autoCheckOnDomains, t = 0 === se.getSettings().autoCheckOnDomains.length) {
         F.innerHTML = "";
         const n = i18nManager.getMessage("settingsDeleteAutoCheckDomain");
@@ -228,14 +158,6 @@
             ? ((o.style.display = "none"), (s.style.display = "block"), (a.style.display = "none"))
             : ((o.style.display = "none"), (s.style.display = "none"), (a.style.display = "block"));
     }
-    // function Le() {
-    //     const e = W.value;
-    //     z.disabled = "" === e.trim();
-    //     const t = se.getSettings().autoCheckOnDomains.sort((e, t) => e.toLowerCase().localeCompare(t.toLowerCase())),
-    //         n = [];
-    //     for (const o of t) o.includes(e) && n.push(o);
-    //     Ie(n, 0 === t.length);
-    // }
     function _e() {
         const e = W.value.trim(),
             t = getDomain(e, "");
@@ -271,22 +193,6 @@
             ? ((o.style.display = "none"), (s.style.display = "block"), (a.style.display = "none"))
             : ((o.style.display = "none"), (s.style.display = "none"), (a.style.display = "block"));
     }
-    // function Me() {
-    //     const e = Q.value;
-    //     X.disabled = "" === e.trim();
-    //     const t = se.getSettings().ignoreCheckOnDomains.sort((e, t) => e.toLowerCase().localeCompare(t.toLowerCase())),
-    //         n = [];
-    //     for (const o of t) o.includes(e) && n.push(o);
-    //     Be(n, 0 === t.length);
-    // }
-    // function Te() {
-    //     const e = Q.value.trim(),
-    //         t = getDomain(e);
-    //     if ("" === t.trim() || !ae(e)) return void alert(i18nManager.getMessage("settingsDomainInvalid"));
-    //     (Q.value = ""), (X.disabled = !0);
-    //     const n = se.getSettings().ignoreCheckOnDomains;
-    //     n.includes(t) ? Be(n, !1) : (n.push(t), se.updateSettings({ ignoreCheckOnDomains: n }).then(() => Be(n, !1)));
-    // }
     function Ae(e) {
         const t = e.currentTarget.dataset.domain;
         if (t) {
@@ -295,49 +201,7 @@
         }
     }
     translateSection(document.documentElement),
-    //     (document.getElementById("privacyPolicy").innerHTML = "<a target='_blank' href='https://languagetool.org/privacy/'>" + i18nManager.getMessage("privacyPolicy") + "</a>"),
-    //     Array.from(document.querySelectorAll("[data-premium-link]")).forEach((e) => {
-    //         e.addEventListener("click", (e) => {
-    //             browser.runtime.sendMessage({ command: "OPEN_PREMIUM_PAGE", campaign: "addon2-options" }), e.preventDefault();
-    //         });
-    //     });
-    // const we = location.hash.replace(/\?.*$/, ""),
-    //     Re = document.querySelector(we || "#login");
-    // let Oe;
-    // Re &&
-    //     Re.nextElementSibling &&
-    //     Re.nextElementSibling.classList.contains("lt-toggle-box") &&
-    //     (Re.classList.add("lt-options-toggle-visible"), Re.nextElementSibling.classList.add("lt-options-visible"), we && document.documentElement.scrollTo(0, Re.offsetTop - 75)),
-    //     LanguageManager.getUserLanguageCodes().some((e) => e.startsWith("de") || e.startsWith("fr") || e.startsWith("nl")) && (document.getElementById("made-in-potsdam").style.display = "inline"),
-    //     se.onReady(function () {
-    //         ie(), re(), pe(), Ee(), le();
-    //         const e = se.getSettings();
-    //         e.apiServerUrl === config.MAIN_SERVER_URL ? (w.checked = !0) : e.apiServerUrl === config.LOCAL_SERVER_URL ? (R.checked = !0) : (be(!0), (O.checked = !0), (N.value = e.apiServerUrl)),
-    //             (P.value = e.motherTongue),
-    //             (V.value = e.enVariant),
-    //             (H.value = e.deVariant),
-    //             ($.value = e.ptVariant),
-    //             (G.value = e.caVariant),
-    //             (q.checked = e.autoCheck),
-    //             Se(e.autoCheck),
-    //             e.hasSynonymsEnabled ? de() : ce(),
-    //             Ie(),
-    //             Be(),
-    //             se.addEventListener(StorageControllerClass.eventNames.uiStateChanged, (e) => {
-    //                 e.hasPaidSubscription && e.hasPaidSubscription.newValue && ie();
-    //             });
-    //     }),
-        se.onReady(() => {
-            se.startChangelogCoupon();
-            const e = se.getActiveCoupon();
-            e &&
-                (window.clearInterval(Oe),
-                (Oe = window.setInterval(() => {
-                    (r.querySelector("#lt-options-dicount-percent").textContent = i18nManager.getMessage("upgradeTeaserDiscount", [e.percent])),
-                        (r.querySelector("#lt-options-discount-expires").textContent = ` – ${i18nManager.getMessage("changelogDiscountExpires")} ${getCountdown(e.expires)}`),
-                        r.classList.add("lt-options__discount--visible");
-                }, 1e3)));
-        }),
+        se.onReady(function () { re(), pe(), Ee(), le(); }),
         Dictionary.init(se),
         Tracker.trackPageView(),
         g.addEventListener("click", () => {
@@ -407,112 +271,6 @@
         B.addEventListener("click", function () {
             confirm(i18nManager.getMessage("settingsAreYouSure")) && se.updateSettings({ disabledDomains: [] }).then(() => Ee([], !0));
         }),
-        // M.addEventListener("click", (e) => {
-        //     M.classList.toggle("lt-options-toggle-visible"), T.classList.toggle("lt-options-visible");
-        // }),
-        // w.addEventListener("click", fe),
-        // R.addEventListener("click", fe),
-        // O.addEventListener("click", fe),
-        // x.addEventListener("click", (e) => {
-        //     e.preventDefault(), De();
-        // }),
-        // A.addEventListener("submit", (e) => {
-        //     e.preventDefault(),
-        //         (function () {
-        //             let e = "";
-        //             e = w.checked ? config.MAIN_SERVER_URL : R.checked ? config.LOCAL_SERVER_URL : N.value.trim();
-        //             const t = document.getElementById("serverUrl-success"),
-        //                 n = document.getElementById("serverUrl-error");
-        //             se.updateSettings({ apiServerUrl: e })
-        //                 .then(() => {
-        //                     se.checkForPaidSubscription().then(() => {
-        //                         ie();
-        //                     }),
-        //                         (t.style.display = "block"),
-        //                         wait(3e3).then(() =>
-        //                             fadeOut(t, () => {
-        //                                 (t.style.display = "none"), (t.style.opacity = "1");
-        //                             })
-        //                         );
-        //                 })
-        //                 .catch(() => {
-        //                     (n.style.display = "block"),
-        //                         wait(3e3).then(() =>
-        //                             fadeOut(n, () => {
-        //                                 (n.style.display = "none"), (n.style.opacity = "1");
-        //                             })
-        //                         );
-        //                 });
-        //         })();
-        // }),
-        // P.addEventListener("change", function () {
-        //     se.updateSettings({ motherTongue: P.value });
-        // }),
-        // V.addEventListener("change", function () {
-        //     se.updateSettings({ enVariant: V.value });
-        // }),
-        // H.addEventListener("change", function () {
-        //     se.updateSettings({ deVariant: H.value });
-        // }),
-        // $.addEventListener("change", function () {
-        //     se.updateSettings({ ptVariant: $.value });
-        // }),
-        // G.addEventListener("change", function () {
-        //     se.updateSettings({ caVariant: G.value });
-        // }),
-        // q.addEventListener("input", () => {
-        //     se.updateSettings({ autoCheck: q.checked }), Se(q.checked);
-        // }),
-        // W.addEventListener("keydown", (e) => {
-        //     "Enter" === e.key && _e();
-        // }),
-        // W.addEventListener("input", () => {
-        //     setTimeout(Le, 0);
-        // }),
-        // W.addEventListener("paste", function (e) {
-        //     if (W.value) return;
-        //     if (!e.clipboardData) return;
-        //     const t = e.clipboardData.getData("text/plain");
-        //     if (!t) return;
-        //     const n = t.split(/\s+/);
-        //     if (n.length <= 1) return;
-        //     e.preventDefault();
-        //     const o = se.getSettings().autoCheckOnDomains;
-        //     n.forEach((e) => {
-        //         const t = getDomain(e, "");
-        //         t.trim() && ae(e) && !o.includes(t) && o.push(t);
-        //     }),
-        //         se.updateSettings({ autoCheckOnDomains: o }).then(Le);
-        // }),
-        // z.addEventListener("click", _e),
-        // j.addEventListener("click", function () {
-        //     confirm(i18nManager.getMessage("settingsAreYouSure")) && se.updateSettings({ autoCheckOnDomains: [] }).then(() => Ie([], !0));
-        // }),
-        // Q.addEventListener("keydown", (e) => {
-        //     "Enter" === e.key && Te();
-        // }),
-        // Q.addEventListener("input", () => {
-        //     setTimeout(Me, 0);
-        // }),
-        // Q.addEventListener("paste", function (e) {
-        //     if (Q.value) return;
-        //     if (!e.clipboardData) return;
-        //     const t = e.clipboardData.getData("text/plain");
-        //     if (!t) return;
-        //     const n = t.split(/\s+/);
-        //     if (n.length <= 1) return;
-        //     e.preventDefault();
-        //     const o = se.getSettings().ignoreCheckOnDomains;
-        //     n.forEach((e) => {
-        //         const t = getDomain(e);
-        //         t.trim() && ae(e) && !o.includes(t) && o.push(t);
-        //     }),
-        //         se.updateSettings({ ignoreCheckOnDomains: o }).then(Me);
-        // }),
-        // X.addEventListener("click", Te),
-        // Z.addEventListener("click", function () {
-        //     confirm(i18nManager.getMessage("settingsAreYouSure")) && se.updateSettings({ ignoreCheckOnDomains: [] }).then(() => Be([], !0));
-        // }),
         BrowserDetector.isSafari() && ee instanceof HTMLAnchorElement && (ee.href += ee.href.includes("?") ? "&hidePremium=true" : "?hidePremium=true"),
         se.onReady(() => {
             const e = document.querySelector("#heart");
