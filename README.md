@@ -79,6 +79,44 @@ You can use the debugging menu in VS Code to run tests:
 
 This allows breakpoints to work, as well as looking at the value of current variables.
 
+If the build fails with:
+
+```
+npx xt-build
+Error: Cannot find module 'webpack/lib/ProgressPlugin'
+Require stack:
+- ~/src/inclusive-code-comments/node_modules/webpack-stream/index.js
+- ~/src/inclusive-code-comments/node_modules/extension-cli/cli/gulpfile.js
+- ~/src/inclusive-code-comments/node_modules/gulp-cli/lib/shared/require-or-import.js
+- ~/src/inclusive-code-comments/node_modules/gulp-cli/lib/versioned/^4.0.0/index.js
+- ~/src/inclusive-code-comments/node_modules/gulp-cli/index.js
+- ~/src/inclusive-code-comments/node_modules/gulp/bin/gulp.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:1030:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:899:27)
+    at Module.require (internal/modules/cjs/loader.js:1090:19)
+    at require (internal/modules/cjs/helpers.js:75:18)
+    at Object.<anonymous> (~/src/inclusive-code-comments/node_modules/webpack-stream/index.js:10:24)
+    at Module._compile (internal/modules/cjs/loader.js:1201:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1221:10)
+    at Module.load (internal/modules/cjs/loader.js:1050:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:938:14)
+    at Module.require (internal/modules/cjs/loader.js:1090:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '~/src/inclusive-code-comments/node_modules/webpack-stream/index.js',
+    '~/src/inclusive-code-comments/node_modules/extension-cli/cli/gulpfile.js',
+    '~/src/inclusive-code-comments/node_modules/gulp-cli/lib/shared/require-or-import.js',
+    '~/src/inclusive-code-comments/node_modules/gulp-cli/lib/versioned/^4.0.0/index.js',
+    '~/src/inclusive-code-comments/node_modules/gulp-cli/index.js',
+    '~/src/inclusive-code-comments/node_modules/gulp/bin/gulp.js'
+  ]
+}
+Build failed
+```
+
+You might need to update `node.js`. `node -v` should report node 16 or higher.
+`brew upgrade node` (homebrew) is one way to update this on macOS.
+
 ## Links & Docs
 
 Extension CLI
