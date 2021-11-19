@@ -12,6 +12,14 @@ Our general goals are:
 1. Don't record the URLs of any sites visited: except for Azure DevOps
    or Github organizations.
 
+# Individual Users
+
+Application Insights automatically records a random and unique `user_Id` value for
+page views and custom events such as `IsVTD5OcT+9c4g7k8pN+Qp`.
+
+This `user_Id` should remain stable as long as the browser extension is installed.
+If you uninstall/reinstall the extension, the `user_Id` will change.
+
 # Page Views
 
 URLs are only recorded for:
