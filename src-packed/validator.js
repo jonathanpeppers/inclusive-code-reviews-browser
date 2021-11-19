@@ -13,7 +13,7 @@ function loadAppInsights() {
 export async function getMatches(text, matches) {
     loadAppInsights();
 
-    var minLength = config ? config.MIN_REVIEW_LENGTH : 15;
+    var minLength = typeof config != "undefined" ? config.MIN_REVIEW_LENGTH : 15;
     if (text.length < minLength)
     {
         appinsights.trackEvent('tooShort');
