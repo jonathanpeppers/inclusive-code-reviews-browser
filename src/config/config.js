@@ -40,4 +40,6 @@ const config = {
     SUPPORTED_SYNONYM_LANGUAGES: ["de", "ru", "sv", "pt", "el", "en", "eo", "it", "fr", "es", "uk", "sk", "sl", "pl", "da", "ro", "nl", "ca"],
     COUPON_INTERVAL: 5184e6,
     PACKAGE: { BASIC: "Basic", PREMIUM: "Premium" },
+    //these options is for inclusive reviews extension
+    MIN_REVIEW_LENGTH: 15,
 };

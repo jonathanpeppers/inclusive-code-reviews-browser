@@ -3,13 +3,13 @@ describe('validator', () => {
 
     it('No match', async () => {
         var matches = [];
-        await client.getMatches('Hello, World!', matches);
+        await client.getMatches('Hello, World! This is a long text', matches);
         expect(matches.length).to.be.equal(0);
     });
 
     it('Negative', async () => {
         var matches = [];
-        await client.getMatches('This is so bad', matches);
+        await client.getMatches('This is so bad way to do things', matches);
         expect(matches.length).to.be.equal(1);
     });
 
@@ -21,7 +21,7 @@ describe('validator', () => {
 
     it('Suggestion and negative', async () => {
         var matches = [];
-        await client.getMatches('This is crazy', matches);
+        await client.getMatches('This is crazy long text', matches);
         expect(matches.length).to.be.equal(2);
     });
 
@@ -49,5 +49,17 @@ describe('validator', () => {
         expect(client.shouldReportManualFix([])).to.be.equal(false);
         // No suggestions, again
         expect(client.shouldReportManualFix([])).to.be.equal(false);
+    });
+
+    it('Brief text suggestion', async () => {
+        var matches = [];
+        var result = client.getMatches("Great changes", matches);
+        expect(matches.length).to.be.equal(1);
+    });
+    
+    it('Brief text no suggestion', async () => {
+        var matches = [];
+        var result = client.getMatches("These changes are more than 15 characters", matches);
+        expect(matches.length).to.be.equal(0);
     });
 });
