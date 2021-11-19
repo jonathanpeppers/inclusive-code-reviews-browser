@@ -13,9 +13,8 @@ function loadAppInsights() {
 export async function getMatches(text, matches) {
     loadAppInsights();
 
-    var minRev = typeof config != "undefined" ? config.MIN_REVIEW_LENGTH : 15;
-    var shortText = text.length < minRev;
-    if (shortText)
+    var minLength = config ? config.MIN_REVIEW_LENGTH : 15;
+    if (text.length < minLength)
     {
         appinsights.trackEvent('tooShort');
         matches.push({
@@ -29,6 +28,9 @@ export async function getMatches(text, matches) {
             "ignoreForIncompleteSentence": false,
             "contextForSureMatch": 7
         });
+
+        //we don't need to call analytics api if the text is too short
+        return matches;
     }
     // Suggestions, based on a dictionary
     suggestions.getSuggestions(text).forEach(suggestion => {
@@ -46,10 +48,6 @@ export async function getMatches(text, matches) {
             "contextForSureMatch": 7
         });
     });
-
-    //we don't need to call analytics api if the text is too short
-    if(shortText)
-        return;
 
     // TextAnalytics API
     const result = await textAnalytics.analyzeSentiment(text);
