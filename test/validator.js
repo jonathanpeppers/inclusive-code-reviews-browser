@@ -3,14 +3,14 @@ describe('validator', () => {
 
     it('No match', async () => {
         var matches = [];
-        await client.getMatches('Hello, World!', matches);
+        await client.getMatches('Hello, World! This is a long text', matches);
         expect(matches.length).to.be.equal(0);
     });
 
-    it('Negative', async () => {
+    it('Negative and short', async () => {
         var matches = [];
         await client.getMatches('This is so bad', matches);
-        expect(matches.length).to.be.equal(1);
+        expect(matches.length).to.be.equal(2);
     });
 
     it('Suggestion', async () => {
@@ -19,10 +19,10 @@ describe('validator', () => {
         expect(matches.length).to.be.equal(1);
     });
 
-    it('Suggestion and negative', async () => {
+    it('Suggestion, negative and short', async () => {
         var matches = [];
         await client.getMatches('This is crazy', matches);
-        expect(matches.length).to.be.equal(2);
+        expect(matches.length).to.be.equal(3);
     });
 
     it('shouldReportManualFix', async () => {
@@ -49,5 +49,17 @@ describe('validator', () => {
         expect(client.shouldReportManualFix([])).to.be.equal(false);
         // No suggestions, again
         expect(client.shouldReportManualFix([])).to.be.equal(false);
+    });
+
+    it('Brief text suggestion', async () => {
+        var matches = [];
+        var result = client.getMatches("Great changes", matches);
+        expect(matches.length).to.be.equal(1);
+    });
+    
+    it('Brief text no suggestion', async () => {
+        var matches = [];
+        var result = client.getMatches("These changes are more than 15 characters", matches);
+        expect(matches.length).to.be.equal(0);
     });
 });

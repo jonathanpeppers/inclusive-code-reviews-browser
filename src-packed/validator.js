@@ -13,6 +13,23 @@ function loadAppInsights() {
 export async function getMatches(text, matches) {
     loadAppInsights();
 
+    var minRev = typeof config != "undefined" ? config.MIN_REVIEW_LENGTH : 15;
+
+    if (text.length < minRev)
+    {
+        appinsights.trackEvent('tooShort');
+        matches.push({
+            "message": "This is comment is too brief. Could you elaborate?",
+            "shortMessage": "Comment is brief",
+            "offset": 0,
+            "length": text.length-1,
+            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": "misspelling", "category": { "id": "TYPOS", "name": "Small text" } },
+            "replacements": [],
+            "type": { "typeName": "Other" },
+            "ignoreForIncompleteSentence": false,
+            "contextForSureMatch": 7
+        });
+    }
     // Suggestions, based on a dictionary
     suggestions.getSuggestions(text).forEach(suggestion => {
         appinsights.trackEvent('negativeWord');
