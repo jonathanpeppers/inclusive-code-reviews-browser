@@ -14,8 +14,8 @@ export async function getMatches(text, matches) {
     loadAppInsights();
 
     var minRev = typeof config != "undefined" ? config.MIN_REVIEW_LENGTH : 15;
-
-    if (text.length < minRev)
+    var shortText = text.length < minRev;
+    if (shortText)
     {
         appinsights.trackEvent('tooShort');
         matches.push({
@@ -46,6 +46,10 @@ export async function getMatches(text, matches) {
             "contextForSureMatch": 7
         });
     });
+
+    //we don't need to call analytics api if the text is too short
+    if(shortText)
+        return;
 
     // TextAnalytics API
     const result = await textAnalytics.analyzeSentiment(text);

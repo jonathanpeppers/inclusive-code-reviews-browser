@@ -7,10 +7,10 @@ describe('validator', () => {
         expect(matches.length).to.be.equal(0);
     });
 
-    it('Negative and short', async () => {
+    it('Negative', async () => {
         var matches = [];
-        await client.getMatches('This is so bad', matches);
-        expect(matches.length).to.be.equal(2);
+        await client.getMatches('This is so bad way to do things', matches);
+        expect(matches.length).to.be.equal(1);
     });
 
     it('Suggestion', async () => {
@@ -19,10 +19,10 @@ describe('validator', () => {
         expect(matches.length).to.be.equal(1);
     });
 
-    it('Suggestion, negative and short', async () => {
+    it('Suggestion and negative', async () => {
         var matches = [];
-        await client.getMatches('This is crazy', matches);
-        expect(matches.length).to.be.equal(3);
+        await client.getMatches('This is crazy long text', matches);
+        expect(matches.length).to.be.equal(2);
     });
 
     it('shouldReportManualFix', async () => {
