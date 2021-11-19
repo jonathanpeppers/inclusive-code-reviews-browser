@@ -246,6 +246,10 @@ class BackgroundApp {
         return (
             isPageLoadedMessage(e)
                 ? (s = this._onPageLoadedMessage(t, e))
+                : isPageView(e)
+                ? (s = this._onPageView(t, e))
+                : isTrackCustomEvent(e)
+                ? (s = this._onTrackCustomEvent(t, e))
                 : isAppliedSuggestion(e)
                 ? (s = this._onAppliedSuggestionMessage(t, e))
                 : isLTAssistantStatusChangedMessage(e)
@@ -316,6 +320,12 @@ class BackgroundApp {
                     console.error("Error detecting language", e);
                 }),
             this._updateBadge(a, s);
+    }
+    static _onPageView(e, t) {
+        window.aiTrackPageView(t.location);
+    }
+    static _onTrackCustomEvent(e, t) {
+        window.aiTrackEvent(t.name);
     }
     static _onAppliedSuggestionMessage(e, t) {;
         window.appliedSuggestion(t.appliedSuggestions);
