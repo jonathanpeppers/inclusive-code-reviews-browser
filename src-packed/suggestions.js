@@ -21,7 +21,7 @@ const allReplacements = {
     "web master": ["web product owner"],
     "slave": ["secondary", "replica", "standby"],
     "culture fit": ["values fit", "cultural contribution"],
-    "minority": ["marginalized groups, underrepresented groups"],
+    "minority": ["marginalized groups", "underrepresented groups"],
     "native": ["core", "built-in", "unmanaged"],
     // gendered 
     "guys": ["folks", "friends", "people", "you all", "y'all", "all", "everyone"],
