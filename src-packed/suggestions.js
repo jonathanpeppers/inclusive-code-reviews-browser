@@ -71,9 +71,17 @@ export function getSuggestions(text) {
     for (const [key, values] of Object.entries(allReplacements)) {
         var regex = new RegExp('\\b' + key + '\\b', "gi");
         var index = text.search(regex);
-        var replacements = [];
-        values.forEach(value => replacements.push({ value: value }));
+
         if (index != -1) {
+            var replacements = [];
+            var textToReplace = text.substring(index, index + key.length);
+            
+            if (isCapitalized(textToReplace)) {
+                values.forEach(value => replacements.push({ value: capitalize(value) }));
+            } else {
+                values.forEach(value => replacements.push({ value: value }));
+            }
+
             suggestions.push({
                 index: index,
                 length: key.length,
@@ -82,4 +90,12 @@ export function getSuggestions(text) {
         }
     }
     return suggestions;
+}
+
+export function capitalize(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}
+
+export function isCapitalized(word) {
+    return /[A-Z]/.test(word.charAt(0));
 }

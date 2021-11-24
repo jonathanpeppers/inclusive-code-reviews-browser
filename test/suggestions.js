@@ -7,7 +7,7 @@ describe('suggestions', () => {
     });
 
     it('Match at beginning', async () => {
-        var result = client.getSuggestions("Master this");
+        var result = client.getSuggestions("master this");
         expect(result[0]).to.eql({
             index: 0,
             length: 6,
@@ -30,6 +30,15 @@ describe('suggestions', () => {
             index: 17,
             length: 6,
             replacements: [ { value: "main" }, { value: "primary" } ],
+        });
+    });
+
+    it('Retrieve capitalized suggestions for capitalized word', async () => {
+        var result = client.getSuggestions("Ship this to the Master branch!");
+        expect(result[0]).to.eql({
+            index: 17,
+            length: 6,
+            replacements: [ { value: "Main" }, { value: "Primary" } ],
         });
     });
 
