@@ -1,5 +1,7 @@
 describe('textAnalytics', () => {
     const client = require('../src-packed/textAnalytics');
+    if (client.emptyApiKey)
+        return;
 
     it('Negative', async () => {
         const result = await client.analyzeSentiment("This is terrible!");
