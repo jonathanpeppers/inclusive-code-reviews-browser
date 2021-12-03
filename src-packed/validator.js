@@ -10,6 +10,10 @@ function loadAppInsights() {
     if (!appinsights) appinsights = require('./appinsights');
 }
 
+export function hasEmptyApiKey() {
+    return textAnalytics.emptyApiKey;
+}
+
 export async function getMatches(text, matches) {
     loadAppInsights();
 
