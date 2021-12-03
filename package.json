@@ -54,6 +54,7 @@
     },
     "dependencies": {
         "@azure/ai-text-analytics": "^5.1.0",
-        "@microsoft/applicationinsights-web": "^2.7.0"
+        "@microsoft/applicationinsights-web": "^2.7.0",
+        "webpack": "^5.64.4"
     }
 }
