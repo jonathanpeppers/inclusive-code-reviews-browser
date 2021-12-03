@@ -54,6 +54,14 @@ To build:
     npm install
     npx xt-build
 
+If the build fails with an error like this:
+
+    Error: Cannot find module 'webpack/lib/ProgressPlugin'
+
+then do this:
+
+    npm i webpack
+
 To run tests:
 
     npx xt-test
