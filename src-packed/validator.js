@@ -25,7 +25,7 @@ export async function getMatches(text, matches) {
             "message": "This is comment is too brief. Could you elaborate?",
             "shortMessage": "Comment is brief",
             "offset": 0,
-            "length": text.length-1,
+            "length": text.length,
             "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": "misspelling", "category": { "id": "TYPOS", "name": "Small text" } },
             "replacements": [],
             "type": { "typeName": "Other" },
