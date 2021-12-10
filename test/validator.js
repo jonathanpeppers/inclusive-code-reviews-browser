@@ -60,14 +60,16 @@ describe('validator', () => {
     });
 
     it('Brief text suggestion', async () => {
+        var text = "Great changes";
         var matches = [];
-        var result = client.getMatches("Great changes", matches);
+        client.getMatches(text, matches);
         expect(matches.length).to.be.equal(1);
+        expect(matches[0].length).to.be.equal(text.length);
     });
     
     it('Brief text no suggestion', async () => {
         var matches = [];
-        var result = client.getMatches("These changes are more than 15 characters", matches);
+        client.getMatches("These changes are more than 15 characters", matches);
         expect(matches.length).to.be.equal(0);
     });
 });
