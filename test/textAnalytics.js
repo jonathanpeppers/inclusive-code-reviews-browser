@@ -23,9 +23,27 @@ describe('textAnalytics', () => {
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
     });
 
+    it('Fenced code blocks negative, offset', async () => {
+        const text = "```\nHello, World!\n```\nThis is terrible!\n";
+        const result = await client.analyzeSentiment(text);
+        var sentence = result.sentences[0];
+        expect(sentence.sentiment).to.be.equal("negative");
+        expect(sentence.offset).to.be.equal(0);
+        expect(sentence.length).to.be.equal(text.length - 1); // -1 is the \n
+    });
+
     it('Indented code blocks negative', async () => {
         const result = await client.analyzeSentiment("    This is terrible!\nHello, World!\n");
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
+    });
+
+    it('Indented code blocks negative, offset', async () => {
+        const text = "This is terrible!\n    Hello, World!";
+        const result = await client.analyzeSentiment(text);
+        var sentence = result.sentences[0];
+        expect(sentence.sentiment).to.be.equal("negative");
+        expect(sentence.offset).to.be.equal(0);
+        expect(sentence.length).to.be.equal("This is terrible!".length);
     });
 
     it('Preprocess 1', () => {
