@@ -129,6 +129,10 @@ You might need to update `node.js`. `node -v` should report node 16 or higher.
 
 ## Links & Docs
 
+Inclusive Code Reviews Group links
+
+* [Azure DevOps dashboard](https://dataexplorer.azure.com/dashboards/a8390f81-19c6-4bf5-bbd6-1a84cf03d80c?_startTime=30days&_endTime=now#a32efffa-608f-4ad9-b685-4b414b5c305b): has a few queries for looking at telemetry.
+
 Extension CLI
 
 * https://www.npmjs.com/package/extension-cli
