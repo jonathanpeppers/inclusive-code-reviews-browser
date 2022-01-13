@@ -347,6 +347,8 @@ class Dialog {
                 ? (this._renderHeadline(), this._renderCompletedState())
                 : e === VALIDATION_STATUS.DISABLED
                 ? this._renderDisabledState()
+                : e === VALIDATION_STATUS.TEXT_TOO_LONG
+                ? (this._renderHeadline(), this._renderTextTooLongState())
                 : e === VALIDATION_STATUS.UNSUPPORTED_LANGUAGE
                 ? (this._renderHeadline(), this._renderLanguageUnsupportedState())
                 : e === VALIDATION_STATUS.DISCONNECTED
@@ -637,25 +639,11 @@ class Dialog {
         const e = this._document.createElement("lt-div");
         e.className = "lt-dialog__text-wrapper";
         const t = this._document.createElement("lt-div");
-        (t.className = "lt-dialog__premium__headline"), (t.textContent = Dialog.MESSAGES.TEXT_TOO_LONG_HEADLINE);
+        (t.className = "lt-dialog__exception-headline"), (t.textContent = Dialog.MESSAGES.TEXT_TOO_LONG_HEADLINE);
         const o = this._document.createElement("lt-div");
-        (o.className = "lt-dialog__premium__text"), (o.textContent = Dialog.MESSAGES.TEXT_TOO_LONG_TEXT);
-        const n = this._document.createElement("lt-div");
-        (n.className = "lt-dialog__premium__button"), (n.textContent = Dialog.MESSAGES.TEXT_TOO_LONG_BUTTON);
-        let i = "addon2-dialog-text-too-long";
-        StorageController.create().onReady((e) => {
-            e.getActiveCoupon() && (i = i.replace("addon2-dialog", "addon2-changelog")), e.destroy();
-        }),
-            this._eventListeners.push(
-                addUseCaptureEvent(n, "click", (e) => {
-                    e.stopImmediatePropagation();
-                    const t = { command: "OPEN_PREMIUM_PAGE", campaign: i };
-                    browser.runtime.sendMessage(t), Tracker.trackEvent("Action", "dialog:text_too_long:click");
-                })
-            ),
+        (o.className = "lt-dialog__exception__text"), (o.textContent = Dialog.MESSAGES.TEXT_TOO_LONG_TEXT),
             e.appendChild(t),
             e.appendChild(o),
-            e.appendChild(n),
             this._controls.contentMain.appendChild(e);
     }
     _renderLanguageUnsupportedState() {
