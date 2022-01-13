@@ -100,7 +100,7 @@ class Toolbar {
                 t.push("lt-toolbar__status-icon-disabled"), (s = Toolbar.MESSAGES.STATUS_ICON_DISABLED);
                 break;
             case VALIDATION_STATUS.TEXT_TOO_LONG:
-                t.push("lt-toolbar__status-icon-text-too-long"), (s = Toolbar.MESSAGES.STATUS_ICON_TEXT_TOO_LONG);
+                t.push("lt-toolbar__status-icon--failed", "wp-exclude-emoji"), (s = Toolbar.MESSAGES.STATUS_ICON_TEXT_TOO_LONG), (o = "✖");
                 break;
             case VALIDATION_STATUS.UNSUPPORTED_LANGUAGE:
                 t.push("lt-toolbar__status-icon--language-unsupported"), (s = Toolbar.MESSAGES.STATUS_ICON_LANGUAGE_UNSUPPORTED);

@@ -561,7 +561,7 @@
    },
    "dialogTextTooLongText": {
       "description": "Text shown when text is too long",
-      "message": "Upgrade to Premium and get advanced grammar and style suggestions for long texts."
+      "message": "Your comment exceeds the 10,000 character limit"
    },
    "dialogTextTooShortHeadline": {
       "description": "Text shown when text is too short for checking",
