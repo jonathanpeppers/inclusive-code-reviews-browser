@@ -59,6 +59,21 @@ describe('validator', () => {
         expect(client.shouldReportManualFix([])).to.be.equal(false);
     });
 
+    it('shouldReportManualFix multiple issues', async () => {
+        // Reset initial state
+        client.clearState();
+        // No suggestions
+        expect(client.shouldReportManualFix([])).to.be.equal(false);
+        // Two suggestions
+        expect(client.shouldReportManualFix([ "one", "two" ])).to.be.equal(false);
+        // One suggestion
+        expect(client.shouldReportManualFix([ "one" ])).to.be.equal(true);
+        // No suggestions
+        expect(client.shouldReportManualFix([])).to.be.equal(true);
+        // No suggestions, again
+        expect(client.shouldReportManualFix([])).to.be.equal(false);
+    });
+
     it('Brief text suggestion', async () => {
         var text = "Great changes";
         var matches = [];
