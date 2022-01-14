@@ -3,7 +3,7 @@
 const suggestions = require('./suggestions');
 const textAnalytics = require('./textAnalytics');
 var appinsights = null;
-var hasFoundSuggestionsBefore = false; // If a problem has been found before
+var pastErrorCount = 0; // Number of problems found in the past text
 
 // Load appinsights lazily, so we aren't tracking until this method is called
 function loadAppInsights() {
@@ -88,12 +88,12 @@ export async function getMatches(text, matches) {
     }
 }
 
-// clears the state of 'hasFoundSuggestionsBefore'
+// clears the state of 'pastErrorCount'
 export function clearState() {
-    hasFoundSuggestionsBefore = false;
+    pastErrorCount = 0;
 }
 
-// Sends the 'appliedSuggestion' event and clears the state of 'hasFoundSuggestionsBefore'
+// Sends the 'appliedSuggestion' event and clears the state of 'pastErrorCount'
 export function appliedSuggestion(appliedSuggestions) {
     clearState();
     loadAppInsights();
@@ -103,12 +103,14 @@ export function appliedSuggestion(appliedSuggestions) {
 // Returns true if the 'manualFix' event should be sent
 export function shouldReportManualFix(matches) {
     if (matches) {
-        if (hasFoundSuggestionsBefore && matches.length == 0) {
-            hasFoundSuggestionsBefore = false;
+        if (pastErrorCount > matches.length) {
+            pastErrorCount = matches.length;
             return true;
-        } else if (matches.length > 0) {
-            hasFoundSuggestionsBefore = true;
+        } else {
+            pastErrorCount = matches.length;
         }
+    } else {
+        pastErrorCount = 0;
     }
     return false;
 }
