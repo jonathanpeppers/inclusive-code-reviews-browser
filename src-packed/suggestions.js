@@ -63,6 +63,8 @@ const allReplacements = {
     // ageist
     "grandfather": ["flagship", "established", "rollover", "carryover", "classic"],
     "legacy": ["flagship", "established", "rollover", "carryover", "classic"],
+    // custom negative sentiment just leave replacements empty
+    "is pants": [],
 };
 
 // returns suggestions for certain words
