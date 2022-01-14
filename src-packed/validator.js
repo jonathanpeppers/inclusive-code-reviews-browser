@@ -1,5 +1,8 @@
 // packed/validator.js returns a data structure that background/validator.js expects
 
+// NOTE: These values were from the original extension, we can repurpose to display different colors
+const ISSUE_TYPE_YELLOW = "misspelling";
+const ISSUE_TYPE_PURPLE = "style";
 const suggestions = require('./suggestions');
 const textAnalytics = require('./textAnalytics');
 var appinsights = null;
@@ -26,7 +29,7 @@ export async function getMatches(text, matches) {
             "shortMessage": "Comment is brief",
             "offset": 0,
             "length": text.length,
-            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": "misspelling", "category": { "id": "TYPOS", "name": "Small text" } },
+            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_YELLOW, "category": { "id": "TYPOS", "name": "Small text" } },
             "replacements": [],
             "type": { "typeName": "Other" },
             "ignoreForIncompleteSentence": false,
@@ -45,7 +48,7 @@ export async function getMatches(text, matches) {
             "shortMessage": "Negative word",
             "offset": suggestion.index,
             "length": suggestion.length,
-            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": "misspelling", "category": { "id": "TYPOS", "name": "Negative word" } },
+            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_YELLOW, "category": { "id": "TYPOS", "name": "Negative word" } },
             "replacements": suggestion.replacements,
             "type": { "typeName": "Other" },
             "ignoreForIncompleteSentence": false,
@@ -73,7 +76,7 @@ export async function getMatches(text, matches) {
             "shortMessage": "Negative sentiment",
             "offset": sentence.offset,
             "length": sentence.length,
-            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": "misspelling", "category": { "id": "TYPOS", "name": "Negative word" } },
+            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_PURPLE, "category": { "id": "TYPOS", "name": "Negative word" } },
             // Stuff that has to be filled out
             "replacements": [],
             "type": { "typeName": "Other" },
