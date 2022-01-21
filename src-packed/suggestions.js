@@ -15,7 +15,7 @@ const allReplacements = {
     "whitehat": ["ethical engineer", "ethical developer"],
     "grayhat": ["hacktivist"],
     "mob programming": ["team"],
-    "whitespace": ["empty space", "blank"],
+    "whitespace": ["empty space", "blank", "formatting"],
     "master": ["main", "primary"],
     "scrum master": ["agile lead", "agile program manager", "scrum coach", "scrum leader"],
     "web master": ["web product owner"],
