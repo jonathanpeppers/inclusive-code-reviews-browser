@@ -29,14 +29,12 @@ class InputAreaWrapper {
             (this._scrollLeft = this._inputArea.scrollLeft),
             !isFormElement(this._inputArea))
         ) {
-            const e = GoogleDocs.isPage(this._inputArea),
-                t = Overleaf.isEditor(this._inputArea);
+            const t = Overleaf.isEditor(this._inputArea);
             (this._inputAreaObserver = this._tweaks.createMutationObserver(this._inputArea, (s) => {
                 s.filter(
                     (s) =>
-                        (!e || this._inputArea !== s.target || "class" !== s.attributeName || "attributes" !== s.type) &&
+                        (this._inputArea !== s.target || "class" !== s.attributeName || "attributes" !== s.type) &&
                         !(
-                            e &&
                             "style" === s.attributeName &&
                             "attributes" === s.type &&
                             s.target instanceof HTMLElement &&

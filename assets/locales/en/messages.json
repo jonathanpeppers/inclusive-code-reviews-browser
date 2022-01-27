@@ -775,46 +775,6 @@
       "description": "language name",
       "message": "Galician"
    },
-   "googleDocsDisableButton": {
-      "description": "menu bar button in google docs",
-      "message": "Disable LanguageTool in this doc"
-   },
-   "googleDocsEnableButton": {
-      "description": "menu bar button in google docs",
-      "message": "Enable LanguageTool"
-   },
-   "googleDocsEnableHint": {
-      "description": "hint pointing to a button in the google docs menu bar",
-      "message": "You can re-enable LanguageTool's grammar and style checker here"
-   },
-   "googleDocsNewTeaserHeadline": {
-      "description": "headline for a google docs teaser",
-      "message": "LanguageTool for Google Docs is here!"
-   },
-   "googleDocsNewTeaserText": {
-      "description": "text for a google docs teaser",
-      "message": "On the side of each page you can now see how many issues LanguageTool detected."
-   },
-   "googleSlidesDisableButton": {
-      "description": "menu bar button in google slides",
-      "message": "Disable LanguageTool in this presentation"
-   },
-   "googleSlidesEnableButton": {
-      "description": "menu bar button in google slides",
-      "message": "Enable LanguageTool"
-   },
-   "googleSlidesEnableHint": {
-      "description": "hint pointing to a button in the google docs menu bar",
-      "message": "You can re-enable LanguageTool's grammar and style checker here"
-   },
-   "googleSlidesNewTeaserHeadline": {
-      "description": "headline for a google slides teaser",
-      "message": "LanguageTool for Google Slides is here!"
-   },
-   "googleSlidesNewTeaserText": {
-      "description": "text for a google slides teaser",
-      "message": "On the side of each slide you can now see how many issues LanguageTool detected."
-   },
    "grammarError": {
       "description": "Type of error (spelling error, style suggestion, grammar error, ...)",
       "message": "Grammar and others"

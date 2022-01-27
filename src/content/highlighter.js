@@ -280,7 +280,6 @@ class Highlighter {
     _onCEElementClick(t) {
         const e = 0 === t.button;
         if ("click" !== t.type && !e) return;
-        if (t.detail === GoogleDocs.MOUSE_EVENT_DETAIL) return;
         if ((this._isMirror && t.stopImmediatePropagation(), !this._container)) return;
         this._domMeasurement.clearCache();
         let i = { x: t.clientX, y: t.clientY };
