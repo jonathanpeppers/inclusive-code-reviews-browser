@@ -145,14 +145,6 @@
       "description": "Headline for the section that explains the editor in depth",
       "message": "Your new Editor in Chief"
    },
-   "changelog2020FeatureSectionOverleafDescription": {
-      "description": "Headline for the section that explains the Overleaf integration in depth",
-      "message": "Use LanguageTool for your scientific work. With the Overleaf integration of the browser add-on, you can give your texts the final touch."
-   },
-   "changelog2020FeatureSectionOverleafHeadline": {
-      "description": "Text for the section that explains the Overleaf integration in depth (up to 200 characters)",
-      "message": "For Science!"
-   },
    "changelog2020FeatureSectionServicesDescription": {
       "description": "Text for the section that explains that LT now supports more services than ever (up to 200 characters)",
       "message": "LanguageTool now supports more services than ever before. No matter where you like to write — we’ve got you covered."
@@ -160,14 +152,6 @@
    "changelog2020FeatureSectionServicesHeadline": {
       "description": "Headline for the section that explains that LT now supports more services than ever",
       "message": "LanguageTool — at your Service"
-   },
-   "changelog2020FeatureSectionSlidesDescription": {
-      "description": "Headline for the section that explains the Google Slides integration in depth",
-      "message": "LanguageTool now works with Google Slides. Impress your stakeholders and colleagues with impeccable grammar and compelling language."
-   },
-   "changelog2020FeatureSectionSlidesHeadline": {
-      "description": "Text for the section that explains the Google Slides integration in depth (up to 200 characters)",
-      "message": "Now supporting Google Slides"
    },
    "changelog2020FeatureSectionSpanishPremiumDescription": {
       "description": "Text for the section that explains the Spanish Premium version is here in depth (up to 200 characters)",
@@ -220,22 +204,6 @@
    "changelog2020FeatureTeaserLink": {
       "description": "Link that comes with every new feature teaser and scrolls the page down to read more info about the feature",
       "message": "Read more"
-   },
-   "changelog2020FeatureTeaserOverleafDescription": {
-      "description": "Text for the teaser that explains the Overleaf integration (up to 100 characters)",
-      "message": "The LanguageTool browser extension now checks your Overleaf documents."
-   },
-   "changelog2020FeatureTeaserOverleafHeadline": {
-      "description": "Headline for the teaser that explains the Overleaf integration",
-      "message": "Support for Overleaf"
-   },
-   "changelog2020FeatureTeaserSlidesDescription": {
-      "description": "Text for the teaser that explains the Google Slides integration (up to 100 characters)",
-      "message": "The LanguageTool browser extension now also checks your Google Slides presentations."
-   },
-   "changelog2020FeatureTeaserSlidesHeadline": {
-      "description": "Headline for the teaser that explains the Google Slides integration",
-      "message": "Support for Google Slides"
    },
    "changelog2020FeatureTeaserSpanishPremiumDescription": {
       "description": "Text for the teaser that explains the Spanish Premium version is here (up to 100 characters)",
@@ -940,14 +908,6 @@
    "otherServer": {
       "description": "Radio button label for the server URL if neither cloud nor local server is the correct choice",
       "message": "Other server - requires LanguageTool server running there"
-   },
-   "overleafNewTeaserHeadline": {
-      "description": "headline for a overleaf teaser",
-      "message": "LanguageTool for Overleaf is here!"
-   },
-   "overleafNewTeaserText": {
-      "description": "text for a overleaf teaser",
-      "message": "Scroll through your text to see spelling, grammar and style suggestions."
    },
    "password": {
       "description": "Options dialog: password for languagetoolplus.com",
