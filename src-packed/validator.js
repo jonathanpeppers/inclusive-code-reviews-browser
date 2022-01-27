@@ -5,6 +5,7 @@ const ISSUE_TYPE_YELLOW = "misspelling";
 const ISSUE_TYPE_PURPLE = "style";
 const suggestions = require('./suggestions');
 const textAnalytics = require('./textAnalytics');
+const ignoreList = require('./negativeIgnoreList');
 var appinsights = null;
 var pastErrorCount = 0; // Number of problems found in the past text
 
@@ -62,12 +63,31 @@ export async function getMatches(text, matches) {
         console.log(result.error);
         return;
     }
-    result.sentences.forEach(sentence => {
+
+    for (var i = 0; i < result.sentences.length; i++) {
+        var sentence = result.sentences[i];
         if (sentence.sentiment !== "negative")
-            return;
+            continue;
         console.log(`Index: ${sentence.offset}, Negative sentiment: ${sentence.confidenceScores.negative}`)
         if (sentence.confidenceScores.negative <= 0.75)
-            return;
+            continue;
+
+        // Remove commonly used phrases with a negative sentiment
+        var regex = new RegExp(ignoreList.ignorablePhrases.join("|"), "gi");
+        var trimmedText = sentence.text.replace(regex, "");
+        // Analyze sentiment again if a commonly used phrase with a negative sentiment was removed
+        if (trimmedText !== sentence.text) {
+            const trimmedResult = await textAnalytics.analyzeSentiment(trimmedText);
+            if (trimmedResult.error !== undefined) {
+                console.log(trimmedResult.error);
+                continue;
+            }
+            // If trimmed sentence is no longer considered negative, return
+            if (trimmedResult.sentences[0].sentiment !== "negative")
+                continue;
+            if (trimmedResult.sentences[0].confidenceScores.negative <= 0.75)
+                continue;
+        }
 
         appinsights.trackEvent('negativeSentence', sentence.confidenceScores);
 
@@ -83,7 +103,7 @@ export async function getMatches(text, matches) {
             "ignoreForIncompleteSentence": false,
             "contextForSureMatch": 7
         });
-    });
+    }
 
     // 'manualFix' event
     if (shouldReportManualFix(matches)) {

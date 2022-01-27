@@ -17,6 +17,30 @@ describe('validator', () => {
         expect(matches.length).to.be.equal(1);
     });
 
+    it('Ignorable sentence', async () => {
+        if (client.hasEmptyApiKey())
+            return;
+        var matches = [];
+        await client.getMatches('There are some new test failures.', matches);
+        expect(matches.length).to.be.equal(0);
+    });
+
+    it('Ignorable negative sentence', async () => {
+        if (client.hasEmptyApiKey())
+            return;
+        var matches = [];
+        await client.getMatches('There are some new test failures, this is terrible.', matches);
+        expect(matches.length).to.be.equal(1);
+    });
+
+    it('Ignorable sentence and negative sentence', async () => {
+        if (client.hasEmptyApiKey())
+            return;
+        var matches = [];
+        await client.getMatches('I see a new error in the build. This is the worst thing that has ever happened.', matches);
+        expect(matches.length).to.be.equal(1);
+    });
+
     it('Suggestion', async () => {
         if (client.hasEmptyApiKey())
             return;
