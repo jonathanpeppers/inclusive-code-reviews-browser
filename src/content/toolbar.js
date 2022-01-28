@@ -14,9 +14,8 @@ class Toolbar {
             (this._domMeasurement = new DomMeasurement(this._document)),
             (this._eventListeners = []),
             this.updateState(o);
-        const r = GoogleDocs.isPage(this._inputArea);
-        (this._renderInterval = setAnimationFrameInterval(() => this._updateDisplaying(!0), r ? 2 * config.RENDER_INTERVAL : config.RENDER_INTERVAL)),
-            r || (this._decreaseSizeInterval = setAnimationFrameInterval(() => this._decreaseSizeIfNeeded(), config.TOOLBAR_DECREASE_SIZE_INTERVAL)),
+        (this._renderInterval = setAnimationFrameInterval(() => this._updateDisplaying(!0), 1 ? 2 * config.RENDER_INTERVAL : config.RENDER_INTERVAL)),
+            (this._decreaseSizeInterval = setAnimationFrameInterval(() => this._decreaseSizeIfNeeded(), config.TOOLBAR_DECREASE_SIZE_INTERVAL)),
             (this._scrollObserver = observeScrollableAncestors(this._targetElement, () => this._updateDisplaying(!1)));
     }
     static _cacheMessages() {

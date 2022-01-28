@@ -29,20 +29,16 @@ class InputAreaWrapper {
             (this._scrollLeft = this._inputArea.scrollLeft),
             !isFormElement(this._inputArea))
         ) {
-            const e = GoogleDocs.isPage(this._inputArea),
-                t = Overleaf.isEditor(this._inputArea);
             (this._inputAreaObserver = this._tweaks.createMutationObserver(this._inputArea, (s) => {
                 s.filter(
                     (s) =>
-                        (!e || this._inputArea !== s.target || "class" !== s.attributeName || "attributes" !== s.type) &&
+                        (this._inputArea !== s.target || "class" !== s.attributeName || "attributes" !== s.type) &&
                         !(
-                            e &&
                             "style" === s.attributeName &&
                             "attributes" === s.type &&
                             s.target instanceof HTMLElement &&
                             (s.target.classList.contains("kix-table-column-border-dragger") || s.target.classList.contains("kix-table-row-border-dragger"))
-                        ) &&
-                        (!t || !Overleaf.isMutationIgnored(this._inputArea, s))
+                        )
                 ).length && this._onInput();
             })),
                 this._inputAreaObserver.observe(this._inputArea, InputAreaWrapper.INPUT_AREA_OBSERVER_CONFIG);
