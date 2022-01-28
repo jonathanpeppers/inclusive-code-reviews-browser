@@ -68,7 +68,7 @@ export function preprocessIgnorableNegativeText (text) {
     var regex = new RegExp(ignorablePhraseRegex, "gi");
     var replacedResult = text.replace(regex,
         function(stringToReplace) {
-            return " ".repeat(stringToReplace.length);;
+            return " ".repeat(stringToReplace.length);
         }
     )
     return replacedResult;
