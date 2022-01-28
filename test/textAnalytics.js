@@ -65,4 +65,36 @@ describe('textAnalytics', () => {
         const result = client.preprocessText ("```abc\ndef\n```ghi");
         expect(result).to.be.equal("      \n   \n   ghi");
     });
+
+    it("Preprocess Ignorable sentence", () => {
+        const text     = "These test failures can be ignored.";
+        const expected = "These             s can be       d."
+        const result = client.preprocessIgnorableNegativeText (text);
+        expect(result).to.be.equal(expected);
+    });
+
+    it("Ignorable sentence", async () => {
+        const result = await client.analyzeSentiment("I see a couple of new warnings and errors.");
+        expect(result.sentences[0].sentiment).not.to.be.equal("negative");
+    });
+
+    it("Ignorable negative sentence", async () => {
+        const result = await client.analyzeSentiment("There are some new test failures, this is terrible.");
+        expect(result.sentences[0].sentiment).to.be.equal("negative");
+    });
+
+    it("Ignorable sentence and negative sentence, offset and length", async () => {
+        const sen1 = "I see a new error in the build.";
+        const sen2 = "This is the worst thing that has ever happened."
+        const result = await client.analyzeSentiment(sen1 + " " + sen2);
+        var res1 = result.sentences[0];
+        var res2 = result.sentences[1];
+        expect(res1.sentiment).not.to.be.equal("negative");
+        expect(res2.sentiment).to.be.equal("negative");
+        expect(res1.offset).to.be.equal(0);
+        expect(res2.offset).to.be.equal(sen1.length + 1);
+        expect(res1.length).to.be.equal(sen1.length);
+        expect(res2.length).to.be.equal(sen2.length);
+    });
+
 });
