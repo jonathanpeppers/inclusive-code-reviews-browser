@@ -72,23 +72,24 @@ export function getSuggestions(text) {
     var suggestions = [];
     for (const [key, values] of Object.entries(allReplacements)) {
         var regex = new RegExp('\\b' + key + '\\b', "gi");
-        var index = text.search(regex);
+        var matches = text.matchAll(regex);
+        for (var m of matches) {
+            if (m.index != -1) {
+                var replacements = [];
+                var textToReplace = text.substring(m.index, m.index + key.length);
 
-        if (index != -1) {
-            var replacements = [];
-            var textToReplace = text.substring(index, index + key.length);
-            
-            if (isCapitalized(textToReplace)) {
-                values.forEach(value => replacements.push({ value: capitalize(value) }));
-            } else {
-                values.forEach(value => replacements.push({ value: value }));
+                if (isCapitalized(textToReplace)) {
+                    values.forEach(value => replacements.push({ value: capitalize(value) }));
+                } else {
+                    values.forEach(value => replacements.push({ value: value }));
+                }
+
+                suggestions.push({
+                    index: m.index,
+                    length: key.length,
+                    replacements: replacements,
+                });
             }
-
-            suggestions.push({
-                index: index,
-                length: key.length,
-                replacements: replacements,
-            });
         }
     }
     return suggestions;

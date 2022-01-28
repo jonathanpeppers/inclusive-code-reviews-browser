@@ -56,4 +56,18 @@ describe('suggestions', () => {
         var result = client.getSuggestions("These changes look great!");
         expect(result.length).to.be.equal(0);
     });
+
+    it("Match multiple", () => {
+        var result = client.getSuggestions("We should add this to the whitelist. The whitelist is a useful tool.");
+        expect(result[0]).to.eql({
+            index: 26,
+            length: 9,
+            replacements: [ { value: "allowlist" }, { value: "inclusion list" },  { value: "safe list" }],
+        });
+        expect(result[1]).to.eql({
+            index: 41,
+            length: 9,
+            replacements: [ { value: "allowlist" }, { value: "inclusion list" },  { value: "safe list" }],
+        });
+    });
 });
