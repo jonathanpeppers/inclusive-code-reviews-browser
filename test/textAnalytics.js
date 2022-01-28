@@ -65,4 +65,27 @@ describe('textAnalytics', () => {
         const result = client.preprocessText ("```abc\ndef\n```ghi");
         expect(result).to.be.equal("      \n   \n   ghi");
     });
+
+    it('Image tag 1', () => {
+        const text = client.preprocessText ("abc![image](abc)def");
+        expect(text).to.be.equal           ("abc             def");
+    });
+
+    it('Image tag 2', () => async () => {
+        const text = client.preprocessText ("abc![image](https://bad.com/this/is/terrible)def");
+        expect(text).to.be.equal           ("abc                                          def");
+        const result = await client.analyzeSentiment(text);
+        expect(result.sentences[0].sentiment).to.be.equal("neutral");
+    });
+
+    it('Image tag 3', () => async () => {
+        const text = client.preprocessText ("abc![alt text](https://bad.com/this/is/terrible)def");
+        expect(text).to.be.equal           ("abc                                             def");
+        const result = await client.analyzeSentiment(text);
+        expect(result.sentences[0].sentiment).to.be.equal("neutral");
+    });
+    it('Image tag 4', () => {
+        const text = client.preprocessText ("abc![image1](abc)![image2](def)def");
+        expect(text).to.be.equal           ("abc                            def");
+    });
 });
