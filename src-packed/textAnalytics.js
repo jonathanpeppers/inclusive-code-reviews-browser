@@ -85,8 +85,33 @@ export function preprocessText (text) {
     return result;
 }
 
+// Replace ignorable phrases that produce a negative sentiment with spaces
+export function preprocessIgnorableNegativeText (text) {
+    // Match all case-insensitive instances
+    var regex = new RegExp(ignorablePhraseRegex, "gi");
+    var replacedResult = text.replace(regex,
+        function(stringToReplace) {
+            return " ".repeat(stringToReplace.length);
+        }
+    )
+    return replacedResult;
+}
+
 export async function analyzeSentiment(text) {
     text = preprocessText(text);
+    text = preprocessIgnorableNegativeText(text);
     const [result] = await client.analyzeSentiment([text]);
     return result;
 }
+
+/*
+    Contains a list of phrases that produce a negative sentiment but can be ignored.
+    Be conscientious when adding new items to this file, as we don't want to filter out generic words/phrases that can be used in many contexts.
+*/
+const ignorablePhraseRegex =
+    "build failure|" +
+    "error|" +
+    "ignore|" +
+    "test failure|" +
+    "warning|" +
+    "";
