@@ -19,6 +19,7 @@ class ErrorCard {
             HEADLINE_GRAMMAR_ERROR: i18nManager.getMessage("grammarError"),
             LINK_MORE_DETAILS: i18nManager.getMessage("moreDetails"),
             LINK_IGNORE_HERE: i18nManager.getMessage("ignoreHere"),
+            SEND_FEEDBACK_TOOLTIP: i18nManager.getMessage("dialogTooltipSendFeedback"),
             EN_US_LINK: i18nManager.getMessage("switchToAmericanEnglish"),
             EN_CA_LINK: i18nManager.getMessage("switchToCanadianEnglish"),
             EN_AU_LINK: i18nManager.getMessage("switchToAustralianEnglish"),
@@ -151,6 +152,15 @@ class ErrorCard {
                 this._eventListeners.push(addUseCaptureEvent(t, "click", this._onTemporarilyIgnoreRuleClick.bind(this))),
                 e.appendChild(t);
         }
+        const ignoreDiv = this._document.createElement("lt-div");
+            ignoreDiv.classList.add("lt-errorcard__send-feedback"),
+            (ignoreDiv.textContent = ErrorCard.MESSAGES.SEND_FEEDBACK_TOOLTIP),
+            this._eventListeners.push(addUseCaptureEvent(ignoreDiv, "click", this._showGithubIssues.bind(this))),
+            e.appendChild(ignoreDiv);
+    }
+    _showGithubIssues(e) {
+        e.stopImmediatePropagation();
+        window.open("https://github.com/jonathanpeppers/inclusive-code-comments/issues");
     }
     _onBadgeClicked(e) {
         e.stopImmediatePropagation();
