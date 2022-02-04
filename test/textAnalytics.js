@@ -99,25 +99,34 @@ describe('textAnalytics', () => {
 
     it('Image tag 1', () => {
         const text = client.preprocessText ("abc![image](abc)def");
-        expect(text).to.be.equal           ("abc             def");
+        expect(text).to.be.equal           ("abc. image.     def");
     });
 
     it('Image tag 2', () => async () => {
         const text = client.preprocessText ("abc![image](https://bad.com/this/is/terrible)def");
-        expect(text).to.be.equal           ("abc                                          def");
+        expect(text).to.be.equal           ("abc. image.                                  def");
         const result = await client.analyzeSentiment(text);
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
     });
 
     it('Image tag 3', () => async () => {
         const text = client.preprocessText ("abc![alt text](https://bad.com/this/is/terrible)def");
-        expect(text).to.be.equal           ("abc                                             def");
+        expect(text).to.be.equal           ("abc. alt text.                                  def");
         const result = await client.analyzeSentiment(text);
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
     });
 
     it('Image tag 4', () => {
         const text = client.preprocessText ("abc![image1](abc)![image2](def)def");
-        expect(text).to.be.equal           ("abc                            def");
+        expect(text).to.be.equal           ("abc. image1.     . image2.     def");
+    });
+
+    it('Image tag 5', () => async () => {
+        const text = client.preprocessText ("abc![I am good](https://good.com/)  ![You are bad](https://bad.com/)");
+        expect(text).to.be.equal           ("abc. I am good.                       You are bad.                  ");
+        const result = await client.analyzeSentiment(text);
+        expect(result.sentences[0].sentiment).to.be.equal("neutral");
+        expect(result.sentences[1].sentiment).to.be.equal("neutral");
+        expect(result.sentences[2].sentiment).to.be.equal("negative");
     });
 });

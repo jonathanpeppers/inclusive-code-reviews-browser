@@ -19,8 +19,9 @@ function removeImageTags (text) {
         var end = result.indexOf (")", endTag + 2);
         if (end == -1)
             break;
-        var space = " ".repeat (end - startTag + 1);
-        result = result.substring (0, startTag).concat (space, result.substring (end + 1));
+        var alttext = result.substring (startTag + 2, endTag);
+        var space = " ".repeat (end - endTag);
+        result = result.substring (0, startTag).concat (". ", alttext, ".", space, result.substring (end + 1));
         startTag = result.indexOf ("![", end + 1);
     }
     return result;
