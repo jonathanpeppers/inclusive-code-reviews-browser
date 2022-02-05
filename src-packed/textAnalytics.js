@@ -9,8 +9,26 @@ function defaultApiKey() {
     return "EMPTY_API_KEY";
 }
 
+function removeImageTags (text) {
+    var startTag = text.indexOf ("![");
+    var result = text;
+    while (startTag >= 0) {
+        var endTag = result.indexOf ("](", startTag + 2);
+        if (endTag == -1)
+            break;
+        var end = result.indexOf (")", endTag + 2);
+        if (end == -1)
+            break;
+        var alttext = result.substring (startTag + 2, endTag);
+        var space = " ".repeat (end - endTag);
+        result = result.substring (0, startTag).concat (". ", alttext, ".", space, result.substring (end + 1));
+        startTag = result.indexOf ("![", end + 1);
+    }
+    return result;
+}
+
 // Replace fenced / indented code blocks with spaces to not analyze them
-export function preprocessText (text) {
+function removeCodeBlocks (text) {
     var atStartOfLine = true;
     var inFencedCodeBlock = false;
     var inIndentedCodeBlock = false;
@@ -59,6 +77,12 @@ export function preprocessText (text) {
         atStartOfLine = false;
     }
 
+    return result;
+}
+
+export function preprocessText (text) {
+    var result = removeCodeBlocks (text);
+    result = removeImageTags (result);
     return result;
 }
 
