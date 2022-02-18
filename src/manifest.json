@@ -36,7 +36,6 @@
       "48": "assets/images/icons/icon48.png",
       "64": "assets/images/icons/icon64.png"
    },
-   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkt4bywewdHDTMJQe+zW8adz1qGZ4Ux9ZYsiz/HjZv5+75NhXyYHKJjhVADvK64MQQruggnpxFWroL/Mkn3RPtRW+iq4ZLJyj5LDZ/CCv8inkM4FetuS+KbK1USBD07yJR5iaXfmdhXMXD/28W6DyMK2enPkjH/fxHZVBZ5JebUXhyswtpPRRl4/gMk00WTALUCMDqM6W8XkT/fq1S36i6k+D3+9i1syQ1bAgbu7NUSK7K7hYXGjTmc5hAUBnpsUFAY2iev6IS0v//aQrJWbb7BWFrPygcWS/VXxsdlxCJ15DDecOVrW7ukDgsnPhPtC7AFInvrGfMstzEfumIVOyAQIDAQAB",
    "manifest_version": 2,
    "minimum_chrome_version": "67.0.0",
    "name": "__MSG_appName__",
