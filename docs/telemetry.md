@@ -84,6 +84,6 @@ We also report `customMeasurements` such as:
 {"positive":0,"neutral":0,"negative":1}
 ```
 
-[0]: https://github.com/jonathanpeppers/inclusive-code-comments/issues
+[0]: https://github.com/jonathanpeppers/inclusive-code-comments/issues/new
 [1]: negative-word.png
 [2]: ../src-packed/suggestions.js

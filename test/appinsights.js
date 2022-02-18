@@ -34,7 +34,7 @@ describe('appinsights', () => {
 
     it('pageView for github', () => {
         data.baseData.name = "Don't show this";
-        data.baseData.uri = "https://github.com/jonathanpeppers/inclusive-code-comments/issues";
+        data.baseData.uri = "https://github.com/jonathanpeppers/inclusive-code-comments/issues/new";
         appinsights.telemetryInitializer (data);
 
         expect(data.baseData.name).to.be.equal('github');

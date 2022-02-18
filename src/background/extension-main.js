@@ -352,7 +352,7 @@ class BackgroundApp {
         Tracker.trackEvent("Action", t.action, t.label);
     }
     static _onOpenFeedbackFormMessage(e, t) {
-        browser.tabs.create({ url: "https://github.com/jonathanpeppers/inclusive-code-comments/issues" });
+        browser.tabs.create({ url: "https://github.com/jonathanpeppers/inclusive-code-comments/issues/new" });
     }
     static _onOpenOptionsMessage(e, t) {
         let a = "/options/options.html";
