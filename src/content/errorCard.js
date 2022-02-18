@@ -160,7 +160,7 @@ class ErrorCard {
     }
     _showGithubIssues(e) {
         e.stopImmediatePropagation();
-        window.open("https://github.com/jonathanpeppers/inclusive-code-comments/issues");
+        window.open("https://github.com/jonathanpeppers/inclusive-code-comments/issues/new");
     }
     _onBadgeClicked(e) {
         e.stopImmediatePropagation();
