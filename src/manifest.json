@@ -1,9 +1,9 @@
 {
    "author": "Jonathan Peppers, LanguageTooler GmbH",
    "background": {
-      "scripts": [ "packed.js", "common/browser-polyfill.min.js", "config/config.js", "common/browserDetector.js", "common/utils.js", "common/eventBus.js", "common/messages.js", "common/i18nManager.js", "common/extensioni18nManager.js", "common/languageManager.js", "common/storageController.js", "common/extensionStorageController.js", "common/environmentAdapter.js", "common/extensionEnvironmentAdapter.js", "common/extension-init.js", "common/tracker.js", "background/graphemeSplitter.js", "background/validator.js", "background/dictionarySync.js", "background/synonyms.js", "background/extension-main.js" ]
+      "service_worker": "background.js"
    },
-   "browser_action": {
+   "action": {
       "default_icon": "assets/images/icons/icon16.png",
       "default_popup": "popup/popup.html",
       "default_title": "Inclusive Code Comments"
@@ -36,12 +36,11 @@
       "48": "assets/images/icons/icon48.png",
       "64": "assets/images/icons/icon64.png"
    },
-   "manifest_version": 2,
+   "manifest_version": 3,
    "minimum_chrome_version": "67.0.0",
    "name": "__MSG_appName__",
    "offline_enabled": false,
    "options_ui": {
-      "chrome_style": false,
       "open_in_tab": true,
       "page": "options/options.html"
    },
@@ -51,6 +50,10 @@
    "storage": {
       "managed_schema": "managed_settings.json"
    },
+   "update_url": "https://clients2.google.com/service/update2/crx",
    "version": "2.0.3",
-   "web_accessible_resources": [ "assets/model.onnx", "assets/fonts/*.woff2", "assets/styles/*", "packed.js", "*.wasm", "common/*.css", "common/*.js", "content/*.css", "content/*.js", "config/*.js", "privacyConfirmationDialog/*.js", "assets/images/*" ]
+   "web_accessible_resources": [{
+      "resources": [ "assets/model.onnx", "assets/fonts/*.woff2", "assets/styles/*", "*.js", "*.wasm", "common/*.css", "common/*.js", "content/*.css", "content/*.js", "config/*.js", "privacyConfirmationDialog/*.js", "assets/images/*" ],
+      "matches": ["<all_urls>"]
+   }]
 }

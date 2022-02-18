@@ -93,7 +93,7 @@ class BackgroundApp {
             this._darkMode !== e &&
                 ((this._darkMode = e),
                 this._darkMode
-                    ? browser.browserAction.setIcon({
+                    ? browser.action.setIcon({
                           path: {
                               16: "/assets/images/icons/icon16_white.png",
                               32: "/assets/images/icons/icon32_white.png",
@@ -102,7 +102,7 @@ class BackgroundApp {
                               128: "/assets/images/icons/icon128_white.png",
                           },
                       })
-                    : browser.browserAction.setIcon({
+                    : browser.action.setIcon({
                           path: { 16: "/assets/images/icons/icon16.png", 32: "/assets/images/icons/icon32.png", 48: "/assets/images/icons/icon48.png", 64: "/assets/images/icons/icon64.png", 128: "/assets/images/icons/icon128.png" },
                       }));
         });
@@ -117,14 +117,14 @@ class BackgroundApp {
         }
     }
     static _updateBadge(e, t) {
-        browser.browserAction.setBadgeTextColor && browser.browserAction.setBadgeTextColor({ tabId: e, color: "#FFFFFF" }),
+        browser.action.setBadgeTextColor && browser.action.setBadgeTextColor({ tabId: e, color: "#FFFFFF" }),
             t.enabled && t.supported
                 ? t.capitalization
-                    ? browser.browserAction.setBadgeText({ tabId: e, text: "" })
-                    : (browser.browserAction.setBadgeBackgroundColor && browser.browserAction.setBadgeBackgroundColor({ tabId: e, color: "#45A8FC" }),
-                      browser.browserAction.setBadgeText({ tabId: e, text: BrowserDetector.isOpera() ? "" : "abc" }))
-                : (browser.browserAction.setBadgeBackgroundColor && browser.browserAction.setBadgeBackgroundColor({ tabId: e, color: "#F53987" }),
-                  browser.browserAction.setBadgeText({ tabId: e, text: BrowserDetector.isOpera() ? "" : "OFF" }));
+                    ? browser.action.setBadgeText({ tabId: e, text: "" })
+                    : (browser.action.setBadgeBackgroundColor && browser.action.setBadgeBackgroundColor({ tabId: e, color: "#45A8FC" }),
+                      browser.action.setBadgeText({ tabId: e, text: BrowserDetector.isOpera() ? "" : "abc" }))
+                : (browser.action.setBadgeBackgroundColor && browser.action.setBadgeBackgroundColor({ tabId: e, color: "#F53987" }),
+                  browser.action.setBadgeText({ tabId: e, text: BrowserDetector.isOpera() ? "" : "OFF" }));
     }
     static _setMotherTongue() {
         this._storageController.onReady(() => {
