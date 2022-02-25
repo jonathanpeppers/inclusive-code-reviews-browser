@@ -13,7 +13,7 @@ class StorageControllerClass {
     }
     static _generateUniqueId() {
         const e = new Uint8Array(8);
-        return window.crypto.getRandomValues(e), Array.from(e, StorageControllerClass._dec2hex).join("");
+        return self.crypto.getRandomValues(e), Array.from(e, StorageControllerClass._dec2hex).join("");
     }
     static _normalizeDomain(e = "") {
         return e

@@ -64,5 +64,7 @@ export function trackEvent(name, customDimensions) {
 
 // For use inside the extension (which isn't using webpack)
 // The best I came up with for now is to add these functions to window.
-window.aiTrackPageView = trackPageView;
-window.aiTrackEvent = trackEvent;
+if (typeof window !== 'undefined') {
+    window.aiTrackPageView = trackPageView;
+    window.aiTrackEvent = trackEvent;
+}

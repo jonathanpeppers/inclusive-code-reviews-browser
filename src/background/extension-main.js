@@ -44,32 +44,13 @@ class BackgroundApp {
                 browser.runtime.onMessage.addListener(this._onMessage),
                 DictionarySync.init(),
                 this._updateIcon(),
-                window.setInterval(() => this._updateIcon(), config.UI_MODE_RECHECK_INTERVAL),
                 this._checkForPaidSubscription(),
-                window.setInterval(() => this._checkForPaidSubscription(), config.ACCOUNT_STATUS_RECHECK_INTERVAL),
                 this._loadConfiguration(),
-                window.setInterval(() => this._loadConfiguration(), config.EXTERNAL_CONFIG_RELOAD_INTERVAL),
                 BrowserDetector.isFirefox())
             ) {
-                const e = () => {
-                    browser.runtime.onUpdateAvailable.removeListener(e), this._installUpdate();
-                };
-                browser.runtime.onUpdateAvailable.addListener(e);
             }
             this._isInitialized = !0;
         }
-    }
-    static _installUpdate() {
-        browser.tabs.query({}).then((e) => {
-            e.forEach((e) => {
-                if (!e.id) return;
-                browser.tabs.sendMessage(e.id, { command: "DESTROY" }).catch(console.error.bind(console));
-            });
-        }),
-            Tracker.trackEvent("Action", "pre_update"),
-            window.setTimeout(() => {
-                browser.runtime.reload();
-            }, 2e3);
     }
     static _assignToTestGroups() {
         EnvironmentAdapter.isProductionEnvironment();
