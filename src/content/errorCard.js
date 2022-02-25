@@ -19,6 +19,7 @@ class ErrorCard {
             HEADLINE_GRAMMAR_ERROR: i18nManager.getMessage("grammarError"),
             LINK_MORE_DETAILS: i18nManager.getMessage("moreDetails"),
             LINK_IGNORE_HERE: i18nManager.getMessage("ignoreHere"),
+            LINK_REPORT_ACCEPTABLE_SENTENCE: i18nManager.getMessage("reportAcceptableSentence"),
             SEND_FEEDBACK_TOOLTIP: i18nManager.getMessage("dialogTooltipSendFeedback"),
             EN_US_LINK: i18nManager.getMessage("switchToAmericanEnglish"),
             EN_CA_LINK: i18nManager.getMessage("switchToCanadianEnglish"),
@@ -151,6 +152,11 @@ class ErrorCard {
                 (t.textContent = ErrorCard.MESSAGES.LINK_IGNORE_HERE),
                 this._eventListeners.push(addUseCaptureEvent(t, "click", this._onTemporarilyIgnoreRuleClick.bind(this))),
                 e.appendChild(t);
+            const reportAcceptableSentence = this._document.createElement("lt-div");
+            reportAcceptableSentence.classList.add("lt-errorcard__report-acceptable-sentence"),
+                (reportAcceptableSentence.textContent = ErrorCard.MESSAGES.LINK_REPORT_ACCEPTABLE_SENTENCE),
+                this._eventListeners.push(addUseCaptureEvent(reportAcceptableSentence, "click", this._onReportAcceptableSentenceClick.bind(this))),
+                e.appendChild(reportAcceptableSentence);
         }
         const ignoreDiv = this._document.createElement("lt-div");
             ignoreDiv.classList.add("lt-errorcard__send-feedback"),
@@ -206,6 +212,12 @@ class ErrorCard {
         e.stopImmediatePropagation();
         const t = { errorCard: this, error: this._error };
         dispatchCustomEvent(document, ErrorCard.eventNames.temporarilyIgnoreRuleClicked, t);
+    }
+    _onReportAcceptableSentenceClick(e) {
+        e.stopImmediatePropagation();
+        let title = "Add acceptable sentence to heuristics";
+        let body = "The following sentence is acceptable:\n\n    " + this._error.originalPhrase + "\n";
+        window.open("https://github.com/jonathanpeppers/inclusive-code-comments/issues/new?title=" + encodeURIComponent(title) + "&body=" + encodeURIComponent(body));
     }
     _onCloseClicked(e) {
         e.stopImmediatePropagation(), this.destroy();
