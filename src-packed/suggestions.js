@@ -64,7 +64,16 @@ const allReplacements = {
     "grandfather": ["flagship", "established", "rollover", "carryover", "classic"],
     "legacy": ["flagship", "established", "rollover", "carryover", "classic"],
     // custom negative sentiment just leave replacements empty
+    // https://www.oxfordinternationalenglish.com/dictionary-of-british-slang/
     "is pants": [],
+    "naff": [],
+    "tosh": [],
+    "eejit": [],
+    "faff": [],
+    "gobby": [],
+    "numpty": [],
+    "shirty": [],
+    "wonky": [],
 };
 
 // returns suggestions for certain words

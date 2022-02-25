@@ -115,4 +115,5 @@ const ignorablePhraseRegex =
     "ignore|" +
     "test failure|" +
     "warning|" +
+    "negative|" +
     "";
