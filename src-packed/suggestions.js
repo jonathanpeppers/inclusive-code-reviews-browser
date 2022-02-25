@@ -65,6 +65,14 @@ const allReplacements = {
     "legacy": ["flagship", "established", "rollover", "carryover", "classic"],
     // custom negative sentiment just leave replacements empty
     "is pants": [],
+    "naff": [],
+    "tosh": [],
+    "eejit": [],
+    "faff": [],
+    "gobby": [],
+    "numpty": [],
+    "shirty": [],
+    "wonky": [],
 };
 
 // returns suggestions for certain words
