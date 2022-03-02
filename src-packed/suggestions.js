@@ -50,7 +50,7 @@ const allReplacements = {
     // ableist
     "normal": ["typical"],
     "abnormal": ["atypical"],
-    "crazy": ["unexpected", "unpredictable"],
+    "crazy": ["unexpected", "unpredictable", "wild"],
     "OCD": ["organized", "detail-oriented"],
     "sanity check": ["quick check", "confidence check", "coherence check"],
     "dummy": ["placeholder", "sample"],
