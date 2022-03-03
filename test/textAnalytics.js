@@ -129,4 +129,14 @@ describe('textAnalytics', () => {
         expect(result.sentences[1].sentiment).to.be.equal("neutral");
         expect(result.sentences[2].sentiment).to.be.equal("negative");
     });
+
+    it('Replace Single Quotes', async () => {
+        const result = await client.analyzeSentiment("\'Change the single quotes\'");
+        expect(result.sentences[0].text).to.be.equal("\"Change the single quotes\"");
+    });
+
+    it('Replace Backticks', async () => {
+        const result = await client.analyzeSentiment("`Change the backticks`");
+        expect(result.sentences[0].text).to.be.equal("\"Change the backticks\"");
+    });
 });

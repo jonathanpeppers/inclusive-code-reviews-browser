@@ -80,9 +80,18 @@ function removeCodeBlocks (text) {
     return result;
 }
 
+// Replace backticks and single quotes for double quotes
+// since backticks and single quotes make sentiment more negative
+function replaceQuotes (text) {
+    var result = text.replace(/`/g, "\"");
+    result = result.replace(/\'/g, "\"");
+    return result;
+}
+
 export function preprocessText (text) {
     var result = removeCodeBlocks (text);
     result = removeImageTags (result);
+    result = replaceQuotes (result);
     return result;
 }
 
