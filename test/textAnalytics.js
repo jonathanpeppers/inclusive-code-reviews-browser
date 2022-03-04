@@ -139,4 +139,9 @@ describe('textAnalytics', () => {
         const result = await client.analyzeSentiment("`Change the backticks`");
         expect(result.sentences[0].text).to.be.equal("\"Change the backticks\"");
     });
+
+    it('Yield Example', async () => {
+        const result = await client.analyzeSentiment("`yield` returning / breaking has benefits when there's a chance that you don't iterate through all items.");
+        expect(result.sentences[0].confidenceScores.negative).to.be.lessThan(0.75);
+    });
 });
