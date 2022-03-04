@@ -160,7 +160,6 @@ class ErrorCard {
     }
     _showGithubIssues(e) {
         e.stopImmediatePropagation();
-        window.open("https://github.com/jonathanpeppers/inclusive-code-comments/issues/new");
         let title = "Report sentence to improve heuristics";
         let body = "The following word or sentence is acceptable:\n\n    " + this._error.originalPhrase + "\n\n";
         body += "Additional info:\n\n";
