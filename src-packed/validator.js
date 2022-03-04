@@ -3,6 +3,7 @@
 // NOTE: These values were from the original extension, we can repurpose to display different colors
 const ISSUE_TYPE_YELLOW = "misspelling";
 const ISSUE_TYPE_PURPLE = "style";
+const NEGATIVE_SENTIMENT_THRESHOLD = 0.9;
 const suggestions = require('./suggestions');
 const textAnalytics = require('./textAnalytics');
 var appinsights = null;
@@ -66,7 +67,7 @@ export async function getMatches(text, matches) {
         if (sentence.sentiment !== "negative")
             return;
         console.log(`Index: ${sentence.offset}, Negative sentiment: ${sentence.confidenceScores.negative}`)
-        if (sentence.confidenceScores.negative <= 0.75)
+        if (sentence.confidenceScores.negative <= NEGATIVE_SENTIMENT_THRESHOLD)
             return;
 
         appinsights.trackEvent('negativeSentence', sentence.confidenceScores);
