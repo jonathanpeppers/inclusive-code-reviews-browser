@@ -561,7 +561,7 @@
    },
    "dialogTooltipSendFeedback": {
       "description": "Tooltip for send feedback icon",
-      "message": "Report an issue"
+      "message": "Report an issue to improve heuristics"
    },
    "dialogTooltipSettings": {
       "description": "Tooltip for settings icon",
