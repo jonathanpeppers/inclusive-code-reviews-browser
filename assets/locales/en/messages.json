@@ -759,10 +759,6 @@
       "description": "Button that allows to ignore a misspelled word or grammar error in the current text field.",
       "message": "Ignore in this text"
    },
-   "reportAcceptableSentence": {
-      "description": "Button that allows the user to report a sentence that should be considered acceptable.",
-      "message": "Report this sentence to improve our heuristics"
-   },
    "ignoredRules": {
       "description": "Text shown at the bottom of the popup to turn on turned off rules again",
       "message": "These rules have been turned off, click a rule to turn it on again:"
