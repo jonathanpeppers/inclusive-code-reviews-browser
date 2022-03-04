@@ -80,9 +80,17 @@ function removeCodeBlocks (text) {
     return result;
 }
 
+// Replace backticks for double quotes, since backticks make sentiment more negative
+// See textAnalytics.js 'Yield Example' test
+function replaceBackticks (text) {
+    var result = text.replace(/`/g, "\"");
+    return result;
+}
+
 export function preprocessText (text) {
     var result = removeCodeBlocks (text);
     result = removeImageTags (result);
+    result = replaceBackticks (result);
     return result;
 }
 
