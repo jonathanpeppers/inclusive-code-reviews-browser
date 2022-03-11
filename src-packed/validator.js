@@ -21,16 +21,18 @@ export function hasEmptyApiKey() {
 export async function getMatches(text, matches) {
     loadAppInsights();
 
-    var replacedText = checkForIgnorableBriefPhrases(text);
     var minLength = typeof config != "undefined" ? config.MIN_REVIEW_LENGTH : 15;
-    if (replacedText.length < minLength)
+    if (text.length < minLength)
     {
+        if (ignorableBriefPhraseRegex.test(text))
+            return matches; // return an empty list early
+
         appinsights.trackEvent('tooShort');
         matches.push({
             "message": "This is comment is too brief. Could you elaborate?",
             "shortMessage": "Comment is brief",
             "offset": 0,
-            "length": replacedText.length,
+            "length": text.length,
             "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_YELLOW, "category": { "id": "TYPOS", "name": "Small text" } },
             "replacements": [],
             "type": { "typeName": "Other" },
@@ -94,22 +96,16 @@ export async function getMatches(text, matches) {
     }
 }
 
-// Replace ignorable brief phrases
-export function checkForIgnorableBriefPhrases (text) {
-    // Match all case-insensitive instances
-    var regex = new RegExp(ignorableBriefPhraseRegex, "gi");
-    var replacedResult = text.replace(regex, "This is a long sample phrase");
-    return replacedResult;
-}
-
 /*
     Contains a list of brief phrases that can be ignored.
     Be conscientious when adding new items to this file, as we don't want to filter out generic words/phrases that could be improved with further explanation.
 */
-const ignorableBriefPhraseRegex =
+var ignorableBriefPhraseRegex = new RegExp(
     "/azp run|" + 
     "fixes #*|" +
-    "implements #*";
+    "implements #*", 
+    "gi"
+);
 
 // clears the state of 'pastErrorCount'
 export function clearState() {
