@@ -107,7 +107,9 @@ export function checkForIgnorableBriefPhrases (text) {
     Be conscientious when adding new items to this file, as we don't want to filter out generic words/phrases that could be improved with further explanation.
 */
 const ignorableBriefPhraseRegex =
-    "/azp run";
+    "/azp run|" + 
+    "fixes #*|" +
+    "implements #*";
 
 // clears the state of 'pastErrorCount'
 export function clearState() {

@@ -90,7 +90,7 @@ describe('validator', () => {
 
     it('Brief text in ignore list no suggestion', async () => {
         var matches = [];
-        client.getMatches("/azp run", matches);
+        client.getMatches("Fixes #77", matches);
         expect(matches.length).to.be.equal(0);
     });
 });
