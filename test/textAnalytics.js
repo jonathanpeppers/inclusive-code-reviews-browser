@@ -29,7 +29,7 @@ describe('textAnalytics', () => {
         var sentence = result.sentences[0];
         expect(sentence.sentiment).to.be.equal("negative");
         expect(sentence.offset).to.be.equal(0);
-        expect(sentence.length).to.be.equal(text.length - 1); // -1 is the \n
+        expect(sentence.length).to.be.equal(text.length);
     });
 
     it('Indented code blocks negative', async () => {
@@ -43,7 +43,7 @@ describe('textAnalytics', () => {
         var sentence = result.sentences[0];
         expect(sentence.sentiment).to.be.equal("negative");
         expect(sentence.offset).to.be.equal(0);
-        expect(sentence.length).to.be.equal("This is terrible!".length);
+        expect(sentence.length).to.be.equal(text.length);
     });
 
     it('Preprocess 1', () => {
@@ -84,15 +84,15 @@ describe('textAnalytics', () => {
     });
 
     it("Ignorable sentence and negative sentence, offset and length", async () => {
-        const sen1 = "I see a new error in the build.";
+        const sen1 = "I see a new error in the build. ";
         const sen2 = "This is the worst thing that has ever happened."
-        const result = await client.analyzeSentiment(sen1 + " " + sen2);
+        const result = await client.analyzeSentiment(sen1 + sen2);
         var res1 = result.sentences[0];
         var res2 = result.sentences[1];
         expect(res1.sentiment).not.to.be.equal("negative");
         expect(res2.sentiment).to.be.equal("negative");
         expect(res1.offset).to.be.equal(0);
-        expect(res2.offset).to.be.equal(sen1.length + 1);
+        expect(res2.offset).to.be.equal(sen1.length);
         expect(res1.length).to.be.equal(sen1.length);
         expect(res2.length).to.be.equal(sen2.length);
     });
@@ -137,6 +137,6 @@ describe('textAnalytics', () => {
 
     it('Yield Example', async () => {
         const result = await client.analyzeSentiment("`yield` returning / breaking has benefits when there's a chance that you don't iterate through all items.");
-        expect(result.sentences[0].confidenceScores.negative).to.be.lessThan(0.75);
+        expect(result.sentences[0].confidenceScores.negative).to.be.lessThan(0.9);
     });
 });
