@@ -46,11 +46,10 @@
       "page": "options/options.html"
    },
    "permissions": [ "activeTab", "storage", "contextMenus" ],
-   "short_name": "Inclusive Code Comments",
+   "short_name": "Code Comments",
    "storage": {
       "managed_schema": "managed_settings.json"
    },
-   "update_url": "https://clients2.google.com/service/update2/crx",
    "version": "0.1.0",
    "web_accessible_resources": [ "assets/fonts/*.woff2", "assets/styles/*", "packed.js", "common/*.css", "common/*.js", "content/*.css", "content/*.js", "config/*.js", "privacyConfirmationDialog/*.js", "assets/images/*" ]
 }
