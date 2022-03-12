@@ -102,8 +102,8 @@ export async function getMatches(text, matches) {
 */
 var ignorableBriefPhraseRegex = new RegExp(
     "/azp run|" + 
-    "fixes #*|" +
-    "implements #*", 
+    "fixes #|" +
+    "implements #", 
     "gi"
 );
 
