@@ -87,4 +87,10 @@ describe('validator', () => {
         client.getMatches("These changes are more than 15 characters", matches);
         expect(matches.length).to.be.equal(0);
     });
+
+    it('Brief text in ignore list no suggestion', async () => {
+        var matches = [];
+        client.getMatches("Fixes #77", matches);
+        expect(matches.length).to.be.equal(0);
+    });
 });
