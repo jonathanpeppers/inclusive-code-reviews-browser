@@ -131,6 +131,7 @@ You might need to update `node.js`. `node -v` should report node 16 or higher.
 
 Inclusive Code Reviews Group links
 
+* [Beta Test Instructions](https://dev.azure.com/devdiv/DevDiv/_wiki/wikis/DevDiv.wiki/27882/Browser-Extension?anchor=beta-test)
 * [Azure DevOps dashboard](https://dataexplorer.azure.com/dashboards/a8390f81-19c6-4bf5-bbd6-1a84cf03d80c?_startTime=30days&_endTime=now#a32efffa-608f-4ad9-b685-4b414b5c305b): has a few queries for looking at telemetry.
 
 Extension CLI
@@ -139,7 +140,6 @@ Extension CLI
 
 Azure Text Analytics
 
-* [Beta Test Instructions](https://dev.azure.com/devdiv/DevDiv/_wiki/wikis/DevDiv.wiki/27882/Browser-Extension?anchor=beta-test)
 * [Documentation][text-analytics]
 * [npm package](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0)
 * [API Test Console](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment/console)
