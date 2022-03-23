@@ -139,6 +139,7 @@ Extension CLI
 
 Azure Text Analytics
 
+* [Beta Test Instructions](https://dev.azure.com/devdiv/DevDiv/_wiki/wikis/DevDiv.wiki/27882/Browser-Extension?anchor=beta-test)
 * [Documentation][text-analytics]
 * [npm package](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0)
 * [API Test Console](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment/console)
