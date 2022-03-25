@@ -57,9 +57,10 @@ const allReplacements = {
     "handicapped": ["disabled", "person with disabilities"],
     // violent
     "hang": ["freeze"],
-    "hanging": ["frozen"],
+    "hanging": ["frozen", "stuck"],
     "crushing it": ["elevating", "exceeding expectations", "excelling"],
     "killing it": ["elevating", "exceeding expectations", "excelling"],
+    "kill": ["stop", "cancel"],
     // ageist
     "grandfather": ["flagship", "established", "rollover", "carryover", "classic"],
     "legacy": ["flagship", "established", "rollover", "carryover", "classic"],
