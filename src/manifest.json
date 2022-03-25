@@ -50,6 +50,6 @@
    "storage": {
       "managed_schema": "managed_settings.json"
    },
-   "version": "0.1.0",
+   "version": "0.1.1",
    "web_accessible_resources": [ "assets/fonts/*.woff2", "assets/styles/*", "packed.js", "common/*.css", "common/*.js", "content/*.css", "content/*.js", "config/*.js", "privacyConfirmationDialog/*.js", "assets/images/*" ]
 }
