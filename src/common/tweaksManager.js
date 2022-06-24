@@ -804,12 +804,6 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
     unsupportedMessage: () => i18nManager.getMessage("webstoreSiteNotSupported")
 }, {
     match: {
-        hostname: "microsoftedge.microsoft.com"
-    },
-    supported: () => !1,
-    unsupportedMessage: () => i18nManager.getMessage("edgeWebstoreSiteNotSupported")
-}, {
-    match: {
         hostname: "crowdsource.google.com"
     },
     isElementCompatible: e => !(!isTextInput(e) || !e.closest("#question")) || TweaksManager._isElementCompatibleForGoogleServices(e),
