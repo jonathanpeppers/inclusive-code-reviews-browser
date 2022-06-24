@@ -583,10 +583,6 @@
       "description": "Options dialog: text for the textarea with the domains's where the reminder icon is disabled",
       "message": "Disable checking on some websites"
    },
-   "edgeWebstoreSiteNotSupported": {
-      "description": "Error shown when Edge extension is used on https://microsoftedge.microsoft.com, which doesn't work for technical reasons",
-      "message": "Sorry, LanguageTool doesn't work on the website of the Edge Add-on Store. It works anywhere else you write (e.g. Facebook, Gmail, Twitter, LinkedIn)."
-   },
    "el": {
       "description": "language name",
       "message": "Greek"
