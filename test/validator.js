@@ -2,35 +2,27 @@ describe('validator', () => {
     const client = require('../src-packed/validator');
 
     it('No match', async () => {
-        if (client.hasEmptyApiKey())
-            return;
         var matches = [];
         await client.getMatches('Hello, World! This is a long text', matches);
         expect(matches.length).to.be.equal(0);
     });
 
     it('Negative', async () => {
-        if (client.hasEmptyApiKey())
-            return;
         var matches = [];
-        await client.getMatches('This is so bad way to do things', matches);
+        await client.getMatches('This is such a bad way to do things', matches);
         expect(matches.length).to.be.equal(1);
     });
 
     it('Suggestion', async () => {
-        if (client.hasEmptyApiKey())
-            return;
         var matches = [];
         await client.getMatches('This is crazy good', matches);
         expect(matches.length).to.be.equal(1);
     });
 
     it('Suggestion and negative', async () => {
-        if (client.hasEmptyApiKey())
-            return;
         var matches = [];
         await client.getMatches('This is crazy long text', matches);
-        expect(matches.length).to.be.equal(2);
+        expect(matches.length).to.be.equal(1);
     });
 
     it('shouldReportManualFix', async () => {

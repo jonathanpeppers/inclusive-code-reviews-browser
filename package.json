@@ -27,7 +27,8 @@
         "test/**/*"
     ],
     "devDependencies": {
-        "extension-cli": "^1.2.2"
+        "extension-cli": "^1.2.2",
+        "onnxruntime-node": "^1.11.0"
     },
     "xtdocs": {
         "source": {
@@ -53,8 +54,8 @@
         ]
     },
     "dependencies": {
-        "@azure/ai-text-analytics": "^5.1.0",
         "@microsoft/applicationinsights-web": "^2.7.0",
+        "onnxruntime-web": "^1.11.0",
         "webpack": "^5.64.4"
     }
 }

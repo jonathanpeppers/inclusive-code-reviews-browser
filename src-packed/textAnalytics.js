@@ -1,13 +1,4 @@
-export let emptyApiKey = false;
-const { api_key } = require("./secrets");
-const { TextAnalyticsClient, AzureKeyCredential } = require("@azure/ai-text-analytics");
-const server_url = "https://westus.api.cognitive.microsoft.com/";
-const client = new TextAnalyticsClient(server_url, new AzureKeyCredential(api_key || defaultApiKey()));
-
-function defaultApiKey() {
-    emptyApiKey = true;
-    return "EMPTY_API_KEY";
-}
+import * as ort from 'onnxruntime-node';
 
 function removeImageTags (text) {
     var startTag = text.indexOf ("![");
@@ -91,37 +82,40 @@ export function preprocessText (text) {
     var result = removeCodeBlocks (text);
     result = removeImageTags (result);
     result = replaceBackticks (result);
+    //TODO: do a real punctuation remover
+    result = result.replace('!', ' ');
     return result;
 }
 
-// Replace ignorable phrases that produce a negative sentiment with spaces
-export function preprocessIgnorableNegativeText (text) {
-    // Match all case-insensitive instances
-    var regex = new RegExp(ignorablePhraseRegex, "gi");
-    var replacedResult = text.replace(regex,
-        function(stringToReplace) {
-            return " ".repeat(stringToReplace.length);
-        }
-    )
-    return replacedResult;
+export async function analyzeSentiment(sentences) {
+    const session = await ort.InferenceSession.create('./assets/model.onnx');
+
+    if (typeof sentences === 'string') {
+        sentences = [sentences];
+    }
+    var sentiment = {
+        sentences: []
+    };
+    var totalLength = 0;
+    for await (const text of sentences) {
+        text = preprocessText(text);
+        const results = await session.run({
+            text: new ort.Tensor([text], [1,1]),
+            isnegative: new ort.Tensor([''], [1,1]),
+        })
+        const result = results['PredictedLabel.output'].data[0];
+        sentiment.sentences.push({
+            text: text,
+            sentiment: result === '1' ? 'negative' : 'neutral',
+            confidenceScores: {
+                negative: results['Score.output'].data[1],
+                neutral: results['Score.output'].data[0],
+            },
+            offset: totalLength,
+            length: text.length,
+        });
+        totalLength += text.length;
+    }
+    return sentiment;
 }
 
-export async function analyzeSentiment(text) {
-    text = preprocessText(text);
-    text = preprocessIgnorableNegativeText(text);
-    const [result] = await client.analyzeSentiment([text]);
-    return result;
-}
-
-/*
-    Contains a list of phrases that produce a negative sentiment but can be ignored.
-    Be conscientious when adding new items to this file, as we don't want to filter out generic words/phrases that can be used in many contexts.
-*/
-const ignorablePhraseRegex =
-    "build failure|" +
-    "error|" +
-    "ignore|" +
-    "test failure|" +
-    "warning|" +
-    "negative|" +
-    "";
