@@ -1,4 +1,4 @@
-# inclusive-code-comments
+# Inclusive Code Reviews: Browser Extension
 
 A *prototype* chrome web extension for improving online comments such
 as code reviews on Github or Azure DevOps. The idea is that the
