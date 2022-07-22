@@ -98,8 +98,8 @@ export async function analyzeSentiment(ort, sentences) {
         sentences: []
     };
     var totalLength = 0;
-    for await (const text of sentences) {
-        text = preprocessText(text);
+    for await (const sentence of sentences) {
+        const text = preprocessText(sentence);
         const results = await session.run({
             text: new ort.Tensor([text], [1,1]),
             isnegative: new ort.Tensor([''], [1,1]),
