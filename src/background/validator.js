@@ -106,7 +106,12 @@ class Validator {
             // TODO: This is terrible, but the request is already JSON at this point
             // If we parse the JSON, and look at the 'text' property. This is the data.
             var text = JSON.parse(t.body.get('data')).text;
-            await window.getMatches(window.ort, text, matches);
+            try {
+                await window.getMatches(window.ort, text, matches);
+            } catch (exc) {
+                console.error(`Error calling getMatches: ${exc}`);
+                throw exc;
+            }
         }
 
         var response = {
