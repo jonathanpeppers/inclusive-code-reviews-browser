@@ -1,27 +1,29 @@
+import * as ort from 'onnxruntime-node';
+
 describe('validator', () => {
     const client = require('../src-packed/validator');
 
     it('No match', async () => {
         var matches = [];
-        await client.getMatches('Hello, World! This is a long text', matches);
+        await client.getMatches(ort, 'Hello, World! This is a long text', matches);
         expect(matches.length).to.be.equal(0);
     });
 
     it('Negative', async () => {
         var matches = [];
-        await client.getMatches('This is such a bad way to do things', matches);
+        await client.getMatches(ort, 'This is such a bad way to do things', matches);
         expect(matches.length).to.be.equal(1);
     });
 
     it('Suggestion', async () => {
         var matches = [];
-        await client.getMatches('This is crazy good', matches);
+        await client.getMatches(ort, 'This is crazy good', matches);
         expect(matches.length).to.be.equal(1);
     });
 
     it('Suggestion and negative', async () => {
         var matches = [];
-        await client.getMatches('This is crazy long text', matches);
+        await client.getMatches(ort, 'This is crazy long text', matches);
         expect(matches.length).to.be.equal(1);
     });
 
@@ -69,20 +71,20 @@ describe('validator', () => {
     it('Brief text suggestion', async () => {
         var text = "Great changes";
         var matches = [];
-        client.getMatches(text, matches);
+        client.getMatches(ort, text, matches);
         expect(matches.length).to.be.equal(1);
         expect(matches[0].length).to.be.equal(text.length);
     });
     
     it('Brief text no suggestion', async () => {
         var matches = [];
-        client.getMatches("These changes are more than 15 characters", matches);
+        client.getMatches(ort, "These changes are more than 15 characters", matches);
         expect(matches.length).to.be.equal(0);
     });
 
     it('Brief text in ignore list no suggestion', async () => {
         var matches = [];
-        client.getMatches("Fixes #77", matches);
+        client.getMatches(ort, "Fixes #77", matches);
         expect(matches.length).to.be.equal(0);
     });
 });

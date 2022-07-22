@@ -1,5 +1,3 @@
-import * as ort from 'onnxruntime-node';
-
 function removeImageTags (text) {
     var startTag = text.indexOf ("![");
     var result = text;
@@ -87,8 +85,11 @@ export function preprocessText (text) {
     return result;
 }
 
-export async function analyzeSentiment(sentences) {
-    const session = await ort.InferenceSession.create('./assets/model.onnx');
+var session;
+
+export async function analyzeSentiment(ort, sentences) {
+    if (session == null)
+        session = await ort.InferenceSession.create('./assets/model.onnx');
 
     if (typeof sentences === 'string') {
         sentences = [sentences];
