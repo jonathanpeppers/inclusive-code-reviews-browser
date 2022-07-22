@@ -22,9 +22,16 @@ you know other words and terminology we can suggest. Please send a PR!
 
 ## Sentiment Analysis
 
-In addition to checking commonly-used words, your comments are sent to
-[Azure Text Analytics][text-analytics] for sentiment analysis. No text
-is stored anywhere, at any time.
+In addition to checking commonly-used words, your comments are
+classified by [our custom machine learning model][model]. We are
+hoping to get a somewhat accurate model that is OK with "there was a
+test failure", but not OK with "you are a failure". Standard sentiment
+analysis wasn't good enough for our usage.
+
+Note that the model runs *inside* the browser extension, and your
+actual text is not ever sent across the Internet. Some telemetry is
+collected for general usage of the extension, see
+[telemetry.md](docs/telemetry.md) for details.
 
 For example, you might make a comment on a Github pull request. Seems
 OK, right? Is it a "mean" comment?
@@ -36,7 +43,7 @@ generally friendlier:
 
 ![negative sentiment fixed](docs/negative-sentiment-fixed.png)
 
-[text-analytics]: https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/overview
+[model]: https://github.com/jonathanpeppers/inclusive-code-reviews-ml
 
 ## Contributing
 
@@ -138,12 +145,9 @@ Extension CLI
 
 * https://www.npmjs.com/package/extension-cli
 
-Azure Text Analytics
+Inclusive Code Reviews ML
 
-* [Documentation][text-analytics]
-* [npm package](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0)
-* [API Test Console](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment/console)
-* [Telemetry Docs](docs/telemetry.md)
+* https://github.com/jonathanpeppers/inclusive-code-reviews-ml
 
 ## Attribution
 
