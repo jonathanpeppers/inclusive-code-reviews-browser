@@ -80,9 +80,21 @@ export function preprocessText (text) {
     var result = removeCodeBlocks (text);
     result = removeImageTags (result);
     result = replaceBackticks (result);
-    //TODO: do a real punctuation remover
-    result = result.replace('!', ' ');
     return result;
+}
+
+const segmenter = new Intl.Segmenter('en', { granularity: 'sentence' });
+
+export function splitIntoSentences(text) {
+    var split = [];
+    const iterator = segmenter.segment(text)[Symbol.iterator]();
+    while (true) {
+        var current = iterator.next();
+        if (current.done)
+            break;
+        split.push(current.value.segment);
+    }
+    return split;
 }
 
 var session;
@@ -91,17 +103,23 @@ export async function analyzeSentiment(ort, sentences) {
     if (session == null)
         session = await ort.InferenceSession.create('./assets/model.onnx');
 
+    var shouldPreprocess = true;
+
+    // Split into sentences if needed
     if (typeof sentences === 'string') {
-        sentences = [sentences];
+        sentences = preprocessText(sentences);
+        sentences = splitIntoSentences(sentences);
+        shouldPreprocess = false;
     }
     var sentiment = {
         sentences: []
     };
     var totalLength = 0;
     for await (const sentence of sentences) {
-        const text = preprocessText(sentence);
+        const text = shouldPreprocess ? preprocessText(sentence) : sentence;
         const results = await session.run({
-            text: new ort.Tensor([text], [1,1]),
+            //TODO: do a real punctuation remover
+            text: new ort.Tensor([text.replace('!', ' ').trim()], [1,1]),
             isnegative: new ort.Tensor([''], [1,1]),
         })
         const result = results['PredictedLabel.output'].data[0];
