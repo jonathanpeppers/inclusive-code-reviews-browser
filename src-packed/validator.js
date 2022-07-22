@@ -14,11 +14,7 @@ function loadAppInsights() {
     if (!appinsights) appinsights = require('./appinsights');
 }
 
-export function hasEmptyApiKey() {
-    return textAnalytics.emptyApiKey;
-}
-
-export async function getMatches(text, matches) {
+export async function getMatches(ort, text, matches) {
     loadAppInsights();
 
     var minLength = typeof config != "undefined" ? config.MIN_REVIEW_LENGTH : 15;
@@ -62,7 +58,7 @@ export async function getMatches(text, matches) {
     });
 
     // TextAnalytics API
-    const result = await textAnalytics.analyzeSentiment(text);
+    const result = await textAnalytics.analyzeSentiment(ort, text);
     if (result.error !== undefined) {
         console.log(result.error);
         return;

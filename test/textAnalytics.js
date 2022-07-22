@@ -1,31 +1,31 @@
+import * as ort from 'onnxruntime-node';
+
 describe('textAnalytics', () => {
     const client = require('../src-packed/textAnalytics');
-    if (client.emptyApiKey)
-        return;
 
     it('Negative', async () => {
-        const result = await client.analyzeSentiment("This is terrible!");
+        const result = await client.analyzeSentiment(ort, "This is terrible!");
         expect(result.sentences[0].sentiment).to.be.equal("negative");
     });
 
     it('Neutral', async () => {
-        const result = await client.analyzeSentiment("Hello, World!");
+        const result = await client.analyzeSentiment(ort, "Hello, World!");
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
     });
 
     it('Positive', async () => {
-        const result = await client.analyzeSentiment("This is great!");
-        expect(result.sentences[0].sentiment).to.be.equal("positive");
+        const result = await client.analyzeSentiment(ort, "This is great!");
+        expect(result.sentences[0].sentiment).to.be.equal("neutral"); //NOTE: we don't know if it's positive anymore
     });
 
     it('Fenced code blocks negative', async () => {
-        const result = await client.analyzeSentiment("```\nThis is terrible!\n```\nHello, World!\n");
+        const result = await client.analyzeSentiment(ort, "```\nThis is terrible!\n```\nHello, World!\n");
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
     });
 
     it('Fenced code blocks negative, offset', async () => {
         const text = "```\nHello, World!\n```\nThis is terrible!\n";
-        const result = await client.analyzeSentiment(text);
+        const result = await client.analyzeSentiment(ort, text);
         var sentence = result.sentences[0];
         expect(sentence.sentiment).to.be.equal("negative");
         expect(sentence.offset).to.be.equal(0);
@@ -33,13 +33,13 @@ describe('textAnalytics', () => {
     });
 
     it('Indented code blocks negative', async () => {
-        const result = await client.analyzeSentiment("    This is terrible!\nHello, World!\n");
+        const result = await client.analyzeSentiment(ort, "    This is terrible!\nHello, World!\n");
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
     });
 
     it('Indented code blocks negative, offset', async () => {
         const text = "This is terrible!\n    Hello, World!";
-        const result = await client.analyzeSentiment(text);
+        const result = await client.analyzeSentiment(ort, text);
         var sentence = result.sentences[0];
         expect(sentence.sentiment).to.be.equal("negative");
         expect(sentence.offset).to.be.equal(0);
@@ -66,27 +66,20 @@ describe('textAnalytics', () => {
         expect(result).to.be.equal("      \n   \n   ghi");
     });
 
-    it("Preprocess Ignorable sentence", () => {
-        const text     = "These test failures can be ignored.";
-        const expected = "These             s can be       d."
-        const result = client.preprocessIgnorableNegativeText (text);
-        expect(result).to.be.equal(expected);
-    });
-
     it("Ignorable sentence", async () => {
-        const result = await client.analyzeSentiment("I see a couple of new warnings and errors.");
+        const result = await client.analyzeSentiment(ort, "I see a couple of new warnings and errors.");
         expect(result.sentences[0].sentiment).not.to.be.equal("negative");
     });
 
     it("Ignorable negative sentence", async () => {
-        const result = await client.analyzeSentiment("There are some new test failures, this is terrible.");
+        const result = await client.analyzeSentiment(ort, "There are some new test failures, this is terrible.");
         expect(result.sentences[0].sentiment).to.be.equal("negative");
     });
 
     it("Ignorable sentence and negative sentence, offset and length", async () => {
-        const sen1 = "I see a new error in the build. ";
+        const sen1 = "I see a new error in the build.";
         const sen2 = "This is the worst thing that has ever happened."
-        const result = await client.analyzeSentiment(sen1 + sen2);
+        const result = await client.analyzeSentiment(ort, [sen1, sen2]);
         var res1 = result.sentences[0];
         var res2 = result.sentences[1];
         expect(res1.sentiment).not.to.be.equal("negative");
@@ -105,14 +98,14 @@ describe('textAnalytics', () => {
     it('Image tag 2', () => async () => {
         const text = client.preprocessText ("abc![image](https://bad.com/this/is/terrible)def");
         expect(text).to.be.equal           ("abc. image.                                  def");
-        const result = await client.analyzeSentiment(text);
+        const result = await client.analyzeSentiment(ort, text);
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
     });
 
     it('Image tag 3', () => async () => {
         const text = client.preprocessText ("abc![alt text](https://bad.com/this/is/terrible)def");
         expect(text).to.be.equal           ("abc. alt text.                                  def");
-        const result = await client.analyzeSentiment(text);
+        const result = await client.analyzeSentiment(ort, text);
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
     });
 
@@ -124,19 +117,18 @@ describe('textAnalytics', () => {
     it('Image tag 5', () => async () => {
         const text = client.preprocessText ("abc![I am good](https://good.com/)  ![You are bad](https://bad.com/)");
         expect(text).to.be.equal           ("abc. I am good.                       You are bad.                  ");
-        const result = await client.analyzeSentiment(text);
+        const result = await client.analyzeSentiment(ort, ["abc![I am good](https://good.com/)","![You are bad](https://bad.com/)"]);
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
-        expect(result.sentences[1].sentiment).to.be.equal("neutral");
-        expect(result.sentences[2].sentiment).to.be.equal("negative");
+        expect(result.sentences[1].sentiment).to.be.equal("negative");
     });
 
     it('Replace Backticks', async () => {
-        const result = await client.analyzeSentiment("`Change the backticks`");
+        const result = await client.analyzeSentiment(ort, "`Change the backticks`");
         expect(result.sentences[0].text).to.be.equal("\"Change the backticks\"");
     });
 
     it('Yield Example', async () => {
-        const result = await client.analyzeSentiment("`yield` returning / breaking has benefits when there's a chance that you don't iterate through all items.");
+        const result = await client.analyzeSentiment(ort, "`yield` returning / breaking has benefits when there's a chance that you don't iterate through all items.");
         expect(result.sentences[0].confidenceScores.negative).to.be.lessThan(0.9);
     });
 });

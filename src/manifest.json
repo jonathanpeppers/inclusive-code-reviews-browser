@@ -46,10 +46,11 @@
       "page": "options/options.html"
    },
    "permissions": [ "activeTab", "storage", "contextMenus" ],
+   "content_security_policy": "script-src 'self' 'wasm-eval' blob:; object-src 'self'",
    "short_name": "Code Comments",
    "storage": {
       "managed_schema": "managed_settings.json"
    },
    "version": "0.1.1",
-   "web_accessible_resources": [ "assets/fonts/*.woff2", "assets/styles/*", "packed.js", "common/*.css", "common/*.js", "content/*.css", "content/*.js", "config/*.js", "privacyConfirmationDialog/*.js", "assets/images/*" ]
+   "web_accessible_resources": [ "assets/model.onnx", "assets/fonts/*.woff2", "assets/styles/*", "packed.js", "*.wasm", "common/*.css", "common/*.js", "content/*.css", "content/*.js", "config/*.js", "privacyConfirmationDialog/*.js", "assets/images/*" ]
 }
