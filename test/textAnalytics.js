@@ -18,18 +18,36 @@ describe('textAnalytics', () => {
         expect(result.sentences[0].sentiment).to.be.equal("neutral"); //NOTE: we don't know if it's positive anymore
     });
 
+    it('Lots of text', async () => {
+        const result = await client.analyzeSentiment(ort,
+`You are terrible. Looks good to me.
+This code sucks.
+I love you.
+Amazing, job ship it.
+You stinker.`
+        );
+        expect(result.sentences.length).to.be.equal(6);
+        expect(result.sentences[0].sentiment).to.be.equal("negative");
+        expect(result.sentences[1].sentiment).to.be.equal("neutral");
+        expect(result.sentences[2].sentiment).to.be.equal("negative");
+        expect(result.sentences[3].sentiment).to.be.equal("neutral");
+        expect(result.sentences[4].sentiment).to.be.equal("neutral");
+        expect(result.sentences[5].sentiment).to.be.equal("negative");
+    });
+
     it('Fenced code blocks negative', async () => {
         const result = await client.analyzeSentiment(ort, "```\nThis is terrible!\n```\nHello, World!\n");
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
     });
 
     it('Fenced code blocks negative, offset', async () => {
-        const text = "```\nHello, World!\n```\nThis is terrible!\n";
-        const result = await client.analyzeSentiment(ort, text);
-        var sentence = result.sentences[0];
+        const text1 = "```\nHello, World!\n```\n";
+        const text2 = "This is terrible!\n";
+        const result = await client.analyzeSentiment(ort, text1 + text2);
+        var sentence = result.sentences[result.sentences.length - 1];
         expect(sentence.sentiment).to.be.equal("negative");
-        expect(sentence.offset).to.be.equal(0);
-        expect(sentence.length).to.be.equal(text.length);
+        expect(sentence.offset).to.be.equal(text1.length);
+        expect(sentence.length).to.be.equal(text2.length);
     });
 
     it('Indented code blocks negative', async () => {
@@ -38,12 +56,13 @@ describe('textAnalytics', () => {
     });
 
     it('Indented code blocks negative, offset', async () => {
-        const text = "This is terrible!\n    Hello, World!";
-        const result = await client.analyzeSentiment(ort, text);
+        const text1 = "This is terrible!\n";
+        const text2 = "    Hello, World!";
+        const result = await client.analyzeSentiment(ort, text1 + text2);
         var sentence = result.sentences[0];
         expect(sentence.sentiment).to.be.equal("negative");
         expect(sentence.offset).to.be.equal(0);
-        expect(sentence.length).to.be.equal(text.length);
+        expect(sentence.length).to.be.equal(text1.length);
     });
 
     it('Preprocess 1', () => {
@@ -130,5 +149,24 @@ describe('textAnalytics', () => {
     it('Yield Example', async () => {
         const result = await client.analyzeSentiment(ort, "`yield` returning / breaking has benefits when there's a chance that you don't iterate through all items.");
         expect(result.sentences[0].confidenceScores.negative).to.be.lessThan(0.9);
+    });
+
+    it ('Split into sentences', () => {
+        const result = client.splitIntoSentences(
+`I love this.
+Mister Smith bought cheapsite.com for 1.5 million dollars, i.e. he paid a lot for it. Did he mind? Adam Jones Jr. thinks he didn't. In any case, this isn't true... Well, with a probability of .9 it isn't.
+Was I worried?
+Nope.`
+        );
+        expect(result.length).to.be.equal(8);
+        //TODO: eventually, should we need `.trim()`?
+        expect(result[0].trim()).to.be.equal('I love this.');
+        expect(result[1].trim()).to.be.equal('Mister Smith bought cheapsite.com for 1.5 million dollars, i.e. he paid a lot for it.');
+        expect(result[2].trim()).to.be.equal('Did he mind?');
+        expect(result[3].trim()).to.be.equal('Adam Jones Jr. thinks he didn\'t.');
+        expect(result[4].trim()).to.be.equal('In any case, this isn\'t true...');
+        expect(result[5].trim()).to.be.equal('Well, with a probability of .9 it isn\'t.');
+        expect(result[6].trim()).to.be.equal('Was I worried?');
+        expect(result[7].trim()).to.be.equal('Nope.');
     });
 });
