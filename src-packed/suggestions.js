@@ -51,6 +51,7 @@ const allReplacements = {
     "normal": ["typical"],
     "abnormal": ["atypical"],
     "crazy": ["unexpected", "unpredictable", "wild"],
+    "insane": ["unexpected", "suboptimal"],
     "OCD": ["organized", "detail-oriented"],
     "sanity check": ["quick check", "confidence check", "coherence check"],
     "dummy": ["placeholder", "sample"],
@@ -61,6 +62,7 @@ const allReplacements = {
     "crushing it": ["elevating", "exceeding expectations", "excelling"],
     "killing it": ["elevating", "exceeding expectations", "excelling"],
     "kill": ["stop", "cancel"],
+    "execute": ["start", "run"],
     // ageist
     "grandfather": ["flagship", "established", "rollover", "carryover", "classic"],
     "legacy": ["flagship", "established", "rollover", "carryover", "classic"],
