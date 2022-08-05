@@ -24,7 +24,7 @@ describe('textAnalytics', () => {
 This code sucks.
 I love you.
 Amazing, job ship it.
-You stinker.`
+This code is stupid.`
         );
         expect(result.sentences.length).to.be.equal(6);
         expect(result.sentences[0].sentiment).to.be.equal("negative");
