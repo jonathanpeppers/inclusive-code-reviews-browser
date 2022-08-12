@@ -3,7 +3,7 @@
 // NOTE: These values were from the original extension, we can repurpose to display different colors
 const ISSUE_TYPE_YELLOW = "misspelling";
 const ISSUE_TYPE_PURPLE = "style";
-const NEGATIVE_SENTIMENT_THRESHOLD = 0.9;
+const NEGATIVE_SENTIMENT_THRESHOLD = 0.8;
 const suggestions = require('./suggestions');
 const textAnalytics = require('./textAnalytics');
 var appinsights = null;
