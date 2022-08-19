@@ -76,11 +76,27 @@ function replaceBackticks (text) {
     return result;
 }
 
+const githubHandleRegex = /\B@([a-z0-9](?:-(?=[a-z0-9])|[a-z0-9]){0,38}(?<=[a-z0-9]))/gi;
+
+function replaceGitHubHandles (text) {
+    return text.replace(githubHandleRegex, '@github');
+}
+
+// These are transformations applied, before it is split into sentences
+// These need to preserve text length
 export function preprocessText (text) {
     var result = removeCodeBlocks (text);
     result = removeImageTags (result);
     result = replaceBackticks (result);
     return result;
+}
+
+// These are transformations applied, after split into sentences
+// These do not need to preserve text length
+export function postprocessText (text) {
+    var result = replaceGitHubHandles(text);
+    //TODO: do a real punctuation remover
+    return result.replace('!', ' ').trim();
 }
 
 const segmenter = new Intl.Segmenter('en', { granularity: 'sentence' });
@@ -118,8 +134,7 @@ export async function analyzeSentiment(ort, sentences) {
     for await (const sentence of sentences) {
         const text = shouldPreprocess ? preprocessText(sentence) : sentence;
         const results = await session.run({
-            //TODO: do a real punctuation remover
-            text: new ort.Tensor([text.replace('!', ' ').trim()], [1,1]),
+            text: new ort.Tensor([postprocessText(text)], [1,1]),
             isnegative: new ort.Tensor([''], [1,1]),
         })
         const result = results['PredictedLabel.output'].data[0];
