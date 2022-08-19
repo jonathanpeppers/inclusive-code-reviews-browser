@@ -85,6 +85,13 @@ This code is stupid.`
         expect(result).to.be.equal("      \n   \n   ghi");
     });
 
+    it('GitHub handles', () => {
+        var result = client.postprocessText ("Hi, @jonathanpeppers ship it");
+        expect(result).to.be.equal("Hi, @github ship it");
+        var result = client.postprocessText ("This is not a handle: @?1234");
+        expect(result).to.be.equal("This is not a handle: @?1234");
+    });
+
     it("Ignorable sentence", async () => {
         const result = await client.analyzeSentiment(ort, "I see a couple of new warnings and errors.");
         expect(result.sentences[0].sentiment).not.to.be.equal("negative");
