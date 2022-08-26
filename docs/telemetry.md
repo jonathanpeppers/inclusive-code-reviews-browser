@@ -84,6 +84,33 @@ We also report `customMeasurements` such as:
 {"positive":0,"neutral":0,"negative":1}
 ```
 
+## Queries
+
+These are just a list of Kusto queries for looking at the data:
+
+```kusto
+//Users
+pageViews
+| where timestamp >= datetime(01/01/2022)
+| summarize count() by user_Id, bin(timestamp, 7d)
+| summarize Users=count() by timestamp
+| order by timestamp
+
+// Sessions
+pageViews
+| where timestamp >= datetime(01/01/2022)
+| summarize count() by session_Id, bin(timestamp, 7d)
+| summarize Sessions=count() by timestamp
+| order by timestamp
+
+// Comments improved
+customEvents
+| where name == "appliedSuggestion" or name == "manualFix"
+| where timestamp >= datetime(01/01/2022)
+| summarize Comments=count() by bin(timestamp, 7d)
+| order by timestamp
+```
+
 [0]: https://github.com/jonathanpeppers/inclusive-code-comments/issues/new
 [1]: negative-word.png
 [2]: ../src-packed/suggestions.js
