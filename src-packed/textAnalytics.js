@@ -69,11 +69,10 @@ function removeCodeBlocks (text) {
     return result;
 }
 
-// Replace backticks for double quotes, since backticks make sentiment more negative
-// See textAnalytics.js 'Yield Example' test
+const backtickRegex = /`[^`]+`/gi;
+
 function replaceBackticks (text) {
-    var result = text.replace(/`/g, "\"");
-    return result;
+    return text.replace(backtickRegex, '#code');
 }
 
 const githubHandleRegex = /\B@([a-z0-9](?:-(?=[a-z0-9])|[a-z0-9]){0,38}(?<=[a-z0-9]))/gi;
@@ -87,7 +86,6 @@ function replaceGitHubHandles (text) {
 export function preprocessText (text) {
     var result = removeCodeBlocks (text);
     result = removeImageTags (result);
-    result = replaceBackticks (result);
     return result;
 }
 
@@ -95,6 +93,7 @@ export function preprocessText (text) {
 // These do not need to preserve text length
 export function postprocessText (text) {
     var result = replaceGitHubHandles(text);
+    result = replaceBackticks(result);
     //TODO: do a real punctuation remover
     return result.replace('!', ' ').trim();
 }

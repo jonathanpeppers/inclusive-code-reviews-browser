@@ -92,6 +92,15 @@ This code is stupid.`
         expect(result).to.be.equal("This is not a handle: @?1234");
     });
 
+    it('Inline code blocks', () => {
+        var result = client.postprocessText ("Put this in your `AndroidManifest.xml` file");
+        expect(result).to.be.equal("Put this in your #code file");
+        var result = client.postprocessText ("`Change the backticks`");
+        expect(result).to.be.equal("#code");
+        var result = client.postprocessText ("This is not a code block: ` Hello");
+        expect(result).to.be.equal("This is not a code block: ` Hello");
+    });
+
     it("Ignorable sentence", async () => {
         const result = await client.analyzeSentiment(ort, "I see a couple of new warnings and errors.");
         expect(result.sentences[0].sentiment).not.to.be.equal("negative");
@@ -146,11 +155,6 @@ This code is stupid.`
         const result = await client.analyzeSentiment(ort, ["abc![I am good](https://good.com/)","![You are bad](https://bad.com/)"]);
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
         expect(result.sentences[1].sentiment).to.be.equal("negative");
-    });
-
-    it('Replace Backticks', async () => {
-        const result = await client.analyzeSentiment(ort, "`Change the backticks`");
-        expect(result.sentences[0].text).to.be.equal("\"Change the backticks\"");
     });
 
     it('Yield Example', async () => {
