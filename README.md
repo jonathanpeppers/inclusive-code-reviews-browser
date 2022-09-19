@@ -56,7 +56,12 @@ To setup your API key, create a `src-packed/secrets.js` file with:
     export const api_key = "<put the real key here>";
     export const appinsights_key = "<put the app insights connection string here>";
 
-_NOTE: you can also just use empty string values `""`, if you want to contribute without API keys._
+_NOTE: you can also just use empty string values `""`, if you want to
+contribute without API keys. This *should* work fine for the latest
+version of the extension._
+
+Make sure you have a recent version of `node.js`, you can [install
+here](https://nodejs.org/en/download/current/).
 
 To build:
 
