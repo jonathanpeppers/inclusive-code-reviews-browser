@@ -56,6 +56,7 @@ const allReplacements = {
     "sanity check": ["quick check", "confidence check", "coherence check"],
     "dummy": ["placeholder", "sample"],
     "handicapped": ["disabled", "person with disabilities"],
+    "nit": ["nitpick"],
     // violent
     "hang": ["freeze"],
     "hanging": ["frozen", "stuck"],
