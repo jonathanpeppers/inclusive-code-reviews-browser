@@ -70,4 +70,11 @@ describe('suggestions', () => {
             replacements: [ { value: "allowlist" }, { value: "inclusion list" },  { value: "safe list" }],
         });
     });
+
+    it('Nitpick', async () => {
+        var result = client.getSuggestions("Sorry to nitpick this!");
+        expect(result.length).to.be.equal(0);
+        var result = client.getSuggestions("nit: mixed tabs and spaces");
+        expect(result.length).to.be.equal(1);
+    });
 });
