@@ -103,6 +103,19 @@ This code is stupid.`
         expect(result).to.be.equal("This is not a code block: ` Hello");
     });
 
+    it('Trailing punctuation', () => {
+        var result = client.postprocessText ("Just do it!");
+        expect(result).to.be.equal("Just do it");
+        var result = client.postprocessText ("Just do it!!!");
+        expect(result).to.be.equal("Just do it");
+        var result = client.postprocessText ("Just do it !!!!!!");
+        expect(result).to.be.equal("Just do it");
+        var result = client.postprocessText ("Just do it ?");
+        expect(result).to.be.equal("Just do it");
+        var result = client.postprocessText ("Just do this:");
+        expect(result).to.be.equal("Just do this");
+    });
+
     it("Ignorable sentence", async () => {
         const result = await client.analyzeSentiment(ort, "I see a couple of new warnings and errors.");
         expect(result.sentences[0].sentiment).not.to.be.equal("negative");
