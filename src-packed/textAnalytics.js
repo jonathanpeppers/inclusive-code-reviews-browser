@@ -81,6 +81,12 @@ function replaceGitHubHandles (text) {
     return text.replace(githubHandleRegex, '@github');
 }
 
+const punctuationRegex = /(\.|!|\?|;|:)+$/g;
+
+function replaceTrailingPunctuation (text) {
+    return text.replace(punctuationRegex, '');
+}
+
 // These are transformations applied, before it is split into sentences
 // These need to preserve text length
 export function preprocessText (text) {
@@ -92,10 +98,10 @@ export function preprocessText (text) {
 // These are transformations applied, after split into sentences
 // These do not need to preserve text length
 export function postprocessText (text) {
-    var result = replaceGitHubHandles(text);
-    result = replaceBackticks(result);
-    //TODO: do a real punctuation remover
-    return result.replace('!', ' ').trim();
+    const github_replaced = replaceGitHubHandles(text);
+    const backticks_replaced = replaceBackticks(github_replaced);
+    const punctuation_replaced = replaceTrailingPunctuation(backticks_replaced);
+    return punctuation_replaced.trim();
 }
 
 const segmenter = new Intl.Segmenter('en', { granularity: 'sentence' });
