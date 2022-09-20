@@ -69,7 +69,7 @@ function removeCodeBlocks (text) {
     return result;
 }
 
-const backtickRegex = /`[^`]+`/gi;
+const backtickRegex = /`+[^`]+`+/gi;
 
 function replaceBackticks (text) {
     return text.replace(backtickRegex, '#code');

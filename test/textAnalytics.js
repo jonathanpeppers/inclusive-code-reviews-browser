@@ -95,6 +95,8 @@ This code is stupid.`
     it('Inline code blocks', () => {
         var result = client.postprocessText ("Put this in your `AndroidManifest.xml` file");
         expect(result).to.be.equal("Put this in your #code file");
+        var result = client.postprocessText ("Put this in your ```AndroidManifest.xml``` file");
+        expect(result).to.be.equal("Put this in your #code file");
         var result = client.postprocessText ("`Change the backticks`");
         expect(result).to.be.equal("#code");
         var result = client.postprocessText ("This is not a code block: ` Hello");
