@@ -116,6 +116,15 @@ This code is stupid.`
         expect(result).to.be.equal("Just do this");
     });
 
+    it('URLs', () => {
+        var result = client.postprocessText ("Look here: https://google.com");
+        expect(result).to.be.equal("Look here: #url");
+        var result = client.postprocessText ("See http://whatis.techtarget.com/definition/Fibonacci-sequence for details");
+        expect(result).to.be.equal("See #url for details");
+        var result = client.postprocessText ("See [this](http://whatis.techtarget.com/definition/Fibonacci-sequence) for details");
+        expect(result).to.be.equal("See [this](#url) for details"); //TODO: should be better?
+    });
+
     it("Ignorable sentence", async () => {
         const result = await client.analyzeSentiment(ort, "I see a couple of new warnings and errors.");
         expect(result.sentences[0].sentiment).not.to.be.equal("negative");
