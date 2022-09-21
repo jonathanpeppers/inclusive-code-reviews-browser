@@ -75,6 +75,12 @@ function replaceBackticks (text) {
     return text.replace(backtickRegex, '#code');
 }
 
+const urlRegex = /\b(https?|ftp|file):\/\/[\-A-Za-z0-9+&@#\/%?=~_|!:,.;]*[\-A-Za-z0-9+&@#\/%=~_|]/gi;
+
+function replaceUrls(text) {
+    return text.replace(urlRegex, '#url');
+}
+
 const githubHandleRegex = /\B@([a-z0-9](?:-(?=[a-z0-9])|[a-z0-9]){0,38}(?<=[a-z0-9]))/gi;
 
 function replaceGitHubHandles (text) {
@@ -100,7 +106,8 @@ export function preprocessText (text) {
 export function postprocessText (text) {
     const github_replaced = replaceGitHubHandles(text);
     const backticks_replaced = replaceBackticks(github_replaced);
-    const punctuation_replaced = replaceTrailingPunctuation(backticks_replaced);
+    const urls_replaced = replaceUrls(backticks_replaced);
+    const punctuation_replaced = replaceTrailingPunctuation(urls_replaced);
     return punctuation_replaced.trim();
 }
 
