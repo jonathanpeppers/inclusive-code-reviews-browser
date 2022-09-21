@@ -132,7 +132,7 @@ This code is stupid.`
 
     it("Ignorable negative sentence", async () => {
         const result = await client.analyzeSentiment(ort, "There are some new test failures, this is terrible.");
-        expect(result.sentences[0].sentiment).to.be.equal("neutral");
+        expect(result.sentences[0].sentiment).to.be.equal("negative");
     });
 
     it("Ignorable sentence and negative sentence, offset and length", async () => {
