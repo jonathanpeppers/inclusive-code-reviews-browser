@@ -41,5 +41,5 @@ const config = {
     COUPON_INTERVAL: 5184e6,
     PACKAGE: { BASIC: "Basic", PREMIUM: "Premium" },
     //these options is for inclusive reviews extension
-    MIN_REVIEW_LENGTH: 15,
+    MIN_REVIEW_LENGTH: 9,
 };
