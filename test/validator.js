@@ -69,7 +69,7 @@ describe('validator', () => {
     });
 
     it('Brief text suggestion', async () => {
-        var text = "Great changes";
+        var text = "Ok?";
         var matches = [];
         client.getMatches(ort, text, matches);
         expect(matches.length).to.be.equal(1);
@@ -78,7 +78,7 @@ describe('validator', () => {
     
     it('Brief text no suggestion', async () => {
         var matches = [];
-        client.getMatches(ort, "These changes are more than 15 characters", matches);
+        client.getMatches(ort, "Thank you", matches);
         expect(matches.length).to.be.equal(0);
     });
 

@@ -17,7 +17,7 @@ function loadAppInsights() {
 export async function getMatches(ort, text, matches) {
     loadAppInsights();
 
-    var minLength = typeof config != "undefined" ? config.MIN_REVIEW_LENGTH : 15;
+    var minLength = typeof config != "undefined" ? config.MIN_REVIEW_LENGTH : 9;
     if (text.length < minLength)
     {
         if (ignorableBriefPhraseRegex.test(text))
