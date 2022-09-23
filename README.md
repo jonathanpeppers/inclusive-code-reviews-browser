@@ -1,6 +1,6 @@
 # Inclusive Code Reviews: Browser Extension
 
-A *prototype* chrome web extension for improving online comments such
+A *prototype* Chrome and Edge web extension for improving online comments such
 as code reviews on Github or Azure DevOps. The idea is that the
 extension would make suggestions *before* you post a comment. This
 gives developers a chance to think about their phrasing and reword the
