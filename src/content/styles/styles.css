@@ -99,7 +99,7 @@ html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.
     max-width: 0 !important;
     position: static !important;
     border: 0 !important;
-    font-family: 'LanguageTool-win', sans-serif !important;
+    font-family: 'ICC-win', sans-serif !important;
     -webkit-font-smoothing: antialiased !important;
     -moz-osx-font-smoothing: grayscale !important; }
     html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-container.lt--mac-os,
@@ -108,7 +108,7 @@ html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.
     html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar.lt--mac-os,
     html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-card.lt--mac-os,
     html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-dialog.lt--mac-os {
-      font-family: 'LanguageTool-mac', sans-serif !important; }
+      font-family: 'ICC-mac', sans-serif !important; }
   html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-message {
     position: fixed !important;
     top: 20px !important;
