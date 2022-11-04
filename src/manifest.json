@@ -51,6 +51,6 @@
    "storage": {
       "managed_schema": "managed_settings.json"
    },
-   "version": "2.0.1",
+   "version": "2.0.2",
    "web_accessible_resources": [ "assets/model.onnx", "assets/fonts/*.woff2", "assets/styles/*", "packed.js", "*.wasm", "common/*.css", "common/*.js", "content/*.css", "content/*.js", "config/*.js", "privacyConfirmationDialog/*.js", "assets/images/*" ]
 }
