@@ -4,12 +4,14 @@
     - https://buffer.com/resources/inclusive-language-tech/
     - https://www.aswf.io/blog/inclusive-language/
     - https://www.it.northwestern.edu/about/it-projects/dei/glossary.html
+    - https://itconnect.uw.edu/guides-by-topic/identity-diversity-inclusion/inclusive-language-guide/
 */
 const allReplacements = {
     // socially charged
+    "blackout dates": ["unavailable dates", "blocked dates"],
     "whitelist": ["allowlist", "inclusion list", "safe list"],
     "blacklist": ["denylist", "exclusion list", "block list", "banned list"],
-    "blackbox": ["closed box", "mystery box"],
+    "blackbox": ["closed box", "mystery box"],    
     "whitebox": ["open box", "clear box"],
     "blackhat": ["criminal", "unethical engineer", "unethical developer"],
     "whitehat": ["ethical engineer", "ethical developer"],
@@ -28,6 +30,7 @@ const allReplacements = {
     "ladies": ["folks", "friends", "people", "you all", "y'all", "all", "everyone"],
     "manpower": ["labor"],
     "man hours": ["labor hours", "person hours", "engineer hours", "hours of effort"],
+    "manning": ["staffing", "managing"],
     "chairman": ["chairperson"],
     "foreman": ["foreperson"],
     "girl": ["woman"],
@@ -47,9 +50,10 @@ const allReplacements = {
     "father": ["parent"],
     "mom test": ["user test"],
     "girlfriend test": ["user test"],
+    "man-in-the-middle": ["machine-in-the-middle", "interceptor"],
     // ableist
-    "normal": ["typical"],
-    "abnormal": ["atypical"],
+    "normal": ["typical, expected", "standard", "common", "usual", "average"],
+    "abnormal": ["atypical, unexpected", "unusual", "rare"],
     "crazy": ["unexpected", "unpredictable", "wild"],
     "insane": ["unexpected", "suboptimal"],
     "OCD": ["organized", "detail-oriented"],
@@ -57,12 +61,15 @@ const allReplacements = {
     "dummy": ["placeholder", "sample"],
     "handicapped": ["disabled", "person with disabilities"],
     "nit": ["nitpick"],
+    "dumb-down": ["simplify"],
     // violent
     "hang": ["freeze"],
     "hanging": ["frozen", "stuck"],
+    "hit": ["click"],
     "crushing it": ["elevating", "exceeding expectations", "excelling"],
     "killing it": ["elevating", "exceeding expectations", "excelling"],
     "kill": ["stop", "cancel"],
+    "nuke": ["delete", "remove"],
     "execute": ["start", "run"],
     // ageist
     "grandfather": ["flagship", "established", "rollover", "carryover", "classic"],
