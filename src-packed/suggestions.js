@@ -74,6 +74,8 @@ const allReplacements = {
     // ageist
     "grandfather": ["flagship", "established", "rollover", "carryover", "classic"],
     "legacy": ["flagship", "established", "rollover", "carryover", "classic"],
+    // common wording pattern that might be softer
+    "should just": ["can probably"],
     // custom negative sentiment just leave replacements empty
     // https://www.oxfordinternationalenglish.com/dictionary-of-british-slang/
     "is pants": [],

@@ -11,7 +11,7 @@ describe('suggestions', () => {
         expect(result[0]).to.eql({
             index: 0,
             length: 6,
-            replacements: [ { value: "main" }, { value: "primary" } ],
+            replacements: [{ value: "main" }, { value: "primary" }],
         });
     });
 
@@ -20,7 +20,7 @@ describe('suggestions', () => {
         expect(result[0]).to.eql({
             index: 14,
             length: 6,
-            replacements: [ { value: "main" }, { value: "primary" } ],
+            replacements: [{ value: "main" }, { value: "primary" }],
         });
     });
 
@@ -29,7 +29,7 @@ describe('suggestions', () => {
         expect(result[0]).to.eql({
             index: 17,
             length: 6,
-            replacements: [ { value: "main" }, { value: "primary" } ],
+            replacements: [{ value: "main" }, { value: "primary" }],
         });
     });
 
@@ -38,7 +38,7 @@ describe('suggestions', () => {
         expect(result[0]).to.eql({
             index: 17,
             length: 6,
-            replacements: [ { value: "Main" }, { value: "Primary" } ],
+            replacements: [{ value: "Main" }, { value: "Primary" }],
         });
     });
 
@@ -47,7 +47,7 @@ describe('suggestions', () => {
         expect(result[0]).to.eql({
             index: 7,
             length: 11,
-            replacements: [ { value: "elevating" }, { value: "exceeding expectations" }, { value: "excelling" } ],
+            replacements: [{ value: "elevating" }, { value: "exceeding expectations" }, { value: "excelling" }],
         });
     });
 
@@ -62,19 +62,28 @@ describe('suggestions', () => {
         expect(result[0]).to.eql({
             index: 26,
             length: 9,
-            replacements: [ { value: "allowlist" }, { value: "inclusion list" },  { value: "safe list" }],
+            replacements: [{ value: "allowlist" }, { value: "inclusion list" }, { value: "safe list" }],
         });
         expect(result[1]).to.eql({
             index: 41,
             length: 9,
-            replacements: [ { value: "allowlist" }, { value: "inclusion list" },  { value: "safe list" }],
+            replacements: [{ value: "allowlist" }, { value: "inclusion list" }, { value: "safe list" }],
         });
     });
 
-    it('Nitpick', async () => {
+    it('wording pattrn: Nitpick', async () => {
         var result = client.getSuggestions("Sorry to nitpick this!");
         expect(result.length).to.be.equal(0);
         var result = client.getSuggestions("nit: mixed tabs and spaces");
         expect(result.length).to.be.equal(1);
+    });
+
+    it('wording pattrn: "should just" should be changed to "can probably"', async () => {
+        var result = client.getSuggestions("We should just delete this section.");
+        expect(result[0]).to.eql({
+            index: 3,
+            length: 11,
+            replacements: [{ value: "can probably" }],
+        });
     });
 });
