@@ -25,50 +25,6 @@
       "description": "The name of the application, displayed in the web store.",
       "message": "Inclusive Code Comments"
    },
-   "appStoreDesc1": {
-      "description": "Description item 1 in Google Chrome Web Store (does not appear in the extension itself)",
-      "message": "Finds many errors that a simple spell checker cannot detect"
-   },
-   "appStoreDesc10": {
-      "description": "Description paragraph 1 in Google Chrome Web Store (does not appear in the extension itself)",
-      "message": "With this extension you can check text with the free style and grammar checker LanguageTool. LanguageTool finds many errors that a simple spell checker cannot detect, like mixing up there/their, a/an, or repeating a word, and it can detect some grammar problems. It supports more than 25 languages, including English, Spanish, French, German, Polish, and Russian."
-   },
-   "appStoreDesc2": {
-      "description": "Description item 2 in Google Chrome Web Store (does not appear in the extension itself)",
-      "message": "No registration needed"
-   },
-   "appStoreDesc20": {
-      "description": "Description paragraph 2 in Google Chrome Web Store (does not appear in the extension itself)",
-      "message": "LanguageTool is designed with simplicity in mind. It instantly checks the spelling and grammar of any text in the current text field. LanguageTool is compatible with almost all text, regardless of source, including social networks such as Twitter or LinkedIn and online e-mail services, such as Gmail."
-   },
-   "appStoreDesc3": {
-      "description": "Description item 3 in Google Chrome Web Store (does not appear in the extension itself)",
-      "message": "Supports more than 25 languages (see below)"
-   },
-   "appStoreDesc30": {
-      "description": "Description paragraph 3 in Google Chrome Web Store (does not appear in the extension itself)",
-      "message": "With LanguageTool our aim is to give users a fully-featured grammar checker and proofreader that will enable them to have control and confidence over their content. While LanguageTool is a vital extension for non-native speakers, it’s also smart enough to recognize many mistakes that native speakers commonly make. This grammar and spelling correction works across all variations of common language; distinguishing between U.S. and British English, for instance. LanguageTool also features a personal dictionary for exceptions or words that you might commonly use but that are not found in a conventional dictionary. LanguageTool will recognize these words in future grammar checking and proofreading."
-   },
-   "appStoreDesc4": {
-      "description": "Description item 4 in Google Chrome Web Store (does not appear in the extension itself)",
-      "message": "Works on almost any website including Gmail, Facebook, Twitter"
-   },
-   "appStoreDesc60": {
-      "description": "Description paragraph 5 in Google Chrome Web Store (does not appear in the extension itself)",
-      "message": "Unlike Grammarly (a.k.a. Grammerly :-) and Ginger, LanguageTool works for many languages."
-   },
-   "appStoreDesc70": {
-      "description": "Description paragraph 6a in Google Chrome Web Store (does not appear in the extension itself)",
-      "message": "Your privacy is important to us: By default, this extension will check your text by sending it to https://languagetool.org over a securely encrypted connection. No account is needed to use this extension. We don't store your IP address. See https://languagetool.org/privacy/ for our privacy policy."
-   },
-   "appStoreDesc71": {
-      "description": "Description paragraph 6b in Google Chrome Web Store (does not appear in the extension itself)",
-      "message": "Please send bug reports or questions to https://forum.languagetool.org"
-   },
-   "appStoreDesc80": {
-      "description": "Description paragraph 7 in Google Chrome Web Store (does not appear in the extension itself)",
-      "message": "List of supported languages: English (Australian, Canadian, UK, New Zealand, South African, US), French, German (Austria, Germany, Swiss), Asturian, Belarusian, Breton, Catalan (also Valencian), Chinese, Danish, Dutch, Esperanto, Galician, Greek, Italian, Japanese, Khmer, Persian, Polish, Portuguese (Brazil, Portugal, Angola, Mozambique), Romanian, Russian, Slovak, Slovenian, Spanish, Swedish, Tagalog, Tamil, Ukrainian, Arabic"
-   },
    "ar": {
       "description": "language name",
       "message": "Arabic"
@@ -105,205 +61,9 @@
       "description": "language name",
       "message": "Catalan (Valencian)"
    },
-   "changelog2020DiscountHeaderDescription": {
-      "description": "Marketing text that is sticky in header and tells users what the offer is about",
-      "message": "Take your writing to the next level"
-   },
-   "changelog2020DiscountHeaderDiscount": {
-      "description": "20% --> Off \u003C-- The word must come after the percentage",
-      "message": "Off"
-   },
-   "changelog2020DiscountHeaderHeadline": {
-      "description": "Marketing headline that is sticky in header and tells users what the timer is about",
-      "message": "Limited-time discount on Premium!"
-   },
-   "changelog2020DiscountHeaderLink": {
-      "description": "Marketing link that is sticky in header and tells users to get the discount now",
-      "message": "Get discount now"
-   },
-   "changelog2020FeatureAppLink": {
-      "description": "Link to download the desktop app from the mac appstore",
-      "message": "Download for free on the Mac App Store"
-   },
-   "changelog2020FeaturePremiumTag": {
-      "description": "Label that is displayed on top of every new feature section to remind the user about the discount",
-      "message": "GET 20% OFF PREMIUM"
-   },
-   "changelog2020FeatureSectionAppDescription": {
-      "description": "Headline for the section that explains the desktop App in depth",
-      "message": "With the LanguageTool desktop app for Mac, you have access to all your texts at any time. Use the system-wide keyboard shortcut and check texts from the clipboard or common word processors without losing important formatting."
-   },
-   "changelog2020FeatureSectionAppHeadline": {
-      "description": "Text for the section that explains the desktop App in depth (up to 200 characters)",
-      "message": "Hello LanguageTool for Mac"
-   },
-   "changelog2020FeatureSectionEditorDescription": {
-      "description": "Text for the section that explains the editor in depth (up to 200 characters)",
-      "message": "The LanguageTool Editor is here to give you a distraction-free writing experience. Moreover, our so-called \"picky mode\" will provide many additional suggestions to perfect your text."
-   },
-   "changelog2020FeatureSectionEditorHeadline": {
-      "description": "Headline for the section that explains the editor in depth",
-      "message": "Your new Editor in Chief"
-   },
-   "changelog2020FeatureSectionServicesDescription": {
-      "description": "Text for the section that explains that LT now supports more services than ever (up to 200 characters)",
-      "message": "LanguageTool now supports more services than ever before. No matter where you like to write — we’ve got you covered."
-   },
-   "changelog2020FeatureSectionServicesHeadline": {
-      "description": "Headline for the section that explains that LT now supports more services than ever",
-      "message": "LanguageTool — at your Service"
-   },
-   "changelog2020FeatureSectionSpanishPremiumDescription": {
-      "description": "Text for the section that explains the Spanish Premium version is here in depth (up to 200 characters)",
-      "message": "With LanguageTool Premium for Spanish, you upgrade your writing to the next level. Find advanced issues and get style suggestions to enhance your writing."
-   },
-   "changelog2020FeatureSectionSpanishPremiumHeadline": {
-      "description": "Headline for the section that explains the Spanish Premium version is here in depth",
-      "message": "¡Hola, Prémium!"
-   },
-   "changelog2020FeatureSectionStyleDescription": {
-      "description": "Text for the section that explains the LT style checking in depth (up to 200 characters)",
-      "message": "LanguageTool finds many style issues in your texts, so you sound more professional when writing to your peers."
-   },
-   "changelog2020FeatureSectionStyleHeadline": {
-      "description": "Headline for the section that explains the LT style checking in depth",
-      "message": "Style with Substance"
-   },
-   "changelog2020FeatureSectionTeamsDescription": {
-      "description": "Text for the section that explains the Team Feature is here in depth (up to 200 characters)",
-      "message": "Manage your team of writers to develop a common style. LanguageTool Premium is now available for businesses & organizations."
-   },
-   "changelog2020FeatureSectionTeamsHeadline": {
-      "description": "Headline for the section that explains the Team Feature is here in depth",
-      "message": "Everybody on Board"
-   },
-   "changelog2020FeatureSectionTranslateDescription": {
-      "description": "Text for the section that explains the LT inline translation feature in depth (works for DE/EN only; up to 200 characters)",
-      "message": "You know that feeling when an English word is on the tip of your tongue? Now, LanguageTool helps you translate words from German to English. Simply type a German word in an English sentence."
-   },
-   "changelog2020FeatureSectionTranslateHeadline": {
-      "description": "Headline for the section that explains the LT translation feature in depth",
-      "message": "What's that word again?"
-   },
-   "changelog2020FeatureTeaserAppDescription": {
-      "description": "Text for the teaser that explains the LT App desktop app (up to 100 characters)",
-      "message": "The LanguageTool Editor is coming to the Mac. Write and store your texts in a distraction-free environment."
-   },
-   "changelog2020FeatureTeaserAppHeadline": {
-      "description": "Headline for the teaser that explains the LT App desktop app",
-      "message": "Mac desktop app"
-   },
-   "changelog2020FeatureTeaserEditorDescription": {
-      "description": "Text for the teaser that explains the editor (up to 100 characters)",
-      "message": "The editor lets you check your texts in a distraction-free environment with many extra features."
-   },
-   "changelog2020FeatureTeaserEditorHeadline": {
-      "description": "Headline for the teaser that explains the editor",
-      "message": "Try the New Editor"
-   },
-   "changelog2020FeatureTeaserLink": {
-      "description": "Link that comes with every new feature teaser and scrolls the page down to read more info about the feature",
-      "message": "Read more"
-   },
-   "changelog2020FeatureTeaserSpanishPremiumDescription": {
-      "description": "Text for the teaser that explains the Spanish Premium version is here (up to 100 characters)",
-      "message": "We have invested a lot in our technology to make it the industry-leading grammar & style checker in Spanish-speaking countries."
-   },
-   "changelog2020FeatureTeaserSpanishPremiumHeadline": {
-      "description": "Headline for the teaser that explains the Spanish Premium version is here",
-      "message": "Spanish got an upgrade"
-   },
-   "changelog2020FeatureTeaserStyleDescription": {
-      "description": "Text for the teaser that explains the LT style checking (up to 100 characters)",
-      "message": "LanguageTool helps you adopt a better writing style."
-   },
-   "changelog2020FeatureTeaserStyleHeadline": {
-      "description": "Headline for the teaser that explains the LT style checking",
-      "message": "Write with Style"
-   },
-   "changelog2020FeatureTeaserTeamsDescription": {
-      "description": "Text for the teaser that explains the Team Feature is here (up to 100 characters)",
-      "message": "From small groups to large organizations: LanguageTool now offers advanced functionalities for teams and businesses."
-   },
-   "changelog2020FeatureTeaserTeamsHeadline": {
-      "description": "Headline for the teaser that explains the Team Feature is here",
-      "message": "Manage your Team"
-   },
-   "changelog2020FeatureTeaserTranslateDescription": {
-      "description": "Text for the teaser that explains the LT translation feature (up to 100 characters)",
-      "message": "Translations for short phrases are now available."
-   },
-   "changelog2020FeatureTeaserTranslateHeadline": {
-      "description": "Headline for the teaser that explains the LT translation feature",
-      "message": "Translations for German"
-   },
-   "changelog2020FeatureUpgrade2Link": {
-      "description": "Link that comes with every new feature section and redirects the user to the pricing table with a discount assigned",
-      "message": "Save 20% on Premium"
-   },
-   "changelog2020FeatureUpgradeLink": {
-      "description": "Link that comes with every new feature section and redirects the user to the pricing table with a discount assigned",
-      "message": "Get Premium"
-   },
-   "changelog2020IntroText": {
-      "description": "Subheadline that gives further context on what the page is about (new features)",
-      "message": "We have been busy improving our popular grammar & style checker to offer you the best possible experience. Today, we are proud to share these new features with you:"
-   },
-   "changelog2020LtInfoText": {
-      "description": "Little notification on top of the page that should raise awareness that it's a LanguageTool offer",
-      "message": "Hey, there! News from LanguageTool! "
-   },
-   "changelog2020MainHeadline": {
-      "description": "Headline for a section where all new features are explained",
-      "message": "The new LanguageTool is here"
-   },
-   "changelog2020SignUpLink": {
-      "description": "Link that sends the user to the sign up form",
-      "message": "Sign up for free"
-   },
-   "changelog2020TeamUpgradeLink": {
-      "description": "Link that sends the user to the pricing table to get Premium for their business",
-      "message": "Get Premium for my Team"
-   },
-   "changelog2020TimerHourPlural": {
-      "description": "Label for the hours section of the timer (Plural)",
-      "message": "Hours"
-   },
-   "changelog2020TimerHourSingular": {
-      "description": "Label for the hours section of the timer (Singular)",
-      "message": "Hour"
-   },
-   "changelog2020TimerMinutePlural": {
-      "description": "Label for the minutes section of the timer (Plural)",
-      "message": "Minutes"
-   },
-   "changelog2020TimerMinuteSingular": {
-      "description": "Label for the minutes section of the timer (Singular)",
-      "message": "Minute"
-   },
-   "changelog2020TimerSecondPlural": {
-      "description": "Label for the seconds section of the timer (Plural)",
-      "message": "Seconds"
-   },
-   "changelog2020TimerSecondSingular": {
-      "description": "Label for the seconds section of the timer (Singular)",
-      "message": "Second"
-   },
-   "changelogDiscountExpires": {
-      "description": "Text that stands in front of a dynamic countdown (e.g. 'Expires in 32:24:10')",
-      "message": "Offer expires in"
-   },
-   "changelogTitle": {
-      "description": "title for the browser tab",
-      "message": "New LanguageTool features"
-   },
    "close": {
       "description": "Link that closes the window",
       "message": "Close"
-   },
-   "cloudServer": {
-      "description": "Radio button label for the cloud server setting (the default)",
-      "message": "Cloud server (languagetool.org)"
    },
    "connectionProblem": {
       "description": "Message shown to the user when extension can't connect to server",
@@ -480,20 +240,6 @@
    "dialogPremiumButton": {
       "description": "Button for when there are hidden matches (errors that only premium users can see)",
       "message": "Learn more"
-   },
-   "dialogPremiumHeadlinePlural": {
-      "description": "Headline for when there are hidden matches (errors that only premium users can see)",
-      "message": "$count$ more writing issues found",
-      "placeholders": {
-         "count": {
-            "content": "$1",
-            "example": "7"
-         }
-      }
-   },
-   "dialogPremiumHeadlineSingular": {
-      "description": "Headline for when there are hidden matches (errors that only premium users can see)",
-      "message": "1 more writing issue found"
    },
    "dialogPremiumText": {
       "description": "Text for when there are hidden matches (errors that only premium users can see)",
@@ -971,18 +717,6 @@
       "description": "Validate button in toolbar popup",
       "message": "Check selected text in Editor"
    },
-   "popupPremiumHeadline": {
-      "description": "Premium hint in popup",
-      "message": "Write like a Pro"
-   },
-   "popupPremiumLink": {
-      "description": "Premium hint in popup",
-      "message": "Learn more"
-   },
-   "popupPremiumText": {
-      "description": "Premium hint in popup",
-      "message": "Upgrade to LanguageTool Premium to not only find more grammar and punctuation errors, but also text style issues."
-   },
    "popupSettingsHeadline": {
       "description": "Headline for the website specific settings shown in the addon popup",
       "message": "Settings for this website"
@@ -1136,18 +870,6 @@
    "sendFeedback": {
       "description": "Link text for sending feedback to languagetool.org",
       "message": "Report an issue"
-   },
-   "serverNotAvailable": {
-      "description": "Warning shown to the user that the local server isn't available",
-      "message": "Local server not available"
-   },
-   "serverText": {
-      "description": "Options dialog: description of the text field for the API server URL",
-      "message": "LanguageTool API server URL:"
-   },
-   "serverUrlIsInvalid": {
-      "description": "Options dialog: error shown if server URL is not valid, e.g. doesn't start with http or https",
-      "message": "This URL is not valid"
    },
    "settingsAccountBulletListEditor": {
       "description": "Advantage of account login in the account login section on the settings page",
@@ -1564,30 +1286,6 @@
    "validatorPlaceholder": {
       "description": "Text shown in text field when it's empty",
       "message": "Please enter or paste your text here …"
-   },
-   "validatorPremiumButton": {
-      "description": "Label for a button. Clicking it will send the user to the website where he can buy the premium version",
-      "message": "Upgrade"
-   },
-   "validatorPremiumHeadline": {
-      "description": "Title for a bullet point list of features the premium version has",
-      "message": "Find more writing issues and become a better writer"
-   },
-   "validatorPremiumReason1": {
-      "description": "Reason for buying the premium version",
-      "message": "More sophisticated grammar, punctuation and style checking"
-   },
-   "validatorPremiumReason2": {
-      "description": "Reason for buying the premium version",
-      "message": "Check longer texts (up to 60,000 characters)"
-   },
-   "validatorPremiumReason3": {
-      "description": "Reason for buying the premium version",
-      "message": "Auto detection for invalid numbers (e.g. IBAN, ISBN, …)"
-   },
-   "validatorPremiumReason4": {
-      "description": "Reason for buying the premium version",
-      "message": "Add-on for Microsoft Office"
    },
    "validatorTextTooLongStatus": {
       "description": "Text shown above validator text field when text is too long for validation",
