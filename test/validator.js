@@ -71,20 +71,20 @@ describe('validator', () => {
     it('Brief text suggestion', async () => {
         var text = "Ok?";
         var matches = [];
-        client.getMatches(ort, text, matches);
+        await client.getMatches(ort, text, matches);
         expect(matches.length).to.be.equal(1);
         expect(matches[0].length).to.be.equal(text.length);
     });
     
     it('Brief text no suggestion', async () => {
         var matches = [];
-        client.getMatches(ort, "Thank you", matches);
+        await client.getMatches(ort, "Thank you", matches);
         expect(matches.length).to.be.equal(0);
     });
 
     it('Brief text in ignore list no suggestion', async () => {
         var matches = [];
-        client.getMatches(ort, "Fixes #77", matches);
+        await client.getMatches(ort, "Fixes #77", matches);
         expect(matches.length).to.be.equal(0);
     });
 });
