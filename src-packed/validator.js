@@ -17,29 +17,6 @@ function loadAppInsights() {
 export async function getMatches(ort, text, matches) {
     loadAppInsights();
 
-    var minLength = typeof config != "undefined" ? config.MIN_REVIEW_LENGTH : 9;
-    if (text.length < minLength)
-    {
-        if (ignorableBriefPhraseRegex.test(text))
-            return matches; // return an empty list early
-
-        appinsights.trackEvent('tooShort');
-        matches.push({
-            "message": "This is comment is too brief. Could you elaborate?",
-            "shortMessage": "Comment is brief",
-            "offset": 0,
-            "length": text.length,
-            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_YELLOW, "category": { "id": "TYPOS", "name": "Small text" } },
-            "replacements": [],
-            "type": { "typeName": "Other" },
-            "ignoreForIncompleteSentence": false,
-            "contextForSureMatch": 7
-        });
-
-        //we don't need to call analytics api if the text is too short
-        return matches;
-    }
-
     // Suggestions, based on a dictionary
     suggestions.getSuggestions(text).forEach(suggestion => {
         appinsights.trackEvent('negativeWord');
@@ -85,6 +62,29 @@ export async function getMatches(ort, text, matches) {
             "contextForSureMatch": 7
         });
     });
+
+    // Check if the comment is too short
+    var minLength = typeof config != "undefined" ? config.MIN_REVIEW_LENGTH : 9;
+    if (text.length < minLength)
+    {
+        if (ignorableBriefPhraseRegex.test(text))
+            return matches; // return an empty list early
+
+        appinsights.trackEvent('tooShort');
+        matches.push({
+            "message": "This comment is too brief. Could you elaborate?",
+            "shortMessage": "Comment is brief",
+            "offset": 0,
+            "length": text.length,
+            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_YELLOW, "category": { "id": "TYPOS", "name": "Small text" } },
+            "replacements": [],
+            "type": { "typeName": "Other" },
+            "ignoreForIncompleteSentence": false,
+            "contextForSureMatch": 7
+        });
+
+        return matches;
+    }
 
     // 'manualFix' event
     if (shouldReportManualFix(matches)) {
