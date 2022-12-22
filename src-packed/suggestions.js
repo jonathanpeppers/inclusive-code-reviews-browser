@@ -65,7 +65,7 @@ const allReplacements = {
     // violent
     "hang": ["freeze"],
     "hanging": ["frozen", "stuck"],
-    "hit": ["click"],
+    "hit": ["click", "tap", "run into"],
     "crushing it": ["elevating", "exceeding expectations", "excelling"],
     "killing it": ["elevating", "exceeding expectations", "excelling"],
     "kill": ["stop", "cancel"],
