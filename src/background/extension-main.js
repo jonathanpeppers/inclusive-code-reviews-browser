@@ -45,8 +45,6 @@ class BackgroundApp {
                 DictionarySync.init(),
                 this._updateIcon(),
                 window.setInterval(() => this._updateIcon(), config.UI_MODE_RECHECK_INTERVAL),
-                this._checkForPaidSubscription(),
-                window.setInterval(() => this._checkForPaidSubscription(), config.ACCOUNT_STATUS_RECHECK_INTERVAL),
                 this._loadConfiguration(),
                 window.setInterval(() => this._loadConfiguration(), config.EXTERNAL_CONFIG_RELOAD_INTERVAL),
                 BrowserDetector.isFirefox())
@@ -166,13 +164,6 @@ class BackgroundApp {
                             this._storageController.updateConfiguration(t);
                         }
                     });
-        });
-    }
-    static _checkForPaidSubscription() {
-        this._storageController.onReady(() => {
-            this._storageController.checkForPaidSubscription().catch((e) => {
-                Tracker.trackError("js", `Error checking paid subscripton: ${e && e.reason} - ${e && e.status}`);
-            });
         });
     }
     static _onInstalled(e) {
