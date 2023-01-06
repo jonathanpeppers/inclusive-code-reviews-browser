@@ -1,2 +1,4 @@
 import * as ort from 'onnxruntime-web';
-window.ort = ort;
+if (typeof window !== 'undefined') {
+    window.ort = ort;
+}
