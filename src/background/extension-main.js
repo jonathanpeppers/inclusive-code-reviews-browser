@@ -107,7 +107,9 @@ class BackgroundApp {
             let e = i18nManager.getMessage("contextMenuValidate");
             this._storageController.hasLanguageToolAccount() && (e = i18nManager.getMessage("contextMenuValidateInEditor")),
                 browser.contextMenus.removeAll().then(() => {
-                    browser.contextMenus.create({ title: e, contexts: ["selection"], onclick: this._onValidateClicked });
+                    browser.contextMenus.create({ id: 'contextMenuValidateInEditor', title: e, contexts: ["selection"], });
+                    browser.contextMenus.onClicked.removeListener(this._onValidateClicked);
+                    browser.contextMenus.onClicked.addListener(this._onValidateClicked);
                 });
         }
     }
