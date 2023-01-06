@@ -50,7 +50,7 @@
       "managed_schema": "managed_settings.json"
    },
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "2.0.3",
+   "version": "2.0.4",
    "web_accessible_resources": [{
       "resources": [ "assets/model.onnx", "assets/fonts/*.woff2", "assets/styles/*", "*.js", "*.wasm", "common/*.css", "common/*.js", "content/*.css", "content/*.js", "config/*.js", "privacyConfirmationDialog/*.js", "assets/images/*" ],
       "matches": ["<all_urls>"]
