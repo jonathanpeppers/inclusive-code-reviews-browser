@@ -49,8 +49,6 @@ class BackgroundApp {
                 window.setInterval(() => this._checkForPaidSubscription(), config.ACCOUNT_STATUS_RECHECK_INTERVAL),
                 this._loadConfiguration(),
                 window.setInterval(() => this._loadConfiguration(), config.EXTERNAL_CONFIG_RELOAD_INTERVAL),
-                this._ping(),
-                window.setInterval(() => this._ping(), config.PING_INTERVAL),
                 BrowserDetector.isFirefox())
             ) {
                 const e = () => {
@@ -176,17 +174,6 @@ class BackgroundApp {
                 Tracker.trackError("js", `Error checking paid subscripton: ${e && e.reason} - ${e && e.status}`);
             });
         });
-    }
-    static _ping() {
-        (this._lastPing && this._lastPing + config.PING_INTERVAL > Date.now()) ||
-            ((this._lastPing = Date.now()),
-            this._storageController.onReady(() => {
-                if (this._storageController.isUsedCustomServer()) return;
-                const { username: e } = this._storageController.getSettings();
-                if (!e) return;
-                const t = new FormData();
-                t.append("email", e), t.append("useragent", BrowserDetector.getUserAgentIdentifier()), fetch(config.PING_URL, { method: "POST", mode: "cors", credentials: "omit", body: t }).catch(() => null);
-            }));
     }
     static _onInstalled(e) {
         const { reason: t, previousVersion: a } = e;
