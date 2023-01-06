@@ -44,12 +44,26 @@ class BackgroundApp {
                 browser.runtime.onMessage.addListener(this._onMessage),
                 DictionarySync.init(),
                 this._updateIcon(),
-                this._checkForPaidSubscription(),
+                chrome.alarms.create("UI_MODE_RECHECK_INTERVAL", {delayInMinutes: config.UI_MODE_RECHECK_INTERVAL, periodInMinutes: config.UI_MODE_RECHECK_INTERVAL}),
                 this._loadConfiguration(),
+                chrome.alarms.create("EXTERNAL_CONFIG_RELOAD_INTERVAL", {delayInMinutes: config.EXTERNAL_CONFIG_RELOAD_INTERVAL, periodInMinutes: config.EXTERNAL_CONFIG_RELOAD_INTERVAL}),
                 BrowserDetector.isFirefox())
             ) {
             }
+            chrome.alarms.onAlarm.AddListener(this._onAlarm);
             this._isInitialized = !0;
+        }
+    }
+    static _onAlarm(alarm) {
+        switch (alarm.name) {
+            case "UI_MODE_RECHECK_INTERVAL":
+                this._updateIcon();
+                break;
+            case "EXTERNAL_CONFIG_RELOAD_INTERVAL":
+                this._loadConfiguration();
+                break;
+            default:
+                break;
         }
     }
     static _assignToTestGroups() {
@@ -147,13 +161,6 @@ class BackgroundApp {
                             this._storageController.updateConfiguration(t);
                         }
                     });
-        });
-    }
-    static _checkForPaidSubscription() {
-        this._storageController.onReady(() => {
-            this._storageController.checkForPaidSubscription().catch((e) => {
-                Tracker.trackError("js", `Error checking paid subscripton: ${e && e.reason} - ${e && e.status}`);
-            });
         });
     }
     static _onInstalled(e) {
