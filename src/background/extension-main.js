@@ -50,7 +50,7 @@ class BackgroundApp {
                 BrowserDetector.isFirefox())
             ) {
             }
-            chrome.alarms.onAlarm.AddListener(this._onAlarm);
+            chrome.alarms.onAlarm.addListener(this._onAlarm);
             this._isInitialized = !0;
         }
     }
