@@ -57,10 +57,10 @@ class BackgroundApp {
     static _onAlarm(alarm) {
         switch (alarm.name) {
             case "UI_MODE_RECHECK_INTERVAL":
-                this._updateIcon();
+                BackgroundApp._updateIcon();
                 break;
             case "EXTERNAL_CONFIG_RELOAD_INTERVAL":
-                this._loadConfiguration();
+                BackgroundApp._loadConfiguration();
                 break;
             default:
                 break;
