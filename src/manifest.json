@@ -44,7 +44,7 @@
       "open_in_tab": true,
       "page": "options/options.html"
    },
-   "permissions": [ "activeTab", "storage", "contextMenus" ],
+   "permissions": [ "activeTab", "storage", "contextMenus", "scripting", "alarms" ],
    "short_name": "Code Comments",
    "storage": {
       "managed_schema": "managed_settings.json"
