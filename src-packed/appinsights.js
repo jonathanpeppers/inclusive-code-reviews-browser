@@ -36,6 +36,8 @@ export function telemetryInitializer (envelope) {
             envelope.baseData.name = 'azdo';
         } else if (url.hostname == 'devdiv.visualstudio.com') {
             envelope.baseData.name = 'azdo';
+        } else if (url.hostname == 'msazure.visualstudio.com') {
+            envelope.baseData.name = 'azdo';
         } else {
             envelope.baseData.name = 'not_specified';
             envelope.baseData.uri = 'not_specified';

@@ -67,4 +67,13 @@ describe('appinsights', () => {
         expect(data.baseData.name).to.be.equal('azdo');
         expect(data.baseData.uri).to.be.equal('https://dev.azure.com/dnceng/public/_packaging?_a=feed&feed=dotnet6');
     });
+
+    it('pageView for azure azdo', () => {
+        data.baseData.name = "Don't show this";
+        data.baseData.uri = "https://msazure.visualstudio.com/AzureGrafanaService/_git/ResourceProvider/pullrequests?_a=mine";
+        appinsights.telemetryInitializer (data);
+
+        expect(data.baseData.name).to.be.equal('azdo');
+        expect(data.baseData.uri).to.be.equal('https://msazure.visualstudio.com/AzureGrafanaService/_git/ResourceProvider/pullrequests?_a=mine');
+    });
 });
