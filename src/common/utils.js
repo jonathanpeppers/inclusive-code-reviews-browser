@@ -748,9 +748,6 @@ const getColorLuminosity = (function () {
         return 100;
     };
 })();
-function isTinyMCE(t) {
-    return t.classList.contains("mce-content-body") || t.classList.contains("mceContentBody");
-}
 function isCKEditor(t) {
     return t.classList.contains("cke_editable");
 }
