@@ -46,7 +46,10 @@
         "js_bundles": [
             {
                 "name": "packed",
-                "src": [ "_import.js", "./src-packed/*.js" ]
+                "src": [
+                    "_import.js",
+                    "./src-packed/*.js"
+                ]
             }
         ],
         "copyAsIs": [
