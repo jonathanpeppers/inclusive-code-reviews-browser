@@ -27,6 +27,7 @@ URLs are only recorded for:
 1. https://github.com/[organization]/[repository]
 1. https://dev.azure.com/*
 1. https://devdiv.visualstudio.com/*
+1. https://msazure.visualstudio.com/*
 
 If we don't hit one of these cases, `not_specified` will be recorded.
 
