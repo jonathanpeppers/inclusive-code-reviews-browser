@@ -331,7 +331,6 @@ class InputAreaWrapper {
         if (("" === s && (this._hasSpaceBefore(e) || 0 === e) && this._hasSpaceAfter(e + t) && ((e = Math.max(e - 1, 0)), (t += 1)), !isFormElement(this._inputArea))) {
             let r = Promise.resolve();
             const i = !(
-                isTinyMCE(this._inputArea) ||
                 isGutenberg(this._inputArea) ||
                 isTrixEditor(this._inputArea) ||
                 isCodeMirror(this._inputArea) ||
