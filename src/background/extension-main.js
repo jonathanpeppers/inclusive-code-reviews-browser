@@ -352,22 +352,7 @@ class BackgroundApp {
         return (s = s.concat(LanguageManager.getUserLanguageCodes()).concat(t)).push("en"), (s = s.map((e) => ("nb" === e ? "no" : "fil" === e ? "tl" : e))), uniq(s);
     }
     static _onValidateTextMessage(e, t) {
-        Tracker.trackActivity(),
-            0 === this._validationThrottlingCount &&
-                window.setTimeout(() => {
-                    this._validationThrottlingCount = 0;
-                }, 5e3),
-            this._validationThrottlingCount++;
-        const a = e.url && e.url.includes("docs.google.com") ? 60 : 30;
-        if (this._validationThrottlingCount > a) {
-            const e = {
-                initialCommand: "VALIDATE_TEXT",
-                isSuccessful: !1,
-                instanceId: t.metaData.instanceId,
-                error: { status: 0, message: "Too many checks within five seconds. Please try again in a couple of seconds.", response: "Too many checks within five seconds. Please try again in a couple of seconds." },
-            };
-            return Promise.resolve(e);
-        }
+        Tracker.trackActivity();
         const s = this._getPreferredLanguages(e);
         t.metaData.elementLanguage && s.push(LanguageManager.getPrimaryLanguageCode(t.metaData.elementLanguage));
         const o = this._storageController.getStatistics().usageCount + 1;
