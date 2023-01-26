@@ -65,8 +65,7 @@ export function trackEvent(name, customDimensions) {
 }
 
 // For use inside the extension (which isn't using webpack)
-// The best I came up with for now is to add these functions to window.
-if (typeof window !== 'undefined') {
-    window.aiTrackPageView = trackPageView;
-    window.aiTrackEvent = trackEvent;
-}
+// The best I came up with for now is to add these functions to globalThis.
+// https://developer.mozilla.org/en-US/docs/Glossary/Global_object
+globalThis.aiTrackPageView = trackPageView;
+globalThis.aiTrackEvent = trackEvent;

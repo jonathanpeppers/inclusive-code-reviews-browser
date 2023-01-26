@@ -131,8 +131,7 @@ export function shouldReportManualFix(matches) {
 }
 
 // For use inside the extension (which isn't using webpack)
-// The best I came up with for now is to add this function to window.
-if (typeof window !== 'undefined') {
-    window.getMatches = getMatches;
-    window.appliedSuggestion = appliedSuggestion;
-}
+// The best I came up with for now is to add this function to globalThis.
+// https://developer.mozilla.org/en-US/docs/Glossary/Global_object
+globalThis.getMatches = getMatches;
+globalThis.appliedSuggestion = appliedSuggestion;
