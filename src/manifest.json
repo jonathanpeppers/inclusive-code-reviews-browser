@@ -45,6 +45,9 @@
       "page": "options/options.html"
    },
    "permissions": [ "activeTab", "storage", "contextMenus", "scripting", "alarms" ],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+   },
    "short_name": "Code Comments",
    "storage": {
       "managed_schema": "managed_settings.json"
