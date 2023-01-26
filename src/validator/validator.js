@@ -12,7 +12,7 @@
         const t = new URL(window.location.href).searchParams.get("id");
         if (t) {
             const e = { command: "GET_VALIDATOR_DATA", id: t };
-            browser.runtime
+            chrome.runtime
                 .sendMessage(e)
                 .then((t) => {
                     t && isGetValidatorDataResult(t) && (t.text && (n.innerText = t.text), history.replaceState({}, "", location.pathname));

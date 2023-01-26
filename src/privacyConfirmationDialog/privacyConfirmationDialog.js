@@ -30,7 +30,7 @@ if (
             (t.textContent = i18nManager.getMessage("privacyNoteSlogan")),
             (i.textContent = i18nManager.getMessage("continue")),
             (i.onclick = onConfirmClick),
-            Tracker.trackPageView(browser.runtime.getURL("privacyConfirmation/privacyConfirmation.html"));
+            Tracker.trackPageView(chrome.runtime.getURL("privacyConfirmation/privacyConfirmation.html"));
     }
     function initManagedLogin(r) {
         (i.onclick = () => {
@@ -71,6 +71,6 @@ if (
         e.updatePrivacySettings({ allowRemoteCheck: !0 }).then(showNextStep), Tracker.trackEvent("Action", "accept_privacy_note", "autoCheck:true");
     }
     function closeTab() {
-        browser.runtime.sendMessage({ command: "CLOSE_CURRENT_TAB" });
+        chrome.runtime.sendMessage({ command: "CLOSE_CURRENT_TAB" });
     }
 }

@@ -38,7 +38,7 @@ class ExtensionStorageController extends StorageControllerClass {
             (this._managedStorage = ExtensionStorageController._getManagedStorage()),
             (this._isInitialized = !1),
             this._loadData(),
-            browser.storage.onChanged.addListener(this._onStoredDataChanged);
+            chrome.storage.onChanged.addListener(this._onStoredDataChanged);
     }
     static _getStringSize(t) {
         let e = 0;
@@ -49,10 +49,10 @@ class ExtensionStorageController extends StorageControllerClass {
         return e;
     }
     static _getStorage() {
-        return browser.storage.sync && !BrowserDetector.isFirefox() ? browser.storage.sync : browser.storage.local;
+        return chrome.storage.sync && !BrowserDetector.isFirefox() ? chrome.storage.sync : chrome.storage.local;
     }
     static _getManagedStorage() {
-        return browser.storage.managed;
+        return chrome.storage.managed;
     }
     _splitInChunks(t, e, s = this._storage.QUOTA_BYTES_PER_ITEM) {
         let i = t[e],
@@ -138,7 +138,7 @@ class ExtensionStorageController extends StorageControllerClass {
     }
     getValidationSettings(t, e) {
         if (!this._settings) return { isDomainDisabled: !1, isEditorGroupDisabled: !1, isAutoCheckEnabled: !0, shouldCapitalizationBeChecked: !0 };
-        if (t === browser.runtime.id) return { isDomainDisabled: !1, isEditorGroupDisabled: !1, isAutoCheckEnabled: !0, shouldCapitalizationBeChecked: !0 };
+        if (t === chrome.runtime.id) return { isDomainDisabled: !1, isEditorGroupDisabled: !1, isAutoCheckEnabled: !0, shouldCapitalizationBeChecked: !0 };
         const s = (this._settings.disabledEditorGroups || []).some((s) => StorageControllerClass._normalizeDomain(s.domain) === StorageControllerClass._normalizeDomain(t) && s.editorGroupId === e),
             i = StorageControllerClass._isListContainsDomain(this._settings.disabledDomains, t),
             n = !StorageControllerClass._isListContainsDomain(this._settings.disabledDomainsCapitalization, t);
@@ -200,7 +200,7 @@ class ExtensionStorageController extends StorageControllerClass {
                 if ("function" == typeof Validator) r = Validator.checkForPaidSubscription(s, i, n);
                 else {
                     const t = { command: "CHECK_FOR_PAID_SUBSCRIPTION", username: s, password: i, token: n };
-                    r = browser.runtime.sendMessage(t).then((t) => {
+                    r = chrome.runtime.sendMessage(t).then((t) => {
                         if (isCheckForPaidSubscriptionResult(t)) return t.hasPaidSubscription;
                         if (isCheckForPaidSubscriptionError(t)) throw t.error;
                         return !1;
@@ -248,7 +248,7 @@ class ExtensionStorageController extends StorageControllerClass {
     destroy() {
         (this._isInitialized = !1), super.destroy();
         try {
-            browser.storage.onChanged.removeListener(this._onStoredDataChanged);
+            chrome.storage.onChanged.removeListener(this._onStoredDataChanged);
         } catch (t) {}
     }
 }
