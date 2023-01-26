@@ -105,12 +105,11 @@ class BackgroundApp {
     static _setContextMenu() {
         if (chrome.contextMenus) {
             let e = i18nManager.getMessage("contextMenuValidate");
-            this._storageController.hasLanguageToolAccount() && (e = i18nManager.getMessage("contextMenuValidateInEditor")),
-                chrome.contextMenus.removeAll().then(() => {
-                    chrome.contextMenus.create({ id: 'contextMenuValidateInEditor', title: e, contexts: ["selection"], });
-                    chrome.contextMenus.onClicked.removeListener(this._onValidateClicked);
-                    chrome.contextMenus.onClicked.addListener(this._onValidateClicked);
-                });
+            this._storageController.hasLanguageToolAccount() && (e = i18nManager.getMessage("contextMenuValidateInEditor"));
+            chrome.contextMenus.removeAll();
+            chrome.contextMenus.create({ id: 'contextMenuValidateInEditor', title: e, contexts: ["selection"], });
+            chrome.contextMenus.onClicked.removeListener(this._onValidateClicked);
+            chrome.contextMenus.onClicked.addListener(this._onValidateClicked);
         }
     }
     static _updateBadge(e, t) {
