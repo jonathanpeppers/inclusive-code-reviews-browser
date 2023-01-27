@@ -15,6 +15,7 @@ function loadAppInsights() {
 }
 
 export async function getMatches(ort, text, matches) {
+    ort.env.wasm.numThreads = 1;
     loadAppInsights();
 
     // Suggestions, based on a dictionary
