@@ -107,7 +107,7 @@ class Validator {
             // If we parse the JSON, and look at the 'text' property. This is the data.
             var text = JSON.parse(t.body.get('data')).text;
             try {
-                await window.getMatches(window.ort, text, matches);
+                await globalThis.getMatches(globalThis.ort, text, matches);
             } catch (exc) {
                 console.error(`Error calling getMatches: ${exc}`);
                 throw exc;

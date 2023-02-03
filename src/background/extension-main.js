@@ -300,13 +300,13 @@ class BackgroundApp {
             this._updateBadge(a, s);
     }
     static _onPageView(e, t) {
-        window.aiTrackPageView(t.location);
+        globalThis.aiTrackPageView(t.location);
     }
     static _onTrackCustomEvent(e, t) {
-        window.aiTrackEvent(t.name);
+        globalThis.aiTrackEvent(t.name);
     }
     static _onAppliedSuggestionMessage(e, t) {;
-        window.appliedSuggestion(t.appliedSuggestions);
+        globalThis.appliedSuggestion(t.appliedSuggestions);
     }
     static _onLTAssistantStatusChangedMessage(e, t) {
         const a = t.tabId || e.tab.id;
