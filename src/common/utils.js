@@ -666,7 +666,7 @@ const goToManagedLogin = (function () {
                         .catch(() => null);
                 }, 400)),
                 i.addEventListener("message", n);
-            const l = browser.runtime.getURL("/privacyConfirmationDialog/managedLoginRedirectUri.html"),
+            const l = chrome.runtime.getURL("/privacyConfirmationDialog/managedLoginRedirectUri.html"),
                 c = o + (o.includes("?") ? "&" : "?") + "redirect_uri=" + encodeURIComponent(l);
             s = openPopup(c, 640, 480);
         };
@@ -703,7 +703,7 @@ const goToManagedLogin = (function () {
                         .catch(() => null);
                 }, 400)),
                 i.addEventListener("message", n);
-            const l = browser.runtime.getURL("/privacyConfirmationDialog/loginRedirectUri.html"),
+            const l = chrome.runtime.getURL("/privacyConfirmationDialog/loginRedirectUri.html"),
                 c = o + (o.includes("?") ? "&" : "?") + "callback_uri=" + encodeURIComponent(l);
             s = openPopup(c, 640, 480);
         };

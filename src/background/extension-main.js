@@ -40,34 +40,17 @@ class BackgroundApp {
                 (this._onValidateClicked = this._onValidateClicked.bind(this)),
                 (this._storageController = StorageController.create()),
                 this._storageController.onReady(this._onDataLoaded),
-                browser.runtime.onInstalled.addListener(this._onInstalled),
-                browser.runtime.onMessage.addListener(this._onMessage),
+                chrome.runtime.onInstalled.addListener(this._onInstalled),
+                chrome.runtime.onMessage.addListener(this._onMessage),
                 DictionarySync.init(),
                 this._updateIcon(),
                 window.setInterval(() => this._updateIcon(), config.UI_MODE_RECHECK_INTERVAL),
                 this._loadConfiguration(),
-                window.setInterval(() => this._loadConfiguration(), config.EXTERNAL_CONFIG_RELOAD_INTERVAL),
-                BrowserDetector.isFirefox())
+                window.setInterval(() => this._loadConfiguration(), config.EXTERNAL_CONFIG_RELOAD_INTERVAL))
             ) {
-                const e = () => {
-                    browser.runtime.onUpdateAvailable.removeListener(e), this._installUpdate();
-                };
-                browser.runtime.onUpdateAvailable.addListener(e);
             }
             this._isInitialized = !0;
         }
-    }
-    static _installUpdate() {
-        browser.tabs.query({}).then((e) => {
-            e.forEach((e) => {
-                if (!e.id) return;
-                browser.tabs.sendMessage(e.id, { command: "DESTROY" }).catch(console.error.bind(console));
-            });
-        }),
-            Tracker.trackEvent("Action", "pre_update"),
-            window.setTimeout(() => {
-                browser.runtime.reload();
-            }, 2e3);
     }
     static _assignToTestGroups() {
         EnvironmentAdapter.isProductionEnvironment();
@@ -75,12 +58,6 @@ class BackgroundApp {
     static _isUsedDarkTheme() {
         var e;
         return __awaiter(this, void 0, void 0, function* () {
-            if (BrowserDetector.isFirefox()) {
-                const t = yield browser.theme.getCurrent();
-                if (null === (e = null === t || void 0 === t ? void 0 : t.colors) || void 0 === e ? void 0 : e.toolbar) {
-                    return getColorLuminosity(t.colors.toolbar) <= 35;
-                }
-            }
             return !("undefined" == typeof window || !window.matchMedia) && Boolean(window.matchMedia("(prefers-color-scheme: dark)").matches);
         });
     }
@@ -106,12 +83,11 @@ class BackgroundApp {
         });
     }
     static _setContextMenu() {
-        if (browser.contextMenus) {
+        if (chrome.contextMenus) {
             let e = i18nManager.getMessage("contextMenuValidate");
             this._storageController.hasLanguageToolAccount() && (e = i18nManager.getMessage("contextMenuValidateInEditor")),
-                browser.contextMenus.removeAll().then(() => {
-                    browser.contextMenus.create({ title: e, contexts: ["selection"], onclick: this._onValidateClicked });
-                });
+                chrome.contextMenus.removeAll();
+            chrome.contextMenus.create({ title: e, contexts: ["selection"], onclick: this._onValidateClicked });
         }
     }
     static _updateBadge(e, t) {
@@ -143,7 +119,7 @@ class BackgroundApp {
         const { username: s, token: o } = this._storageController.getSettings();
         if (BrowserDetector.isSafari()) {
             const t = this._storageController.getSettings().userId || void 0;
-            browser.runtime.sendMessage({ userId: t, message: { username: s, token: o, text: e }, command: "LAUNCH_DESKTOP_EDITOR" });
+            chrome.runtime.sendMessage({ userId: t, message: { username: s, token: o, text: e }, command: "LAUNCH_DESKTOP_EDITOR" });
         } else s && o && navigator.onLine && (a = getAutoLoginUrl(s, o, t)), browser.tabs.create({ url: a });
     }
     static _onDataLoaded() {
@@ -471,7 +447,7 @@ class BackgroundApp {
     static _openPremiumPage(e, t) {
         if (BrowserDetector.isSafari()) {
             const e = this._storageController.getSettings().userId || void 0;
-            return Tracker.trackEvent("Action", "go_to_apple_upgrade", t.campaign), void browser.runtime.sendMessage({ message: Object.assign(Object.assign({}, t), { userId: e }), command: "LAUNCH_APPLE_UPGRADE" });
+            return Tracker.trackEvent("Action", "go_to_apple_upgrade", t.campaign), void chrome.runtime.sendMessage({ message: Object.assign(Object.assign({}, t), { userId: e }), command: "LAUNCH_APPLE_UPGRADE" });
         }
         const a = [];
         a.push(`pk_campaign=${encodeURIComponent(t.campaign)}`),
@@ -484,10 +460,10 @@ class BackgroundApp {
         browser.tabs.create({ url: s });
     }
     static _loginUserMessage(e, t) {
-        browser.runtime.sendMessage({ command: "LOGIN" });
+        chrome.runtime.sendMessage({ command: "LOGIN" });
     }
     static _logoutUserMessage(e, t) {
-        browser.runtime.sendMessage({ command: "LOGOUT" });
+        chrome.runtime.sendMessage({ command: "LOGOUT" });
     }
     static _onLoginUserMessage(e, t) {
         this._storageController.updateSettings({ username: t.username, password: "", userId: t.userId, token: t.token, knownEmail: t.username, havePremiumAccount: !0, apiServerUrl: config.MAIN_SERVER_URL }).then(() => {
