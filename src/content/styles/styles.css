@@ -2404,7 +2404,7 @@ Issue can be observed here: https://www.w3schools.com/tags/tryit.asp?filename=tr
   100% {
     transform: translateX(-6px); } }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar.lt-toolbar__wrapper {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar {
   background: white url(data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%22140%22%20height%3D%22140%22%20viewBox%3D%220%200%20140%20140%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M39.375%2040.1875H47.6875C51.1393%2040.1875%2053.9375%2042.9857%2053.9375%2046.4375V70.6875H70.1875V79.4375H51.4375C47.9857%2079.4375%2045.1875%2076.6393%2045.1875%2073.1875V48.9375H39.375V40.1875ZM102.938%2046.4375V52.9375H94.1875V48.9375H87.3125V79.4375H78.5625V48.9375H71.6875V52.9375H62.9375V46.4375C62.9375%2042.9857%2065.7357%2040.1875%2069.1875%2040.1875H96.6875C100.139%2040.1875%20102.938%2042.9857%20102.938%2046.4375Z%22%20fill%3D%22black%22/%3E%0A%3Cpath%20d%3D%22M35.3187%20102.906L27.1813%2097.0938C29.5719%2093.7471%2032.038%2091.1576%2034.6327%2089.3413C37.5166%2087.3226%2040.5812%2086.25%2043.75%2086.25C46.6924%2086.25%2049.2409%2086.9636%2051.5178%2088.3297C52.4364%2088.8809%2053.2802%2089.5166%2054.1333%2090.2694C54.7215%2090.7884%2055.1417%2091.1956%2056.0355%2092.0895C57.3904%2093.4443%2057.9534%2093.9411%2058.6272%2094.3453C59.3581%2094.7839%2060.1299%2095%2061.25%2095C62.3713%2095%2063.1463%2094.7832%2063.881%2094.3432C64.558%2093.9378%2065.1257%2093.4381%2066.4801%2092.0861L66.4926%2092.0737C67.3821%2091.1859%2067.8064%2090.7755%2068.3948%2090.2574C69.2467%2089.5072%2070.0891%2088.8734%2071.0055%2088.3241C73.2778%2086.9619%2075.8189%2086.25%2078.75%2086.25C81.6811%2086.25%2084.2222%2086.9619%2086.4945%2088.3241C87.4109%2088.8734%2088.2533%2089.5072%2089.1052%2090.2574C89.6936%2090.7755%2090.1179%2091.1859%2091.0074%2092.0737L91.0199%2092.0861C92.3743%2093.4381%2092.942%2093.9378%2093.619%2094.3432C94.3537%2094.7832%2095.1287%2095%2096.25%2095C97.2478%2095%2098.3499%2094.6143%2099.6327%2093.7163C101.205%2092.616%20102.905%2090.8304%20104.681%2088.3438L112.819%2094.1562C110.428%2097.5029%20107.962%20100.092%20105.367%20101.909C102.483%20103.927%2099.4188%20105%2096.25%20105C93.3087%20105%2090.7597%20104.287%2088.4811%20102.922C87.5617%20102.372%2086.7166%20101.736%2085.8623%20100.984C85.2723%20100.465%2084.8468%20100.054%2083.9554%2099.1639L83.943%2099.1514C82.5918%2097.8028%2082.026%2097.3045%2081.3529%2096.901C80.6248%2096.4645%2079.859%2096.25%2078.75%2096.25C77.641%2096.25%2076.8752%2096.4645%2076.1472%2096.901C75.474%2097.3045%2074.9082%2097.8028%2073.557%2099.1514L73.5446%2099.1639C72.6532%20100.054%2072.2277%20100.465%2071.6377%20100.984C70.7834%20101.736%2069.9383%20102.372%2069.0189%20102.922C66.7403%20104.287%2064.1913%20105%2061.25%20105C58.3076%20105%2055.7591%20104.286%2053.4822%20102.92C52.5636%20102.369%2051.7198%20101.733%2050.8667%20100.981C50.2785%20100.462%2049.8583%20100.054%2048.9645%2099.1605C47.6096%2097.8057%2047.0466%2097.3089%2046.3728%2096.9047C45.6419%2096.4661%2044.8701%2096.25%2043.75%2096.25C42.7522%2096.25%2041.6501%2096.6357%2040.3673%2097.5337C38.7953%2098.634%2037.0948%20100.42%2035.3187%20102.906Z%22%20fill%3D%22%2345A1FC%22/%3E%0A%3C/svg%3E%0A) center 3px no-repeat !important;
   background-size: 30px auto !important;
   box-shadow: rgba(0, 0, 0, 0.2) 4px 4px 16px !important;
@@ -2416,120 +2416,58 @@ html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.
   pointer-events: auto !important;
   cursor: pointer !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar .lt-toolbar__premium-icon--visible {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-toolbar__premium-icon--visible {
   order: 3 !important;
   position: relative !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar .lt-toolbar__premium-icon--visible,
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar:hover .lt-toolbar__premium-icon--visible {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-toolbar__premium-icon--visible,
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-toolbar__premium-icon--visible {
   transform: translate(0, 0) !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar .lt-toolbar__status-icon-in-progress {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-toolbar__status-icon-in-progress {
   padding-bottom: 14px !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar .lt-toolbar__status-icon,
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar .lt-toolbar__premium-icon {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-toolbar__status-icon,
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-toolbar__premium-icon {
   margin-bottom: -14px !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar .lt-toolbar__status-icon {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-toolbar__status-icon {
   transition: margin-bottom 0.2s !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar .lt-toolbar__premium-icon--visible + .lt-toolbar__status-icon-has-no-errors {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-toolbar__premium-icon--visible + .lt-toolbar__status-icon-has-no-errors {
   display: none !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar:hover .lt-toolbar__premium-icon--visible + .lt-toolbar__status-icon-has-errors {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-toolbar__premium-icon--visible + .lt-toolbar__status-icon-has-errors {
   margin-bottom: 8px !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar.lt-toolbar__wrapper::after {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar {
   border: 6px solid transparent !important;
   border-left-color: #fff !important;
   visibility: visible !important;
   top: 12px !important;
   right: -12px !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar .lt-dialog__container.lt-dialog__container-top,
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar .lt-dialog__container.lt-dialog__container-bottom {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-dialog__container.lt-dialog__container-top,
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-dialog__container.lt-dialog__container-bottom {
   z-index: 1 !important;
   order: 5 !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar .lt-dialog__container.lt-dialog__container-top {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-dialog__container.lt-dialog__container-top {
   left: -10px !important;
   bottom: 100% !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar .lt-dialog__container.lt-dialog__container-bottom {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-dialog__container.lt-dialog__container-bottom {
   right: -10px !important;
   top: 62px !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar .lt-toolbar__premium-icon--visible ~ lt-dialog .lt-dialog__container.lt-dialog__container-bottom {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-toolbar__premium-icon--visible ~ lt-dialog .lt-dialog__container.lt-dialog__container-bottom {
   top: 87px !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar .lt-toolbar__premium-icon--visible + .lt-toolbar__status-icon-has-no-errors ~ lt-dialog .lt-dialog__container.lt-dialog__container-bottom {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-toolbar__premium-icon--visible + .lt-toolbar__status-icon-has-no-errors ~ lt-dialog .lt-dialog__container.lt-dialog__container-bottom {
   top: 62px !important; }
 
-html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-gdocs-toolbar lt-dialog {
+html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar lt-dialog {
   cursor: initial !important; }
-
-[data-lt-tweaks='gdocs'] .kix-spelling-error-overlay-container {
-  display: none !important; }
-
-[data-lt-tweaks='gdocs'] .kix-spelling-error-highlighted-overlay-non-critical,
-[data-lt-tweaks='gdocs'] .kix-spelling-error-highlighted-overlay,
-[data-lt-tweaks='gdocs'] .kix-spelling-error-hover-overlay-non-critical,
-[data-lt-tweaks='gdocs'] .kix-spelling-error-hover-overlay,
-[data-lt-tweaks='gdocs'] .kix-spelling-error-hover-interceptor {
-  display: none !important; }
-
-[data-lt-site='gdocs'] .kix-selection-overlay,
-[data-lt-site='gdocs'] .kix-cursor {
-  pointer-events: none !important; }
-
-[data-lt-site='gdocs'] .kix-spell-bubble {
-  display: none !important; }
-
-.lt-gdocs-menubar-button {
-  background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%22140%22%20height%3D%22140%22%20viewBox%3D%220%200%20140%20140%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M39.375%2040.1875H47.6875C51.1393%2040.1875%2053.9375%2042.9857%2053.9375%2046.4375V70.6875H70.1875V79.4375H51.4375C47.9857%2079.4375%2045.1875%2076.6393%2045.1875%2073.1875V48.9375H39.375V40.1875ZM102.938%2046.4375V52.9375H94.1875V48.9375H87.3125V79.4375H78.5625V48.9375H71.6875V52.9375H62.9375V46.4375C62.9375%2042.9857%2065.7357%2040.1875%2069.1875%2040.1875H96.6875C100.139%2040.1875%20102.938%2042.9857%20102.938%2046.4375Z%22%20fill%3D%22%235F6368%22/%3E%0A%3Cpath%20d%3D%22M35.3187%20102.906L27.1813%2097.0938C29.5719%2093.7471%2032.038%2091.1576%2034.6327%2089.3413C37.5166%2087.3226%2040.5812%2086.25%2043.75%2086.25C46.6924%2086.25%2049.2409%2086.9636%2051.5178%2088.3297C52.4364%2088.8809%2053.2802%2089.5166%2054.1333%2090.2694C54.7215%2090.7884%2055.1417%2091.1956%2056.0355%2092.0895C57.3904%2093.4443%2057.9534%2093.9411%2058.6272%2094.3453C59.3581%2094.7839%2060.1299%2095%2061.25%2095C62.3713%2095%2063.1463%2094.7832%2063.881%2094.3432C64.558%2093.9378%2065.1257%2093.4381%2066.4801%2092.0861L66.4926%2092.0737C67.3821%2091.1859%2067.8064%2090.7755%2068.3948%2090.2574C69.2467%2089.5072%2070.0891%2088.8734%2071.0055%2088.3241C73.2778%2086.9619%2075.8189%2086.25%2078.75%2086.25C81.6811%2086.25%2084.2222%2086.9619%2086.4945%2088.3241C87.4109%2088.8734%2088.2533%2089.5072%2089.1052%2090.2574C89.6936%2090.7755%2090.1179%2091.1859%2091.0074%2092.0737L91.0199%2092.0861C92.3743%2093.4381%2092.942%2093.9378%2093.619%2094.3432C94.3537%2094.7832%2095.1287%2095%2096.25%2095C97.2478%2095%2098.3499%2094.6143%2099.6327%2093.7163C101.205%2092.616%20102.905%2090.8304%20104.681%2088.3438L112.819%2094.1562C110.428%2097.5029%20107.962%20100.092%20105.367%20101.909C102.483%20103.927%2099.4188%20105%2096.25%20105C93.3087%20105%2090.7597%20104.287%2088.4811%20102.922C87.5617%20102.372%2086.7166%20101.736%2085.8623%20100.984C85.2723%20100.465%2084.8468%20100.054%2083.9554%2099.1639L83.943%2099.1514C82.5918%2097.8028%2082.026%2097.3045%2081.3529%2096.901C80.6248%2096.4645%2079.859%2096.25%2078.75%2096.25C77.641%2096.25%2076.8752%2096.4645%2076.1472%2096.901C75.474%2097.3045%2074.9082%2097.8028%2073.557%2099.1514L73.5446%2099.1639C72.6532%20100.054%2072.2277%20100.465%2071.6377%20100.984C70.7834%20101.736%2069.9383%20102.372%2069.0189%20102.922C66.7403%20104.287%2064.1913%20105%2061.25%20105C58.3076%20105%2055.7591%20104.286%2053.4822%20102.92C52.5636%20102.369%2051.7198%20101.733%2050.8667%20100.981C50.2785%20100.462%2049.8583%20100.054%2048.9645%2099.1605C47.6096%2097.8057%2047.0466%2097.3089%2046.3728%2096.9047C45.6419%2096.4661%2044.8701%2096.25%2043.75%2096.25C42.7522%2096.25%2041.6501%2096.6357%2040.3673%2097.5337C38.7953%2098.634%2037.0948%20100.42%2035.3187%20102.906Z%22%20fill%3D%22%235F6368%22/%3E%0A%3Cmask%20id%3D%22mask0%22%20mask-type%3D%22alpha%22%20maskUnits%3D%22userSpaceOnUse%22%20x%3D%2227%22%20y%3D%2286%22%20width%3D%2286%22%20height%3D%2219%22%3E%0A%3Cpath%20d%3D%22M35.3187%20102.906L27.1813%2097.0938C29.5719%2093.7471%2032.038%2091.1576%2034.6327%2089.3413C37.5166%2087.3226%2040.5812%2086.25%2043.75%2086.25C46.6924%2086.25%2049.2409%2086.9636%2051.5178%2088.3297C52.4364%2088.8809%2053.2802%2089.5166%2054.1333%2090.2694C54.7215%2090.7884%2055.1417%2091.1956%2056.0355%2092.0895C57.3904%2093.4443%2057.9534%2093.9411%2058.6272%2094.3453C59.3581%2094.7839%2060.1299%2095%2061.25%2095C62.3713%2095%2063.1463%2094.7832%2063.881%2094.3432C64.558%2093.9378%2065.1257%2093.4381%2066.4801%2092.0861L66.4926%2092.0737C67.3821%2091.1859%2067.8064%2090.7755%2068.3948%2090.2574C69.2467%2089.5072%2070.0891%2088.8734%2071.0055%2088.3241C73.2778%2086.9619%2075.8189%2086.25%2078.75%2086.25C81.6811%2086.25%2084.2222%2086.9619%2086.4945%2088.3241C87.4109%2088.8734%2088.2533%2089.5072%2089.1052%2090.2574C89.6936%2090.7755%2090.1179%2091.1859%2091.0074%2092.0737L91.0199%2092.0861C92.3743%2093.4381%2092.942%2093.9378%2093.619%2094.3432C94.3537%2094.7832%2095.1287%2095%2096.25%2095C97.2478%2095%2098.3499%2094.6143%2099.6327%2093.7163C101.205%2092.616%20102.905%2090.8304%20104.681%2088.3438L112.819%2094.1562C110.428%2097.5029%20107.962%20100.092%20105.367%20101.909C102.483%20103.927%2099.4188%20105%2096.25%20105C93.3087%20105%2090.7597%20104.287%2088.4811%20102.922C87.5617%20102.372%2086.7166%20101.736%2085.8623%20100.984C85.2723%20100.465%2084.8468%20100.054%2083.9554%2099.1639L83.943%2099.1514C82.5918%2097.8028%2082.026%2097.3045%2081.3529%2096.901C80.6248%2096.4645%2079.859%2096.25%2078.75%2096.25C77.641%2096.25%2076.8752%2096.4645%2076.1472%2096.901C75.474%2097.3045%2074.9082%2097.8028%2073.557%2099.1514L73.5446%2099.1639C72.6532%20100.054%2072.2277%20100.465%2071.6377%20100.984C70.7834%20101.736%2069.9383%20102.372%2069.0189%20102.922C66.7403%20104.287%2064.1913%20105%2061.25%20105C58.3076%20105%2055.7591%20104.286%2053.4822%20102.92C52.5636%20102.369%2051.7198%20101.733%2050.8667%20100.981C50.2785%20100.462%2049.8583%20100.054%2048.9645%2099.1605C47.6096%2097.8057%2047.0466%2097.3089%2046.3728%2096.9047C45.6419%2096.4661%2044.8701%2096.25%2043.75%2096.25C42.7522%2096.25%2041.6501%2096.6357%2040.3673%2097.5337C38.7953%2098.634%2037.0948%20100.42%2035.3187%20102.906Z%22%20fill%3D%22%235F6368%22/%3E%0A%3C/mask%3E%0A%3Cg%20mask%3D%22url%28%23mask0%29%22%3E%0A%3C/g%3E%0A%3C/svg%3E) !important;
-  background-repeat: no-repeat !important;
-  background-position: center 0 !important;
-  background-size: 26px auto !important;
-  min-width: 24px !important; }
-
-.lt-gdocs-menubar-button.goog-toolbar-button-checked {
-  background-image: url(data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%22140%22%20height%3D%22140%22%20viewBox%3D%220%200%20140%20140%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M39.375%2040.1875H47.6875C51.1393%2040.1875%2053.9375%2042.9857%2053.9375%2046.4375V70.6875H70.1875V79.4375H51.4375C47.9857%2079.4375%2045.1875%2076.6393%2045.1875%2073.1875V48.9375H39.375V40.1875ZM102.938%2046.4375V52.9375H94.1875V48.9375H87.3125V79.4375H78.5625V48.9375H71.6875V52.9375H62.9375V46.4375C62.9375%2042.9857%2065.7357%2040.1875%2069.1875%2040.1875H96.6875C100.139%2040.1875%20102.938%2042.9857%20102.938%2046.4375Z%22%20fill%3D%22%231A73E8%22/%3E%0A%3Cpath%20d%3D%22M35.3187%20102.906L27.1813%2097.0938C29.5719%2093.7471%2032.038%2091.1576%2034.6327%2089.3413C37.5166%2087.3226%2040.5812%2086.25%2043.75%2086.25C46.6924%2086.25%2049.2409%2086.9636%2051.5178%2088.3297C52.4364%2088.8809%2053.2802%2089.5166%2054.1333%2090.2694C54.7215%2090.7884%2055.1417%2091.1956%2056.0355%2092.0895C57.3904%2093.4443%2057.9534%2093.9411%2058.6272%2094.3453C59.3581%2094.7839%2060.1299%2095%2061.25%2095C62.3713%2095%2063.1463%2094.7832%2063.881%2094.3432C64.558%2093.9378%2065.1257%2093.4381%2066.4801%2092.0861L66.4926%2092.0737C67.3821%2091.1859%2067.8064%2090.7755%2068.3948%2090.2574C69.2467%2089.5072%2070.0891%2088.8734%2071.0055%2088.3241C73.2778%2086.9619%2075.8189%2086.25%2078.75%2086.25C81.6811%2086.25%2084.2222%2086.9619%2086.4945%2088.3241C87.4109%2088.8734%2088.2533%2089.5072%2089.1052%2090.2574C89.6936%2090.7755%2090.1179%2091.1859%2091.0074%2092.0737L91.0199%2092.0861C92.3743%2093.4381%2092.942%2093.9378%2093.619%2094.3432C94.3537%2094.7832%2095.1287%2095%2096.25%2095C97.2478%2095%2098.3499%2094.6143%2099.6327%2093.7163C101.205%2092.616%20102.905%2090.8304%20104.681%2088.3438L112.819%2094.1562C110.428%2097.5029%20107.962%20100.092%20105.367%20101.909C102.483%20103.927%2099.4188%20105%2096.25%20105C93.3087%20105%2090.7597%20104.287%2088.4811%20102.922C87.5617%20102.372%2086.7166%20101.736%2085.8623%20100.984C85.2723%20100.465%2084.8468%20100.054%2083.9554%2099.1639L83.943%2099.1514C82.5918%2097.8028%2082.026%2097.3045%2081.3529%2096.901C80.6248%2096.4645%2079.859%2096.25%2078.75%2096.25C77.641%2096.25%2076.8752%2096.4645%2076.1472%2096.901C75.474%2097.3045%2074.9082%2097.8028%2073.557%2099.1514L73.5446%2099.1639C72.6532%20100.054%2072.2277%20100.465%2071.6377%20100.984C70.7834%20101.736%2069.9383%20102.372%2069.0189%20102.922C66.7403%20104.287%2064.1913%20105%2061.25%20105C58.3076%20105%2055.7591%20104.286%2053.4822%20102.92C52.5636%20102.369%2051.7198%20101.733%2050.8667%20100.981C50.2785%20100.462%2049.8583%20100.054%2048.9645%2099.1605C47.6096%2097.8057%2047.0466%2097.3089%2046.3728%2096.9047C45.6419%2096.4661%2044.8701%2096.25%2043.75%2096.25C42.7522%2096.25%2041.6501%2096.6357%2040.3673%2097.5337C38.7953%2098.634%2037.0948%20100.42%2035.3187%20102.906Z%22%20fill%3D%22%231A73E8%22/%3E%0A%3Cmask%20id%3D%22mask0%22%20mask-type%3D%22alpha%22%20maskUnits%3D%22userSpaceOnUse%22%20x%3D%2227%22%20y%3D%2286%22%20width%3D%2286%22%20height%3D%2219%22%3E%0A%3Cpath%20d%3D%22M35.3187%20102.906L27.1813%2097.0938C29.5719%2093.7471%2032.038%2091.1576%2034.6327%2089.3413C37.5166%2087.3226%2040.5812%2086.25%2043.75%2086.25C46.6924%2086.25%2049.2409%2086.9636%2051.5178%2088.3297C52.4364%2088.8809%2053.2802%2089.5166%2054.1333%2090.2694C54.7215%2090.7884%2055.1417%2091.1956%2056.0355%2092.0895C57.3904%2093.4443%2057.9534%2093.9411%2058.6272%2094.3453C59.3581%2094.7839%2060.1299%2095%2061.25%2095C62.3713%2095%2063.1463%2094.7832%2063.881%2094.3432C64.558%2093.9378%2065.1257%2093.4381%2066.4801%2092.0861L66.4926%2092.0737C67.3821%2091.1859%2067.8064%2090.7755%2068.3948%2090.2574C69.2467%2089.5072%2070.0891%2088.8734%2071.0055%2088.3241C73.2778%2086.9619%2075.8189%2086.25%2078.75%2086.25C81.6811%2086.25%2084.2222%2086.9619%2086.4945%2088.3241C87.4109%2088.8734%2088.2533%2089.5072%2089.1052%2090.2574C89.6936%2090.7755%2090.1179%2091.1859%2091.0074%2092.0737L91.0199%2092.0861C92.3743%2093.4381%2092.942%2093.9378%2093.619%2094.3432C94.3537%2094.7832%2095.1287%2095%2096.25%2095C97.2478%2095%2098.3499%2094.6143%2099.6327%2093.7163C101.205%2092.616%20102.905%2090.8304%20104.681%2088.3438L112.819%2094.1562C110.428%2097.5029%20107.962%20100.092%20105.367%20101.909C102.483%20103.927%2099.4188%20105%2096.25%20105C93.3087%20105%2090.7597%20104.287%2088.4811%20102.922C87.5617%20102.372%2086.7166%20101.736%2085.8623%20100.984C85.2723%20100.465%2084.8468%20100.054%2083.9554%2099.1639L83.943%2099.1514C82.5918%2097.8028%2082.026%2097.3045%2081.3529%2096.901C80.6248%2096.4645%2079.859%2096.25%2078.75%2096.25C77.641%2096.25%2076.8752%2096.4645%2076.1472%2096.901C75.474%2097.3045%2074.9082%2097.8028%2073.557%2099.1514L73.5446%2099.1639C72.6532%20100.054%2072.2277%20100.465%2071.6377%20100.984C70.7834%20101.736%2069.9383%20102.372%2069.0189%20102.922C66.7403%20104.287%2064.1913%20105%2061.25%20105C58.3076%20105%2055.7591%20104.286%2053.4822%20102.92C52.5636%20102.369%2051.7198%20101.733%2050.8667%20100.981C50.2785%20100.462%2049.8583%20100.054%2048.9645%2099.1605C47.6096%2097.8057%2047.0466%2097.3089%2046.3728%2096.9047C45.6419%2096.4661%2044.8701%2096.25%2043.75%2096.25C42.7522%2096.25%2041.6501%2096.6357%2040.3673%2097.5337C38.7953%2098.634%2037.0948%20100.42%2035.3187%20102.906Z%22%20fill%3D%22%231A73E8%22/%3E%0A%3C/mask%3E%0A%3Cg%20mask%3D%22url%28%23mask0%29%22%3E%0A%3C/g%3E%0A%3C/svg%3E) !important; }
-
-.lt-gdocs-hint {
-  margin: 11px -40px 0 0 !important;
-  font-size: 14px !important;
-  padding: 5px 34px 6px 12px !important;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25)) !important;
-  will-change: filter !important;
-  border-radius: 8px !important;
-  line-height: 20px !important;
-  color: #fff !important;
-  position: fixed !important;
-  animation: lt-fadein 0.3s !important;
-  background-color: #323235 !important;
-  z-index: 1000 !important; }
-  .lt-gdocs-hint .lt-gdocs-hint__close {
-    position: absolute !important;
-    width: 32px !important;
-    height: 32px !important;
-    right: 0 !important;
-    top: 50% !important;
-    margin-top: -16px !important;
-    background: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgNDggNDgiIHdpZHRoPSI0OCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMzggMTIuODNsLTIuODMtMi44My0xMS4xNyAxMS4xNy0xMS4xNy0xMS4xNy0yLjgzIDIuODMgMTEuMTcgMTEuMTctMTEuMTcgMTEuMTcgMi44MyAyLjgzIDExLjE3LTExLjE3IDExLjE3IDExLjE3IDIuODMtMi44My0xMS4xNy0xMS4xN3oiLz48cGF0aCBkPSJNMCAwaDQ4djQ4aC00OHoiIGZpbGw9Im5vbmUiLz48L3N2Zz4=) center center no-repeat !important;
-    background-size: 18px auto !important;
-    opacity: 0.6 !important;
-    cursor: pointer !important; }
-    .lt-gdocs-hint .lt-gdocs-hint__close:hover {
-      opacity: 1 !important; }
-  .lt-gdocs-hint::before {
-    content: "" !important;
-    pointer-events: none !important;
-    right: 44px !important;
-    top: -16px !important;
-    position: absolute !important;
-    border: 8px solid transparent !important;
-    border-bottom-color: #323235 !important; }
 
 /**
 !!! ATTENTION: Only use lowercase characters for classNames and tag names.
