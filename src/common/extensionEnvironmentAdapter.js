@@ -34,7 +34,7 @@ class ExtensionEnvironmentAdapter extends EnvironmentAdapterClass {
         return browser.runtime.getURL(e);
     }
     getUILanguageCode() {
-        return browser.i18n.getUILanguage();
+        return chrome.i18n.getUILanguage();
     }
     loadContentScripts(e, n) {
         this.isRuntimeConnected() &&

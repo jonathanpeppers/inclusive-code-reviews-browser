@@ -44,7 +44,7 @@
             reloadContentScriptsIfNecessary(s, t);
             const i = v.getValidationSettings(t, o.getEditorGroupId(e)),
                 p = { enabled: true, supported: !0, unsupportedMessage: "", capitalization: true };
-            o.supported() ? v.isDomainSupported(t) || ((p.supported = !1), (p.unsupportedMessage = browser.i18n.getMessage("siteCannotBeSupported"))) : ((p.supported = !1), (p.unsupportedMessage = o.unsupportedMessage()));
+            o.supported() ? v.isDomainSupported(t) || ((p.supported = !1), (p.unsupportedMessage = chrome.i18n.getMessage("siteCannotBeSupported"))) : ((p.supported = !1), (p.unsupportedMessage = o.unsupportedMessage()));
             const d = v.getStatistics(),
                 g = v.getSettings(),
                 b = v.getUIState(),

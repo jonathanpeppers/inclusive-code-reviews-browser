@@ -130,7 +130,7 @@ class LTAssistant {
                     if (this._storageController.isDomainSupported(getCurrentDomain())) {
                         const t = this._getValidationSettings();
                         (e = !t.isDomainDisabled && !t.isEditorGroupDisabled), (r = t.shouldCapitalizationBeChecked);
-                    } else (i = !1), (o = browser.i18n.getMessage("siteCannotBeSupported"));
+                    } else (i = !1), (o = chrome.i18n.getMessage("siteCannotBeSupported"));
                 else (i = !1), (o = this._tweaks.unsupportedMessage());
                 EnvironmentAdapter.pageLoaded(e, r, i, t, o);
             }),
