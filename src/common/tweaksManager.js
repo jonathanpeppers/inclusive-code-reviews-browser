@@ -813,7 +813,7 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
         url: /docs\.google\.com\/spreadsheets/
     },
     supported: () => !1,
-    unsupportedMessage: () => browser.i18n.getMessage("siteCannotBeSupported")
+    unsupportedMessage: () => chrome.i18n.getMessage("siteCannotBeSupported")
 }, {
     match: {
         url: /docs\.google\.com\/sharing/
