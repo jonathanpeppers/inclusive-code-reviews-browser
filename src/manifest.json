@@ -20,12 +20,7 @@
       "match_about_blank": true,
       "matches": [ "\u003Call_urls>" ],
       "run_at": "document_end"
-   }, {
-      "all_frames": false,
-      "js": [ "content/gdocs/injector.js" ],
-      "matches": [ "*://docs.google.com/document/*" ],
-      "run_at": "document_start"
-   } ],
+   }],
    "default_locale": "en",
    "description": "__MSG_appDesc__",
    "homepage_url": "https://github.com/jonathanpeppers/inclusive-code-comments",
