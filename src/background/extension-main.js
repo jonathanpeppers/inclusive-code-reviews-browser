@@ -49,6 +49,7 @@ class BackgroundApp {
                 chrome.alarms.create("EXTERNAL_CONFIG_RELOAD_INTERVAL", {delayInMinutes: config.EXTERNAL_CONFIG_RELOAD_INTERVAL, periodInMinutes: config.EXTERNAL_CONFIG_RELOAD_INTERVAL}),
                 BrowserDetector.isFirefox())
             ) {
+                // Do nothing
             }
             chrome.alarms.onAlarm.addListener(this._onAlarm);
             this._isInitialized = !0;
