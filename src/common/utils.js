@@ -650,7 +650,7 @@ const goToManagedLogin = (function () {
             const a = function () {
                 e && window.clearInterval(e), i.removeEventListener("message", n);
                 try {
-                    browser.storage.local.remove("managedLoginCredentials");
+                    chrome.storage.local.remove("managedLoginCredentials");
                 } catch (t) {}
                 try {
                     s && s.close();
@@ -658,7 +658,7 @@ const goToManagedLogin = (function () {
             };
             a(),
                 (e = window.setInterval(() => {
-                    browser.storage.local
+                    chrome.storage.local
                         .get("managedLoginCredentials")
                         .then((e) => {
                             e.managedLoginCredentials && t(e.managedLoginCredentials);
@@ -666,7 +666,7 @@ const goToManagedLogin = (function () {
                         .catch(() => null);
                 }, 400)),
                 i.addEventListener("message", n);
-            const l = browser.runtime.getURL("/privacyConfirmationDialog/managedLoginRedirectUri.html"),
+            const l = chrome.runtime.getURL("/privacyConfirmationDialog/managedLoginRedirectUri.html"),
                 c = o + (o.includes("?") ? "&" : "?") + "redirect_uri=" + encodeURIComponent(l);
             s = openPopup(c, 640, 480);
         };
@@ -687,7 +687,7 @@ const goToManagedLogin = (function () {
             const a = function () {
                 e && window.clearInterval(e), i.removeEventListener("message", n);
                 try {
-                    browser.storage.local.remove("loginCredentials");
+                    chrome.storage.local.remove("loginCredentials");
                 } catch (t) {}
                 try {
                     s && s.close();
@@ -695,7 +695,7 @@ const goToManagedLogin = (function () {
             };
             a(),
                 (e = window.setInterval(() => {
-                    browser.storage.local
+                    chrome.storage.local
                         .get("loginCredentials")
                         .then((e) => {
                             e.loginCredentials && t(e.loginCredentials);
@@ -703,7 +703,7 @@ const goToManagedLogin = (function () {
                         .catch(() => null);
                 }, 400)),
                 i.addEventListener("message", n);
-            const l = browser.runtime.getURL("/privacyConfirmationDialog/loginRedirectUri.html"),
+            const l = chrome.runtime.getURL("/privacyConfirmationDialog/loginRedirectUri.html"),
                 c = o + (o.includes("?") ? "&" : "?") + "callback_uri=" + encodeURIComponent(l);
             s = openPopup(c, 640, 480);
         };

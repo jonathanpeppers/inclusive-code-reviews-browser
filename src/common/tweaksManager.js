@@ -1094,7 +1094,7 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
                 command: "GET_VALIDATOR_DATA",
                 id: s
             };
-            browser.runtime.sendMessage(e).then(e => {
+            chrome.runtime.sendMessage(e).then(e => {
                 e && isGetValidatorDataResult(e) && waitFor(() => document.querySelector("[data-lt-editor-input]")).then(t => {
                     t.innerText = e.text;
                     const a = new window.InputEvent("input", {

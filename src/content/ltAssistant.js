@@ -1190,7 +1190,7 @@ class LTAssistant {
         r && (this._initElementTimeouts.delete(e.inputArea), clearTimeout(r)), this._enableOtherSpellCheckers(e.inputArea), this._savePremiumErrorCount(e), this._trackEditor(e);
     }
     _showErrorCard(e, t, r) {
-        browser.runtime.sendMessage({ command: "TRACK_PAGE_VIEW", location: { name: document.title, uri: window.location.href } });
+        chrome.runtime.sendMessage({ command: "TRACK_PAGE_VIEW", location: { name: document.title, uri: window.location.href } });
         const i = this._storageController.getManagedSettings(),
             o = {
                 disableIgnoringRule: void 0 !== this._options.disableRuleIgnore ? this._options.disableRuleIgnore : i.disableIgnoredRules,
@@ -1400,11 +1400,11 @@ class LTAssistant {
             .forEach((e) => {
                 e.ignoredWords.push(t), this._updateDisplayedErrors(e), this._highlight(e), this._updateState(e);
             });
-        browser.runtime.sendMessage({ command: "TRACK_CUSTOM_EVENT", name: 'ignoreSuggestion' });
+        chrome.runtime.sendMessage({ command: "TRACK_CUSTOM_EVENT", name: 'ignoreSuggestion' });
     }
     _temporarilyIgnoreRule(e, t) {
         e.ignoredRules.push(t), this._updateDisplayedErrors(e), this._highlight(e), this._updateState(e);
-        browser.runtime.sendMessage({ command: "TRACK_CUSTOM_EVENT", name: 'ignoreSuggestion' });
+        chrome.runtime.sendMessage({ command: "TRACK_CUSTOM_EVENT", name: 'ignoreSuggestion' });
     }
     _clearTemporarilyIgnoredRules(e) {
         (e.ignoredRules = []), this._updateDisplayedErrors(e), this._highlight(e), this._updateState(e);
@@ -1419,7 +1419,7 @@ class LTAssistant {
         const { appliedSuggestions: n } = this._storageController.getStatistics();
         let appliedSuggestions = n + 1;
         this._storageController.updateStatistics({ appliedSuggestions: appliedSuggestions });
-        browser.runtime.sendMessage({ command: "APPLIED_SUGGESTION", appliedSuggestions: appliedSuggestions });
+        chrome.runtime.sendMessage({ command: "APPLIED_SUGGESTION", appliedSuggestions: appliedSuggestions });
     }
 }
 (LTAssistant.events = { UPDATE: "_lt-state-updated", DESTROY: "_lt-destroy" }),

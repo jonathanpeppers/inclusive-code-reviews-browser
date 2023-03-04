@@ -34,7 +34,7 @@ function onGetSelectedTextMessage(e, t) {
 function onDestroyMessage(e, t) {
     destroyOldInstances();
     try {
-        browser.runtime.onMessage.removeListener(onMessage);
+        chrome.runtime.onMessage.removeListener(onMessage);
     } catch (e) {}
 }
-window.ltAssistant || (initLTAssistant(), browser.runtime.onMessage.addListener(onMessage));
+window.ltAssistant || (initLTAssistant(), chrome.runtime.onMessage.addListener(onMessage));

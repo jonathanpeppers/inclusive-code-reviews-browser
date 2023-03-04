@@ -40,18 +40,31 @@ class BackgroundApp {
                 (this._onValidateClicked = this._onValidateClicked.bind(this)),
                 (this._storageController = StorageController.create()),
                 this._storageController.onReady(this._onDataLoaded),
-                browser.runtime.onInstalled.addListener(this._onInstalled),
-                browser.runtime.onMessage.addListener(this._onMessage),
+                chrome.runtime.onInstalled.addListener(this._onInstalled),
+                chrome.runtime.onMessage.addListener(this._onMessage),
                 DictionarySync.init(),
                 this._updateIcon(),
-                window.setInterval(() => this._updateIcon(), config.UI_MODE_RECHECK_INTERVAL),
+                chrome.alarms.create("UI_MODE_RECHECK_INTERVAL", {delayInMinutes: config.UI_MODE_RECHECK_INTERVAL, periodInMinutes: config.UI_MODE_RECHECK_INTERVAL}),
                 this._loadConfiguration(),
-                window.setInterval(() => this._loadConfiguration(), config.EXTERNAL_CONFIG_RELOAD_INTERVAL),
+                chrome.alarms.create("EXTERNAL_CONFIG_RELOAD_INTERVAL", {delayInMinutes: config.EXTERNAL_CONFIG_RELOAD_INTERVAL, periodInMinutes: config.EXTERNAL_CONFIG_RELOAD_INTERVAL}),
                 BrowserDetector.isFirefox())
             ) {
                 // Do nothing
             }
+            chrome.alarms.onAlarm.addListener(this._onAlarm);
             this._isInitialized = !0;
+        }
+    }
+    static _onAlarm(alarm) {
+        switch (alarm.name) {
+            case "UI_MODE_RECHECK_INTERVAL":
+                BackgroundApp._updateIcon();
+                break;
+            case "EXTERNAL_CONFIG_RELOAD_INTERVAL":
+                BackgroundApp._loadConfiguration();
+                break;
+            default:
+                break;
         }
     }
     static _assignToTestGroups() {
@@ -61,7 +74,7 @@ class BackgroundApp {
         var e;
         return __awaiter(this, void 0, void 0, function* () {
             if (BrowserDetector.isFirefox()) {
-                const t = yield browser.theme.getCurrent();
+                const t = yield chrome.theme.getCurrent();
                 if (null === (e = null === t || void 0 === t ? void 0 : t.colors) || void 0 === e ? void 0 : e.toolbar) {
                     return getColorLuminosity(t.colors.toolbar) <= 35;
                 }
@@ -76,7 +89,7 @@ class BackgroundApp {
             this._darkMode !== e &&
                 ((this._darkMode = e),
                 this._darkMode
-                    ? browser.browserAction.setIcon({
+                    ? chrome.action.setIcon({
                           path: {
                               16: "/assets/images/icons/icon16_white.png",
                               32: "/assets/images/icons/icon32_white.png",
@@ -85,29 +98,30 @@ class BackgroundApp {
                               128: "/assets/images/icons/icon128_white.png",
                           },
                       })
-                    : browser.browserAction.setIcon({
+                    : chrome.action.setIcon({
                           path: { 16: "/assets/images/icons/icon16.png", 32: "/assets/images/icons/icon32.png", 48: "/assets/images/icons/icon48.png", 64: "/assets/images/icons/icon64.png", 128: "/assets/images/icons/icon128.png" },
                       }));
         });
     }
     static _setContextMenu() {
-        if (browser.contextMenus) {
+        if (chrome.contextMenus) {
             let e = i18nManager.getMessage("contextMenuValidate");
-            this._storageController.hasLanguageToolAccount() && (e = i18nManager.getMessage("contextMenuValidateInEditor")),
-                browser.contextMenus.removeAll().then(() => {
-                    browser.contextMenus.create({ title: e, contexts: ["selection"], onclick: this._onValidateClicked });
-                });
+            this._storageController.hasLanguageToolAccount() && (e = i18nManager.getMessage("contextMenuValidateInEditor"));
+            chrome.contextMenus.removeAll();
+            chrome.contextMenus.create({ id: 'contextMenuValidateInEditor', title: e, contexts: ["selection"], });
+            chrome.contextMenus.onClicked.removeListener(this._onValidateClicked);
+            chrome.contextMenus.onClicked.addListener(this._onValidateClicked);
         }
     }
     static _updateBadge(e, t) {
-        browser.browserAction.setBadgeTextColor && browser.browserAction.setBadgeTextColor({ tabId: e, color: "#FFFFFF" }),
+        chrome.action.setBadgeTextColor && chrome.action.setBadgeTextColor({ tabId: e, color: "#FFFFFF" }),
             t.enabled && t.supported
                 ? t.capitalization
-                    ? browser.browserAction.setBadgeText({ tabId: e, text: "" })
-                    : (browser.browserAction.setBadgeBackgroundColor && browser.browserAction.setBadgeBackgroundColor({ tabId: e, color: "#45A8FC" }),
-                      browser.browserAction.setBadgeText({ tabId: e, text: BrowserDetector.isOpera() ? "" : "abc" }))
-                : (browser.browserAction.setBadgeBackgroundColor && browser.browserAction.setBadgeBackgroundColor({ tabId: e, color: "#F53987" }),
-                  browser.browserAction.setBadgeText({ tabId: e, text: BrowserDetector.isOpera() ? "" : "OFF" }));
+                    ? chrome.action.setBadgeText({ tabId: e, text: "" })
+                    : (chrome.action.setBadgeBackgroundColor && chrome.action.setBadgeBackgroundColor({ tabId: e, color: "#45A8FC" }),
+                      chrome.action.setBadgeText({ tabId: e, text: BrowserDetector.isOpera() ? "" : "abc" }))
+                : (chrome.action.setBadgeBackgroundColor && chrome.action.setBadgeBackgroundColor({ tabId: e, color: "#F53987" }),
+                  chrome.action.setBadgeText({ tabId: e, text: BrowserDetector.isOpera() ? "" : "OFF" }));
     }
     static _setMotherTongue() {
         this._storageController.onReady(() => {
@@ -128,8 +142,8 @@ class BackgroundApp {
         const { username: s, token: o } = this._storageController.getSettings();
         if (BrowserDetector.isSafari()) {
             const t = this._storageController.getSettings().userId || void 0;
-            browser.runtime.sendMessage({ userId: t, message: { username: s, token: o, text: e }, command: "LAUNCH_DESKTOP_EDITOR" });
-        } else s && o && navigator.onLine && (a = getAutoLoginUrl(s, o, t)), browser.tabs.create({ url: a });
+            chrome.runtime.sendMessage({ userId: t, message: { username: s, token: o, text: e }, command: "LAUNCH_DESKTOP_EDITOR" });
+        } else s && o && navigator.onLine && (a = getAutoLoginUrl(s, o, t)), chrome.tabs.create({ url: a });
     }
     static _onDataLoaded() {
         Tracker.trackActivity(), this._applyManagedSettings(), this._setContextMenu();
@@ -159,7 +173,7 @@ class BackgroundApp {
                     this._storageController.updateUIState({ hasSeenPrivacyConfirmationDialog: !0 });
                     let e = `${config.INSTALL_URL}?new`;
                     EnvironmentAdapter.isProductionEnvironment() || (e += "&dev"),
-                        browser.tabs.create({ url: e }),
+                        chrome.tabs.create({ url: e }),
                         this._assignToTestGroups(),
                         LanguageManager.getLanguagesForGeoIPCountry()
                             .then((e) => {
@@ -204,77 +218,80 @@ class BackgroundApp {
         });
     }
     static _migrate() {}
-    static _onMessage(e, t, a) {
+    static _onMessage(e, t, sendResponse) {
         let s;
-        return (
-            isPageLoadedMessage(e)
-                ? (s = this._onPageLoadedMessage(t, e))
-                : isPageView(e)
-                ? (s = this._onPageView(t, e))
-                : isTrackCustomEvent(e)
-                ? (s = this._onTrackCustomEvent(t, e))
-                : isAppliedSuggestion(e)
-                ? (s = this._onAppliedSuggestionMessage(t, e))
-                : isLTAssistantStatusChangedMessage(e)
-                ? (s = this._onLTAssistantStatusChangedMessage(t, e))
-                : isCheckForPaidSubscriptionMessage(e)
-                ? (s = this._onCheckForPaidSubscriptionMessage(t, e))
-                : isTrackTextLengthMessage(e)
-                ? (s = this._onTrackTextLengthMessage(t, e))
-                : isTrackEventMessage(e)
-                ? (s = this._onTrackEventMessage(t, e))
-                : isOpenFeedbackFormMessage(e)
-                ? (s = this._onOpenFeedbackFormMessage(t, e))
-                : isSendFeedbackMessage(e)
-                ? (s = this._onSendFeedbackMessage(t, e))
-                : isOpenOptionsMessage(e)
-                ? (s = this._onOpenOptionsMessage(t, e))
-                : isOpenPrivacyConfirmationMessage(e)
-                ? (s = this._onOpenPrivacyConfirmationMessage(t, e))
-                : isCloseCurrentTabMessage(e)
-                ? (s = this._onCloseCurrentTabMessage(t, e))
-                : isValidateTextMessage(e)
-                ? (s = this._onValidateTextMessage(t, e))
-                : isLaunchEditorMessage(e)
-                ? (s = this._onLaunchEditorMessage(t, e))
-                : isGetValidatorDataMessage(e)
-                ? (s = this._onGetValidatorDataMessage(t, e))
-                : isStartDictionarySyncMessage(e)
-                ? (s = this._onStartDictionarySyncMessage(t, e))
-                : isAddWordToDictionaryMessage(e)
-                ? (s = this._onAddWordToDictionaryMessage(t, e))
-                : isBatchAddWordToDictionaryMessage(e)
-                ? (s = this._onBatchAddWordToDictionaryMessage(t, e))
-                : isRemoveWordFromDictionaryMessage(e)
-                ? (s = this._onRemoveWordFromDictionaryMessage(t, e))
-                : isClearDictionaryMessage(e)
-                ? (s = this._onClearDictionaryMessage(t, e))
-                : isGetPreferredLanguagesMessage(e)
-                ? (s = this._onGetPreferredLanguagesMessage(t, e))
-                : isLoadSynonymsMessage(e)
-                ? (s = this._onLoadSynonymsMessage(t, e))
-                : isUpdateDictionaryMessage(e)
-                ? (s = this._onUpdateDictionaryMessage(t, e))
-                : isOpenURLMessage(e)
-                ? (s = this._onOpenURLMessage(t, e))
-                : isOpenPremiumPageMessage(e)
-                ? (s = this._openPremiumPage(t, e))
-                : isLoginUserMessage(e)
-                ? (s = this._loginUserMessage(t, e))
-                : isLogoutUserMessage(e)
-                ? (s = this._logoutUserMessage(t, e))
-                : isOnLoginUserMessage(e)
-                ? (s = this._onLoginUserMessage(t, e))
-                : isOnLogoutUserMessage(e) && (s = this._onLogoutUserMessage(t, e)),
-            s || Promise.resolve(null)
-        );
+        isPageLoadedMessage(e)
+            ? (s = this._onPageLoadedMessage(t, e))
+            : isPageView(e)
+            ? (s = this._onPageView(t, e))
+            : isTrackCustomEvent(e)
+            ? (s = this._onTrackCustomEvent(t, e))
+            : isAppliedSuggestion(e)
+            ? (s = this._onAppliedSuggestionMessage(t, e))
+            : isLTAssistantStatusChangedMessage(e)
+            ? (s = this._onLTAssistantStatusChangedMessage(t, e))
+            : isCheckForPaidSubscriptionMessage(e)
+            ? (s = this._onCheckForPaidSubscriptionMessage(t, e))
+            : isTrackTextLengthMessage(e)
+            ? (s = this._onTrackTextLengthMessage(t, e))
+            : isTrackEventMessage(e)
+            ? (s = this._onTrackEventMessage(t, e))
+            : isOpenFeedbackFormMessage(e)
+            ? (s = this._onOpenFeedbackFormMessage(t, e))
+            : isSendFeedbackMessage(e)
+            ? (s = this._onSendFeedbackMessage(t, e))
+            : isOpenOptionsMessage(e)
+            ? (s = this._onOpenOptionsMessage(t, e))
+            : isOpenPrivacyConfirmationMessage(e)
+            ? (s = this._onOpenPrivacyConfirmationMessage(t, e))
+            : isCloseCurrentTabMessage(e)
+            ? (s = this._onCloseCurrentTabMessage(t, e))
+            : isValidateTextMessage(e)
+            ? (s = this._onValidateTextMessage(t, e))
+            : isLaunchEditorMessage(e)
+            ? (s = this._onLaunchEditorMessage(t, e))
+            : isGetValidatorDataMessage(e)
+            ? (s = this._onGetValidatorDataMessage(t, e))
+            : isStartDictionarySyncMessage(e)
+            ? (s = this._onStartDictionarySyncMessage(t, e))
+            : isAddWordToDictionaryMessage(e)
+            ? (s = this._onAddWordToDictionaryMessage(t, e))
+            : isBatchAddWordToDictionaryMessage(e)
+            ? (s = this._onBatchAddWordToDictionaryMessage(t, e))
+            : isRemoveWordFromDictionaryMessage(e)
+            ? (s = this._onRemoveWordFromDictionaryMessage(t, e))
+            : isClearDictionaryMessage(e)
+            ? (s = this._onClearDictionaryMessage(t, e))
+            : isGetPreferredLanguagesMessage(e)
+            ? (s = this._onGetPreferredLanguagesMessage(t, e))
+            : isLoadSynonymsMessage(e)
+            ? (s = this._onLoadSynonymsMessage(t, e))
+            : isUpdateDictionaryMessage(e)
+            ? (s = this._onUpdateDictionaryMessage(t, e))
+            : isOpenURLMessage(e)
+            ? (s = this._onOpenURLMessage(t, e))
+            : isOpenPremiumPageMessage(e)
+            ? (s = this._openPremiumPage(t, e))
+            : isLoginUserMessage(e)
+            ? (s = this._loginUserMessage(t, e))
+            : isLogoutUserMessage(e)
+            ? (s = this._logoutUserMessage(t, e))
+            : isOnLoginUserMessage(e)
+            ? (s = this._onLoginUserMessage(t, e))
+            : isOnLogoutUserMessage(e) && (s = this._onLogoutUserMessage(t, e));
+        if (s) {
+            s.then((result) => sendResponse(result));
+        } else {
+            return false;
+        }
+        return true;
     }
     static _onPageLoadedMessage(e, t) {
         if (0 !== e.frameId || !e.tab) return;
         const a = e.tab.id,
             s = { enabled: t.enabled, capitalization: t.capitalization, supported: t.supported, unsupportedMessage: t.unsupportedMessage, language: null, beta: t.beta };
         (this._extensionStates[a] = s),
-            browser.tabs
+            chrome.tabs
                 .detectLanguage(a)
                 .then((e) => {
                     e && "und" !== e && (s.language = LanguageManager.getPrimaryLanguageCode(e));
@@ -315,18 +332,18 @@ class BackgroundApp {
         Tracker.trackEvent("Action", t.action, t.label);
     }
     static _onOpenFeedbackFormMessage(e, t) {
-        browser.tabs.create({ url: "https://github.com/jonathanpeppers/inclusive-code-comments/issues/new" });
+        chrome.tabs.create({ url: "https://github.com/jonathanpeppers/inclusive-code-comments/issues/new" });
     }
     static _onOpenOptionsMessage(e, t) {
         let a = "/options/options.html";
-        t.target && (a += `#${t.target}`), t.ref && (a += `?ref=${encodeURIComponent(t.ref)}`), browser.tabs.create({ url: EnvironmentAdapter.getURL(a) });
+        t.target && (a += `#${t.target}`), t.ref && (a += `?ref=${encodeURIComponent(t.ref)}`), chrome.tabs.create({ url: EnvironmentAdapter.getURL(a) });
     }
     static _onOpenPrivacyConfirmationMessage(e, t) {
-        browser.tabs.create({ url: config.INSTALL_URL });
+        chrome.tabs.create({ url: config.INSTALL_URL });
     }
     static _onCloseCurrentTabMessage(e, t) {
-        browser.tabs.query({ currentWindow: !0, active: !0 }).then((e) => {
-            e.length && browser.tabs.remove(e[0].id);
+        chrome.tabs.query({ currentWindow: !0, active: !0 }).then((e) => {
+            e.length && chrome.tabs.remove(e[0].id);
         });
     }
     static _getPreferredLanguages(e) {
@@ -413,7 +430,7 @@ class BackgroundApp {
         DictionarySync.downloadAll();
     }
     static _onOpenURLMessage(e, t) {
-        Tracker.trackEvent("Action", "open_tab", t.url), browser.tabs.create({ url: t.url });
+        Tracker.trackEvent("Action", "open_tab", t.url), chrome.tabs.create({ url: t.url });
     }
     static _onGetPreferredLanguagesMessage(e, t) {
         const a = this._getPreferredLanguages(e),
@@ -427,7 +444,7 @@ class BackgroundApp {
     static _onValidateClicked(e, t) {
         if (t && t.id) {
             const a = { command: "GET_SELECTED_TEXT" };
-            browser.tabs
+            chrome.tabs
                 .sendMessage(t.id, a)
                 .then((e) => {
                     this._launchEditor(e.selectedText);
@@ -441,7 +458,7 @@ class BackgroundApp {
     static _openPremiumPage(e, t) {
         if (BrowserDetector.isSafari()) {
             const e = this._storageController.getSettings().userId || void 0;
-            return Tracker.trackEvent("Action", "go_to_apple_upgrade", t.campaign), void browser.runtime.sendMessage({ message: Object.assign(Object.assign({}, t), { userId: e }), command: "LAUNCH_APPLE_UPGRADE" });
+            return Tracker.trackEvent("Action", "go_to_apple_upgrade", t.campaign), void chrome.runtime.sendMessage({ message: Object.assign(Object.assign({}, t), { userId: e }), command: "LAUNCH_APPLE_UPGRADE" });
         }
         const a = [];
         a.push(`pk_campaign=${encodeURIComponent(t.campaign)}`),
@@ -451,13 +468,13 @@ class BackgroundApp {
             t.hiddenPunctuationMatches && a.push(`punctuationMatches=${encodeURIComponent(t.hiddenPunctuationMatches)}`),
             t.hiddenStyleMatches && a.push(`styleMatches=${encodeURIComponent(t.hiddenStyleMatches)}`);
         let s = "https://languagetool.org/premium?" + a.join("&");
-        browser.tabs.create({ url: s });
+        chrome.tabs.create({ url: s });
     }
     static _loginUserMessage(e, t) {
-        browser.runtime.sendMessage({ command: "LOGIN" });
+        chrome.runtime.sendMessage({ command: "LOGIN" });
     }
     static _logoutUserMessage(e, t) {
-        browser.runtime.sendMessage({ command: "LOGOUT" });
+        chrome.runtime.sendMessage({ command: "LOGOUT" });
     }
     static _onLoginUserMessage(e, t) {
         this._storageController.updateSettings({ username: t.username, password: "", userId: t.userId, token: t.token, knownEmail: t.username, havePremiumAccount: !0, apiServerUrl: config.MAIN_SERVER_URL }).then(() => {
