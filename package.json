@@ -27,7 +27,7 @@
         "test/**/*"
     ],
     "devDependencies": {
-        "extension-cli": "^1.2.2",
+        "extension-cli": "^1.2.4",
         "onnxruntime-node": "^1.11.0"
     },
     "xtdocs": {
