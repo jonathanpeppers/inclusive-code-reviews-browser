@@ -32,7 +32,7 @@
       "64": "assets/images/icons/icon64.png"
    },
    "manifest_version": 3,
-   "minimum_chrome_version": "67.0.0",
+   "minimum_chrome_version": "88.0.0",
    "name": "__MSG_appName__",
    "offline_enabled": false,
    "options_ui": {
