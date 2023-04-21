@@ -80,6 +80,9 @@ function isGetSelectedTextMessage(n) {
 function isDestroyMessage(n) {
     return "DESTROY" === n.command;
 }
+function isCheckHealthMessage(n) {
+    return "CHECK_HEALTH" === n.command;
+}
 function isOpenPremiumPageMessage(n) {
     return "OPEN_PREMIUM_PAGE" === n.command;
 }
