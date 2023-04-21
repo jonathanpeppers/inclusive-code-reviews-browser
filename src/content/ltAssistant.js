@@ -36,7 +36,6 @@ class LTAssistant {
         (this._spellcheckingAttributesData = new Map()),
             (this._editors = []),
             (this._messages = []),
-            (this._checkExtensionHealthIntervalId = void 0),
             (this._initElementTimeouts = new Map()),
             (this._init = () => {
                 if (
@@ -50,7 +49,6 @@ class LTAssistant {
                 ) {
                     if (
                         ((this._isRemoteCheckAllowed = this._storageController.getPrivacySettings().allowRemoteCheck),
-                        (this._checkExtensionHealthIntervalId = window.setInterval(this._checkExtensionHealth, config.EXTENSION_HEALTH_RECHECK_INTERVAL)),
                         this._options.initElements)
                     ) {
                         const e = Array.isArray(this._options.initElements) ? this._options.initElements : [this._options.initElements];
@@ -121,24 +119,6 @@ class LTAssistant {
                         this._storageController.addEventListener(StorageControllerClass.eventNames.uiStateChanged, this._onUiStateChanged),
                         this._options.onInit && this._options.onInit(this);
                 }
-            }),
-            (this._checkExtensionHealth = () => {
-                try {
-                    if (EnvironmentAdapter.isRuntimeConnected()) {
-                        chrome.runtime.sendMessage({ command: "CHECK_HEALTH" });
-                        this._isConnected = true;
-                        return;
-                    }
-                } catch (e) {
-                    console.error(e);
-                }
-
-                this._isConnected = false;
-                this._hideAllErrorCards();
-                this._editors.forEach((e) => {
-                    e.highlighter && e.highlighter.destroy(), this._updateState(e);
-                });
-                window.clearInterval(this._checkExtensionHealthIntervalId);
             }),
             (this._onPageLoaded = () => {
                 let e = !0;

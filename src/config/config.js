@@ -1,6 +1,5 @@
 /*! (C) Copyright 2020 LanguageTooler GmbH. All rights reserved. */
 const config = {
-    EXTENSION_HEALTH_RECHECK_INTERVAL: 29000,
     UI_MODE_RECHECK_INTERVAL: 2,
     EXTERNAL_CONFIG_RELOAD_INTERVAL: 60,
     DICTIONARY_SYNC_INTERVAL: 72e5,
