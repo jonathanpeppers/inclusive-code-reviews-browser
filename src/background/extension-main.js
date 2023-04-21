@@ -51,6 +51,7 @@ class BackgroundApp {
             ) {
                 // Do nothing
             }
+            this._createBackgroundPage();
             chrome.alarms.onAlarm.addListener(this._onAlarm);
             this._isInitialized = !0;
         }
@@ -218,6 +219,17 @@ class BackgroundApp {
         });
     }
     static _migrate() {}
+    static async _createBackgroundPage() {
+        console.log('checking offscreen.html');
+        if (await chrome.offscreen.hasDocument?.()) return;
+        console.log('creating offscreen.html');
+        await chrome.offscreen.createDocument({
+            url: 'content/offscreen.html',
+            reasons: ['BLOBS'],
+            justification: 'keep service worker running',
+        });
+        console.log('offscreen.html created');
+    }
     static _onMessage(e, t, sendResponse) {
         let s;
         isPageLoadedMessage(e)
@@ -226,6 +238,8 @@ class BackgroundApp {
             ? (s = this._onPageView(t, e))
             : isTrackCustomEvent(e)
             ? (s = this._onTrackCustomEvent(t, e))
+            : isCheckHealthMessage(e)
+            ? (s = this._onCheckHealth(t, e))
             : isAppliedSuggestion(e)
             ? (s = this._onAppliedSuggestionMessage(t, e))
             : isLTAssistantStatusChangedMessage(e)
@@ -306,6 +320,9 @@ class BackgroundApp {
     }
     static _onTrackCustomEvent(e, t) {
         globalThis.aiTrackEvent(t.name);
+    }
+    static _onCheckHealth(e, t) {
+        console.log('CHECK_HEALTH');
     }
     static _onAppliedSuggestionMessage(e, t) {;
         globalThis.appliedSuggestion(t.appliedSuggestions);
