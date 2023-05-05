@@ -225,7 +225,7 @@ class BackgroundApp {
         console.log('creating offscreen.html');
         await chrome.offscreen.createDocument({
             url: 'content/offscreen.html',
-            reasons: ['BLOBS'],
+            reasons: [chrome.offscreen.Reason.WORKERS || chrome.offscreen.Reason.BLOBS],
             justification: 'keep service worker running',
         });
         console.log('offscreen.html created');
