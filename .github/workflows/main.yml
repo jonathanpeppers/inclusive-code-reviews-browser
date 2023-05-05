@@ -22,7 +22,8 @@ jobs:
       - name: set api key
         env:
           APP_INSIGHTS_KEY: ${{ secrets.AZURE_APP_INSIGHTS_API_KEY }}
-        run: echo "export const appinsights_key = \"$APP_INSIGHTS_KEY\";" > src-packed/secrets.js
+          OPEN_AI_KEY: ${{ secrets.OPEN_AI_KEY }}
+        run: echo "export const appinsights_key = \"$APP_INSIGHTS_KEY\";export const openai_key = "$OPEN_AI_KEY";" > src-packed/secrets.js
 
       - name: npm install
         run: npm install
