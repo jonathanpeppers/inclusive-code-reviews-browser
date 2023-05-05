@@ -51,7 +51,7 @@ describe('openai', () => {
 
     expect(result.length).to.not.be.equal(0);
     expect(result).to.not.be.contains("This is a wasted line of code");
-  });
+  }).timeout(5000);
 
   it('basic comment rating', async () => {
     let comment = "Remove this line of code. This is a wasted line of code.";
@@ -75,5 +75,5 @@ describe('openai', () => {
 
     let result = response.data.choices[0].message.content;
     expect(result.length).to.not.be.equal(0);
-  });
+  }).timeout(5000);
 });
