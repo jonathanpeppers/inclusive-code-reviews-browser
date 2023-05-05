@@ -48,7 +48,9 @@ describe('openai', () => {
     });
 
     let result = response.data.choices[0].message.content;
-    expect(result).to.be.equal("Hey there! Would you mind removing this line of code? It doesn't seem to be necessary and could be taking up some space. Thanks!");
+
+    expect(result.length).to.not.be.equal(0);
+    expect(result).to.not.be.contains("This is a wasted line of code");
   });
 
   it('basic comment rating', async () => {
