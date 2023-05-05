@@ -36,8 +36,6 @@ class LTAssistant {
         (this._spellcheckingAttributesData = new Map()),
             (this._editors = []),
             (this._messages = []),
-            (this._checkExtensionHealthIntervalId = void 0),
-            (this._fixTinyMCEIntervalId = void 0),
             (this._initElementTimeouts = new Map()),
             (this._init = () => {
                 if (
@@ -51,7 +49,6 @@ class LTAssistant {
                 ) {
                     if (
                         ((this._isRemoteCheckAllowed = this._storageController.getPrivacySettings().allowRemoteCheck),
-                        (this._checkExtensionHealthIntervalId = window.setInterval(this._checkExtensionHealth, config.EXTENSION_HEALTH_RECHECK_INTERVAL)),
                         this._options.initElements)
                     ) {
                         const e = Array.isArray(this._options.initElements) ? this._options.initElements : [this._options.initElements];
@@ -65,11 +62,6 @@ class LTAssistant {
                         this._tweaks.onElement((e, t) => {
                             this._initElement(e, t);
                         }),
-                        BrowserDetector.isChromium() &&
-                            window.innerHeight > 14 &&
-                            (this._fixTinyMCEIntervalId = window.setInterval(() => {
-                                this._fixIframeWithoutContentScripts();
-                            }, config.IFRAME_INITILIZATION_RECHECK_INTERVAL)),
                         window.addEventListener("pageshow", this._onPageLoaded),
                         window.addEventListener("pagehide", this._onPageHide),
                         document.addEventListener("focus", this._onDocumentFocus, !0),
@@ -128,15 +120,6 @@ class LTAssistant {
                         this._options.onInit && this._options.onInit(this);
                 }
             }),
-            (this._checkExtensionHealth = () => {
-                EnvironmentAdapter.isRuntimeConnected() ||
-                    ((this._isConnected = !1),
-                    this._hideAllErrorCards(),
-                    this._editors.forEach((e) => {
-                        e.highlighter && e.highlighter.destroy(), this._updateState(e);
-                    }),
-                    window.clearInterval(this._checkExtensionHealthIntervalId));
-            }),
             (this._onPageLoaded = () => {
                 let e = !0;
                 const t = this._tweaks.beta();
@@ -147,7 +130,7 @@ class LTAssistant {
                     if (this._storageController.isDomainSupported(getCurrentDomain())) {
                         const t = this._getValidationSettings();
                         (e = !t.isDomainDisabled && !t.isEditorGroupDisabled), (r = t.shouldCapitalizationBeChecked);
-                    } else (i = !1), (o = browser.i18n.getMessage("siteCannotBeSupported"));
+                    } else (i = !1), (o = chrome.i18n.getMessage("siteCannotBeSupported"));
                 else (i = !1), (o = this._tweaks.unsupportedMessage());
                 EnvironmentAdapter.pageLoaded(e, r, i, t, o);
             }),
@@ -666,19 +649,6 @@ class LTAssistant {
     _getValidationSettings() {
         const e = getMainPageDomain();
         return this._storageController.getValidationSettings(e, this._tweaks.getEditorGroupId(getCurrentUrl()));
-    }
-    _fixIframeWithoutContentScripts() {
-        if (!document.activeElement || "IFRAME" !== document.activeElement.nodeName) return;
-        const e = document.activeElement.contentWindow;
-        let t = !1;
-        try {
-            t = !!e.location.href;
-        } catch (e) {}
-        t &&
-            "complete" === e.document.readyState &&
-            e.document.documentElement &&
-            (e.__ltJsLoaded || (isLTAvailable(e) ? (e.__ltJsLoaded = !0) : e.document.body && isTinyMCE(e.document.body) && ((e.__ltJsLoaded = !0), EnvironmentAdapter.loadContentScripts(e, "js"))),
-            e.__ltCssLoaded || (isCssContentScriptsLoaded(e) ? (e.__ltCssLoaded = !0) : e.document.body && ((e.__ltCssLoaded = !0), EnvironmentAdapter.loadContentScripts(e, "css"))));
     }
     _initElement(e, t = !1) {
         if (!e.parentElement) return;
@@ -1220,7 +1190,7 @@ class LTAssistant {
         r && (this._initElementTimeouts.delete(e.inputArea), clearTimeout(r)), this._enableOtherSpellCheckers(e.inputArea), this._savePremiumErrorCount(e), this._trackEditor(e);
     }
     _showErrorCard(e, t, r) {
-        browser.runtime.sendMessage({ command: "TRACK_PAGE_VIEW", location: { name: document.title, uri: window.location.href } });
+        chrome.runtime.sendMessage({ command: "TRACK_PAGE_VIEW", location: { name: document.title, uri: window.location.href } });
         const i = this._storageController.getManagedSettings(),
             o = {
                 disableIgnoringRule: void 0 !== this._options.disableRuleIgnore ? this._options.disableRuleIgnore : i.disableIgnoredRules,
@@ -1398,8 +1368,6 @@ class LTAssistant {
             window.removeEventListener("pagehide", this._onPageHide),
             this._storageController && this._storageController.destroy(),
             this._tweaks && this._tweaks.destroy(),
-            window.clearInterval(this._checkExtensionHealthIntervalId),
-            window.clearInterval(this._fixTinyMCEIntervalId),
             this._editors.forEach((e) => {
                 e.validationDebounce.cancelCall();
             }),
@@ -1432,11 +1400,11 @@ class LTAssistant {
             .forEach((e) => {
                 e.ignoredWords.push(t), this._updateDisplayedErrors(e), this._highlight(e), this._updateState(e);
             });
-        browser.runtime.sendMessage({ command: "TRACK_CUSTOM_EVENT", name: 'ignoreSuggestion' });
+        chrome.runtime.sendMessage({ command: "TRACK_CUSTOM_EVENT", name: 'ignoreSuggestion' });
     }
     _temporarilyIgnoreRule(e, t) {
         e.ignoredRules.push(t), this._updateDisplayedErrors(e), this._highlight(e), this._updateState(e);
-        browser.runtime.sendMessage({ command: "TRACK_CUSTOM_EVENT", name: 'ignoreSuggestion' });
+        chrome.runtime.sendMessage({ command: "TRACK_CUSTOM_EVENT", name: 'ignoreSuggestion' });
     }
     _clearTemporarilyIgnoredRules(e) {
         (e.ignoredRules = []), this._updateDisplayedErrors(e), this._highlight(e), this._updateState(e);
@@ -1451,7 +1419,7 @@ class LTAssistant {
         const { appliedSuggestions: n } = this._storageController.getStatistics();
         let appliedSuggestions = n + 1;
         this._storageController.updateStatistics({ appliedSuggestions: appliedSuggestions });
-        browser.runtime.sendMessage({ command: "APPLIED_SUGGESTION", appliedSuggestions: appliedSuggestions });
+        chrome.runtime.sendMessage({ command: "APPLIED_SUGGESTION", appliedSuggestions: appliedSuggestions });
     }
 }
 (LTAssistant.events = { UPDATE: "_lt-state-updated", DESTROY: "_lt-destroy" }),

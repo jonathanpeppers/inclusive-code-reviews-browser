@@ -1,7 +1,7 @@
 {
     "name": "inclusive-code-comments",
     "description": "Checks your comments anywhere on the web: GitHub or Azure DevOps!",
-    "version": "2.0.4",
+    "version": "3.0.2",
     "homepage": "https://github.com/jonathanpeppers/inclusive-code-comments",
     "author": "Jonathan Peppers",
     "repository": {
@@ -27,8 +27,9 @@
         "test/**/*"
     ],
     "devDependencies": {
-        "extension-cli": "^1.2.2",
-        "onnxruntime-node": "^1.11.0"
+        "extension-cli": "^1.2.4",
+        "onnxruntime-node": "^1.14.0",
+        "openai": "^3.2.1"
     },
     "xtdocs": {
         "source": {
@@ -46,17 +47,21 @@
         "js_bundles": [
             {
                 "name": "packed",
-                "src": [ "_import.js", "./src-packed/*.js" ]
+                "src": [
+                    "_import.js",
+                    "./src-packed/*.js"
+                ]
             }
         ],
         "copyAsIs": [
             "./src/**/*",
-            "./node_modules/onnxruntime-web/dist/*.wasm"
+            "./node_modules/onnxruntime-web/dist/ort-wasm.wasm",
+            "./node_modules/onnxruntime-web/dist/ort-wasm-simd.wasm"
         ]
     },
     "dependencies": {
-        "@microsoft/applicationinsights-web": "^2.7.0",
-        "onnxruntime-web": "^1.11.0",
-        "webpack": "^5.64.4"
+        "@microsoft/applicationinsights-web": "^3.0.0",
+        "onnxruntime-web": "^1.14.0",
+        "webpack": "^5.81.0"
     }
 }

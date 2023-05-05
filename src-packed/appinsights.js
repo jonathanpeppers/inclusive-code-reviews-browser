@@ -19,7 +19,7 @@ if (!isTests) {
 }
 
 export function telemetryInitializer (envelope) {
-    envelope.tags["ai.application.ver"] = '2.0.4';
+    envelope.tags["ai.application.ver"] = '3.0.2';
 
     // We don't want to report full URLs
     if (envelope.baseData.uri) {
@@ -65,6 +65,7 @@ export function trackEvent(name, customDimensions) {
 }
 
 // For use inside the extension (which isn't using webpack)
-// The best I came up with for now is to add these functions to window.
-window.aiTrackPageView = trackPageView;
-window.aiTrackEvent = trackEvent;
+// The best I came up with for now is to add these functions to globalThis.
+// https://developer.mozilla.org/en-US/docs/Glossary/Global_object
+globalThis.aiTrackPageView = trackPageView;
+globalThis.aiTrackEvent = trackEvent;

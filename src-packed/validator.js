@@ -15,6 +15,7 @@ function loadAppInsights() {
 }
 
 export async function getMatches(ort, text, matches) {
+    ort.env.wasm.numThreads = 1;
     loadAppInsights();
 
     // Suggestions, based on a dictionary
@@ -131,6 +132,7 @@ export function shouldReportManualFix(matches) {
 }
 
 // For use inside the extension (which isn't using webpack)
-// The best I came up with for now is to add this function to window.
-window.getMatches = getMatches;
-window.appliedSuggestion = appliedSuggestion;
+// The best I came up with for now is to add this function to globalThis.
+// https://developer.mozilla.org/en-US/docs/Glossary/Global_object
+globalThis.getMatches = getMatches;
+globalThis.appliedSuggestion = appliedSuggestion;

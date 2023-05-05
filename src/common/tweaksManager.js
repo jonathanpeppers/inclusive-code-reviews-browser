@@ -251,12 +251,6 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
         if (e.classList.contains("ve-ce-documentNode")) return !0;
         if (e.classList.contains("fr-element") && !e.classList.contains("wsc-instance")) return !0;
         if (e.parentElement && e.parentElement.classList.contains("wp-block-code")) return !1;
-        const t = e.ownerDocument;
-        if (t.head && isTinyMCE(e)) {
-            const a = t.createElement("script"),
-                r = "_isTinymceSpellcheckerActivated";
-            return a.innerText = `\n                    try {\n                        if (window.parent.tinymce.get(document.body.dataset.id).plugins.tinymcespellchecker) {\n                            document.body.dataset.${r} = true;\n                        }\n                    } catch(e) {}\n                `, t.head.appendChild(a), a.remove(), !Boolean(e.dataset[r])
-        }
         return !!(window.innerHeight >= 20 && window.innerWidth >= 100) && "false" !== e.getAttribute("spellcheck")
     },
     initElement: e => ({
@@ -275,14 +269,13 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
                 r = !!window.parent.document.title.match(/roundcube/i) || !!window.parent.location.href.match(/_action=compose/i)
             } catch (e) {}
             const n = isProseMirror(e),
-                s = isTinyMCE(e),
                 o = isCKEditor(e),
                 i = isQuillEditor(e),
                 l = isLTEditor(e);
             return {
                 isIgnored(e) {
                     const t = e.tagName.toUpperCase();
-                    return !!CEElementInspector.SKIPPING_TAGS.includes(t) || ("BLOCKQUOTE" === t && !l || ("false" === e.getAttribute("contenteditable") || "false" === e.getAttribute("spellcheck") ? (!n || !e.hasAttribute("data-mention-id") && !e.hasAttribute("usertype")) && ((!i || !e.classList.contains("ql-mention")) && ((!s || !e.classList.contains("user-hover")) && ((!o || !e.classList.contains("cke_widget_mention-box")) && !((!e.firstElementChild || 1 === e.childElementCount && e.offsetWidth > 0) && "inline" === window.getComputedStyle(e).display)))) : "SUP" === t && e.textContent ? CEElementInspector.SUP_REGEXP.test(e.textContent.trim()) : !(!i || !e.classList.contains("ql-code-block") && !e.classList.contains("ql-formula"))))
+                    return !!CEElementInspector.SKIPPING_TAGS.includes(t) || ("BLOCKQUOTE" === t && !l || ("false" === e.getAttribute("contenteditable") || "false" === e.getAttribute("spellcheck") ? (!n || !e.hasAttribute("data-mention-id") && !e.hasAttribute("usertype")) && ((!i || !e.classList.contains("ql-mention")) && (!e.classList.contains("user-hover") && ((!o || !e.classList.contains("cke_widget_mention-box")) && !((!e.firstElementChild || 1 === e.childElementCount && e.offsetWidth > 0) && "inline" === window.getComputedStyle(e).display)))) : "SUP" === t && e.textContent ? CEElementInspector.SUP_REGEXP.test(e.textContent.trim()) : !(!i || !e.classList.contains("ql-code-block") && !e.classList.contains("ql-formula"))))
                 },
                 isSignature: e => t ? !!(e.dataset && e.dataset.marker && e.dataset.marker.includes("_SIG_")) : a ? "signature" === e.id.toLowerCase() : !!r && "_rc_sig" === e.id,
                 isQuote: e => t ? !!(e.dataset && e.dataset.marker && e.dataset.marker.includes("_QUOTED_")) : !!a && ("divRplyFwdMsg" === e.id || !!e.previousElementSibling && "divRplyFwdMsg" === e.previousElementSibling.id),
@@ -422,9 +415,7 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
     getReplacedParts: (e, t) => TweaksManager._getExcludedParts(t, Array.from(TweaksManager.TEXT_IGNORING_DEFAULT_RULES.values())),
     getRecipientInfo(e) {
         try {
-            const t = "BODY" === e.tagName && "tinymce" === e.id,
-                a = "TEXTAREA" === e.tagName && "composebody" === e.id;
-            if (t || a) {
+            if ("TEXTAREA" === e.tagName && "composebody" === e.id) {
                 const e = window.parent.document.getElementById("_from"),
                     t = window.parent.document.getElementById("compose-subject"),
                     a = window.parent.document.getElementById("_to");
@@ -822,7 +813,7 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
         url: /docs\.google\.com\/spreadsheets/
     },
     supported: () => !1,
-    unsupportedMessage: () => browser.i18n.getMessage("siteCannotBeSupported")
+    unsupportedMessage: () => chrome.i18n.getMessage("siteCannotBeSupported")
 }, {
     match: {
         url: /docs\.google\.com\/sharing/
@@ -1103,7 +1094,7 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
                 command: "GET_VALIDATOR_DATA",
                 id: s
             };
-            browser.runtime.sendMessage(e).then(e => {
+            chrome.runtime.sendMessage(e).then(e => {
                 e && isGetValidatorDataResult(e) && waitFor(() => document.querySelector("[data-lt-editor-input]")).then(t => {
                     t.innerText = e.text;
                     const a = new window.InputEvent("input", {
@@ -1128,7 +1119,7 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
             })
         }), TweaksManager.DEFAULT_TWEAKS.init()
     },
-    isElementCompatible: e => !e.classList.contains("mceContentBody") && TweaksManager.DEFAULT_TWEAKS.isElementCompatible(e)
+    isElementCompatible: e => TweaksManager.DEFAULT_TWEAKS.isElementCompatible(e)
 }, {
     match: {
         hostname: "linkedin.com"
@@ -1228,9 +1219,7 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
     },
     getRecipientInfo(e) {
         try {
-            const t = "BODY" === e.tagName && "tinymce" === e.id,
-                a = "TEXTAREA" === e.tagName && e.parentElement && e.parentElement.classList.contains("editor");
-            if (t || a) {
+            if ("TEXTAREA" === e.tagName && e.parentElement && e.parentElement.classList.contains("editor")) {
                 const t = closestElement(window.frameElement || e, ".window-container[role=dialog]");
                 if (t) {
                     const e = t.querySelector(".tokenfield .token span.token-label");
@@ -1443,18 +1432,6 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
     },
     getRecipientInfo(e) {
         try {
-            if ("BODY" === e.tagName && "tinymce" === e.id) {
-                const e = window.parent.document.querySelector("div[class*=Fields-receiverWrapper] div[class*=Fields-inputWrapper] span[class*=EmailBadge-root] span[class*=EmailBadge-text]");
-                if (e) {
-                    const t = e.textContent || "",
-                        a = TweaksManager._getEmail(t),
-                        r = TweaksManager._getFullName(t);
-                    return Promise.resolve({
-                        address: a,
-                        fullName: r
-                    })
-                }
-            }
             if ("TEXTAREA" === e.tagName && e.classList.contains("QuickReply-textarea-3R")) {
                 const e = document.querySelector("div[class*=LetterHeader-from] span[class*=ContactWithDropdown-headerEmail]"),
                     t = document.querySelector("div[class*=LetterHeader-from] span[class*=ContactWithDropdown-headerName]");
