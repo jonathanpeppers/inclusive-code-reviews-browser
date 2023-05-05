@@ -1,7 +1,7 @@
 {
     "name": "inclusive-code-comments",
     "description": "Checks your comments anywhere on the web: GitHub or Azure DevOps!",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "homepage": "https://github.com/jonathanpeppers/inclusive-code-comments",
     "author": "Jonathan Peppers",
     "repository": {

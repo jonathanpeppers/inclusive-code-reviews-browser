@@ -55,7 +55,7 @@
       "managed_schema": "managed_settings.json"
    },
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "3.0.1",
+   "version": "3.0.2",
    "web_accessible_resources": [{
       "resources": [ 
          "assets/model.onnx",
