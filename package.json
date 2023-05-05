@@ -28,7 +28,8 @@
     ],
     "devDependencies": {
         "extension-cli": "^1.2.4",
-        "onnxruntime-node": "^1.14.0"
+        "onnxruntime-node": "^1.14.0",
+        "openai": "^3.2.1"
     },
     "xtdocs": {
         "source": {
