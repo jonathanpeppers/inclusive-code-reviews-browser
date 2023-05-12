@@ -16,6 +16,13 @@ const openai = new OpenAIApi(new Configuration({
 }));
 
 describe('openai', () => {
+  // Just return if the key is not set.
+  // This would happen on a PR from a fork.
+  if (!openai_key) {
+    console.warn("Skipping openai tests, key not set.");
+    return;
+  }
+
   it('simple prompt', async () => {
     const response = await openai.createCompletion({
       model: 'text-davinci-003',
