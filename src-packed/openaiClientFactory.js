@@ -11,6 +11,14 @@ export function setAzureManagedConfig(endpoint, key) {
   window.localStorage.setItem(configObjectLocalStorageName, JSON.stringify(config));
 }
 
+export function setPublicOpenaiConfig(key) {
+  let config = {
+    openaiApiKey: key
+  };
+
+  window.localStorage.setItem(configObjectLocalStorageName, JSON.stringify(config));
+}
+
 export function clearOpenaiConfig() {
   window.localStorage.removeItem(configObjectLocalStorageName);
 }
@@ -42,6 +50,15 @@ export function getOpenaiClient() {
         }
       }
     }));
+
+    return openai;
+  }
+  else if (Object.hasOwn(parsedConfig, 'openaiApiKey')){
+    var configuration = new Configuration({
+      apiKey: parsedConfig.openaiApiKey,
+    });
+
+    var openai = new OpenAIApi(configuration);
 
     return openai;
   }
