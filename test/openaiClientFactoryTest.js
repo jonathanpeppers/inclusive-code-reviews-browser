@@ -177,4 +177,46 @@ describe('openai client factory', () => {
         assert.equal(openai, undefined);
     }).timeout(5000);
 
+    it('can switch from azure open ai to public open ai', async () => {
+
+        if (!public_openai_key) {
+            console.warn("Skipping openai client factory tests, public openai key not set.");
+            return;
+        }
+
+        facotry.setAzureManagedConfig(azureEndpoint, openai_key);
+
+        var openai = facotry.getOpenaiClient();
+        assert.notEqual(openai, undefined);
+
+        var response = await openai.createCompletion({
+            model: 'text-davinci-003',
+            prompt: 'What is the meaning of life?',
+            // 0 accurate, 1 creative
+            temperature: 0.5
+        });
+        var result = response.data.choices[0].text;
+        expect(result.length).to.not.be.equal(0);
+
+        facotry.setPublicOpenaiConfig(public_openai_key);
+
+        openai = facotry.getOpenaiClient();
+        assert.notEqual(openai, undefined);
+
+        response = await openai.createCompletion({
+            model: 'text-davinci-003',
+            prompt: 'What is the meaning of life?',
+            // 0 accurate, 1 creative
+            temperature: 0.5
+        });
+        result = response.data.choices[0].text;
+        expect(result.length).to.not.be.equal(0);
+
+        // clear would remove the stored config
+        facotry.clearOpenaiConfig();
+
+        openai = facotry.getOpenaiClient();
+        assert.equal(openai, undefined);
+    }).timeout(5000);
+
 });
