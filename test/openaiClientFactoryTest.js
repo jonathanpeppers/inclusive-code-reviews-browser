@@ -149,6 +149,63 @@ describe('openai client factory', () => {
         assert.equal(openai, undefined);
     }).timeout(5000);
 
+    it('basic comment rewrite', async () => {
+        facotry.setAzureManagedConfig(azureEndpoint, openai_key);
+        var openai = facotry.getOpenaiClient();
+        assert.notEqual(openai, undefined);
+
+        let comment = "Remove this line of code. This is a wasted line of code.";
+        const response = await openai.createChatCompletion({
+            model: 'gpt-3.5-turbo',
+            messages:
+                [
+                    {
+                        "role": "system",
+                        "content": "You are a helpful assistant."
+                    },
+                    {
+                        "role": "user",
+                        "content": "Rewrite this sentence in a more friendly manner: " + comment
+                    }
+                ],
+            // 0 accurate, 1 creative
+            temperature: 0
+        });
+
+        let result = response.data.choices[0].message.content;
+
+        expect(result.length).to.not.be.equal(0);
+        expect(result).to.not.be.contains("This is a wasted line of code");
+    }).timeout(5000);
+
+    it('basic comment rating', async () => {
+        facotry.setAzureManagedConfig(azureEndpoint, openai_key);
+        var openai = facotry.getOpenaiClient();
+        assert.notEqual(openai, undefined);
+
+        let comment = "Remove this line of code. This is a wasted line of code.";
+
+        const response = await openai.createChatCompletion({
+            model: 'gpt-3.5-turbo',
+            messages:
+                [
+                    {
+                        "role": "system",
+                        "content": "You are a helpful assistant."
+                    },
+                    {
+                        "role": "user",
+                        "content": "In a scale from 0 to 10. 0 means not polite at all. 10 means very polite. Please tell me only the score number of this sentence: " + comment
+                    }
+                ],
+            // 0 accurate, 1 creative
+            temperature: 0
+        });
+
+        let result = response.data.choices[0].message.content;
+        expect(result.length).to.not.be.equal(0);
+    }).timeout(5000);
+
     // We do not have a public open ai test api key for now. commenting this part outerHeight.
     // it('would store the public config and get the instance', async () => {
 
