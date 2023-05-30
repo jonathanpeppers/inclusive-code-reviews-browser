@@ -9,6 +9,7 @@ export function setAzureManagedConfig(endpoint, key) {
   };
 
   window.localStorage.setItem(configObjectLocalStorageName, JSON.stringify(config));
+  chrome.storage.local.set(configObjectLocalStorageName, JSON.stringify(config));
 }
 
 export function setPublicOpenaiConfig(key) {
@@ -17,14 +18,17 @@ export function setPublicOpenaiConfig(key) {
   };
 
   window.localStorage.setItem(configObjectLocalStorageName, JSON.stringify(config));
+  chrome.storage.local.set(configObjectLocalStorageName, JSON.stringify(config));
 }
 
 export function clearOpenaiConfig() {
   window.localStorage.removeItem(configObjectLocalStorageName);
+  chrome.storage.local.remove(configObjectLocalStorageName);
 }
 
-export function getOpenaiClient() {
-  let serilizedConfig = window.localStorage.getItem(configObjectLocalStorageName);
+export async function getOpenaiClient() {
+  // let serilizedConfig = window.localStorage.getItem(configObjectLocalStorageName);
+  let serilizedConfig = await getFromLocalStorage(configObjectLocalStorageName);
 
   if (!serilizedConfig) {
     return null;
@@ -53,7 +57,7 @@ export function getOpenaiClient() {
 
     return openai;
   }
-  else if (Object.hasOwn(parsedConfig, 'openaiApiKey')){
+  else if (Object.hasOwn(parsedConfig, 'openaiApiKey')) {
     var configuration = new Configuration({
       apiKey: parsedConfig.openaiApiKey,
     });
@@ -65,3 +69,15 @@ export function getOpenaiClient() {
 
   return null;
 } 
+
+function getFromLocalStorage(key) {
+  return new Promise((resolve, reject) => {
+    chrome.storage.local.get(key, result => {
+      if (chrome.runtime.lastError) {
+        reject(chrome.runtime.lastError);
+      } else {
+        resolve(result[key]);
+      }
+    });
+  });
+}

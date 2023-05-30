@@ -121,16 +121,16 @@ describe('openai client factory', () => {
 
     const facotry = require('../src-packed/openaiClientFactory');
 
-    it('would get empty', () => {
+    it('would get empty', async () => {
         facotry.clearOpenaiConfig();
-        var result = facotry.getOpenaiClient();
+        var result = await facotry.getOpenaiClient();
         assert.equal(result, undefined);
     });
 
     it('would store the azure config and get the instance', async () => {
         facotry.setAzureManagedConfig(azureEndpoint, openai_key);
 
-        var openai = facotry.getOpenaiClient();
+        var openai = await facotry.getOpenaiClient();
         assert.notEqual(openai, undefined);
 
         const response = await openai.createCompletion({
