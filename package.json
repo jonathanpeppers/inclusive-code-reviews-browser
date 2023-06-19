@@ -28,7 +28,7 @@
     ],
     "devDependencies": {
         "extension-cli": "^1.2.4",
-        "onnxruntime-node": "^1.15.0",
+        "onnxruntime-node": "^1.15.1",
         "openai": "^3.2.1",
         "global": "^4.3.2"
     },
