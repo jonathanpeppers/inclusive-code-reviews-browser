@@ -151,6 +151,10 @@ export async function analyzeSentiment(ort, sentences) {
             importance: new ort.Tensor('float32', [''], [1,1]),
         })
         const result = results['PredictedLabel.output'].data[0];
+
+        // Trim any trailing spaces for the length used
+        const trimmedText =  text.trimEnd();
+
         sentiment.sentences.push({
             text: text,
             sentiment: result === '1' ? 'negative' : 'neutral',
@@ -159,7 +163,7 @@ export async function analyzeSentiment(ort, sentences) {
                 neutral: results['Score.output'].data[0],
             },
             offset: totalLength,
-            length: text.length,
+            length: trimmedText.length,
         });
         totalLength += text.length;
     }

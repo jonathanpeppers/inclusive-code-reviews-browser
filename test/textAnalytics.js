@@ -47,7 +47,7 @@ This code is stupid.`
         var sentence = result.sentences[result.sentences.length - 1];
         expect(sentence.sentiment).to.be.equal("negative");
         expect(sentence.offset).to.be.equal(text1.length);
-        expect(sentence.length).to.be.equal(text2.length);
+        expect(sentence.length).to.be.equal(text2.length - 1); // \n is trimmed
     });
 
     it('Indented code blocks negative', async () => {
@@ -62,7 +62,7 @@ This code is stupid.`
         var sentence = result.sentences[0];
         expect(sentence.sentiment).to.be.equal("negative");
         expect(sentence.offset).to.be.equal(0);
-        expect(sentence.length).to.be.equal(text1.length);
+        expect(sentence.length).to.be.equal(text1.length - 1); // \n is trimmed
     });
 
     it('Preprocess 1', () => {
