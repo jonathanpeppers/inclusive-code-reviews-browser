@@ -34,7 +34,7 @@ export async function getMatches(ort, text, matches) {
         });
     });
 
-    // TextAnalytics API
+    // Calls our ML model
     const result = await textAnalytics.analyzeSentiment(ort, text);
     if (result.error !== undefined) {
         console.log(result.error);

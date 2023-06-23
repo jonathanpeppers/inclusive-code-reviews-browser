@@ -96,4 +96,14 @@ describe('validator', () => {
         expect(matches[0].shortMessage).to.be.equal("Negative sentiment");
         expect(matches[1].shortMessage).to.be.equal("Comment is brief");
     });
+
+    it('Two sentences', async () => {
+        var matches = [];
+        var bad = 'This is bad.';
+        await client.getMatches(ort, bad + ' This is good.', matches);
+        expect(matches.length).to.be.equal(1);
+        var match = matches[0];
+        expect(match.offset).to.be.equal(0);
+        expect(match.length).to.be.equal(bad.length);
+    });
 });
