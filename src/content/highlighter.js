@@ -72,7 +72,6 @@ class Highlighter {
                 (this._container.style.display = "none"),
                 isCKEditor(this._inputArea) && this._container.setAttribute("data-cke-temp", "1"),
                 (this._wrapper = t.createElement("lt-div")),
-                this._wrapper.setAttribute("spellcheck", "false"),
                 (this._wrapper.className = "lt-highlighter__wrapper"),
                 (this._scrollElement = t.createElement("lt-div")),
                 (this._scrollElement.className = "lt-highlighter__scrollElement"),
