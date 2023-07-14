@@ -41,7 +41,6 @@
                 const e = { command: "OPEN_PRIVACY_CONFIRMATION" };
                 return chrome.runtime.sendMessage(e), void window.close();
             }
-            reloadContentScriptsIfNecessary(s, t);
             const i = v.getValidationSettings(t, o.getEditorGroupId(e)),
                 p = { enabled: true, supported: !0, unsupportedMessage: "", capitalization: true };
             o.supported() ? v.isDomainSupported(t) || ((p.supported = !1), (p.unsupportedMessage = chrome.i18n.getMessage("siteCannotBeSupported"))) : ((p.supported = !1), (p.unsupportedMessage = o.unsupportedMessage()));
