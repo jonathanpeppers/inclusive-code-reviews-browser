@@ -1,12 +1,11 @@
 const { openai_key } = require("../src-packed/secrets");
+var apiKey = openai_key || process.env.OPEN_AI_KEY;
 var assert = require('assert');
 
 describe('openai client factory', () => {
-    openai_key ||= process.env.OPEN_AI_KEY;
-
     // Just return if the key is not set.
     // This would happen on a PR from a fork.
-    if (!openai_key) {
+    if (!apiKey) {
         console.warn("Skipping openai client factory tests, key not set.");
         return;
     }
@@ -15,7 +14,7 @@ describe('openai client factory', () => {
     const factory = require('../src-packed/openaiClientFactory');
 
     it('basic comment rewrite', async () => {
-        var openai = factory.getOpenaiClient(openai_key, endpoint);
+        var openai = factory.getOpenaiClient(apiKey, endpoint);
         assert.notEqual(openai, undefined);
 
         let comment = "Remove this line of code. This is a wasted line of code.";
@@ -42,7 +41,7 @@ describe('openai client factory', () => {
     }).timeout(5000);
 
     it('basic comment rating', async () => {
-        var openai = factory.getOpenaiClient(openai_key, endpoint);
+        var openai = factory.getOpenaiClient(apiKey, endpoint);
         assert.notEqual(openai, undefined);
 
         let comment = "Remove this line of code. This is a wasted line of code.";
