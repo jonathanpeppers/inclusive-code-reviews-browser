@@ -1,4 +1,5 @@
 const { openai_key } = require("../src-packed/secrets");
+const timeout = 10000;
 var apiKey = openai_key || process.env.OPEN_AI_KEY;
 var assert = require('assert');
 
@@ -38,7 +39,7 @@ describe('openai client factory', () => {
 
         expect(result.length).to.not.be.equal(0);
         expect(result).to.not.be.contains("This is a wasted line of code");
-    }).timeout(5000);
+    }).timeout(timeout);
 
     it('basic comment rating', async () => {
         var openai = factory.getOpenaiClient(apiKey, endpoint);
@@ -64,5 +65,5 @@ describe('openai client factory', () => {
 
         let result = response.choices[0].message.content;
         expect(result.length).to.not.be.equal(0);
-    }).timeout(5000);
+    }).timeout(timeout);
 });
