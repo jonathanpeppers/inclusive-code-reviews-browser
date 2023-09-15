@@ -1,10 +1,6 @@
 /*! (C) Copyright 2020 LanguageTooler GmbH. All rights reserved. */
 !(function () {
     const
-        ignoredRules = document.getElementById("ignoredRules"),
-        ignoredRulesOptions = document.getElementById("ignoredRules-options"),
-        ignoredRulesList = document.getElementById("ignoredRulesList"),
-        ignoredRulesClearAll = document.getElementById("ignoredRules-options__clearAll"),
         disabledDomains = document.getElementById("disabledDomains"),
         disabledDomainsOptions = document.getElementById("disabledDomains-options"),
         disabledDomainsList = document.getElementById("disabledDomainsList"),
@@ -20,37 +16,9 @@
         return regex1.test(e) || regex2.test(e) || regex3.test(e);
     }
     function updateDisplay() {
-        const { apiServerUrl: o, disableIgnoredRules: d, loginUrl: c } = storageController.getManagedSettings();
-            d && ((ignoredRules.style.display = "none"), (ignoredRulesOptions.style.display = "none")),
+        const { apiServerUrl: o, loginUrl: c } = storageController.getManagedSettings();
             o && ((A.style.display = "none"), (e.style.display = "none")),
             c && ((e.style.display = "none"), (t.style.display = "none"), (n.style.display = "none"), (s.style.display = "none"), (i.style.display = ""), (l.style.display = ""));
-    }
-    function pe() {
-        ignoredRulesList.innerHTML = "";
-        const e = storageController.getSettings().ignoredRules,
-            t = i18nManager.getMessage("enableRuleTooltip");
-        for (const n of e) {
-            if (n.language) {
-                const e = LanguageManager.getUserLanguageCodes().some((e) => n.language.toLowerCase().startsWith(e) || "*" === n.language);
-                if (StorageControllerClass.getDefaultSettings().ignoredRules.some((e) => e.id === n.id) && !e) continue;
-            }
-            const e = document.createElement("li");
-            e.className = "lt-options__rules__item";
-            const o = document.createElement("span");
-            (o.className = "lt-options__rules__title"), (o.textContent = "- " + (n.description || n.id)), e.appendChild(o);
-            const s = document.createElement("span");
-            (s.className = "lt-options__rules__enable-button"), s.setAttribute("title", t), (s.dataset.ruleId = n.id), (s.textContent = t), s.addEventListener("click", ye), e.appendChild(s), ignoredRulesList.appendChild(e);
-        }
-        const n = document.getElementById("ignoredRules-optionsInside"),
-            o = document.getElementById("ignoredRules-options__emptyState");
-        e.length > 0 ? ((n.style.display = "block"), (o.style.display = "none")) : ((n.style.display = "none"), (o.style.display = "block"));
-    }
-    function ye(e) {
-        const t = e.currentTarget.dataset.ruleId;
-        if (t) {
-            const e = storageController.getSettings().ignoredRules.filter((e) => e.id !== t);
-            storageController.updateSettings({ ignoredRules: e }).then(pe);
-        }
     }
     function updateDisabledDomains(e = storageController.getSettings().disabledDomains, t = storageController.getSettings().disabledDomains.length > 0) {
         disabledDomainsList.innerHTML = "";
@@ -150,15 +118,9 @@
         }
     }
     translateSection(document.documentElement),
-        storageController.onReady(function () { pe(), updateDisabledDomains(), updateDisplay(); }),
+        storageController.onReady(function () { updateDisabledDomains(), updateDisplay(); }),
         Dictionary.init(storageController),
         Tracker.trackPageView(),
-        ignoredRules.addEventListener("click", () => {
-            ignoredRules.classList.toggle("lt-options-toggle-visible"), ignoredRulesOptions.classList.toggle("lt-options-visible");
-        }),
-        ignoredRulesClearAll.addEventListener("click", function () {
-            storageController.updateSettings({ ignoredRules: [] }).then(pe);
-        }),
         disabledDomains.addEventListener("click", () => {
             disabledDomainsOptions.classList.toggle("lt-options-visible"), disabledDomains.classList.toggle("lt-options-toggle-visible") && disabledDomainsInput.focus();
         }),
