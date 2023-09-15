@@ -23,6 +23,31 @@
 		<div class="lt-options__generalSettings-toggle lt-options-static" id="generalSettings"
 			data-t="generalSettingsHeadline"></div>
 
+		<div id="generalSettings-options" class="lt-options__generalSettings lt-static-box">
+			<div class="lt-options__row">
+				<div class="lt-toggle-wrapper">
+					<label data-t="settingsOpenAIKey"></label>
+					<input id="openAIKeyInput" type="password"
+						data-t-placeholder="settingsOpenAIKeyPlaceholder" autocomplete="off">
+				</div>
+				<div class="lt-settings-info">
+					<strong class="lt-settings-info__headline" data-t="settingsOpenAIKeyTutorialHeadline"></strong>
+					<span data-t="settingsOpenAIKeyTutorialText"></span>
+				</div>
+			</div>
+			<div class="lt-options__row">
+				<div class="lt-toggle-wrapper">
+					<label data-t="settingsOpenAIUrl"></label>
+					<input id="openAIUrlInput" type="text" name="fname"
+						data-t-placeholder="settingsOpenAIUrlPlaceholder" autocomplete="off">
+				</div>
+				<div class="lt-settings-info">
+					<strong class="lt-settings-info__headline" data-t="settingsOpenAIUrlTutorialHeadline"></strong>
+					<span data-t="settingsOpenAIUrlTutorialText"></span>
+				</div>
+			</div>
+		</div>
+
 		<div class="lt-options__personalDictionary-toggle lt-options-toggle" id="personalDictionary"
 			data-t="settingsDictionaryHeadline" style="display: none;"></div>
 
