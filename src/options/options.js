@@ -158,7 +158,7 @@
         }
     }
     translateSection(document.documentElement),
-        storageController.onReady(function () { re(), pe(), Ee(), le(); }),
+        storageController.onReady(function () { pe(), Ee(), le(); }),
         Dictionary.init(storageController),
         Tracker.trackPageView(),
         ignoredRules.addEventListener("click", () => {
