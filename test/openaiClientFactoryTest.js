@@ -2,6 +2,8 @@ const { openai_key } = require("../src-packed/secrets");
 var assert = require('assert');
 
 describe('openai client factory', () => {
+    openai_key ||= process.env.OPEN_AI_KEY;
+
     // Just return if the key is not set.
     // This would happen on a PR from a fork.
     if (!openai_key) {
