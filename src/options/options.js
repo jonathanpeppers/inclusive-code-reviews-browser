@@ -1,6 +1,8 @@
 /*! (C) Copyright 2020 LanguageTooler GmbH. All rights reserved. */
 !(function () {
     const
+        openAIKeyInput = document.getElementById("openAIKeyInput"),
+        openAIUrlInput = document.getElementById("openAIUrlInput"),
         disabledDomains = document.getElementById("disabledDomains"),
         disabledDomainsOptions = document.getElementById("disabledDomains-options"),
         disabledDomainsList = document.getElementById("disabledDomainsList"),
@@ -15,10 +17,15 @@
     function isValidDomain(e) {
         return regex1.test(e) || regex2.test(e) || regex3.test(e);
     }
-    function updateDisplay() {
+    function updateLogin() {
         const { apiServerUrl: o, loginUrl: c } = storageController.getManagedSettings();
             o && ((A.style.display = "none"), (e.style.display = "none")),
             c && ((e.style.display = "none"), (t.style.display = "none"), (n.style.display = "none"), (s.style.display = "none"), (i.style.display = ""), (l.style.display = ""));
+    }
+    function updateApiKeys() {
+        const { openAIKey, openAIUrl } = storageController.getSettings();
+        openAIKeyInput.value = openAIKey;
+        openAIUrlInput.value = openAIUrl;
     }
     function updateDisabledDomains(e = storageController.getSettings().disabledDomains, t = storageController.getSettings().disabledDomains.length > 0) {
         disabledDomainsList.innerHTML = "";
@@ -39,6 +46,12 @@
             : t
             ? ((o.style.display = "none"), (s.style.display = "block"), (a.style.display = "none"))
             : ((o.style.display = "none"), (s.style.display = "none"), (a.style.display = "block"));
+    }
+    function updateOpenAIKeyInput() {
+        storageController.updateSettings({ openAIKey: openAIKeyInput.value });
+    }
+    function updateOpenAIUrlInput() {
+        storageController.updateSettings({ openAIUrl: openAIUrlInput.value });
     }
     function updateDisabledDomainsInput() {
         const e = disabledDomainsInput.value;
@@ -118,9 +131,15 @@
         }
     }
     translateSection(document.documentElement),
-        storageController.onReady(function () { updateDisabledDomains(), updateDisplay(); }),
+        storageController.onReady(function () { updateApiKeys(), updateDisabledDomains(), updateLogin(); }),
         Dictionary.init(storageController),
         Tracker.trackPageView(),
+        openAIKeyInput.addEventListener("input", () => {
+            setTimeout(updateOpenAIKeyInput, 0);
+        }),
+        openAIUrlInput.addEventListener("input", () => {
+            setTimeout(updateOpenAIUrlInput, 0);
+        }),
         disabledDomains.addEventListener("click", () => {
             disabledDomainsOptions.classList.toggle("lt-options-visible"), disabledDomains.classList.toggle("lt-options-toggle-visible") && disabledDomainsInput.focus();
         }),

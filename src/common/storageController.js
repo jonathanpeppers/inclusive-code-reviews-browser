@@ -158,7 +158,7 @@ class StorageControllerClass {
         ignoreCheckOnDomains: [],
         autoCheckOnDomains: [],
         openAIKey: "",
-        openAIURL: "",
+        openAIUrl: "",
     }),
     (StorageControllerClass.PICKY_RULE_IDS = StorageControllerClass.DEFAULT_SETTINGS.ignoredRules.map((e) => e.id)),
     (StorageControllerClass.DEFAULT_MANAGED_SETTINGS = { apiServerUrl: "", loginUrl: "", disablePrivacyConfirmation: !0, disablePersonalDictionary: !1, disableIgnoredRules: !1 }),
