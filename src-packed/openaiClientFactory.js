@@ -1,4 +1,4 @@
-const { Configuration, OpenAIApi } = require("openai");
+const { Configuration, OpenAI } = require("openai");
 
 const configObjectLocalStorageName = "icr-openai-config";
 
@@ -37,29 +37,27 @@ export function getOpenaiClient() {
       parsedConfig.azureEndpoint = parsedConfig.azureEndpoint + "/";
     }
 
-    var epBasePath = `${parsedConfig.azureEndpoint}openai/deployments/icrgpt-35-turbo`
-
-    var openai = new OpenAIApi(new Configuration({
+    var openai = new OpenAI({
       apiKey: parsedConfig.azureKey,
-      basePath: epBasePath,
-      baseOptions: {
-        headers: { 'api-key': parsedConfig.azureKey },
-        params: {
-          // https://learn.microsoft.com/azure/cognitive-services/openai/reference#chat-completions
-          'api-version': '2023-03-15-preview'
-        }
-      }
-    }));
-
-    return openai;
-  }
-  else if (Object.hasOwn(parsedConfig, 'openaiApiKey')){
-    var configuration = new Configuration({
-      apiKey: parsedConfig.openaiApiKey,
+      baseURL: `${parsedConfig.azureEndpoint}openai/deployments/icrgpt-35-turbo-16k`,
+      defaultHeaders: { 
+        'api-key': parsedConfig.azureKey
+      },
+      defaultQuery:  {
+        // https://learn.microsoft.com/azure/cognitive-services/openai/reference#chat-completions
+        'api-version': '2023-03-15-preview'
+      },
+      // NOTE: this warns inside our tests and the chrome extension, have no choice really
+      dangerouslyAllowBrowser: true
     });
 
-    var openai = new OpenAIApi(configuration);
-
+    return openai;
+  } else if (Object.hasOwn(parsedConfig, 'openaiApiKey')){
+    var openai = new OpenAI({
+      apiKey: parsedConfig.openaiApiKey,
+      // NOTE: this warns inside our tests and the chrome extension, have no choice really
+      dangerouslyAllowBrowser: true
+    });
     return openai;
   }
 

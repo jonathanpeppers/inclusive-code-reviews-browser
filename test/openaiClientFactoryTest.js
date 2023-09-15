@@ -119,44 +119,50 @@ describe('openai client factory', () => {
 
     let azureEndpoint = "https://icropenaiservice.openai.azure.com/";
 
-    const facotry = require('../src-packed/openaiClientFactory');
+    const factory = require('../src-packed/openaiClientFactory');
 
     it('would get empty', () => {
-        facotry.clearOpenaiConfig();
-        var result = facotry.getOpenaiClient();
+        factory.clearOpenaiConfig();
+        var result = factory.getOpenaiClient();
         assert.equal(result, undefined);
     });
 
     it('would store the azure config and get the instance', async () => {
-        facotry.setAzureManagedConfig(azureEndpoint, openai_key);
+        factory.setAzureManagedConfig(azureEndpoint, openai_key);
 
-        var openai = facotry.getOpenaiClient();
+        var openai = factory.getOpenaiClient();
         assert.notEqual(openai, undefined);
 
-        const response = await openai.createCompletion({
+        const response = await openai.chat.completions.create({
             model: 'text-davinci-003',
-            prompt: 'What is the meaning of life?',
+            messages:
+                [
+                    {
+                        "role": "user",
+                        "content": 'What is the meaning of life?'
+                    }
+                ],
             // 0 accurate, 1 creative
             temperature: 0.5
         });
-        const result = response.data.choices[0].text;
+        let result = response.choices[0].message.content;
         expect(result.length).to.not.be.equal(0);
 
         // clear would remove the stored config
-        facotry.clearOpenaiConfig();
+        factory.clearOpenaiConfig();
 
-        openai = facotry.getOpenaiClient();
+        openai = factory.getOpenaiClient();
         assert.equal(openai, undefined);
     }).timeout(5000);
 
     it('basic comment rewrite', async () => {
-        facotry.setAzureManagedConfig(azureEndpoint, openai_key);
-        var openai = facotry.getOpenaiClient();
+        factory.setAzureManagedConfig(azureEndpoint, openai_key);
+        var openai = factory.getOpenaiClient();
         assert.notEqual(openai, undefined);
 
         let comment = "Remove this line of code. This is a wasted line of code.";
-        const response = await openai.createChatCompletion({
-            model: 'gpt-3.5-turbo',
+        const response = await openai.chat.completions.create({
+            model: 'gpt-3.5-turbo-16k',
             messages:
                 [
                     {
@@ -172,20 +178,20 @@ describe('openai client factory', () => {
             temperature: 0
         });
 
-        let result = response.data.choices[0].message.content;
+        let result = response.choices[0].message.content;
 
         expect(result.length).to.not.be.equal(0);
         expect(result).to.not.be.contains("This is a wasted line of code");
     }).timeout(5000);
 
     it('basic comment rating', async () => {
-        facotry.setAzureManagedConfig(azureEndpoint, openai_key);
-        var openai = facotry.getOpenaiClient();
+        factory.setAzureManagedConfig(azureEndpoint, openai_key);
+        var openai = factory.getOpenaiClient();
         assert.notEqual(openai, undefined);
 
         let comment = "Remove this line of code. This is a wasted line of code.";
 
-        const response = await openai.createChatCompletion({
+        const response = await openai.chat.completions.create({
             model: 'gpt-3.5-turbo',
             messages:
                 [
@@ -202,79 +208,7 @@ describe('openai client factory', () => {
             temperature: 0
         });
 
-        let result = response.data.choices[0].message.content;
+        let result = response.choices[0].message.content;
         expect(result.length).to.not.be.equal(0);
     }).timeout(5000);
-
-    // We do not have a public open ai test api key for now. commenting this part outerHeight.
-    // it('would store the public config and get the instance', async () => {
-
-    //     if (!public_openai_key) {
-    //         console.warn("Skipping openai client factory tests, public openai key not set.");
-    //         return;
-    //     }
-
-    //     facotry.setPublicOpenaiConfig(public_openai_key);
-
-    //     var openai = facotry.getOpenaiClient();
-    //     assert.notEqual(openai, undefined);
-
-    //     const response = await openai.createCompletion({
-    //         model: 'text-davinci-003',
-    //         prompt: 'What is the meaning of life?',
-    //         // 0 accurate, 1 creative
-    //         temperature: 0.5
-    //     });
-    //     const result = response.data.choices[0].text;
-    //     expect(result.length).to.not.be.equal(0);
-
-    //     // clear would remove the stored config
-    //     facotry.clearOpenaiConfig();
-
-    //     openai = facotry.getOpenaiClient();
-    //     assert.equal(openai, undefined);
-    // }).timeout(5000);
-
-    // it('can switch from azure open ai to public open ai', async () => {
-
-    //     if (!public_openai_key) {
-    //         console.warn("Skipping openai client factory tests, public openai key not set.");
-    //         return;
-    //     }
-
-    //     facotry.setAzureManagedConfig(azureEndpoint, openai_key);
-
-    //     var openai = facotry.getOpenaiClient();
-    //     assert.notEqual(openai, undefined);
-
-    //     var response = await openai.createCompletion({
-    //         model: 'text-davinci-003',
-    //         prompt: 'What is the meaning of life?',
-    //         // 0 accurate, 1 creative
-    //         temperature: 0.5
-    //     });
-    //     var result = response.data.choices[0].text;
-    //     expect(result.length).to.not.be.equal(0);
-
-    //     facotry.setPublicOpenaiConfig(public_openai_key);
-
-    //     openai = facotry.getOpenaiClient();
-    //     assert.notEqual(openai, undefined);
-
-    //     response = await openai.createCompletion({
-    //         model: 'text-davinci-003',
-    //         prompt: 'What is the meaning of life?',
-    //         // 0 accurate, 1 creative
-    //         temperature: 0.5
-    //     });
-    //     result = response.data.choices[0].text;
-    //     expect(result.length).to.not.be.equal(0);
-
-    //     // clear would remove the stored config
-    //     facotry.clearOpenaiConfig();
-
-    //     openai = facotry.getOpenaiClient();
-    //     assert.equal(openai, undefined);
-    // }).timeout(5000);
-
 });
