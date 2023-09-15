@@ -48,7 +48,7 @@
         for (const o of t) o.includes(e) && n.push(o);
         updateDisabledDomains(n, 0 === t.length);
     }
-    function ve() {
+    function addToDisabledDomainsClicked() {
         const e = disabledDomainsInput.value.trim(),
             t = getDomain(e, "");
         if ("" === t.trim() || !isValidDomain(e)) return void alert(i18nManager.getMessage("settingsDomainInvalid"));
@@ -99,7 +99,7 @@
             const o = document.createElement("span");
             (o.className = "lt-options__rules__title"), (o.textContent = "● " + t), e.appendChild(o);
             const s = document.createElement("span");
-            (s.className = "lt-options__rules__enable-button"), s.setAttribute("title", n), (s.dataset.domain = t), (s.textContent = n), s.addEventListener("click", Ae), e.appendChild(s), K.appendChild(e);
+            (s.className = "lt-options__rules__enable-button"), s.setAttribute("title", n), (s.dataset.domain = t), (s.textContent = n), s.addEventListener("click", ignoreCheckOnDomainsClicked), e.appendChild(s), K.appendChild(e);
         }
         const o = document.getElementById("ignoredDomains-optionsInside"),
             s = document.getElementById("ignoredDomains-options__emptyState"),
@@ -110,7 +110,7 @@
             ? ((o.style.display = "none"), (s.style.display = "block"), (a.style.display = "none"))
             : ((o.style.display = "none"), (s.style.display = "none"), (a.style.display = "block"));
     }
-    function Ae(e) {
+    function ignoreCheckOnDomainsClicked(e) {
         const t = e.currentTarget.dataset.domain;
         if (t) {
             const e = storageController.getSettings().ignoreCheckOnDomains.filter((e) => e !== t);
@@ -125,7 +125,7 @@
             disabledDomainsOptions.classList.toggle("lt-options-visible"), disabledDomains.classList.toggle("lt-options-toggle-visible") && disabledDomainsInput.focus();
         }),
         disabledDomainsInput.addEventListener("keydown", (e) => {
-            "Enter" === e.key && ve();
+            "Enter" === e.key && addToDisabledDomainsClicked();
         }),
         disabledDomainsInput.addEventListener("input", () => {
             setTimeout(updateDisabledDomainsInput, 0);
@@ -145,7 +145,7 @@
             }),
                 storageController.updateSettings({ disabledDomains: o }).then(updateDisabledDomainsInput);
         }),
-        addToDisabledDomains.addEventListener("click", ve),
+        addToDisabledDomains.addEventListener("click", addToDisabledDomainsClicked),
         disabledDomainsClearAll.addEventListener("click", function () {
             confirm(i18nManager.getMessage("settingsAreYouSure")) && storageController.updateSettings({ disabledDomains: [] }).then(() => updateDisabledDomains([], !0));
         }),
