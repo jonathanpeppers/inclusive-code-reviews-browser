@@ -44,14 +44,17 @@ async function getOpenAISuggestions(sentence, matches) {
     });
 
     let result = response.choices[0].message.content;
+    console.log('OpenAI response: ' + result);
     let json = JSON.parse(result);
+    var replacements = [];
+    json.forEach(r => replacements.push({ value: r }));
     matches.push({
         "message": "This phrase could be considered negative. Would you like to rephrase?",
         "shortMessage": "Negative sentiment",
         "offset": sentence.offset,
         "length": sentence.length,
         "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_PURPLE, "category": { "id": "TYPOS", "name": "Negative word" } },
-        "replacements": Array.from(json),
+        "replacements": replacements,
         "type": { "typeName": "Other" },
         "ignoreForIncompleteSentence": false,
         "contextForSureMatch": 7

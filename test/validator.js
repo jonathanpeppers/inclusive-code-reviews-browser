@@ -122,5 +122,6 @@ describe('validator', () => {
         var match = matches[0];
         expect(match.shortMessage).to.be.equal("Negative sentiment");
         expect(match.replacements.length).to.be.equal(3);
+        expect(match.replacements[0].value.length).to.not.be.equal(0);
     }).timeout(timeout);
 });
