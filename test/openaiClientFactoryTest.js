@@ -78,11 +78,11 @@ describe('openai client factory', () => {
                 [
                     {
                         "role": "system",
-                        "content": "You are an assistant that only speaks JSON. Do not reply with normal text. Only reply with a single JSON array."
+                        "content": "You are an assistant that only replies with exactly three sentences, each sentence on its own line. Do not number the sentences."
                     },
                     {
                         "role": "system",
-                        "content": "You are expert software engineer that is particularly good at writing inclusive, well-written, thoughtful code reviews."
+                        "content": "You are expert software engineer that is particularly good at writing inclusive, well-written, thoughtful code reviews"
                     },
                     {
                         "role": "user",
@@ -95,8 +95,8 @@ describe('openai client factory', () => {
 
         let result = response.choices[0].message.content;
         expect(result.length).to.not.be.equal(0);
-        let json = JSON.parse(result);
-        expect(json.length).to.be.equal(3);
-        expect(json[0]).to.not.be.equal(0);
+        let sentences = result.split('\n');
+        expect(sentences.length).to.be.equal(3);
+        expect(sentences[0].length).to.not.be.equal(0);
     }).timeout(timeout);
 });

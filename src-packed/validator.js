@@ -28,7 +28,7 @@ async function getOpenAISuggestions(sentence, matches) {
             [
                 {
                     "role": "system",
-                    "content": "You are an assistant that only speaks JSON. Do not reply with normal text. Only reply with a single JSON array."
+                    "content": "You are an assistant that only replies with exactly three sentences, each sentence on its own line. Do not number the sentences."
                 },
                 {
                     "role": "system",
@@ -45,9 +45,8 @@ async function getOpenAISuggestions(sentence, matches) {
 
     let result = response.choices[0].message.content;
     console.log('OpenAI response: ' + result);
-    let json = JSON.parse(result);
     var replacements = [];
-    json.forEach(r => replacements.push({ value: r }));
+    result.split('\n').forEach(r => replacements.push({ value: r.trim() }));
     matches.push({
         "message": "This phrase could be considered negative. Would you like to rephrase?",
         "shortMessage": "Negative sentiment",
