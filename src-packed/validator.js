@@ -6,6 +6,8 @@ const ISSUE_TYPE_PURPLE = "style";
 const NEGATIVE_SENTIMENT_THRESHOLD = 0.6;
 const suggestions = require('./suggestions');
 const textAnalytics = require('./textAnalytics');
+const openaiClientFactory = require('./openaiClientFactory');
+var openaiClient = null;
 var appinsights = null;
 var pastErrorCount = 0; // Number of problems found in the past text
 
@@ -14,9 +16,16 @@ function loadAppInsights() {
     if (!appinsights) appinsights = require('./appinsights');
 }
 
-export async function getMatches(ort, text, matches) {
+function loadOpenAI(openAIKey, openAIUrl) {
+    if (!openaiClient && openAIKey && openAIUrl) {
+        openaiClient = openaiClientFactory.getOpenaiClient(openAIKey);
+    }
+}
+
+export async function getMatches(ort, text, matches, openAIKey, openAIUrl) {
     ort.env.wasm.numThreads = 1;
     loadAppInsights();
+    loadOpenAI(openAIKey, openAIUrl);
 
     // Suggestions, based on a dictionary
     suggestions.getSuggestions(text).forEach(suggestion => {
