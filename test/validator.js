@@ -106,4 +106,22 @@ describe('validator', () => {
         expect(match.offset).to.be.equal(0);
         expect(match.length).to.be.equal(bad.length);
     });
+
+    const { openai_key } = require("../src-packed/secrets");
+    const timeout = 10000;
+    var apiKey = openai_key || process.env.OPEN_AI_KEY;
+    let endpoint = "https://icropenaiservice.openai.azure.com/openai/deployments/icrgpt-35-turbo-16k";
+    if (!apiKey) {
+        console.warn("Skipping 'OpenAI suggestions' test, key not set.");
+        return;
+    }
+    it('OpenAI suggestions', async () => {
+        var matches = [];
+        await client.getMatches(ort, "Remove this stupid line of terrible code", matches, apiKey, endpoint);
+        expect(matches.length).to.be.equal(1);
+        var match = matches[0];
+        expect(match.shortMessage).to.be.equal("Negative sentiment");
+        expect(match.replacements.length).to.be.equal(3);
+        expect(match.replacements[0].value.length).to.not.be.equal(0);
+    }).timeout(timeout);
 });

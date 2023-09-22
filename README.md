@@ -28,10 +28,10 @@ hoping to get a somewhat accurate model that is OK with "there was a
 test failure", but not OK with "you are a failure". Standard sentiment
 analysis wasn't good enough for our usage.
 
-Note that the model runs *inside* the browser extension, and your
-actual text is not ever sent across the Internet. Some telemetry is
-collected for general usage of the extension, see
-[telemetry.md](docs/telemetry.md) for details.
+Note that the model runs *inside* the browser extension, and your actual text is
+not ever sent across the Internet (see [OpenAI below](#openai) for one exception
+to this). Some anonymous telemetry is collected for general usage of the
+extension, see [telemetry.md](docs/telemetry.md) for details.
 
 For example, you might make a comment on a Github pull request. Seems
 OK, right? Is it a "mean" comment?
@@ -44,6 +44,20 @@ generally friendlier:
 ![negative sentiment fixed](docs/negative-sentiment-fixed.png)
 
 [model]: https://github.com/jonathanpeppers/inclusive-code-reviews-ml
+
+## OpenAI
+
+There is now an experimental feature to supply an Open AI API key and optional
+Azure Open AI endpoint address:
+
+![General Settings, OpenAI Key, OpenAI, URL](docs/openaisettings.png)
+
+This enables suggestions to phrases we have identified as negative sentiment:
+
+![Alternate suggestions to "This code is terribly inefficient"](docs/openai.png)
+
+Note that we do not send your text over the Internet if you have not opted into
+these settings.
 
 ## Contributing
 

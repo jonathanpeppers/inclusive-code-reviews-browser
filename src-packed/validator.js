@@ -6,6 +6,8 @@ const ISSUE_TYPE_PURPLE = "style";
 const NEGATIVE_SENTIMENT_THRESHOLD = 0.6;
 const suggestions = require('./suggestions');
 const textAnalytics = require('./textAnalytics');
+const openaiClientFactory = require('./openaiClientFactory');
+var openai = null;
 var appinsights = null;
 var pastErrorCount = 0; // Number of problems found in the past text
 
@@ -14,9 +16,57 @@ function loadAppInsights() {
     if (!appinsights) appinsights = require('./appinsights');
 }
 
-export async function getMatches(ort, text, matches) {
+function loadOpenAI(openAIKey, openAIUrl) {
+    if (!openai && openAIKey && openAIUrl) {
+        openai = openaiClientFactory.getOpenaiClient(openAIKey, openAIUrl);
+    }
+}
+
+async function getOpenAISuggestions(sentence, matches) {
+    const response = await openai.chat.completions.create({
+        messages:
+            [
+                {
+                    "role": "system",
+                    "content": "You are an assistant that only replies with exactly three sentences, each sentence on its own line."
+                },
+                {
+                    "role": "system",
+                    "content": "You are expert software engineer that is particularly good at writing inclusive, well-written, thoughtful code reviews."
+                },
+                {
+                    "role": "user",
+                    "content": "Suggest three polite alternatives to the code review comment: " + sentence.text
+                }
+            ],
+        // 0 accurate, 1 creative
+        temperature: 0.5
+    });
+
+    let result = response.choices[0].message.content;
+    console.log('OpenAI response: ' + result);
+    var replacements = [];
+    result.split('\n').forEach(r => replacements.push({
+        // There may be numbered lists, ChatGPT loves them
+        value: r.trim().replace(/^\d\.\s*/, '')
+    }));
+    matches.push({
+        "message": "This phrase could be considered negative. Would you like to rephrase?",
+        "shortMessage": "Negative sentiment",
+        "offset": sentence.offset,
+        "length": sentence.length,
+        "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_PURPLE, "category": { "id": "TYPOS", "name": "Negative word" } },
+        "replacements": replacements,
+        "type": { "typeName": "Other" },
+        "ignoreForIncompleteSentence": false,
+        "contextForSureMatch": 7
+    });
+}
+
+export async function getMatches(ort, text, matches, openAIKey, openAIUrl) {
     ort.env.wasm.numThreads = 1;
     loadAppInsights();
+    loadOpenAI(openAIKey, openAIUrl);
 
     // Suggestions, based on a dictionary
     suggestions.getSuggestions(text).forEach(suggestion => {
@@ -41,28 +91,32 @@ export async function getMatches(ort, text, matches) {
         console.log(result.error);
         return;
     }
-    result.sentences.forEach(sentence => {
+    for (const sentence of result.sentences) {
         if (sentence.sentiment !== "negative")
-            return;
+            continue;
         console.log(`Index: ${sentence.offset}, Negative sentiment: ${sentence.confidenceScores.negative}`)
         if (sentence.confidenceScores.negative <= NEGATIVE_SENTIMENT_THRESHOLD)
-            return;
+            continue;
 
         appinsights.trackEvent('negativeSentence', sentence.confidenceScores);
 
-        matches.push({
-            "message": "This phrase could be considered negative. Would you like to rephrase?",
-            "shortMessage": "Negative sentiment",
-            "offset": sentence.offset,
-            "length": sentence.length,
-            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_PURPLE, "category": { "id": "TYPOS", "name": "Negative word" } },
-            // Stuff that has to be filled out
-            "replacements": [],
-            "type": { "typeName": "Other" },
-            "ignoreForIncompleteSentence": false,
-            "contextForSureMatch": 7
-        });
-    });
+        if (!openai) {
+            matches.push({
+                "message": "This phrase could be considered negative. Would you like to rephrase?",
+                "shortMessage": "Negative sentiment",
+                "offset": sentence.offset,
+                "length": sentence.length,
+                "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_PURPLE, "category": { "id": "TYPOS", "name": "Negative word" } },
+                // Stuff that has to be filled out
+                "replacements": [],
+                "type": { "typeName": "Other" },
+                "ignoreForIncompleteSentence": false,
+                "contextForSureMatch": 7
+            });
+        } else {
+            await getOpenAISuggestions(sentence, matches);
+        }
+    };
 
     // Check if the comment is too short
     var minLength = typeof config != "undefined" ? config.MIN_REVIEW_LENGTH : 9;

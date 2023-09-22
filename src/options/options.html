@@ -23,44 +23,27 @@
 		<div class="lt-options__generalSettings-toggle lt-options-static" id="generalSettings"
 			data-t="generalSettingsHeadline"></div>
 
-		<div class="lt-options__personalDictionary-toggle lt-options-toggle" id="personalDictionary"
-			data-t="settingsDictionaryHeadline" style="display: none;"></div>
-
-		<div id="personalDictionary-options" class="lt-options__personalDictionary lt-toggle-box" style="display: none;">
-			<div class="lt-add-input-wrapper">
-				<input id="personalDictionaryInput" type="text" name="fname"
-					data-t-placeholder="settingsAddOrFilterWords" autocomplete="off">
-				<button id="addToPersonalDictionary" class="lt-btn-add" disabled></button>
-			</div>
-
-			<div id="personalDictionary-options__emptyState" class="lt-emptyState" data-t="settingsEmptyDictionary">
-			</div>
-
-			<div id="personalDictionary-options__emptySearch" class="lt-emptySearch" data-t="settingsAddWordHint"></div>
-
-			<div id="personalDictionary-optionsInside">
-				<ul id="personalDictionaryList" class="lt-options__dictionary"></ul>
-				<div class="lt-btn-wrapper">
-					<div id="personalDictionary-options__copyMessage" class="lt-options__message"
-						data-t="settingsCopyDictionarySuccessful"></div>
-					<button id="personalDictionary-options__copy" class="lt-btn lt-btn__secondary"
-						data-t="settingsCopyDictionary"></button>
-					<button id="personalDictionary-options__clearAll" class="lt-btn lt-btn-destructive"
-						data-t="settingsClearAll"></button>
+		<div id="generalSettings-options" class="lt-options__generalSettings lt-static-box">
+			<div class="lt-options__row">
+				<div class="lt-toggle-wrapper">
+					<label data-t="settingsOpenAIKey"></label>
+					<input id="openAIKeyInput" type="password"
+						data-t-placeholder="settingsOpenAIKeyPlaceholder" autocomplete="off">
+				</div>
+				<div class="lt-settings-info">
+					<strong class="lt-settings-info__headline" data-t="settingsOpenAIKeyTutorialHeadline"></strong>
+					<span data-t="settingsOpenAIKeyTutorialText"></span>
 				</div>
 			</div>
-		</div>
-
-		<div class="lt-options__ignoredRules-toggle lt-options-toggle" id="ignoredRules" data-t="ignoredRulesDesc" style="display: none;">
-		</div>
-
-		<div id="ignoredRules-options" class="lt-options__ignoredRules lt-toggle-box" style="display: none;">
-			<div id="ignoredRules-options__emptyState" class="lt-emptyState" data-t="settingsEmptyIgnoredRules"></div>
-			<div id="ignoredRules-optionsInside">
-				<ul id="ignoredRulesList" class="lt-options__rules"></ul>
-				<div class="lt-btn-wrapper">
-					<button id="ignoredRules-options__clearAll" class="lt-btn lt-btn-destructive"
-						data-t="settingsEnableAllRules"></button>
+			<div class="lt-options__row">
+				<div class="lt-toggle-wrapper">
+					<label data-t="settingsOpenAIUrl"></label>
+					<input id="openAIUrlInput" type="url"
+						data-t-placeholder="settingsOpenAIUrlPlaceholder">
+				</div>
+				<div class="lt-settings-info">
+					<strong class="lt-settings-info__headline" data-t="settingsOpenAIUrlTutorialHeadline"></strong>
+					<span data-t="settingsOpenAIUrlTutorialText"></span>
 				</div>
 			</div>
 		</div>

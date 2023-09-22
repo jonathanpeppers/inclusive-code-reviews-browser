@@ -1,168 +1,25 @@
-const { openai_key, public_openai_key } = require("../src-packed/secrets");
+const { openai_key } = require("../src-packed/secrets");
+const timeout = 10000;
+var apiKey = openai_key || process.env.OPEN_AI_KEY;
 var assert = require('assert');
-
-// Mock localStorage
-(function () {
-
-    function createStorage() {
-        let UNSET = Symbol();
-        let s = {};
-        let noopCallback = () => { };
-        let _itemInsertionCallback = noopCallback;
-
-        Object.defineProperty(s, 'setItem', {
-            get: () => {
-                return (k, v = UNSET) => {
-                    if (v === UNSET) {
-                        throw new TypeError(`Failed to execute 'setItem' on 'Storage': 2 arguments required, but only 1 present.`);
-                    }
-                    if (!s.hasOwnProperty(String(k))) {
-                        _itemInsertionCallback(s.length);
-                    }
-                    s[String(k)] = String(v);
-                };
-            }
-        });
-
-        Object.defineProperty(s, 'getItem', {
-            get: () => {
-                return k => {
-                    if (s.hasOwnProperty(String(k))) {
-                        return s[String(k)];
-                    } else {
-                        return null;
-                    }
-                };
-            }
-        });
-
-        Object.defineProperty(s, 'removeItem', {
-            get: () => {
-                return k => {
-                    if (s.hasOwnProperty(String(k))) {
-                        delete s[String(k)];
-                    }
-                };
-            }
-        });
-
-        Object.defineProperty(s, 'clear', {
-            get: () => {
-                return () => {
-                    for (let k in s) {
-                        delete s[String(k)];
-                    }
-                };
-            }
-        });
-
-        Object.defineProperty(s, 'length', {
-            get: () => {
-                return Object.keys(s).length;
-            }
-        });
-
-        Object.defineProperty(s, "key", {
-            value: k => {
-                let key = Object.keys(s)[String(k)];
-                return (!key) ? null : key;
-            },
-        });
-
-        Object.defineProperty(s, 'itemInsertionCallback', {
-            get: () => {
-                return _itemInsertionCallback;
-            },
-            set: v => {
-                if (!v || typeof v != 'function') {
-                    v = noopCallback;
-                }
-                _itemInsertionCallback = v;
-            }
-        });
-
-        return s;
-    }
-
-    const global = require("global")
-    const window = require("global/window")
-
-    Object.defineProperty(global, 'Storage', {
-        value: createStorage,
-    });
-    Object.defineProperty(window, 'Storage', {
-        value: createStorage,
-    });
-
-    Object.defineProperty(global, 'localStorage', {
-        value: createStorage(),
-    });
-    Object.defineProperty(window, 'localStorage', {
-        value: global.localStorage,
-    });
-
-    Object.defineProperty(global, 'sessionStorage', {
-        value: createStorage(),
-    });
-    Object.defineProperty(window, 'sessionStorage', {
-        value: global.sessionStorage,
-    });
-}());
 
 describe('openai client factory', () => {
     // Just return if the key is not set.
     // This would happen on a PR from a fork.
-    if (!openai_key) {
+    if (!apiKey) {
         console.warn("Skipping openai client factory tests, key not set.");
         return;
     }
 
-    let azureEndpoint = "https://icropenaiservice.openai.azure.com/";
-
+    let endpoint = "https://icropenaiservice.openai.azure.com/openai/deployments/icrgpt-35-turbo-16k";
     const factory = require('../src-packed/openaiClientFactory');
 
-    it('would get empty', () => {
-        factory.clearOpenaiConfig();
-        var result = factory.getOpenaiClient();
-        assert.equal(result, undefined);
-    });
-
-    it('would store the azure config and get the instance', async () => {
-        factory.setAzureManagedConfig(azureEndpoint, openai_key);
-
-        var openai = factory.getOpenaiClient();
-        assert.notEqual(openai, undefined);
-
-        const response = await openai.chat.completions.create({
-            model: 'text-davinci-003',
-            messages:
-                [
-                    {
-                        "role": "user",
-                        "content": 'What is the meaning of life?'
-                    }
-                ],
-            // 0 accurate, 1 creative
-            temperature: 0.5
-        });
-        let result = response.choices[0].message.content;
-        expect(result.length).to.not.be.equal(0);
-
-        // clear would remove the stored config
-        factory.clearOpenaiConfig();
-
-        openai = factory.getOpenaiClient();
-        assert.equal(openai, undefined);
-    }).timeout(5000);
-
     it('basic comment rewrite', async () => {
-        factory.setAzureManagedConfig(azureEndpoint, openai_key);
-        var openai = factory.getOpenaiClient();
+        var openai = factory.getOpenaiClient(apiKey, endpoint);
         assert.notEqual(openai, undefined);
 
         let comment = "Remove this line of code. This is a wasted line of code.";
         const response = await openai.chat.completions.create({
-            model: 'gpt-3.5-turbo-16k',
             messages:
                 [
                     {
@@ -182,17 +39,15 @@ describe('openai client factory', () => {
 
         expect(result.length).to.not.be.equal(0);
         expect(result).to.not.be.contains("This is a wasted line of code");
-    }).timeout(5000);
+    }).timeout(timeout);
 
     it('basic comment rating', async () => {
-        factory.setAzureManagedConfig(azureEndpoint, openai_key);
-        var openai = factory.getOpenaiClient();
+        var openai = factory.getOpenaiClient(apiKey, endpoint);
         assert.notEqual(openai, undefined);
 
         let comment = "Remove this line of code. This is a wasted line of code.";
 
         const response = await openai.chat.completions.create({
-            model: 'gpt-3.5-turbo',
             messages:
                 [
                     {
@@ -210,5 +65,38 @@ describe('openai client factory', () => {
 
         let result = response.choices[0].message.content;
         expect(result.length).to.not.be.equal(0);
-    }).timeout(5000);
+    }).timeout(timeout);
+
+    it('return comments as JSON', async () => {
+        var openai = factory.getOpenaiClient(apiKey, endpoint);
+        assert.notEqual(openai, undefined);
+
+        let comment = "Remove this, it is a useless line of code.";
+
+        const response = await openai.chat.completions.create({
+            messages:
+                [
+                    {
+                        "role": "system",
+                        "content": "You are an assistant that only replies with exactly three sentences, each sentence on its own line."
+                    },
+                    {
+                        "role": "system",
+                        "content": "You are expert software engineer that is particularly good at writing inclusive, well-written, thoughtful code reviews"
+                    },
+                    {
+                        "role": "user",
+                        "content": "Suggest three polite alternatives to the code review comment: " + comment
+                    }
+                ],
+            // 0 accurate, 1 creative
+            temperature: 0.5
+        });
+
+        let result = response.choices[0].message.content;
+        expect(result.length).to.not.be.equal(0);
+        let sentences = result.split('\n');
+        expect(sentences.length).to.be.equal(3);
+        expect(sentences[0].length).to.not.be.equal(0);
+    }).timeout(timeout);
 });
