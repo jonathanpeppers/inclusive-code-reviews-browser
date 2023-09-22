@@ -66,4 +66,37 @@ describe('openai client factory', () => {
         let result = response.choices[0].message.content;
         expect(result.length).to.not.be.equal(0);
     }).timeout(timeout);
+
+    it('better comment', async () => {
+        var openai = factory.getOpenaiClient(apiKey, endpoint);
+        assert.notEqual(openai, undefined);
+
+        let comment = "Remove this, it is a useless line of code.";
+
+        const response = await openai.chat.completions.create({
+            messages:
+                [
+                    {
+                        "role": "system",
+                        "content": "You are an assistant that only speaks JSON. Do not reply with normal text. Only reply with a single JSON array."
+                    },
+                    {
+                        "role": "system",
+                        "content": "You are expert software engineer that is particularly good at writing inclusive, well-written, thoughtful code reviews."
+                    },
+                    {
+                        "role": "user",
+                        "content": "Suggest three polite alternatives to the code review comment: " + comment
+                    }
+                ],
+            // 0 accurate, 1 creative
+            temperature: 0.5
+        });
+
+        let result = response.choices[0].message.content;
+        expect(result.length).to.not.be.equal(0);
+        let json = JSON.parse(result);
+        expect(json.length).to.be.equal(3);
+        expect(json[0]).to.not.be.equal(0);
+    }).timeout(timeout);
 });
