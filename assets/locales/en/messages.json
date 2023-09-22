@@ -969,7 +969,7 @@
    },
    "settingsOpenAIKeyTutorialText": {
       "description": "Text in a small box that that talks about API keys",
-      "message": "Your key is a \"secret\" that is only stored locally in this browser extension."
+      "message": "Your key is a \"secret\" that is only stored locally in this browser extension. Note this setting opts into sending underlined text to OpenAI services to provide suggestions."
    },
    "settingsOpenAIUrl": {
       "description": "Text for the openai URL section on the settings page",
