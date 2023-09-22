@@ -78,7 +78,7 @@ describe('openai client factory', () => {
                 [
                     {
                         "role": "system",
-                        "content": "You are an assistant that only replies with exactly three sentences, each sentence on its own line. Do not number the sentences."
+                        "content": "You are an assistant that only replies with exactly three sentences, each sentence on its own line."
                     },
                     {
                         "role": "system",

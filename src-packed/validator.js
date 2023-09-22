@@ -28,7 +28,7 @@ async function getOpenAISuggestions(sentence, matches) {
             [
                 {
                     "role": "system",
-                    "content": "You are an assistant that only replies with exactly three sentences, each sentence on its own line. Do not number the sentences."
+                    "content": "You are an assistant that only replies with exactly three sentences, each sentence on its own line."
                 },
                 {
                     "role": "system",
@@ -46,7 +46,10 @@ async function getOpenAISuggestions(sentence, matches) {
     let result = response.choices[0].message.content;
     console.log('OpenAI response: ' + result);
     var replacements = [];
-    result.split('\n').forEach(r => replacements.push({ value: r.trim() }));
+    result.split('\n').forEach(r => replacements.push({
+        // There may be numbered lists, ChatGPT loves them
+        value: r.trim().replace(/^\d\.\s*/, '')
+    }));
     matches.push({
         "message": "This phrase could be considered negative. Would you like to rephrase?",
         "shortMessage": "Negative sentiment",
