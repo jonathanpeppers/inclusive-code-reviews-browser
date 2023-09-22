@@ -107,7 +107,7 @@ class Validator {
             // If we parse the JSON, and look at the 'text' property. This is the data.
             var text = JSON.parse(t.body.get('data')).text;
             try {
-                const { openAIKey, openAIUrl } = storageController.getSettings();
+                const { openAIKey, openAIUrl } = this._storageController.getSettings();
                 await globalThis.getMatches(globalThis.ort, text, matches, openAIKey, openAIUrl);
             } catch (exc) {
                 console.error(`Error calling getMatches: ${exc}`);

@@ -67,7 +67,7 @@ describe('openai client factory', () => {
         expect(result.length).to.not.be.equal(0);
     }).timeout(timeout);
 
-    it('better comment', async () => {
+    it('return comments as JSON', async () => {
         var openai = factory.getOpenaiClient(apiKey, endpoint);
         assert.notEqual(openai, undefined);
 
