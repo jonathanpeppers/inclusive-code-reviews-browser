@@ -1,7 +1,7 @@
 const timeout = 10000;
 const endpoint = "https://app-rel.wus3.sample-dev.azgrafana-test.io/api/ChatCompletion";
 
-describe('openai client factory', () => {
+describe('openai client', () => {
     it('basic comment rewrite', async () => {
         let comment = "Remove this line of code. This is a wasted line of code.";
 
