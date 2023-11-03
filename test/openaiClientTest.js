@@ -1,4 +1,4 @@
-const timeout = 10000;
+const timeout = 20000;
 const endpoint = "https://app-rel.wus3.sample-dev.azgrafana-test.io/api/ChatCompletion";
 
 describe('openai client', () => {

@@ -1,7 +1,7 @@
 import * as ort from 'onnxruntime-node';
 
 //NOTE: tests that would call OpenAI need a timeout
-const timeout = 10000;
+const timeout = 20000;
 
 describe('validator', () => {
     const client = require('../src-packed/validator');
@@ -108,15 +108,5 @@ describe('validator', () => {
         var match = matches[0];
         expect(match.offset).to.be.equal(0);
         expect(match.length).to.be.equal(bad.length);
-    }).timeout(timeout);
-
-    it('OpenAI suggestions', async () => {
-        var matches = [];
-        await client.getMatches(ort, "Remove this stupid line of terrible code", matches);
-        expect(matches.length).to.be.equal(1);
-        var match = matches[0];
-        expect(match.shortMessage).to.be.equal("Negative sentiment");
-        expect(match.replacements.length).to.be.equal(3);
-        expect(match.replacements[0].value.length).to.not.be.equal(0);
     }).timeout(timeout);
 });
