@@ -1,5 +1,8 @@
 import * as ort from 'onnxruntime-node';
 
+//NOTE: tests that would call OpenAI need a timeout
+const timeout = 10000;
+
 describe('validator', () => {
     const client = require('../src-packed/validator');
 
@@ -13,7 +16,7 @@ describe('validator', () => {
         var matches = [];
         await client.getMatches(ort, 'This is such a bad way to do things', matches);
         expect(matches.length).to.be.equal(1);
-    });
+    }).timeout(timeout);
 
     it('Suggestion', async () => {
         var matches = [];
@@ -95,7 +98,7 @@ describe('validator', () => {
         expect(matches.length).to.be.equal(2);
         expect(matches[0].shortMessage).to.be.equal("Negative sentiment");
         expect(matches[1].shortMessage).to.be.equal("Comment is brief");
-    });
+    }).timeout(timeout);
 
     it('Two sentences', async () => {
         var matches = [];
@@ -105,19 +108,11 @@ describe('validator', () => {
         var match = matches[0];
         expect(match.offset).to.be.equal(0);
         expect(match.length).to.be.equal(bad.length);
-    });
+    }).timeout(timeout);
 
-    const { openai_key } = require("../src-packed/secrets");
-    const timeout = 10000;
-    var apiKey = openai_key || process.env.OPEN_AI_KEY;
-    let endpoint = "https://icropenaiservice.openai.azure.com/openai/deployments/icrgpt-35-turbo-16k";
-    if (!apiKey) {
-        console.warn("Skipping 'OpenAI suggestions' test, key not set.");
-        return;
-    }
     it('OpenAI suggestions', async () => {
         var matches = [];
-        await client.getMatches(ort, "Remove this stupid line of terrible code", matches, apiKey, endpoint);
+        await client.getMatches(ort, "Remove this stupid line of terrible code", matches);
         expect(matches.length).to.be.equal(1);
         var match = matches[0];
         expect(match.shortMessage).to.be.equal("Negative sentiment");
