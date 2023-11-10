@@ -31,8 +31,6 @@ jobs:
         run: npx xt-build
 
       - name: run tests
-        env:
-          OPEN_AI_KEY: ${{ secrets.OPEN_AI_KEY }}
         run: npx xt-test
 
       # Upload unzipped artifact content to avoid creating a nested .zip artifact

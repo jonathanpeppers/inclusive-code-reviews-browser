@@ -62,7 +62,7 @@ async function getOpenAISuggestions(sentence, matches) {
     });
 }
 
-export async function getMatches(ort, text, matches, openAIKey, openAIUrl) {
+export async function getMatches(ort, text, matches) {
     ort.env.wasm.numThreads = 1;
     loadAppInsights();
 
