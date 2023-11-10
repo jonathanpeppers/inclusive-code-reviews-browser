@@ -47,17 +47,16 @@ generally friendlier:
 
 ## OpenAI
 
-There is now an experimental feature to supply an Open AI API key and optional
-Azure Open AI endpoint address:
-
-![General Settings, OpenAI Key, OpenAI, URL](docs/openaisettings.png)
+There is now an experimental feature to query OpenAI's API available in the
+`main` branch.
 
 This enables suggestions to phrases we have identified as negative sentiment:
 
 ![Alternate suggestions to "This code is terribly inefficient"](docs/openai.png)
 
-Note that we do not send your text over the Internet if you have not opted into
-these settings.
+We are working on UX, to it will be obvious what is sent to an LLM or not. Users
+will have control of which text is sent over the Internet. We may also add a setting
+that would disable this feature entirely.
 
 ## Contributing
 

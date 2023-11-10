@@ -955,38 +955,6 @@
       "description": "Headline for the personal dictionary section on the settings page",
       "message": "Personal dictionary"
    },
-   "settingsOpenAIKey": {
-      "description": "Text for the openai key section on the settings page",
-      "message": "OpenAI Key"
-   },
-   "settingsOpenAIKeyPlaceholder": {
-      "description": "Placeholder text for input field for openai key",
-      "message": "Paste your API key …"
-   },
-   "settingsOpenAIKeyTutorialHeadline": {
-      "description": "Headline for a small box that talks about API keys",
-      "message": "Notes about API keys"
-   },
-   "settingsOpenAIKeyTutorialText": {
-      "description": "Text in a small box that that talks about API keys",
-      "message": "Your key is a \"secret\" that is only stored locally in this browser extension. Note this setting opts into sending underlined text to OpenAI services to provide suggestions."
-   },
-   "settingsOpenAIUrl": {
-      "description": "Text for the openai URL section on the settings page",
-      "message": "OpenAI URL"
-   },
-   "settingsOpenAIUrlPlaceholder": {
-      "description": "Placeholder text for input field for openai url",
-      "message": "Custom URL for OpenAI …"
-   },
-   "settingsOpenAIUrlTutorialHeadline": {
-      "description": "Headline for a small box that explains the OpenAI URL",
-      "message": "Note about OpenAI URLs"
-   },
-   "settingsOpenAIUrlTutorialText": {
-      "description": "Text in a small box that explains the OpenAI URL",
-      "message": "Leave this blank if you would like to use OpenAI's service. This setting is for \"Azure\" OpenAI instances."
-   },
    "settingsDomainInvalid": {
       "description": "Error message shown when the domain the user entered is not valid or is already in the list",
       "message": "Please enter a valid domain that hasn't been added yet."
