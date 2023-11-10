@@ -19,7 +19,7 @@ if (!isTests) {
 }
 
 export function telemetryInitializer (envelope) {
-    envelope.tags["ai.application.ver"] = '2.0.4';
+    envelope.tags["ai.application.ver"] = '2.0.5';
 
     // We don't want to report full URLs
     if (envelope.baseData.uri) {
