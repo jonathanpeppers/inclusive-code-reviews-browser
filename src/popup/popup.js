@@ -26,7 +26,7 @@
             EnvironmentAdapter.openOptionsPage(void 0, e === L ? "popup-icon" : "popup-badge"), window.close();
         });
         w.addEventListener("click", (e) => {
-            chrome.runtime.sendMessage({ command: "OPEN_URL", url: w.href }), e.preventDefault(), window.close();
+            globalThis.messaging.sendMessage({ command: "OPEN_URL", url: w.href }), e.preventDefault(), window.close();
         }),
         p.addEventListener("click", () => {
             Tracker.trackEvent("Action", "popup:onboarding_banner:close");
@@ -39,7 +39,7 @@
             if (!a || !a.length) return void window.close();
             if (((s = a[0].id), (e = a[0].url || ""), (t = getDomain(e)), (o = TweaksManager.getTweaks(e)), !v.getPrivacySettings().allowRemoteCheck && !e.startsWith(config.INSTALL_URL) && !BrowserDetector.isSafari())) {
                 const e = { command: "OPEN_PRIVACY_CONFIRMATION" };
-                return chrome.runtime.sendMessage(e), void window.close();
+                return globalThis.messaging.sendMessage(e), void window.close();
             }
             reloadContentScriptsIfNecessary(s, t);
             const i = v.getValidationSettings(t, o.getEditorGroupId(e)),
@@ -61,7 +61,7 @@
                     h.classList.add("lt-popup__button--edit"),
                     _.classList.remove("lt-popup__validator--hide"),
                     (h.onclick = () => {
-                        chrome.runtime.sendMessage({ command: "LAUNCH_EDITOR" }), Tracker.trackEvent("Action", "popup:open_editor"), window.close();
+                        globalThis.messaging.sendMessage({ command: "LAUNCH_EDITOR" }), Tracker.trackEvent("Action", "popup:open_editor"), window.close();
                     }));
             chrome.tabs
                 .sendMessage(s, { command: "GET_SELECTED_TEXT" })
@@ -74,7 +74,7 @@
                         m.classList.add("lt-popup__tutorial--hide"),
                         (h.onclick = () => {
                             const e = { command: "LAUNCH_EDITOR", text: t.selectedText };
-                            chrome.runtime.sendMessage(e), Tracker.trackEvent("Action", "popup:check_selected_text"), window.close();
+                            globalThis.messaging.sendMessage(e), Tracker.trackEvent("Action", "popup:check_selected_text"), window.close();
                         }));
                 })
                 .catch((e) => console.log("Failed getting selected text", e)),

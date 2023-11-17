@@ -30,6 +30,6 @@ function reloadContentScriptsIfNecessary(e, t) {
 function inject() {
     if (typeof(LTAssistant) === "undefined" && navigator.userAgent.match(/Chrome\/|Chromium\//) && !location.pathname.includes('_generated_background_page')) {
         window.__ltLastActiveElement = document.activeElement;
-        chrome.runtime.sendMessage({ command: "INJECT_SCRIPTS" }, () => null);
+        globalThis.messaging.sendMessage({ command: "INJECT_SCRIPTS" }, () => null);
     }
 }

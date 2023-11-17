@@ -605,7 +605,7 @@ class Dialog {
             addUseCaptureEvent(n, "click", (e) => {
                 e.stopImmediatePropagation();
                 const t = { command: "OPEN_PREMIUM_PAGE", campaign: r, hiddenGrammarMatches: i, hiddenStyleMatches: a, hiddenPunctuationMatches: s, textLanguage: this._languageCode || void 0 };
-                chrome.runtime.sendMessage(t), Tracker.trackEvent("Action", "dialog:premium:click");
+                globalThis.messaging.sendMessage(t), Tracker.trackEvent("Action", "dialog:premium:click");
             })
         ),
             e.appendChild(t),

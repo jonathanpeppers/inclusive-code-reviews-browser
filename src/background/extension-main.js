@@ -36,12 +36,11 @@ class BackgroundApp {
             if (
                 ((this._onDataLoaded = this._onDataLoaded.bind(this)),
                 (this._onInstalled = this._onInstalled.bind(this)),
-                (this._onMessage = this._onMessage.bind(this)),
                 (this._onValidateClicked = this._onValidateClicked.bind(this)),
                 (this._storageController = StorageController.create()),
                 this._storageController.onReady(this._onDataLoaded),
                 chrome.runtime.onInstalled.addListener(this._onInstalled),
-                chrome.runtime.onMessage.addListener(this._onMessage),
+                chrome.runtime.onConnect.addListener(this._onConnect),
                 DictionarySync.init(),
                 this._updateIcon(),
                 chrome.alarms.create("RELOAD_EXTENSION_HACK_INTERVAL", {delayInMinutes: config.RELOAD_EXTENSION_HACK_INTERVAL, periodInMinutes: config.RELOAD_EXTENSION_HACK_INTERVAL}),
@@ -52,7 +51,6 @@ class BackgroundApp {
             ) {
                 // Do nothing
             }
-            this._createBackgroundPage();
             chrome.alarms.onAlarm.addListener(this._onAlarm);
             this._isInitialized = !0;
         }
@@ -149,7 +147,7 @@ class BackgroundApp {
         const { username: s, token: o } = this._storageController.getSettings();
         if (BrowserDetector.isSafari()) {
             const t = this._storageController.getSettings().userId || void 0;
-            chrome.runtime.sendMessage({ userId: t, message: { username: s, token: o, text: e }, command: "LAUNCH_DESKTOP_EDITOR" });
+            globalThis.messaging.sendMessage({ userId: t, message: { username: s, token: o, text: e }, command: "LAUNCH_DESKTOP_EDITOR" });
         } else s && o && navigator.onLine && (a = getAutoLoginUrl(s, o, t)), chrome.tabs.create({ url: a });
     }
     static _onDataLoaded() {
@@ -171,6 +169,10 @@ class BackgroundApp {
                         }
                     });
         });
+    }
+    static _onConnect(port) {
+        console.log('port connected:' + port.name);
+        port.onMessage.addListener(BackgroundApp._onMessage);
     }
     static _onInstalled(e) {
         const { reason: t, previousVersion: a } = e;
@@ -225,86 +227,68 @@ class BackgroundApp {
         });
     }
     static _migrate() {}
-    static async _createBackgroundPage() {
-        console.log('checking offscreen.html');
-        if (await chrome.offscreen.hasDocument?.()) return;
-        console.log('creating offscreen.html');
-        await chrome.offscreen.createDocument({
-            url: 'content/offscreen.html',
-            reasons: [chrome.offscreen.Reason.WORKERS || chrome.offscreen.Reason.BLOBS],
-            justification: 'keep service worker running',
-        });
-        console.log('offscreen.html created');
-    }
-    static _onMessage(e, t, sendResponse) {
-        let s;
+    static _onMessage(e, t) {
         isPageLoadedMessage(e)
-            ? (s = this._onPageLoadedMessage(t, e))
+            ? (BackgroundApp._onPageLoadedMessage(t, e))
             : isPageView(e)
-            ? (s = this._onPageView(t, e))
+            ? (BackgroundApp._onPageView(t, e))
             : isTrackCustomEvent(e)
-            ? (s = this._onTrackCustomEvent(t, e))
+            ? (BackgroundApp._onTrackCustomEvent(t, e))
             : isCheckHealthMessage(e)
-            ? (s = this._onCheckHealth(t, e))
+            ? (BackgroundApp._onCheckHealth(t, e))
             : isAppliedSuggestion(e)
-            ? (s = this._onAppliedSuggestionMessage(t, e))
+            ? (BackgroundApp._onAppliedSuggestionMessage(t, e))
             : isLTAssistantStatusChangedMessage(e)
-            ? (s = this._onLTAssistantStatusChangedMessage(t, e))
+            ? (BackgroundApp._onLTAssistantStatusChangedMessage(t, e))
             : isCheckForPaidSubscriptionMessage(e)
-            ? (s = this._onCheckForPaidSubscriptionMessage(t, e))
+            ? (BackgroundApp._onCheckForPaidSubscriptionMessage(t, e))
             : isTrackTextLengthMessage(e)
-            ? (s = this._onTrackTextLengthMessage(t, e))
+            ? (BackgroundApp._onTrackTextLengthMessage(t, e))
             : isTrackEventMessage(e)
-            ? (s = this._onTrackEventMessage(t, e))
+            ? (BackgroundApp._onTrackEventMessage(t, e))
             : isOpenFeedbackFormMessage(e)
-            ? (s = this._onOpenFeedbackFormMessage(t, e))
+            ? (BackgroundApp._onOpenFeedbackFormMessage(t, e))
             : isSendFeedbackMessage(e)
-            ? (s = this._onSendFeedbackMessage(t, e))
+            ? (BackgroundApp._onSendFeedbackMessage(t, e))
             : isOpenOptionsMessage(e)
-            ? (s = this._onOpenOptionsMessage(t, e))
+            ? (BackgroundApp._onOpenOptionsMessage(t, e))
             : isOpenPrivacyConfirmationMessage(e)
-            ? (s = this._onOpenPrivacyConfirmationMessage(t, e))
+            ? (BackgroundApp._onOpenPrivacyConfirmationMessage(t, e))
             : isCloseCurrentTabMessage(e)
-            ? (s = this._onCloseCurrentTabMessage(t, e))
+            ? (BackgroundApp._onCloseCurrentTabMessage(t, e))
             : isValidateTextMessage(e)
-            ? (s = this._onValidateTextMessage(t, e))
+            ? (BackgroundApp._onValidateTextMessage(t, e))
             : isLaunchEditorMessage(e)
-            ? (s = this._onLaunchEditorMessage(t, e))
+            ? (BackgroundApp._onLaunchEditorMessage(t, e))
             : isGetValidatorDataMessage(e)
-            ? (s = this._onGetValidatorDataMessage(t, e))
+            ? (BackgroundApp._onGetValidatorDataMessage(t, e))
             : isStartDictionarySyncMessage(e)
-            ? (s = this._onStartDictionarySyncMessage(t, e))
+            ? (BackgroundApp._onStartDictionarySyncMessage(t, e))
             : isAddWordToDictionaryMessage(e)
-            ? (s = this._onAddWordToDictionaryMessage(t, e))
+            ? (BackgroundApp._onAddWordToDictionaryMessage(t, e))
             : isBatchAddWordToDictionaryMessage(e)
-            ? (s = this._onBatchAddWordToDictionaryMessage(t, e))
+            ? (BackgroundApp._onBatchAddWordToDictionaryMessage(t, e))
             : isRemoveWordFromDictionaryMessage(e)
-            ? (s = this._onRemoveWordFromDictionaryMessage(t, e))
+            ? (BackgroundApp._onRemoveWordFromDictionaryMessage(t, e))
             : isClearDictionaryMessage(e)
-            ? (s = this._onClearDictionaryMessage(t, e))
+            ? (BackgroundApp._onClearDictionaryMessage(t, e))
             : isGetPreferredLanguagesMessage(e)
-            ? (s = this._onGetPreferredLanguagesMessage(t, e))
+            ? (BackgroundApp._onGetPreferredLanguagesMessage(t, e))
             : isLoadSynonymsMessage(e)
-            ? (s = this._onLoadSynonymsMessage(t, e))
+            ? (BackgroundApp._onLoadSynonymsMessage(t, e))
             : isUpdateDictionaryMessage(e)
-            ? (s = this._onUpdateDictionaryMessage(t, e))
+            ? (BackgroundApp._onUpdateDictionaryMessage(t, e))
             : isOpenURLMessage(e)
-            ? (s = this._onOpenURLMessage(t, e))
+            ? (BackgroundApp._onOpenURLMessage(t, e))
             : isOpenPremiumPageMessage(e)
-            ? (s = this._openPremiumPage(t, e))
+            ? (BackgroundApp._openPremiumPage(t, e))
             : isLoginUserMessage(e)
-            ? (s = this._loginUserMessage(t, e))
+            ? (BackgroundApp._loginUserMessage(t, e))
             : isLogoutUserMessage(e)
-            ? (s = this._logoutUserMessage(t, e))
+            ? (BackgroundApp._logoutUserMessage(t, e))
             : isOnLoginUserMessage(e)
-            ? (s = this._onLoginUserMessage(t, e))
-            : isOnLogoutUserMessage(e) && (s = this._onLogoutUserMessage(t, e));
-        if (s) {
-            s.then((result) => sendResponse(result));
-        } else {
-            return false;
-        }
-        return true;
+            ? (BackgroundApp._onLoginUserMessage(t, e))
+            : isOnLogoutUserMessage(e) && (BackgroundApp._onLogoutUserMessage(t, e));
     }
     static _onPageLoadedMessage(e, t) {
         if (0 !== e.frameId || !e.tab) return;
@@ -481,7 +465,7 @@ class BackgroundApp {
     static _openPremiumPage(e, t) {
         if (BrowserDetector.isSafari()) {
             const e = this._storageController.getSettings().userId || void 0;
-            return Tracker.trackEvent("Action", "go_to_apple_upgrade", t.campaign), void chrome.runtime.sendMessage({ message: Object.assign(Object.assign({}, t), { userId: e }), command: "LAUNCH_APPLE_UPGRADE" });
+            return Tracker.trackEvent("Action", "go_to_apple_upgrade", t.campaign), void globalThis.messaging.sendMessage({ message: Object.assign(Object.assign({}, t), { userId: e }), command: "LAUNCH_APPLE_UPGRADE" });
         }
         const a = [];
         a.push(`pk_campaign=${encodeURIComponent(t.campaign)}`),
@@ -494,10 +478,10 @@ class BackgroundApp {
         chrome.tabs.create({ url: s });
     }
     static _loginUserMessage(e, t) {
-        chrome.runtime.sendMessage({ command: "LOGIN" });
+        globalThis.messaging.sendMessage({ command: "LOGIN" });
     }
     static _logoutUserMessage(e, t) {
-        chrome.runtime.sendMessage({ command: "LOGOUT" });
+        globalThis.messaging.sendMessage({ command: "LOGOUT" });
     }
     static _onLoginUserMessage(e, t) {
         this._storageController.updateSettings({ username: t.username, password: "", userId: t.userId, token: t.token, knownEmail: t.username, havePremiumAccount: !0, apiServerUrl: config.MAIN_SERVER_URL }).then(() => {

@@ -63,66 +63,66 @@ class ExtensionEnvironmentAdapter extends EnvironmentAdapterClass {
             });
     }
     getPreferredLanguages() {
-        return chrome.runtime.sendMessage({ command: "GET_PREFERRED_LANGUAGES" });
+        return globalThis.messaging.sendMessage({ command: "GET_PREFERRED_LANGUAGES" });
     }
     startDictionarySync() {
-        return chrome.runtime.sendMessage({ command: "START_DICTIONARY_SYNC" });
+        return globalThis.messaging.sendMessage({ command: "START_DICTIONARY_SYNC" });
     }
     updateDictionary() {
-        return chrome.runtime.sendMessage({ command: "UPDATE_DICTIONARY" });
+        return globalThis.messaging.sendMessage({ command: "UPDATE_DICTIONARY" });
     }
     addWordToDictionary(e) {
         const n = { command: "ADD_WORD_TO_DICTIONARY", word: e };
-        return chrome.runtime.sendMessage(n);
+        return globalThis.messaging.sendMessage(n);
     }
     addWordsToDictionary(e) {
         const n = { command: "BATCH_ADD_WORDS_TO_DICTIONARY", words: e };
-        return chrome.runtime.sendMessage(n);
+        return globalThis.messaging.sendMessage(n);
     }
     removeWordFromDictionary(e) {
         const n = { command: "REMOVE_WORD_FROM_DICTIONARY", word: e };
-        return chrome.runtime.sendMessage(n);
+        return globalThis.messaging.sendMessage(n);
     }
     clearDictionary() {
-        return chrome.runtime.sendMessage({ command: "CLEAR_DICTIONARY" });
+        return globalThis.messaging.sendMessage({ command: "CLEAR_DICTIONARY" });
     }
     loadSynonyms(e, n, t) {
         const r = { command: "LOAD_SYNONYMS", wordContext: e, language: n, motherLanguage: t };
-        return chrome.runtime.sendMessage(r);
+        return globalThis.messaging.sendMessage(r);
     }
     trackEvent(e, n) {
         const t = { command: "TRACK_EVENT", action: e, label: n };
-        return chrome.runtime.sendMessage(t);
+        return globalThis.messaging.sendMessage(t);
     }
     trackTextLength(e) {
         const n = { command: "TRACK_TEXT_LENGTH", textLength: e };
-        return chrome.runtime.sendMessage(n);
+        return globalThis.messaging.sendMessage(n);
     }
     pageLoaded(e, n, t, r, s) {
         const o = { command: "PAGE_LOADED", enabled: e, capitalization: n, supported: t, beta: r, unsupportedMessage: s };
-        return chrome.runtime.sendMessage(o);
+        return globalThis.messaging.sendMessage(o);
     }
     ltAssistantStatusChanged(e, n) {
         const t = "object" == typeof e ? e : n,
             r = { command: "LTASSISTANT_STATUS_CHANGED", tabId: "number" == typeof e ? e : void 0, enabled: t.enabled, capitalization: t.capitalization };
-        return chrome.runtime.sendMessage(r);
+        return globalThis.messaging.sendMessage(r);
     }
     validate(e, n, t, r, s, o) {
         const a = { command: "VALIDATE_TEXT", text: n, changedParagraphs: t, language: e.language, forceLanguage: e.forceLanguage, hasUserChangedLanguage: o, metaData: r, options: s };
-        return chrome.runtime.sendMessage(a);
+        return globalThis.messaging.sendMessage(a);
     }
     isOptionsPageSupported() {
         return !0;
     }
     openOptionsPage(e, n) {
         const t = { command: "OPEN_OPTIONS", target: e, ref: n };
-        return chrome.runtime.sendMessage(t);
+        return globalThis.messaging.sendMessage(t);
     }
     isFeedbackFormSupported() {
         return !0;
     }
     openFeedbackForm(e, n = "", t = "") {
         const r = { command: "OPEN_FEEDBACK_FORM", url: e, title: n, html: t };
-        return chrome.runtime.sendMessage(r);
+        return globalThis.messaging.sendMessage(r);
     }
 }

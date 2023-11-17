@@ -71,6 +71,6 @@ if (
         e.updatePrivacySettings({ allowRemoteCheck: !0 }).then(showNextStep), Tracker.trackEvent("Action", "accept_privacy_note", "autoCheck:true");
     }
     function closeTab() {
-        chrome.runtime.sendMessage({ command: "CLOSE_CURRENT_TAB" });
+        globalThis.messaging.sendMessage({ command: "CLOSE_CURRENT_TAB" });
     }
 }

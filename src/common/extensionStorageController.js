@@ -200,7 +200,7 @@ class ExtensionStorageController extends StorageControllerClass {
                 if ("function" == typeof Validator) r = Validator.checkForPaidSubscription(s, i, n);
                 else {
                     const t = { command: "CHECK_FOR_PAID_SUBSCRIPTION", username: s, password: i, token: n };
-                    r = chrome.runtime.sendMessage(t).then((t) => {
+                    r = globalThis.messaging.sendMessage(t).then((t) => {
                         if (isCheckForPaidSubscriptionResult(t)) return t.hasPaidSubscription;
                         if (isCheckForPaidSubscriptionError(t)) throw t.error;
                         return !1;
