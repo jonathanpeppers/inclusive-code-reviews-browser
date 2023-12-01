@@ -14,13 +14,13 @@ function sendMessage(message) {
             if (!port) initialize();
 
             var onMessage = function(message) {
-                console.log("Message from background script: " + message);
+                console.log("Message from background script: " + JSON.stringify(message));
                 port.onMessage.removeListener(onMessage);
                 resolve(message);
             };
 
             port.onMessage.addListener(onMessage);
-            console.log("Sending message to background script: " + message);
+            console.log("Sending message to background script: " + JSON.stringify(message));
             port.postMessage(message);
         } catch (e) {
             console.error(e);
