@@ -6,6 +6,10 @@ var port;
 function initialize() {
     console.log("Initializing port");
     port = chrome.runtime.connect({name: "inclusive-code-reviews"});
+    port.onDisconnect.addListener(() => {
+        console.log("port disconnected!");
+        port = null;
+    });
 }
 
 function sendMessage(message) {
