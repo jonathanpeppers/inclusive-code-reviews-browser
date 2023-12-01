@@ -4,23 +4,29 @@
 var port;
 
 function initialize() {
+    console.log("Initializing port");
     port = chrome.runtime.connect({name: "inclusive-code-reviews"});
-    port.onMessage.addListener(function(message) {
-        console.log(message);
-    });
 }
 
 function sendMessage(message) {
-    if (!port) initialize();
-    try {
-        port.postMessage(message);
-    } catch (e) {
-        console.log(e);
+    return new Promise((resolve, reject) => {
+        try {
+            if (!port) initialize();
 
-        // If we fail here, try initializing again
-        initialize();
-        port.postMessage(message);
-    }
+            var onMessage = function(message) {
+                console.log("Message from background script: " + message);
+                port.onMessage.removeListener(onMessage);
+                resolve(message);
+            };
+
+            port.onMessage.addListener(onMessage);
+            console.log("Sending message to background script: " + message);
+            port.postMessage(message);
+        } catch (e) {
+            console.error(e);
+            reject(e);
+        }
+    });
 }
 
 // For use inside the extension (which isn't using webpack)
