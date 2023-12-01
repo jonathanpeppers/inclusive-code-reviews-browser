@@ -33,8 +33,7 @@ var __awaiter =
 class BackgroundApp {
     static _constructor() {
         if (!this._isInitialized) {
-            if (
-                ((this._onDataLoaded = this._onDataLoaded.bind(this)),
+            (this._onDataLoaded = this._onDataLoaded.bind(this)),
                 (this._onInstalled = this._onInstalled.bind(this)),
                 (this._onValidateClicked = this._onValidateClicked.bind(this)),
                 (this._storageController = StorageController.create()),
@@ -43,33 +42,8 @@ class BackgroundApp {
                 chrome.runtime.onConnect.addListener(this._onConnect),
                 DictionarySync.init(),
                 this._updateIcon(),
-                chrome.alarms.create("RELOAD_EXTENSION_HACK_INTERVAL", {delayInMinutes: config.RELOAD_EXTENSION_HACK_INTERVAL, periodInMinutes: config.RELOAD_EXTENSION_HACK_INTERVAL}),
-                chrome.alarms.create("UI_MODE_RECHECK_INTERVAL", {delayInMinutes: config.UI_MODE_RECHECK_INTERVAL, periodInMinutes: config.UI_MODE_RECHECK_INTERVAL}),
-                this._loadConfiguration(),
-                chrome.alarms.create("EXTERNAL_CONFIG_RELOAD_INTERVAL", {delayInMinutes: config.EXTERNAL_CONFIG_RELOAD_INTERVAL, periodInMinutes: config.EXTERNAL_CONFIG_RELOAD_INTERVAL}),
-                BrowserDetector.isFirefox())
-            ) {
-                // Do nothing
-            }
-            chrome.alarms.onAlarm.addListener(this._onAlarm);
+                this._loadConfiguration();
             this._isInitialized = !0;
-        }
-    }
-    static _onAlarm(alarm) {
-        switch (alarm.name) {
-            case "RELOAD_EXTENSION_HACK_INTERVAL":
-                console.log("RELOAD_EXTENSION_HACK_INTERVAL, calling reload.");
-                chrome.runtime.reload();
-                console.log("RELOAD_EXTENSION_HACK_INTERVAL, reloaded.");
-                break;
-            case "UI_MODE_RECHECK_INTERVAL":
-                BackgroundApp._updateIcon();
-                break;
-            case "EXTERNAL_CONFIG_RELOAD_INTERVAL":
-                BackgroundApp._loadConfiguration();
-                break;
-            default:
-                break;
         }
     }
     static _assignToTestGroups() {
