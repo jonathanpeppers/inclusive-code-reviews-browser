@@ -7,7 +7,11 @@ function initialize() {
     console.log("Initializing port");
     port = chrome.runtime.connect({name: "inclusive-code-reviews"});
     port.onDisconnect.addListener(() => {
-        console.log("port disconnected!");
+        if (chrome.runtime.lastError) {
+            console.error("port disconnected:", chrome.runtime.lastError.message);
+        } else {
+            console.log("port disconnected: no error");
+        }
         port = null;
     });
 }
@@ -18,6 +22,9 @@ function sendMessage(message) {
             if (!port) initialize();
 
             var onMessage = function(message) {
+                if (chrome.runtime.lastError) {
+                    console.error("error in onMessage:", chrome.runtime.lastError.message);
+                }
                 console.log("Message from background script: " + JSON.stringify(message));
                 port.onMessage.removeListener(onMessage);
                 resolve(message);
