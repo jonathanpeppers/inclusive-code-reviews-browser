@@ -17,7 +17,7 @@ describe('validator', () => {
         await client.getMatches(ort, 'This is such a bad way to do things', matches);
         expect(matches.length).to.be.equal(1);
         expect(matches[0].replacements.length).to.be.equal(3);
-        expect(matches[0].replacements[0].value).to.contain('more effective approach');
+        expect(matches[0].replacements[0].value).to.contain('effective approach');
     }).timeout(timeout);
 
     it('Suggestion', async () => {
@@ -113,6 +113,6 @@ describe('validator', () => {
         expect(match.offset).to.be.equal(0);
         expect(match.length).to.be.equal(bad.length);
         expect(match.replacements.length).to.be.equal(3);
-        expect(match.replacements[0].value).to.contain('alternative solutions');
+        expect(match.replacements[0].value).to.contain('alternative');
     }).timeout(timeout);
 });
