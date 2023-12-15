@@ -2,6 +2,7 @@ import * as ort from 'onnxruntime-node';
 
 //NOTE: tests that would call OpenAI need a timeout
 const timeout = 20000;
+const retries = 2;
 
 describe('validator', () => {
     const client = require('../src-packed/validator');
@@ -18,7 +19,7 @@ describe('validator', () => {
         expect(matches.length).to.be.equal(1);
         expect(matches[0].replacements.length).to.be.equal(3);
         expect(matches[0].replacements[0].value).to.contain('effective approach');
-    }).timeout(timeout);
+    }).timeout(timeout).retries(retries);
 
     it('Suggestion', async () => {
         var matches = [];
@@ -102,7 +103,7 @@ describe('validator', () => {
         expect(matches[1].shortMessage).to.be.equal("Comment is brief");
         expect(matches[0].replacements.length).to.be.equal(3);
         expect(matches[0].replacements[0].value).to.contain('implementation');
-    }).timeout(timeout);
+    }).timeout(timeout).retries(retries);;
 
     it('Two sentences', async () => {
         var matches = [];
@@ -114,5 +115,5 @@ describe('validator', () => {
         expect(match.length).to.be.equal(bad.length);
         expect(match.replacements.length).to.be.equal(3);
         expect(match.replacements[0].value).to.contain('alternative');
-    }).timeout(timeout);
+    }).timeout(timeout).retries(retries);
 });
