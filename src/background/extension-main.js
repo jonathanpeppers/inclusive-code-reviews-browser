@@ -147,6 +147,7 @@ class BackgroundApp {
     static _onConnect(port) {
         console.log('port connected:' + port.name);
         port.onMessage.addListener(async function(message) {
+            console.log('message received:' + message);
             let result = isPageLoadedMessage(message)
                 ? (BackgroundApp._onPageLoadedMessage(port, message))
                 : isPageView(message)
