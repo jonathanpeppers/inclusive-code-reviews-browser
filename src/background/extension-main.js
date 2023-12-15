@@ -44,7 +44,6 @@ class BackgroundApp {
                 chrome.runtime.onMessage.addListener(this._onMessage),
                 DictionarySync.init(),
                 this._updateIcon(),
-                chrome.alarms.create("RELOAD_EXTENSION_HACK_INTERVAL", {delayInMinutes: config.RELOAD_EXTENSION_HACK_INTERVAL, periodInMinutes: config.RELOAD_EXTENSION_HACK_INTERVAL}),
                 chrome.alarms.create("UI_MODE_RECHECK_INTERVAL", {delayInMinutes: config.UI_MODE_RECHECK_INTERVAL, periodInMinutes: config.UI_MODE_RECHECK_INTERVAL}),
                 this._loadConfiguration(),
                 chrome.alarms.create("EXTERNAL_CONFIG_RELOAD_INTERVAL", {delayInMinutes: config.EXTERNAL_CONFIG_RELOAD_INTERVAL, periodInMinutes: config.EXTERNAL_CONFIG_RELOAD_INTERVAL}),
@@ -52,18 +51,12 @@ class BackgroundApp {
             ) {
                 // Do nothing
             }
-            this._createBackgroundPage();
             chrome.alarms.onAlarm.addListener(this._onAlarm);
             this._isInitialized = !0;
         }
     }
     static _onAlarm(alarm) {
         switch (alarm.name) {
-            case "RELOAD_EXTENSION_HACK_INTERVAL":
-                console.log("RELOAD_EXTENSION_HACK_INTERVAL, calling reload.");
-                chrome.runtime.reload();
-                console.log("RELOAD_EXTENSION_HACK_INTERVAL, reloaded.");
-                break;
             case "UI_MODE_RECHECK_INTERVAL":
                 BackgroundApp._updateIcon();
                 break;
@@ -225,17 +218,6 @@ class BackgroundApp {
         });
     }
     static _migrate() {}
-    static async _createBackgroundPage() {
-        console.log('checking offscreen.html');
-        if (await chrome.offscreen.hasDocument?.()) return;
-        console.log('creating offscreen.html');
-        await chrome.offscreen.createDocument({
-            url: 'content/offscreen.html',
-            reasons: [chrome.offscreen.Reason.WORKERS || chrome.offscreen.Reason.BLOBS],
-            justification: 'keep service worker running',
-        });
-        console.log('offscreen.html created');
-    }
     static _onMessage(e, t, sendResponse) {
         let s;
         isPageLoadedMessage(e)
