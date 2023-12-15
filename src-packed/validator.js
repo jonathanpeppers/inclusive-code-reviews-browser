@@ -33,6 +33,8 @@ async function getOpenAISuggestions(sentence, matches) {
         ],
         // 0 accurate, 1 creative
         "temperature": 0.5,
+        // prevent the model from repeating itself without sacrificing quality of response
+        "frequencyPenalty": 1.0,
         "maxTokens": 800,
         "enableJsonMode": true
     };
