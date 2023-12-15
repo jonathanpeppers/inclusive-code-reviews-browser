@@ -29,7 +29,10 @@
     "devDependencies": {
         "extension-cli": "^1.2.4",
         "global": "^4.3.2",
-        "onnxruntime-node": "^1.16.3"
+        "onnxruntime-node": "^1.16.3",
+        "@types/chrome": "^0.0.254",
+        "@types/chai" : "^4.3.11",
+        "@types/mocha": "^10.0.6"
     },
     "xtdocs": {
         "source": {
@@ -64,5 +67,9 @@
         "chrome-types": "^0.1.246",
         "onnxruntime-web": "^1.16.3",
         "webpack": "^5.89.0"
+    },
+    "overrides": {
+        "chai": "4.3.10",
+        "mocha": "10.2.0"
     }
 }

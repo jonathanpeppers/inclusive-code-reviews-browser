@@ -1,4 +1,5 @@
 const timeout = 20000;
+const retries = 2;
 const endpoint = "https://app-rel.wus3.sample-dev.azgrafana-test.io/api/ChatCompletion";
 
 describe('openai client', () => {
@@ -31,5 +32,5 @@ describe('openai client', () => {
 
         expect(result.length).to.not.be.equal(0);
         expect(result).to.not.be.contains("This is a wasted line of code");
-    }).timeout(timeout);
+    }).timeout(timeout).retries(retries);
 });
