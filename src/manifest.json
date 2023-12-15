@@ -41,7 +41,6 @@
    },
    "permissions": [
       "activeTab",
-      "alarms",
       "contextMenus",
       "scripting",
       "storage"
