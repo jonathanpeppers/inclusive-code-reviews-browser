@@ -16,63 +16,84 @@ function loadAppInsights() {
 }
 
 async function getOpenAISuggestions(sentence, matches) {
-    let request = {
-        "messages": [
-            {
-                "role": "system",
-                "content": "You are an assistant that only replies with exactly three options as a JSON array, which is not indented and contains no new lines. For example: { \"suggestions\" : [ \"1\", \"2\", \"3\" ] }"
-            },
-            {
-                "role": "system",
-                "content": "You are expert software engineer that is particularly good at writing inclusive, well-written, thoughtful code reviews."
-            },
-            {
-                "role": "user",
-                "content": "Suggest three polite alternatives to the code review comment: " + sentence.text
+    try {
+        let request = {
+            "messages": [
+                {
+                    "role": "system",
+                    "content": "You are an assistant that only replies with exactly three options as a JSON array, which is not indented and contains no new lines. For example: { \"suggestions\" : [ \"1\", \"2\", \"3\" ] }"
+                },
+                {
+                    "role": "system",
+                    "content": "You are expert software engineer that is particularly good at writing inclusive, well-written, thoughtful code reviews."
+                },
+                {
+                    "role": "user",
+                    "content": "Suggest three polite alternatives to the code review comment: " + sentence.text
+                }
+            ],
+            // 0 accurate, 1 creative
+            "temperature": 0.5,
+            // prevent the model from repeating itself without sacrificing quality of response
+            "frequencyPenalty": 1.0,
+            "maxTokens": 800,
+            "enableJsonMode": true
+        };
+
+        if (globalThis.OpenAISeed) {
+            request["seed"] = globalThis.OpenAISeed;
+        }
+
+        const response = await fetchOpenAI (endpoint, request);
+
+        let json = response.choices[0].message.content;
+        console.log('OpenAI response: ' + json);
+        let result = JSON.parse(json);
+        if (result.suggestions) {
+            result = result.suggestions;
+        }
+        var replacements = [];
+        result.forEach(r => replacements.push({
+            // There may be numbered lists, ChatGPT loves them
+            value: r.trim().replace(/^\d\.\s*/, '')
+        }));
+        matches.push({
+            "message": "This phrase could be considered negative. Would you like to rephrase?",
+            "shortMessage": "Negative sentiment",
+            "offset": sentence.offset,
+            "length": sentence.length,
+            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_PURPLE, "category": { "id": "TYPOS", "name": "Negative word" } },
+            "replacements": replacements,
+            "type": { "typeName": "Other" },
+            "ignoreForIncompleteSentence": false,
+            "contextForSureMatch": 7
+        });
+    } catch (error) {
+        console.error("Error getting suggestions from OpenAI:", error.message);
+  }
+}
+
+function fetchOpenAI(endpoint, request) {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(request),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
             }
-        ],
-        // 0 accurate, 1 creative
-        "temperature": 0.5,
-        // prevent the model from repeating itself without sacrificing quality of response
-        "frequencyPenalty": 1.0,
-        "maxTokens": 800,
-        "enableJsonMode": true
-    };
 
-    if (globalThis.OpenAISeed) {
-        request["seed"] = globalThis.OpenAISeed;
-    }
-
-    const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(request),
-    }).then(response => response.json());
-
-    let json = response.choices[0].message.content;
-    console.log('OpenAI response: ' + json);
-    let result = JSON.parse(json);
-    if (result.suggestions) {
-        result = result.suggestions;
-    }
-    var replacements = [];
-    result.forEach(r => replacements.push({
-        // There may be numbered lists, ChatGPT loves them
-        value: r.trim().replace(/^\d\.\s*/, '')
-    }));
-    matches.push({
-        "message": "This phrase could be considered negative. Would you like to rephrase?",
-        "shortMessage": "Negative sentiment",
-        "offset": sentence.offset,
-        "length": sentence.length,
-        "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_PURPLE, "category": { "id": "TYPOS", "name": "Negative word" } },
-        "replacements": replacements,
-        "type": { "typeName": "Other" },
-        "ignoreForIncompleteSentence": false,
-        "contextForSureMatch": 7
-    });
+            const responseData = await response.json();
+            resolve(responseData);
+        } catch (error) {
+            reject(error);
+        }
+  });
 }
 
 export async function getMatches(ort, text, matches) {
