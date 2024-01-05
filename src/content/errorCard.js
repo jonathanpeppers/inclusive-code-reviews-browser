@@ -140,6 +140,7 @@ class ErrorCard {
                 (askAI.textContent = ErrorCard.MESSAGES.ASK_AI_TOOLTIP),
                 this._eventListeners.push(addUseCaptureEvent(askAI, "click", this._askAI.bind(this))),
                 e.appendChild(askAI);
+            this.askAI = askAI;
         }
         if (this._error.isSpellingError) {
             if (!this._uiOptions.disableAddingWord && !includesWhiteSpace(this._error.originalPhrase)) {
@@ -182,8 +183,10 @@ class ErrorCard {
         body += "* language: " + this._error.language.code + " (" + this._error.language.name + ")" + "\n";
         window.open("https://github.com/jonathanpeppers/inclusive-code-comments/issues/new?labels=" + encodeURIComponent("enhancement,heuristics") + "&title=" + encodeURIComponent(title) + "&body=" + encodeURIComponent(body));
     }
-    async _askAI(e) {
-        console.log("Ask AI");
+    async _askAI() {
+        if (this.askAI.textContent == "Loading...")
+            return;
+        this.askAI.textContent = "Loading...";
         var response = await EnvironmentAdapter.askAnAI({
             offset: this._error.offset,
             length: this._error.length,
