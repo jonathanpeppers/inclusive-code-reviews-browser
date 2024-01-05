@@ -309,6 +309,10 @@
       "description": "Tooltip for send feedback icon",
       "message": "Report an issue to improve heuristics"
    },
+   "dialogTooltipAskAI": {
+      "description": "Tooltip for asking AI",
+      "message": "Ask an AI for suggestions"
+   },
    "dialogTooltipSettings": {
       "description": "Tooltip for settings icon",
       "message": "Settings"

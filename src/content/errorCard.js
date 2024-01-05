@@ -20,6 +20,7 @@ class ErrorCard {
             LINK_MORE_DETAILS: i18nManager.getMessage("moreDetails"),
             LINK_IGNORE_HERE: i18nManager.getMessage("ignoreHere"),
             SEND_FEEDBACK_TOOLTIP: i18nManager.getMessage("dialogTooltipSendFeedback"),
+            ASK_AI_TOOLTIP: i18nManager.getMessage("dialogTooltipAskAI"),
             EN_US_LINK: i18nManager.getMessage("switchToAmericanEnglish"),
             EN_CA_LINK: i18nManager.getMessage("switchToCanadianEnglish"),
             EN_AU_LINK: i18nManager.getMessage("switchToAustralianEnglish"),
@@ -47,6 +48,7 @@ class ErrorCard {
                 addUseCaptureEvent(this._container, "pointerup", (e) => e.stopImmediatePropagation())
             );
         const t = this._document.createElement("lt-div");
+        this.contentContainer = t;
         t.classList.add("lt-card__container"), t.classList.add("lt-card__container--error-card"), t.classList.add("notranslate"), this._renderContent(t);
         const r = this._document.createElement("lt-span");
         (r.className = "lt-card__close-button"), this._eventListeners.push(addUseCaptureEvent(r, "click", this._onCloseClicked.bind(this))), t.appendChild(r), this._container.appendChild(t);
@@ -132,6 +134,13 @@ class ErrorCard {
             }
             e.appendChild(t);
         }
+        if (this._error.askAnAI) {
+            const askAI = this._document.createElement("lt-div");
+                askAI.classList.add("lt-errorcard__add-to-dictionary"),
+                (askAI.textContent = ErrorCard.MESSAGES.ASK_AI_TOOLTIP),
+                this._eventListeners.push(addUseCaptureEvent(askAI, "click", this._askAI.bind(this))),
+                e.appendChild(askAI);
+        }
         if (this._error.isSpellingError) {
             if (!this._uiOptions.disableAddingWord && !includesWhiteSpace(this._error.originalPhrase)) {
                 const t = this._document.createElement("lt-div");
@@ -152,11 +161,11 @@ class ErrorCard {
                 this._eventListeners.push(addUseCaptureEvent(t, "click", this._onTemporarilyIgnoreRuleClick.bind(this))),
                 e.appendChild(t);
         }
-        const ignoreDiv = this._document.createElement("lt-div");
-            ignoreDiv.classList.add("lt-errorcard__send-feedback"),
-            (ignoreDiv.textContent = ErrorCard.MESSAGES.SEND_FEEDBACK_TOOLTIP),
-            this._eventListeners.push(addUseCaptureEvent(ignoreDiv, "click", this._showGithubIssues.bind(this))),
-            e.appendChild(ignoreDiv);
+        const sendFeedback = this._document.createElement("lt-div");
+            sendFeedback.classList.add("lt-errorcard__send-feedback"),
+            (sendFeedback.textContent = ErrorCard.MESSAGES.SEND_FEEDBACK_TOOLTIP),
+            this._eventListeners.push(addUseCaptureEvent(sendFeedback, "click", this._showGithubIssues.bind(this))),
+            e.appendChild(sendFeedback);
     }
     _showGithubIssues(e) {
         e.stopImmediatePropagation();
@@ -172,6 +181,20 @@ class ErrorCard {
         body += "* isStyleError: " + this._error.isStyleError + "\n";
         body += "* language: " + this._error.language.code + " (" + this._error.language.name + ")" + "\n";
         window.open("https://github.com/jonathanpeppers/inclusive-code-comments/issues/new?labels=" + encodeURIComponent("enhancement,heuristics") + "&title=" + encodeURIComponent(title) + "&body=" + encodeURIComponent(body));
+    }
+    async _askAI(e) {
+        console.log("Ask AI");
+        var response = await EnvironmentAdapter.askAnAI({
+            offset: this._error.offset,
+            length: this._error.length,
+            text: this._error.originalPhrase
+        });
+        const fixes = response.replacements.map((e) => ({ value: e.value, prefix: e.prefix, suffix: e.suffix, type: e.type, shortDescription: e.shortDescription }));
+        this._error.askAnAI = false;
+        this._error.fixes = fixes;
+        // Clear content and reload
+        this.contentContainer.innerHTML = "";
+        this._renderContent(this.contentContainer);
     }
     _onBadgeClicked(e) {
         e.stopImmediatePropagation();

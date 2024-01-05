@@ -34,6 +34,9 @@ const EnvironmentAdapter = class {
     static startDictionarySync() {
         return this._instance.startDictionarySync();
     }
+    static askAnAI(t) {
+        return this._instance.askAnAI(t);
+    }
     static addWordToDictionary(t) {
         return this._instance.addWordToDictionary(t);
     }
