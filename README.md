@@ -47,16 +47,17 @@ generally friendlier:
 
 ## OpenAI
 
-There is now an experimental feature to query OpenAI's API available in the
-`main` branch.
+There is now a feature to query OpenAI available in version 3.1 or higher of the
+browser extension.
 
 This enables suggestions to phrases we have identified as negative sentiment:
 
+![Ask an AI for Suggestions](docs/openaifirst.png)
+
 ![Alternate suggestions to "This code is terribly inefficient"](docs/openai.png)
 
-We are working on UX, to it will be obvious what is sent to an LLM or not. Users
-will have control of which text is sent over the Internet. We may also add a setting
-that would disable this feature entirely.
+Users will have control of which text is sent over the Internet, by clicking the
+button (or not!).
 
 ## Contributing
 

@@ -85,6 +85,10 @@ We also report `customMeasurements` such as:
 {"positive":0,"neutral":0,"negative":1}
 ```
 
+## askAI
+
+The user clicked `Ask an AI for suggestions`.
+
 ## Queries
 
 These are just a list of Kusto queries for looking at the data:

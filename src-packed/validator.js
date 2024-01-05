@@ -16,6 +16,8 @@ function loadAppInsights() {
 }
 
 export async function getOpenAISuggestions(sentence) {
+    appinsights.trackEvent('askAI');
+
     let request = {
         "messages": [
             {
