@@ -210,6 +210,7 @@ class Validator {
                 isStyleError: a,
                 isPunctuationError: n,
                 isPicky: o,
+                askAnAI: e.askAnAI,
                 contextForSureMatch: e.contextForSureMatch,
                 language: { code: r.code, name: r.name },
                 description: e.message,

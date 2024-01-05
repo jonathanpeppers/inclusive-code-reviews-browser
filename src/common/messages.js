@@ -56,6 +56,9 @@ function isGetPreferredLanguagesMessage(n) {
 function isRemoveWordFromDictionaryMessage(n) {
     return "REMOVE_WORD_FROM_DICTIONARY" === n.command;
 }
+function isAskAnAIMessage(n) {
+    return "ASK_AN_AI" === n.command;
+}
 function isAddWordToDictionaryMessage(n) {
     return "ADD_WORD_TO_DICTIONARY" === n.command;
 }

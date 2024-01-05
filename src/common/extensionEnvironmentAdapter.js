@@ -71,6 +71,10 @@ class ExtensionEnvironmentAdapter extends EnvironmentAdapterClass {
     updateDictionary() {
         return chrome.runtime.sendMessage({ command: "UPDATE_DICTIONARY" });
     }
+    askAnAI(e) {
+        const n = { command: "ASK_AN_AI", sentence: e };
+        return chrome.runtime.sendMessage(n);
+    }
     addWordToDictionary(e) {
         const n = { command: "ADD_WORD_TO_DICTIONARY", word: e };
         return chrome.runtime.sendMessage(n);

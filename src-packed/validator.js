@@ -15,7 +15,7 @@ function loadAppInsights() {
     if (!appinsights) appinsights = require('./appinsights');
 }
 
-async function getOpenAISuggestions(sentence, matches) {
+export async function getOpenAISuggestions(sentence) {
     let request = {
         "messages": [
             {
@@ -62,7 +62,7 @@ async function getOpenAISuggestions(sentence, matches) {
         // There may be numbered lists, ChatGPT loves them
         value: r.trim().replace(/^\d\.\s*/, '')
     }));
-    matches.push({
+    return {
         "message": "This phrase could be considered negative. Would you like to rephrase?",
         "shortMessage": "Negative sentiment",
         "offset": sentence.offset,
@@ -72,7 +72,7 @@ async function getOpenAISuggestions(sentence, matches) {
         "type": { "typeName": "Other" },
         "ignoreForIncompleteSentence": false,
         "contextForSureMatch": 7
-    });
+    };
 }
 
 export async function getMatches(ort, text, matches) {
@@ -111,26 +111,19 @@ export async function getMatches(ort, text, matches) {
 
         appinsights.trackEvent('negativeSentence', sentence.confidenceScores);
 
-        try {
-            await getOpenAISuggestions(sentence, matches);
-        } catch (e) {
-            console.log(e);
-        } finally {
-            if (matches.length == 0) {
-                matches.push({
-                    "message": "This phrase could be considered negative. Would you like to rephrase?",
-                    "shortMessage": "Negative sentiment",
-                    "offset": sentence.offset,
-                    "length": sentence.length,
-                    "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_PURPLE, "category": { "id": "TYPOS", "name": "Negative word" } },
-                    // Stuff that has to be filled out
-                    "replacements": [],
-                    "type": { "typeName": "Other" },
-                    "ignoreForIncompleteSentence": false,
-                    "contextForSureMatch": 7
-                });
-            }
-        }
+        matches.push({
+            "message": "This phrase could be considered negative. Would you like to rephrase?",
+            "shortMessage": "Negative sentiment",
+            "offset": sentence.offset,
+            "length": sentence.length,
+            "rule": { "id": "NON_STANDARD_WORD", "subId": "1", "description": "Negative word", "issueType": ISSUE_TYPE_PURPLE, "category": { "id": "TYPOS", "name": "Negative word" } },
+            // Stuff that has to be filled out
+            "replacements": [],
+            "type": { "typeName": "Other" },
+            "ignoreForIncompleteSentence": false,
+            "askAnAI": true,
+            "contextForSureMatch": 7
+        });
     };
 
     // Check if the comment is too short
@@ -204,4 +197,5 @@ export function shouldReportManualFix(matches) {
 // The best I came up with for now is to add this function to globalThis.
 // https://developer.mozilla.org/en-US/docs/Glossary/Global_object
 globalThis.getMatches = getMatches;
+globalThis.getOpenAISuggestions = getOpenAISuggestions;
 globalThis.appliedSuggestion = appliedSuggestion;

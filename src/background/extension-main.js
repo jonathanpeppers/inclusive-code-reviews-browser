@@ -238,6 +238,8 @@ class BackgroundApp {
             ? (s = this._onStartDictionarySyncMessage(t, e))
             : isAddWordToDictionaryMessage(e)
             ? (s = this._onAddWordToDictionaryMessage(t, e))
+            : isAskAnAIMessage(e)
+            ? (s = this._onAskAnAIMessage(t, e))
             : isBatchAddWordToDictionaryMessage(e)
             ? (s = this._onBatchAddWordToDictionaryMessage(t, e))
             : isRemoveWordFromDictionaryMessage(e)
@@ -398,6 +400,9 @@ class BackgroundApp {
     }
     static _onStartDictionarySyncMessage(e, t) {
         DictionarySync.checkForInitialSync();
+    }
+    static _onAskAnAIMessage(e, t) {
+        return globalThis.getOpenAISuggestions(t.sentence);
     }
     static _onAddWordToDictionaryMessage(e, t) {
         DictionarySync.addWord(t.word).catch(() => null);

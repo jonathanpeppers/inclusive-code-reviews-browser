@@ -14,11 +14,16 @@ describe('validator', () => {
     });
 
     it('Negative', async () => {
+        const sentence = 'This is such a bad way to do things';
         var matches = [];
-        await client.getMatches(ort, 'This is such a bad way to do things', matches);
+        await client.getMatches(ort, sentence, matches);
         expect(matches.length).to.be.equal(1);
-        expect(matches[0].replacements.length).to.be.equal(3);
-        expect(matches[0].replacements[0].value).to.contain('effective approach');
+        expect(matches[0].askAnAI).to.be.equal(true);
+
+        // NOTE: only test that actually calls OpenAI
+        var result = await client.getOpenAISuggestions(sentence);
+        expect(result.replacements.length).to.be.equal(3);
+        expect(result.replacements[0].value).to.contain('please');
     }).timeout(timeout).retries(retries);
 
     it('Suggestion', async () => {
@@ -101,19 +106,17 @@ describe('validator', () => {
         expect(matches.length).to.be.equal(2);
         expect(matches[0].shortMessage).to.be.equal("Negative sentiment");
         expect(matches[1].shortMessage).to.be.equal("Comment is brief");
-        expect(matches[0].replacements.length).to.be.equal(3);
-        expect(matches[0].replacements[0].value).to.contain('implementation');
-    }).timeout(timeout).retries(retries);;
+        expect(matches[0].askAnAI).to.be.equal(true);
+    });
 
     it('Two sentences', async () => {
         var matches = [];
-        var bad = 'This is bad.';
+        const bad = 'This is bad.';
         await client.getMatches(ort, bad + ' This is good.', matches);
         expect(matches.length).to.be.equal(1);
         var match = matches[0];
+        expect(match.askAnAI).to.be.equal(true);
         expect(match.offset).to.be.equal(0);
         expect(match.length).to.be.equal(bad.length);
-        expect(match.replacements.length).to.be.equal(3);
-        expect(match.replacements[0].value).to.contain('alternative');
-    }).timeout(timeout).retries(retries);
+    });
 });
