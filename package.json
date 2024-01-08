@@ -64,7 +64,7 @@
     },
     "dependencies": {
         "@microsoft/applicationinsights-web": "^3.0.7",
-        "chrome-types": "^0.1.246",
+        "chrome-types": "^0.1.248",
         "onnxruntime-web": "^1.16.3",
         "webpack": "^5.89.0"
     },
