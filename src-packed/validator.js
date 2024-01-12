@@ -80,7 +80,6 @@ export async function getOpenAISuggestions(sentence) {
 
 export async function getMatches(ort, text, matches) {
     ort.env.wasm.numThreads = 1;
-    loadAppInsights();
 
     // Suggestions, based on a dictionary
     suggestions.getSuggestions(text).forEach(suggestion => {
@@ -177,7 +176,6 @@ export function clearState() {
 // Sends the 'appliedSuggestion' event and clears the state of 'pastErrorCount'
 export function appliedSuggestion(appliedSuggestions) {
     clearState();
-    loadAppInsights();
     getAppInsights().trackEvent('appliedSuggestion', { total: appliedSuggestions });
 }
 
