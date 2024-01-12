@@ -7,16 +7,17 @@ const NEGATIVE_SENTIMENT_THRESHOLD = 0.6;
 const suggestions = require('./suggestions');
 const textAnalytics = require('./textAnalytics');
 const endpoint = "https://app-rel.wus3.sample-dev.azgrafana-test.io/api/Gpt4ChatCompletion";
-var appinsights = null;
+var _appinsights = null;
 var pastErrorCount = 0; // Number of problems found in the past text
 
 // Load appinsights lazily, so we aren't tracking until this method is called
-function loadAppInsights() {
-    if (!appinsights) appinsights = require('./appinsights');
+function getAppInsights() {
+    if (!_appinsights) _appinsights = require('./appinsights');
+    return _appinsights;
 }
 
 export async function getOpenAISuggestions(sentence) {
-    appinsights.trackEvent('askAI');
+    getAppInsights().trackEvent('askAI');
 
     let request = {
         "messages": [
@@ -79,11 +80,10 @@ export async function getOpenAISuggestions(sentence) {
 
 export async function getMatches(ort, text, matches) {
     ort.env.wasm.numThreads = 1;
-    loadAppInsights();
 
     // Suggestions, based on a dictionary
     suggestions.getSuggestions(text).forEach(suggestion => {
-        appinsights.trackEvent('negativeWord');
+        getAppInsights().trackEvent('negativeWord');
 
         matches.push({
             "message": "This word has a negative connotation. Did you want to use a different word?",
@@ -111,7 +111,7 @@ export async function getMatches(ort, text, matches) {
         if (sentence.confidenceScores.negative <= NEGATIVE_SENTIMENT_THRESHOLD)
             continue;
 
-        appinsights.trackEvent('negativeSentence', sentence.confidenceScores);
+        getAppInsights().trackEvent('negativeSentence', sentence.confidenceScores);
 
         matches.push({
             "message": "This phrase could be considered negative. Would you like to rephrase?",
@@ -135,7 +135,7 @@ export async function getMatches(ort, text, matches) {
         if (ignorableBriefPhraseRegex.test(text))
             return matches; // return an empty list early
 
-        appinsights.trackEvent('tooShort');
+        getAppInsights().trackEvent('tooShort');
         matches.push({
             "message": "This comment is too brief. Could you elaborate?",
             "shortMessage": "Comment is brief",
@@ -153,7 +153,7 @@ export async function getMatches(ort, text, matches) {
 
     // 'manualFix' event
     if (shouldReportManualFix(matches)) {
-        appinsights.trackEvent('manualFix');
+        getAppInsights().trackEvent('manualFix');
     }
 }
 
@@ -176,8 +176,7 @@ export function clearState() {
 // Sends the 'appliedSuggestion' event and clears the state of 'pastErrorCount'
 export function appliedSuggestion(appliedSuggestions) {
     clearState();
-    loadAppInsights();
-    appinsights.trackEvent('appliedSuggestion', { total: appliedSuggestions });
+    getAppInsights().trackEvent('appliedSuggestion', { total: appliedSuggestions });
 }
 
 // Returns true if the 'manualFix' event should be sent
