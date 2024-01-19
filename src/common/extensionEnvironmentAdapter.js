@@ -125,8 +125,8 @@ class ExtensionEnvironmentAdapter extends EnvironmentAdapterClass {
     isFeedbackFormSupported() {
         return !0;
     }
-    openFeedbackForm(e, n = "", t = "") {
-        const r = { command: "OPEN_FEEDBACK_FORM", url: e, title: n, html: t };
+    openFeedbackForm() {
+        const r = { command: "OPEN_FEEDBACK_FORM", url: "https://github.com/jonathanpeppers/inclusive-code-comments/issues/new" };
         return chrome.runtime.sendMessage(r);
     }
 }

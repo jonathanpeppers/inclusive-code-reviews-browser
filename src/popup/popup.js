@@ -14,6 +14,7 @@
         h = document.getElementById("popup-validator-button"),
         E = document.getElementById("popup-teaser"),
         b = document.getElementById("feedback-link"),
+        privacyPolicy = document.getElementById("privacy-policy"),
         L = document.getElementById("popup-more-options-link"),
         w = document.getElementById("lt-popup-logo");
     translateSection(document.body),
@@ -32,7 +33,13 @@
             Tracker.trackEvent("Action", "popup:onboarding_banner:close");
             window.close();
         }),
-        b.addEventListener("click", () => EnvironmentAdapter.openFeedbackForm(e));
+        b.addEventListener("click", () => EnvironmentAdapter.openFeedbackForm());
+        privacyPolicy.addEventListener("click", () => {
+            return chrome.runtime.sendMessage({
+                command: "OPEN_FEEDBACK_FORM",
+                url: "https://github.com/jonathanpeppers/inclusive-code-reviews-browser/blob/main/PRIVACY.md"
+            });
+        });
     let v = StorageController.create();
     v.onReady(() => {
         chrome.tabs.query({ currentWindow: !0, active: !0 }).then((a) => {
