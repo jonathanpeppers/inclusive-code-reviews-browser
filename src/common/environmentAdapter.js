@@ -79,7 +79,7 @@ const EnvironmentAdapter = class {
     static isFeedbackFormSupported() {
         return this._instance.isFeedbackFormSupported();
     }
-    static openFeedbackForm(t, n, e) {
-        return this._instance.openFeedbackForm(t, n, e);
+    static openFeedbackForm() {
+        return this._instance.openFeedbackForm();
     }
 };

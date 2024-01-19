@@ -399,13 +399,13 @@ lt-dialog .lt-premium-errors-teaser,
   line-height: 20px;
   position: relative; }
 
-.lt-popup__feedback-link {
+.lt-popup__feedback-link, .lt-popup__privacy-policy {
   text-decoration: underline;
   color: #2F3237;
   font-size: 12px;
   cursor: pointer; }
 
-.lt-popup__feedback-link:hover {
+.lt-popup__feedback-link:hover, .lt-popup__privacy-policy:hover {
   color: #5E636E; }
 
 .lt-popup__hint {
