@@ -77,7 +77,7 @@
    },
    "contextMenuValidate": {
       "description": "Check text item in context menu",
-      "message": "Check spelling and grammar..."
+      "message": "Check for Inclusive Comments..."
    },
    "contextMenuValidateInEditor": {
       "description": "Check text item in context menu",
@@ -195,14 +195,14 @@
    },
    "dialogEnableInDialogText": {
       "description": "Shown in popup when add-on is not enabled",
-      "message": "Click to enable Spelling and Grammar Check."
+      "message": "Click to enable Inclusive Comments Check."
    },
    "dialogFailStateHeadline": {
-      "description": "Text shown when somethign went wrong",
+      "description": "Text shown when something went wrong",
       "message": "Oops..."
    },
    "dialogFailStateText": {
-      "description": "Text shown when somethign went wrong",
+      "description": "Text shown when something went wrong",
       "message": "Something went wrong. Please try again."
    },
    "dialogMainMenuPickyMode": {
@@ -375,7 +375,7 @@
    },
    "enableInDialog": {
       "description": "Shown in popup when add-on is not enabled",
-      "message": "Click to enable Spelling\u003Cbr>and Grammar Check"
+      "message": "Click to enable Inclusive\u003Cbr>Comments Check"
    },
    "enableRuleTooltip": {
       "description": "Shown when user hover cursor over enable rule button on options page",
@@ -583,7 +583,7 @@
    },
    "messagePopupTurnOntext": {
       "description": "Instruction text to enable checking on page; Shown after checking was disabled",
-      "message": "To reactivate it, click on the LT icon in your toolbar and click on the 'Check Grammar and Spelling' toggle button"
+      "message": "To reactivate it, click on the LT icon in your toolbar and click on the 'Check Inclusive Comments' toggle button"
    },
    "ml": {
       "description": "language name",
@@ -707,7 +707,7 @@
    },
    "popupOptionCheckText": {
       "description": "Switch in toolbar popup",
-      "message": "Check Grammar and Spelling"
+      "message": "Check for Inclusive Comments"
    },
    "popupOptionSynonyms": {
       "description": "Label for enabling/disabling synonym functionality (displayed next to a checkbox)",
@@ -1099,7 +1099,7 @@
    },
    "statusIconEnableLT": {
       "description": "Shown when hovering over the status icon (not the toolbar one) in disabled state",
-      "message": "Enable LanguageTool - Spelling and Grammar Check"
+      "message": "Enable Inclusive Comments Check"
    },
    "statusIconError": {
       "description": "Shown when hovering over the status icon (not the toolbar one) in error state",
@@ -1119,7 +1119,7 @@
    },
    "statusIconToolTip": {
       "description": "Shown when hovering over the status icon (not the toolbar one)",
-      "message": "LanguageTool - Spelling and Grammar Check"
+      "message": "Inclusive Comments Check"
    },
    "suggestionError": {
       "description": "Type of error (spelling error, style suggestion, grammar error, ...)",
