@@ -65,7 +65,7 @@
     "dependencies": {
         "@microsoft/applicationinsights-web": "^3.0.7",
         "onnxruntime-web": "^1.16.3",
-        "webpack": "^5.89.0"
+        "webpack": "^5.90.0"
     },
     "overrides": {
         "chai": "4.3.10",
