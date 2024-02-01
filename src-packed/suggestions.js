@@ -64,6 +64,7 @@ const allReplacements = {
     "dumb-down": ["simplify"],
     // violent
     "hang": ["freeze"],
+    "hangs": ["freezes"],
     "hanging": ["frozen", "stuck"],
     "hit": ["click", "tap", "run into"],
     "crushing it": ["elevating", "exceeding expectations", "excelling"],
