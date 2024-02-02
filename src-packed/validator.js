@@ -200,3 +200,4 @@ export function shouldReportManualFix(matches) {
 globalThis.getMatches = getMatches;
 globalThis.getOpenAISuggestions = getOpenAISuggestions;
 globalThis.appliedSuggestion = appliedSuggestion;
+globalThis.getAppInsights = getAppInsights;

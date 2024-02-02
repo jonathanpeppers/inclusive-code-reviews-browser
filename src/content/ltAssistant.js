@@ -1191,6 +1191,7 @@ class LTAssistant {
     }
     _showErrorCard(e, t, r) {
         chrome.runtime.sendMessage({ command: "TRACK_PAGE_VIEW", location: { name: document.title, uri: window.location.href } });
+        globalThis.getAppInsights().trackEvent('requestSuggestionsPopup', { type: 'inlineErrorCard' });
         const i = this._storageController.getManagedSettings(),
             o = {
                 disableIgnoringRule: void 0 !== this._options.disableRuleIgnore ? this._options.disableRuleIgnore : i.disableIgnoredRules,
@@ -1244,6 +1245,7 @@ class LTAssistant {
     }
     _showDialog(e) {
         if (!e.toolbar) return;
+        globalThis.getAppInsights().trackEvent('requestSuggestionsPopup', { type: 'indicatorDialog' });
         const t = e.language && e.language.code,
             r = new TextStatistics(e.validatedText.originalText),
             i = new TextScore().calculateTextScore(r.getAllWords().length, e.errors, e.premiumErrors, e.pickyErrors),
