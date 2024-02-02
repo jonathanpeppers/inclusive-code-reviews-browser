@@ -89,6 +89,25 @@ We also report `customMeasurements` such as:
 
 The user clicked `Ask an AI for suggestions`.
 
+## requestSuggestionsPopup
+
+The user has clicked something that would present a popup of some sort with suggestions or a way to get suggestions.
+
+1. The user clicked the underlined text
+2. The user has clicked the bottom-left corner indicator
+
+We also report `customMeasurements` such as:
+
+```json
+{ "type": "inlineErrorCard" }
+```
+
+Or
+
+```json
+{ "type": "indicatorDialog" }
+```
+
 ## Queries
 
 These are just a list of Kusto queries for looking at the data:
