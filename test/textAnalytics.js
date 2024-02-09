@@ -3,6 +3,11 @@ import * as ort from 'onnxruntime-node';
 describe('textAnalytics', () => {
     const client = require('../src-packed/textAnalytics');
 
+    // NOTE: This appears to be taking a while on CI, sometimes
+    it('Initialize', async () => {
+        await client.initialize(ort);
+    }).timeout(20000);
+
     it('Negative', async () => {
         const result = await client.analyzeSentiment(ort, "This is terrible!");
         expect(result.sentences[0].sentiment).to.be.equal("negative");

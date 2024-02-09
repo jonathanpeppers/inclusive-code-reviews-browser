@@ -127,9 +127,13 @@ export function splitIntoSentences(text) {
 
 var session;
 
-export async function analyzeSentiment(ort, sentences) {
+export async function initialize(ort) {
     if (session == null)
         session = await ort.InferenceSession.create('./assets/model.onnx');
+}
+
+export async function analyzeSentiment(ort, sentences) {
+    await initialize(ort);
 
     var shouldPreprocess = true;
 
