@@ -175,12 +175,6 @@ class ErrorCard {
         body += "Additional info:\n\n";
         body += "* Description: " + this._error.description + "\n";
         body += "* Context phrase: " + this._error.contextPhrase + "\n";
-        body += "* isPartialValidation: " + this._error.isPartialValidation + "\n";
-        body += "* isPicky: " + this._error.isPicky + "\n";
-        body += "* isPunctuationError: " + this._error.isPunctuationError + "\n";
-        body += "* isSpellingError: " + this._error.isSpellingError + "\n";
-        body += "* isStyleError: " + this._error.isStyleError + "\n";
-        body += "* language: " + this._error.language.code + " (" + this._error.language.name + ")" + "\n";
         window.open("https://github.com/jonathanpeppers/inclusive-code-comments/issues/new?labels=" + encodeURIComponent("enhancement,heuristics") + "&title=" + encodeURIComponent(title) + "&body=" + encodeURIComponent(body));
     }
     async _askAI() {
