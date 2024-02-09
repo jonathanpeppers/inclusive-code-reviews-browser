@@ -6,7 +6,7 @@ describe('textAnalytics', () => {
     // NOTE: This appears to be taking a while on CI, sometimes
     it('Initialize', async () => {
         await client.initialize(ort);
-    }).timeout(20000);
+    }).timeout(60000);
 
     it('Negative', async () => {
         const result = await client.analyzeSentiment(ort, "This is terrible!");
