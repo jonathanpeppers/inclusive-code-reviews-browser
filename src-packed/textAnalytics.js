@@ -98,6 +98,12 @@ function replaceTrailingPunctuation (text) {
 export function preprocessText (text) {
     var result = removeCodeBlocks (text);
     result = removeImageTags (result);
+
+    // NOTE: ".NET" is not properly split into sentences.
+    // Because MSFT employees use ".NET" a lot in comments, we should fix it.
+    // Let's replace it with " NET", so text will be the same length.
+    result = result.replace ('.NET', ' NET');
+
     return result;
 }
 

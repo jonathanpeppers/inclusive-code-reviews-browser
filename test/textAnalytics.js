@@ -40,6 +40,24 @@ This code is stupid.`
         expect(result.sentences[5].sentiment).to.be.equal("negative");
     });
 
+    it('.NET', async () => {
+        const result = await client.analyzeSentiment(ort, 'I love .NET 8!');
+        expect(result.sentences.length).to.be.equal(1);
+        expect(result.sentences[0].sentiment).to.be.equal("neutral");
+    });
+
+    it('ASP.NET', async () => {
+        const text1 = "I work on ASP.NET as a consultant.";
+        const text2 = "Your code sucks.";
+        const result = await client.analyzeSentiment(ort, text1 + ' ' + text2);
+        expect(result.sentences.length).to.be.equal(2);
+        expect(result.sentences[0].sentiment).to.be.equal("neutral");
+        expect(result.sentences[1].sentiment).to.be.equal("negative");
+        var sentence = result.sentences[result.sentences.length - 1];
+        expect(sentence.offset).to.be.equal(text1.length + 1); // space character
+        expect(sentence.length).to.be.equal(text2.length);
+    });
+
     it('Fenced code blocks negative', async () => {
         const result = await client.analyzeSentiment(ort, "```\nThis is terrible!\n```\nHello, World!\n");
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
