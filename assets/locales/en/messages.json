@@ -1119,7 +1119,7 @@
    },
    "statusIconToolTip": {
       "description": "Shown when hovering over the status icon (not the toolbar one)",
-      "message": "Inclusive Comments Check"
+      "message": "Inclusive Code Comments"
    },
    "suggestionError": {
       "description": "Type of error (spelling error, style suggestion, grammar error, ...)",

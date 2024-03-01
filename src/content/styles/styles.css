@@ -1086,7 +1086,7 @@ html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.
     border: none !important;
     border-radius: 50% !important;
     user-select: none !important;
-    cursor: pointer !important;
+    /*cursor: pointer !important;*/
     transform-origin: right bottom !important;
     transition: transform 0.2s !important; }
   html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-toolbar .lt-toolbar__status-icon {
