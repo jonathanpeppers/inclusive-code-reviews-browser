@@ -197,15 +197,17 @@ class Toolbar {
         const e = t.target;
         if (![this._controls.wrapper, this._controls.statusIcon, this._controls.premiumIcon].includes(e)) return;
         t.stopImmediatePropagation();
-        const s = { toolbar: this };
-        if (this._state.validationStatus === VALIDATION_STATUS.PERMISSION_REQUIRED) dispatchCustomEvent(document, Toolbar.eventNames.permissionRequiredIconClicked, s);
-        else if (this._state.validationStatus === VALIDATION_STATUS.FAILED) Tracker.trackEvent("Action", "dialog:opened", "FAILED"), dispatchCustomEvent(document, Toolbar.eventNames.toggleDialog, s);
-        else {
-            let t = this._state.validationStatus;
-            t === VALIDATION_STATUS.COMPLETED && this._state.errorsCount > 0 ? (t = "HAS_ERRORS") : t === VALIDATION_STATUS.COMPLETED && this._state.premiumErrorsCount > 0 && (t = "HAS_ONLY_PREMIUM_ERRORS"),
-                Tracker.trackEvent("Action", "dialog:opened", t),
-                dispatchCustomEvent(document, Toolbar.eventNames.toggleDialog, s);
-        }
+        // Commented out the code below to prevent dialog from opening, for now.
+        // The dialog needs work to be more useful.
+        // const s = { toolbar: this };
+        // if (this._state.validationStatus === VALIDATION_STATUS.PERMISSION_REQUIRED) dispatchCustomEvent(document, Toolbar.eventNames.permissionRequiredIconClicked, s);
+        // else if (this._state.validationStatus === VALIDATION_STATUS.FAILED) Tracker.trackEvent("Action", "dialog:opened", "FAILED"), dispatchCustomEvent(document, Toolbar.eventNames.toggleDialog, s);
+        // else {
+        //     let t = this._state.validationStatus;
+        //     t === VALIDATION_STATUS.COMPLETED && this._state.errorsCount > 0 ? (t = "HAS_ERRORS") : t === VALIDATION_STATUS.COMPLETED && this._state.premiumErrorsCount > 0 && (t = "HAS_ONLY_PREMIUM_ERRORS"),
+        //         Tracker.trackEvent("Action", "dialog:opened", t),
+        //         dispatchCustomEvent(document, Toolbar.eventNames.toggleDialog, s);
+        // }
     }
     updateState(t) {
         if (isSameObjects(this._stateForComparison, t)) return;
