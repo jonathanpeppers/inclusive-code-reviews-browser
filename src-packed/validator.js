@@ -6,7 +6,7 @@ const ISSUE_TYPE_PURPLE = "style";
 const NEGATIVE_SENTIMENT_THRESHOLD = 0.6;
 const suggestions = require('./suggestions');
 const textAnalytics = require('./textAnalytics');
-const endpoint = "https://app-rel.wus3.sample-dev.azgrafana-test.io/api/Gpt4ChatCompletion";
+const endpoint = "https://app-rel.wus3.sample-dev.azgrafana-test.io/api/CommentRewrite";
 var _appinsights = null;
 var pastErrorCount = 0; // Number of problems found in the past text
 
@@ -20,20 +20,7 @@ export async function getOpenAISuggestions(sentence) {
     getAppInsights().trackEvent('askAI');
 
     let request = {
-        "messages": [
-            {
-                "role": "system",
-                "content": "You are an assistant that only replies with exactly three options as a JSON array, which is not indented and contains no new lines. For example: { \"suggestions\" : [ \"1\", \"2\", \"3\" ] }"
-            },
-            {
-                "role": "system",
-                "content": "You are expert software engineer that is particularly good at writing inclusive, well-written, thoughtful code reviews."
-            },
-            {
-                "role": "user",
-                "content": "Suggest three polite alternatives to the code review comment: " + sentence.text
-            }
-        ],
+        "comment": sentence.text,
         // 0 accurate, 1 creative
         "temperature": 0.5,
         // prevent the model from repeating itself without sacrificing quality of response

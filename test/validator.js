@@ -23,7 +23,7 @@ describe('validator', () => {
         // NOTE: only test that actually calls OpenAI
         var result = await client.getOpenAISuggestions(sentence);
         expect(result.replacements.length).to.be.equal(3);
-        expect(result.replacements[0].value).to.contain('please');
+        expect(result.replacements[0].value).to.contain('Consider');
     }).timeout(timeout).retries(retries);
 
     it('Suggestion', async () => {
