@@ -146,14 +146,9 @@ export async function getMatches(ort, text, matches) {
 
 /*
     Contains a list of brief phrases that can be ignored.
-    Be conscientious when adding new items to this file, as we don't want to filter out generic words/phrases that could be improved with further explanation.
+    Be conscientious when adding new items, as we don't want to filter out generic words/phrases that could be improved with further explanation.
 */
-var ignorableBriefPhraseRegex = new RegExp(
-    "/azp run|" + 
-    "fixes #|" +
-    "implements #", 
-    "gi"
-);
+var ignorableBriefPhraseRegex = new RegExp('^\/|fixes #|implements #', 'i');
 
 // clears the state of 'pastErrorCount'
 export function clearState() {

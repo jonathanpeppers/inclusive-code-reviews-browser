@@ -94,10 +94,13 @@ describe('validator', () => {
         expect(matches.length).to.be.equal(0);
     });
 
-    it('Brief text in ignore list no suggestion', async () => {
-        var matches = [];
-        await client.getMatches(ort, "Fixes #77", matches);
-        expect(matches.length).to.be.equal(0);
+    var phrases = [ 'Fixes #77', 'Implements #77', '/azp run', '/rebase', '@dependabot merge' ];
+    phrases.forEach(phrase => {
+        it('Brief text no suggestion ' + phrase, async () => {
+            var matches = [];
+            await client.getMatches(ort, phrase, matches);
+            expect(matches.length).to.be.equal(0, phrase + ' should not have suggestions');
+        });
     });
 
     it('Brief text but catches negative connotation first', async () => {
