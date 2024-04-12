@@ -46,6 +46,14 @@ This code is stupid.`
         expect(result.sentences[0].sentiment).to.be.equal("neutral");
     });
 
+    it('.NET again and again', async () => {
+        const result = await client.analyzeSentiment(ort, 'I love .NET 8! I love .NET 8! I really love .NET 8!');
+        expect(result.sentences.length).to.be.equal(3);
+        expect(result.sentences[0].sentiment).to.be.equal("neutral");
+        expect(result.sentences[1].sentiment).to.be.equal("neutral");
+        expect(result.sentences[2].sentiment).to.be.equal("neutral");
+    });
+
     it('ASP.NET', async () => {
         const text1 = "I work on ASP.NET as a consultant.";
         const text2 = "Your code sucks.";
