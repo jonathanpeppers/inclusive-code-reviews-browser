@@ -102,7 +102,7 @@ export function preprocessText (text) {
     // NOTE: ".NET" is not properly split into sentences.
     // Because MSFT employees use ".NET" a lot in comments, we should fix it.
     // Let's replace it with " NET", so text will be the same length.
-    result = result.replace ('.NET', ' NET');
+    result = result.replace (/.NET/ig, ' NET');
 
     return result;
 }
