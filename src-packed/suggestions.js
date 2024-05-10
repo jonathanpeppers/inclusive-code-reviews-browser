@@ -71,7 +71,8 @@ const allReplacements = {
     "killing it": ["elevating", "exceeding expectations", "excelling"],
     "kill": ["stop", "cancel"],
     "nuke": ["delete", "remove"],
-    "execute": ["start", "run"],
+    "execute": ["start", "run", "begin", "implement", "complete"],
+    "execution": ["runtime", "operation", "implementation", "completion"],
     // ageist
     "grandfather": ["flagship", "established", "rollover", "carryover", "classic"],
     "legacy": ["flagship", "established", "rollover", "carryover", "classic"],
