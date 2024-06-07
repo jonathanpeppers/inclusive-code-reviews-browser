@@ -16,12 +16,12 @@ var appinsights_user_id = null;
 
 // Don't enable these in "unit test" mode
 if (!isTests) {
-    getUserId();
+    retrieveUserId();
     appinsights.loadAppInsights();
     appinsights.addTelemetryInitializer(telemetryInitializer);
 }
 
-function getUserId() {
+function retrieveUserId() {
     chrome.storage.sync.get('inclusive-code-reviews-userid', function(items) {
         if (items.userid) {
             appinsights_user_id = items.userid;
@@ -30,6 +30,10 @@ function getUserId() {
             chrome.storage.sync.set({userid: appinsights_user_id});
         }
     });
+}
+
+export function getUserId() {
+    return appinsights_user_id;
 }
 
 export function telemetryInitializer (envelope) {

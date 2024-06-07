@@ -17,7 +17,8 @@ function getAppInsights() {
 }
 
 export async function getOpenAISuggestions(sentence) {
-    getAppInsights().trackEvent('askAI');
+    var appinsights = getAppInsights();
+    appinsights.trackEvent('askAI');
 
     let request = {
         "comment": sentence.text,
@@ -36,7 +37,8 @@ export async function getOpenAISuggestions(sentence) {
     const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'X-AppInsights-UserId': appinsights.getUserId()
         },
         body: JSON.stringify(request),
     }).then(response => response.json());
