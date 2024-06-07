@@ -12,14 +12,30 @@ const appinsights = new ApplicationInsights({
     }
 });
 
+var appinsights_user_id = null;
+
 // Don't enable these in "unit test" mode
 if (!isTests) {
+    getUserId();
     appinsights.loadAppInsights();
     appinsights.addTelemetryInitializer(telemetryInitializer);
 }
 
+function getUserId() {
+    chrome.storage.sync.get('inclusive-code-reviews-userid', function(items) {
+        if (items.userid) {
+            appinsights_user_id = items.userid;
+        } else {
+            appinsights_user_id = self.crypto.randomUUID();
+            chrome.storage.sync.set({userid: appinsights_user_id});
+        }
+    });
+}
+
 export function telemetryInitializer (envelope) {
     envelope.tags["ai.application.ver"] = '3.1.2';
+    if (appinsights_user_id)
+        envelope.tags["ai.user.id"] = appinsights_user_id;
 
     // We don't want to report full URLs
     if (envelope.baseData.uri) {
