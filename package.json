@@ -68,6 +68,7 @@
         "webpack": "^5.93.0"
     },
     "overrides": {
+        "braces": "3.0.3",
         "chai": "4.3.10",
         "jsdoc": "4.0.2",
         "mocha": "10.2.0"
