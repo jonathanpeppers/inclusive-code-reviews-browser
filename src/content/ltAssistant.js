@@ -660,7 +660,6 @@ class LTAssistant {
         i.isDomainDisabled ||
             i.isEditorGroupDisabled ||
             (window.clearTimeout(this._initElementTimeouts.get(e)),
-            i.isAutoCheckEnabled && this._disableOtherSpellCheckers(e),
             this._initElementTimeouts.set(
                 e,
                 window.setTimeout(() => {
@@ -785,15 +784,6 @@ class LTAssistant {
     }
     setLocale(e) {
         i18nManager.setLocale(e);
-    }
-    _disableOtherSpellCheckers(e) {
-        if (this._spellcheckingAttributesData.get(e)) return;
-        const t = { spellcheck: e.getAttribute("spellcheck"), "data-gramm": e.getAttribute("data-gramm") };
-        e.setAttribute("spellcheck", "false"), e.setAttribute("data-gramm", "false");
-        const r = new MutationObserver(() => {
-            ("false" === e.getAttribute("spellcheck") && "false" === e.getAttribute("data-gramm")) || (e.setAttribute("spellcheck", "false"), e.setAttribute("data-gramm", "false"));
-        });
-        r.observe(e, { attributes: !0, attributeFilter: ["spellcheck", "data-gramm"] }), this._spellcheckingAttributesData.set(e, { originalValues: t, mutationObserver: r });
     }
     _enableOtherSpellCheckers(e) {
         const t = this._spellcheckingAttributesData.get(e);
@@ -1162,7 +1152,7 @@ class LTAssistant {
         e.highlighter.highlight(t);
     }
     _enableEditor(e) {
-        (e.isAutoCheckEnabled = !0), this._disableOtherSpellCheckers(e.inputArea), e.inputAreaWrapper.resetText(), this._resetEditor(e), this._validateEditor(e), this._updateState(e);
+        (e.isAutoCheckEnabled = !0), e.inputAreaWrapper.resetText(), this._resetEditor(e), this._validateEditor(e), this._updateState(e);
     }
     _disableEditor(e) {
         (e.isAutoCheckEnabled = !1), this._enableOtherSpellCheckers(e.inputArea), e.inputAreaWrapper.resetText(), this._resetEditor(e), this._endTypingMode(e), this._highlight(e), this._updateState(e);
