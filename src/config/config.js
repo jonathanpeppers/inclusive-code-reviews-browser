@@ -8,7 +8,6 @@ const config = {
     MAIN_SERVER_URL: "https://api.languagetool.org/v2",
     LOCAL_SERVER_URL: "http://localhost:8081/v2",
     FEEDBACK_SERVER_URL: "https://languagetool.org/send-feedback/",
-    EXTERNAL_CONFIG_URL: "https://languagetool.org/webextension_config.json",
     CLIENT_LOGIN_URL: "https://languagetool.org/client-login",
     SWITCH_TO_FALLBACK_SERVER_ERRORS: [502, 503, 504],
     MAIN_SERVER_RECHECK_INTERVAL: 18e5,

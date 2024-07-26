@@ -43,7 +43,6 @@ class BackgroundApp {
             chrome.runtime.onMessage.addListener(this._onMessage),
             DictionarySync.init(),
             this._updateIcon(),
-            this._loadConfiguration();
             this._isInitialized = !0;
         }
     }
@@ -131,19 +130,6 @@ class BackgroundApp {
     static _applyManagedSettings() {
         const { disablePrivacyConfirmation: e } = this._storageController.getManagedSettings();
         !0 === e && this._storageController.updatePrivacySettings({ allowRemoteCheck: !0 });
-    }
-    static _loadConfiguration() {
-        this._storageController.onReady(() => {
-            this._storageController.isUsedCustomServer() ||
-                fetch(config.EXTERNAL_CONFIG_URL, { credentials: "omit" })
-                    .then((e) => e.json())
-                    .then((e) => {
-                        if (e.disabledSites && Array.isArray(e.disabledSites)) {
-                            const t = { unsupportedDomains: e.disabledSites };
-                            this._storageController.updateConfiguration(t);
-                        }
-                    });
-        });
     }
     static _onInstalled(e) {
         const { reason: t, previousVersion: a } = e;
