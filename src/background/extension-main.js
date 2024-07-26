@@ -134,15 +134,7 @@ class BackgroundApp {
     }
     static _loadConfiguration() {
         this._storageController.onReady(() => {
-            this._storageController.isUsedCustomServer() ||
-                fetch(config.EXTERNAL_CONFIG_URL, { credentials: "omit" })
-                    .then((e) => e.json())
-                    .then((e) => {
-                        if (e.disabledSites && Array.isArray(e.disabledSites)) {
-                            const t = { unsupportedDomains: e.disabledSites };
-                            this._storageController.updateConfiguration(t);
-                        }
-                    });
+            this._storageController.isUsedCustomServer();
         });
     }
     static _onInstalled(e) {
