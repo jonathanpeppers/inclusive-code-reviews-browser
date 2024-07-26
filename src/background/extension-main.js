@@ -43,7 +43,6 @@ class BackgroundApp {
             chrome.runtime.onMessage.addListener(this._onMessage),
             DictionarySync.init(),
             this._updateIcon(),
-            this._loadConfiguration();
             this._isInitialized = !0;
         }
     }
@@ -131,11 +130,6 @@ class BackgroundApp {
     static _applyManagedSettings() {
         const { disablePrivacyConfirmation: e } = this._storageController.getManagedSettings();
         !0 === e && this._storageController.updatePrivacySettings({ allowRemoteCheck: !0 });
-    }
-    static _loadConfiguration() {
-        this._storageController.onReady(() => {
-            this._storageController.isUsedCustomServer();
-        });
     }
     static _onInstalled(e) {
         const { reason: t, previousVersion: a } = e;
