@@ -15,7 +15,7 @@
    },
    "addonsSiteNotSupported": {
       "description": "Error shown when Firefox add-on is used on https://addons.mozilla.org, which doesn't work for technical reasons",
-      "message": "Sorry, LanguageTool doesn't work on the website of Firefox Add-ons (addons.mozilla.org). It works anywhere else you write (e.g. Facebook, Gmail, Twitter, LinkedIn)."
+      "message": "Sorry, Inclusive Code Comments doesn't work on the website of Firefox Add-ons (addons.mozilla.org). It works anywhere else you write (e.g. Facebook, Gmail, Twitter, LinkedIn)."
    },
    "appDesc": {
       "description": "The description of the application, displayed in the web store.",
@@ -441,7 +441,7 @@
    },
    "feedbackButton": {
       "description": "Label for submit button of feedback form",
-      "message": "Send message to LanguageTool"
+      "message": "Send message to Inclusive Code Comments"
    },
    "feedbackDirectMail": {
       "description": "Text shown on feedback form",
@@ -459,7 +459,7 @@
    },
    "feedbackHeadline": {
       "description": "Headline of feedback contact form",
-      "message": "Send your feedback to LanguageTool"
+      "message": "Send your feedback to Inclusive Code Comments"
    },
    "feedbackSenderPlaceholder": {
       "description": "Placeholder text shown in the email text field of the feedback form",
@@ -731,7 +731,7 @@
    },
    "poweredBy": {
       "description": "Hint that explains who the author of this add-on is",
-      "message": "Powered by \u003Cb>LanguageTool\u003C/b>"
+      "message": "Powered by \u003Cb>Inclusive Code Comments\u003C/b>"
    },
    "privacyLinkForDefaultServer": {
       "description": "Link to privacy policy",
