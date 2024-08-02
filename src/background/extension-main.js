@@ -320,7 +320,11 @@ class BackgroundApp {
         });
     }
     static _getPreferredLanguages(e) {
-        const { geoIpLanguages: t, motherTongue: a } = this._storageController.getSettings();
+        var settings = this._storageController.getSettings();
+        if (!settings) {
+            return LanguageManager.getUserLanguageCodes().push("en");
+        }
+        const { geoIpLanguages: t, motherTongue: a } = settings;
         let s = [];
         if ((a && s.push(a), e.tab)) {
             const t = this._extensionStates[e.tab.id];
