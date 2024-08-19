@@ -28,7 +28,7 @@
     ],
     "devDependencies": {
         "@types/chai": "^4.3.17",
-        "@types/chrome": "^0.0.269",
+        "@types/chrome": "^0.0.270",
         "@types/mocha": "^10.0.7",
         "extension-cli": "^1.2.4",
         "global": "^4.3.2",
