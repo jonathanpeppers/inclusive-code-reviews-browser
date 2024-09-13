@@ -57,8 +57,7 @@
             }
         ],
         "copyAsIs": [
-            "./src/**/*",
-            "./node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.wasm"
+            "./src/**/*"
         ]
     },
     "dependencies": {
