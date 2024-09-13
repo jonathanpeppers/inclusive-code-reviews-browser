@@ -5,7 +5,8 @@ console.log('service worker loaded');
 // at packed.js:2:623031
 // at packed.js:2:623265
 // at background.js:5:5
-document = { };
+if (typeof document === 'undefined')
+    document = { };
 
 // These were the order of V2 background.scripts
 try {
