@@ -57,14 +57,12 @@
             }
         ],
         "copyAsIs": [
-            "./src/**/*",
-            "./node_modules/onnxruntime-web/dist/ort-wasm.wasm",
-            "./node_modules/onnxruntime-web/dist/ort-wasm-simd.wasm"
+            "./src/**/*"
         ]
     },
     "dependencies": {
         "@microsoft/applicationinsights-web": "^3.3.2",
-        "onnxruntime-web": "^1.18.0",
+        "onnxruntime-web": "^1.19.2",
         "webpack": "^5.94.0"
     },
     "overrides": {

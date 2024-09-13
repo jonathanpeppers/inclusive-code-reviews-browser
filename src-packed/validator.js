@@ -67,8 +67,6 @@ export async function getOpenAISuggestions(sentence) {
 }
 
 export async function getMatches(ort, text, matches) {
-    ort.env.wasm.numThreads = 1;
-
     // Suggestions, based on a dictionary
     suggestions.getSuggestions(text).forEach(suggestion => {
         getAppInsights().trackEvent('negativeWord');
