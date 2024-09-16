@@ -29,7 +29,7 @@
     "devDependencies": {
         "@types/chai": "^4.3.19",
         "@types/chrome": "^0.0.271",
-        "@types/mocha": "^10.0.7",
+        "@types/mocha": "^10.0.8",
         "extension-cli": "^1.2.4",
         "global": "^4.3.2",
         "onnxruntime-node": "^1.19.2"
