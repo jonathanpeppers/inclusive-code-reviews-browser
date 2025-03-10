@@ -62,7 +62,7 @@
     },
     "dependencies": {
         "@microsoft/applicationinsights-web": "^3.3.6",
-        "onnxruntime-web": "^1.20.1",
+        "onnxruntime-web": "^1.21.0",
         "webpack": "^5.98.0"
     },
     "overrides": {
