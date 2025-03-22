@@ -447,10 +447,15 @@ class Dialog {
             this._state.displayedErrors.forEach((e) => {
                 const t = this._document.createElement("lt-div");
                 t.className = "lt-dialog__error-item";
-                const o = { label: Dialog.MESSAGES.IGNORE_RULE_TOOLTIP, position: "top-right" },
-                    n = new Icon("ignore", null, o, t);
+                const askAnAI = new Icon("help", null, { label: Dialog.MESSAGES.ASK_AI_TOOLTIP, position: "top-right" }, t);
                 this._eventListeners.push(
-                    addUseCaptureEvent(n.getElement(), "click", (o) => {
+                    addUseCaptureEvent(askAnAI.getElement(), "click", (o) => {
+                        alert("Ask an AI");
+                    })
+                );
+                const ignoreIcon = new Icon("ignore", null, { label: Dialog.MESSAGES.IGNORE_RULE_TOOLTIP, position: "top-right" }, t);
+                this._eventListeners.push(
+                    addUseCaptureEvent(ignoreIcon.getElement(), "click", (o) => {
                         e.isSpellingError ? this._onTemporarilyIgnoreWordClick(e, o) : this._onTemporarilyIgnoreRuleClick(e, o), t.remove();
                     })
                 );
@@ -945,6 +950,7 @@ class Dialog {
         SCROLL_TO_LINK: i18nManager.getMessage("dialogScrollToLink"),
         SEND_FEEDBACK_TOOLTIP: i18nManager.getMessage("dialogTooltipSendFeedback"),
         HELP_TOOLTIP: i18nManager.getMessage("dialogTooltipHelp"),
+        ASK_AI_TOOLTIP: i18nManager.getMessage("dialogTooltipAskAI"),
         IGNORE_RULE_TOOLTIP: i18nManager.getMessage("ignoreHere"),
         DISABLE_CHECKING_TOOLTIP: i18nManager.getMessage("dialogTooltipDisableChecking"),
         DISABLE_CHECKING_MENU_ITEM: i18nManager.getMessage("dialogDisableMenuDisableChecking"),

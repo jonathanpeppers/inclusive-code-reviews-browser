@@ -1601,6 +1601,11 @@ html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.
     z-index: 99 !important;
     top: 8px !important;
     right: 12px !important; }
+  html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-dialog .lt-dialog__error-item .lt-icon--help {
+      position: absolute !important;
+      z-index: 99 !important;
+      top: 8px !important;
+      right: 44px !important; }
   html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-dialog .lt-dialog__error-item,
   html:not([data-lt-script-installed]):not(.__lt-dummy-1):not(.__lt-dummy-2):not(.__lt-dummy-3):not(.__lt-dummy-4):not(.__lt-dummy-5):not(.__lt-dummy-6) lt-dialog .lt-dialog__ignored-errors-item {
     margin-bottom: 12px !important;
