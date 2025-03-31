@@ -27,7 +27,7 @@
         "test/**/*"
     ],
     "devDependencies": {
-        "@types/chai": "^5.2.0",
+        "@types/chai": "^5.2.1",
         "@types/chrome": "^0.0.310",
         "@types/mocha": "^10.0.10",
         "extension-cli": "^1.2.4",
