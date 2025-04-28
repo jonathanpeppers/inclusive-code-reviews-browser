@@ -32,7 +32,7 @@
         "@types/mocha": "^10.0.10",
         "extension-cli": "^1.2.4",
         "global": "^4.3.2",
-        "onnxruntime-node": "^1.21.0"
+        "onnxruntime-node": "^1.21.1"
     },
     "xtdocs": {
         "source": {
