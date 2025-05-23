@@ -751,8 +751,6 @@ const getColorLuminosity = (function () {
 function isCKEditor(t) {
     return t.classList.contains("cke_editable");
 }
-// Site-specific editor checks removed as they were no longer needed
-// for Azure DevOps and GitHub functionality (issue #192)
 function getCurrentUrl() {
     if ("about:blank" === location.href || "about:srcdoc" === location.href)
         try {
