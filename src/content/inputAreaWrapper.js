@@ -225,20 +225,23 @@ class InputAreaWrapper {
                         (InputAreaWrapper._simulateMouseDown(this._inputArea),
                         InputAreaWrapper._selectText(e.textNode, e.from, e.to),
                         InputAreaWrapper._simulateMouseUp(this._inputArea),
-                        isSlateEditor(this._inputArea) || isOpenXchangeEditor(this._inputArea) || isTrixEditor(this._inputArea) || isCodeMirror(this._inputArea))
+                        this._inputArea.hasAttribute("data-slate-editor") || 
+                        !!this._inputArea.closest("[data-app-name='io.ox/office/text']") || 
+                        "trix-editor" === this._inputArea.nodeName.toLowerCase() || 
+                        this._inputArea.classList.contains("CodeMirror-code"))
                     )
                         return wait(201);
                 })
                 .then(() => {
-                    if (!(BrowserDetector.isTrident() || (isTrixEditor(this._inputArea) && BrowserDetector.isFirefox())))
-                        if (isOpenXchangeEditor(this._inputArea)) this.simulatePaste(e.replacementText);
-                        else if (isSlateEditor(this._inputArea) && BrowserDetector.isFirefox()) this.simulatePaste(e.replacementText);
+                    if (!(BrowserDetector.isTrident() || ("trix-editor" === this._inputArea.nodeName.toLowerCase() && BrowserDetector.isFirefox())))
+                        if (!!this._inputArea.closest("[data-app-name='io.ox/office/text']")) this.simulatePaste(e.replacementText);
+                        else if (this._inputArea.hasAttribute("data-slate-editor") && BrowserDetector.isFirefox()) this.simulatePaste(e.replacementText);
                         else {
                             const t = new window.InputEvent("beforeinput", { bubbles: !0, cancelable: !0, inputType: "insertText", data: e.replacementText });
                             this._inputArea.dispatchEvent(t) && document.execCommand("insertText", !1, e.replacementText);
                         }
                 })),
-            (BrowserDetector.isTrident() || (BrowserDetector.isFirefox() && (e.replacementText.includes(InputAreaWrapper.NBSP) || isTrixEditor(this._inputArea)))) &&
+            (BrowserDetector.isTrident() || (BrowserDetector.isFirefox() && (e.replacementText.includes(InputAreaWrapper.NBSP) || "trix-editor" === this._inputArea.nodeName.toLowerCase()))) &&
                 (s = s.then(() => {
                     const t = new window.InputEvent("beforeinput", { bubbles: !0, cancelable: !1, inputType: "insertText", data: e.replacementText });
                     this._inputArea.dispatchEvent(t), (e.textNode.nodeValue = e.newText), this.simulateInput(e.replacementText);
@@ -331,14 +334,16 @@ class InputAreaWrapper {
         if (("" === s && (this._hasSpaceBefore(e) || 0 === e) && this._hasSpaceAfter(e + t) && ((e = Math.max(e - 1, 0)), (t += 1)), !isFormElement(this._inputArea))) {
             let r = Promise.resolve();
             const i = !(
-                isGutenberg(this._inputArea) ||
-                isTrixEditor(this._inputArea) ||
-                isCodeMirror(this._inputArea) ||
-                isProseMirror(this._inputArea) ||
-                isLTEditor(this._inputArea) ||
-                isWriterDuet(this._inputArea) ||
-                isOpenXchangeEditor(this._inputArea) ||
-                isSlateEditor(this._inputArea)
+                // Direct checks instead of using site-specific functions (issue #192)
+                this._inputArea.classList.contains("editor-rich-text__editable") || 
+                this._inputArea.classList.contains("block-editor-rich-text__editable") ||
+                "trix-editor" === this._inputArea.nodeName.toLowerCase() ||
+                this._inputArea.classList.contains("CodeMirror-code") ||
+                this._inputArea.classList.contains("ProseMirror") ||
+                this._inputArea.classList.contains("lt-textarea__textarea") ||
+                location.href.includes("writerduet.com") ||
+                !!this._inputArea.closest("[data-app-name='io.ox/office/text']") ||
+                this._inputArea.hasAttribute("data-slate-editor")
             );
             return (
                 i && r.then(() => InputAreaWrapper._simulateSelection(this._inputArea)),

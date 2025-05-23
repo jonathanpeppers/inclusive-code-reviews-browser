@@ -268,10 +268,11 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
             try {
                 r = !!window.parent.document.title.match(/roundcube/i) || !!window.parent.location.href.match(/_action=compose/i)
             } catch (e) {}
-            const n = isProseMirror(e),
-                o = isCKEditor(e),
-                i = isQuillEditor(e),
-                l = isLTEditor(e);
+            // Direct checks instead of using site-specific functions (issue #192)
+            const n = e.classList.contains("ProseMirror"),
+                o = e.classList.contains("cke_editable"),
+                i = e.classList.contains("ql-editor"),
+                l = e.classList.contains("lt-textarea__textarea");
             return {
                 isIgnored(e) {
                     const t = e.tagName.toUpperCase();
@@ -335,7 +336,8 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
     getToolbarAppearance(e) {
         const t = [Dialog.CONTAINER_ELEMENT_NAME, ErrorCard.CONTAINER_ELEMENT_NAME].join(", "),
             a = "chat-input-control" === e.id && e.classList.contains("window__chatInputControl"),
-            r = isGutenberg(e);
+            // Direct check instead of using site-specific function (issue #192)
+            r = e.classList.contains("editor-rich-text__editable") || e.classList.contains("block-editor-rich-text__editable");
         return {
             isVisible(e, t, n = 32) {
                 if (a) return !1;
