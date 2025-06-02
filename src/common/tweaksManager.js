@@ -268,14 +268,10 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
             try {
                 r = !!window.parent.document.title.match(/roundcube/i) || !!window.parent.location.href.match(/_action=compose/i)
             } catch (e) {}
-            const n = isProseMirror(e),
-                o = isCKEditor(e),
-                i = isQuillEditor(e),
-                l = isLTEditor(e);
             return {
                 isIgnored(e) {
                     const t = e.tagName.toUpperCase();
-                    return !!CEElementInspector.SKIPPING_TAGS.includes(t) || ("BLOCKQUOTE" === t && !l || ("false" === e.getAttribute("contenteditable") || "false" === e.getAttribute("spellcheck") ? (!n || !e.hasAttribute("data-mention-id") && !e.hasAttribute("usertype")) && ((!i || !e.classList.contains("ql-mention")) && (!e.classList.contains("user-hover") && ((!o || !e.classList.contains("cke_widget_mention-box")) && !((!e.firstElementChild || 1 === e.childElementCount && e.offsetWidth > 0) && "inline" === window.getComputedStyle(e).display)))) : "SUP" === t && e.textContent ? CEElementInspector.SUP_REGEXP.test(e.textContent.trim()) : !(!i || !e.classList.contains("ql-code-block") && !e.classList.contains("ql-formula"))))
+                    return !!CEElementInspector.SKIPPING_TAGS.includes(t) || ("BLOCKQUOTE" === t || ("false" === e.getAttribute("contenteditable") || "false" === e.getAttribute("spellcheck") ? !e.hasAttribute("data-mention-id") && !e.hasAttribute("usertype") && !e.classList.contains("ql-mention") && !e.classList.contains("user-hover") && !e.classList.contains("cke_widget_mention-box") && !((!e.firstElementChild || 1 === e.childElementCount && e.offsetWidth > 0) && "inline" === window.getComputedStyle(e).display) : "SUP" === t && e.textContent ? CEElementInspector.SUP_REGEXP.test(e.textContent.trim()) : e.classList.contains("ql-code-block") || e.classList.contains("ql-formula")))
                 },
                 isSignature: e => t ? !!(e.dataset && e.dataset.marker && e.dataset.marker.includes("_SIG_")) : a ? "signature" === e.id.toLowerCase() : !!r && "_rc_sig" === e.id,
                 isQuote: e => t ? !!(e.dataset && e.dataset.marker && e.dataset.marker.includes("_QUOTED_")) : !!a && ("divRplyFwdMsg" === e.id || !!e.previousElementSibling && "divRplyFwdMsg" === e.previousElementSibling.id),
@@ -334,13 +330,12 @@ TweaksManager.NON_COMPATIBLE_TAGS = ["TR", "TH", "TD", "THEAD", "TBODY", "TFOOT"
     },
     getToolbarAppearance(e) {
         const t = [Dialog.CONTAINER_ELEMENT_NAME, ErrorCard.CONTAINER_ELEMENT_NAME].join(", "),
-            a = "chat-input-control" === e.id && e.classList.contains("window__chatInputControl"),
-            r = isGutenberg(e);
+            a = "chat-input-control" === e.id && e.classList.contains("window__chatInputControl");
         return {
             isVisible(e, t, n = 32) {
                 if (a) return !1;
                 let s = !0;
-                if (s = isTextArea(e) || isTextInput(e) ? !e.value.trim() : !e.textContent.trim(), r && s) return !1;
+                if (s = isTextArea(e) || isTextInput(e) ? !e.value.trim() : !e.textContent.trim(), e.classList.contains("editor-rich-text__editable") && s) return !1;
                 const o = t.getPaddingBox(e);
                 return !(s && o.height < n) && (o.width >= 160 && o.height >= 18)
             },
