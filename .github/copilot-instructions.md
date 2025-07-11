@@ -117,7 +117,7 @@ export async function getMatches(ort, text, matches) {
 ## Dependencies & Constraints
 
 - **Node.js 16+** required for build system
-- **ONNX Runtime Web 1.21+** for model execution
+- **ONNX Runtime Web 1.19.2** for model execution (newer versions have compatibility issues)
 - **extension-cli** handles Webpack bundling and manifest generation
 - Content Security Policy allows `'wasm-unsafe-eval'` for ONNX
 - Text length limits: 10k chars (standard), 60k (premium)
