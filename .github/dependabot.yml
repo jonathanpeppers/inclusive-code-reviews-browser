@@ -7,3 +7,8 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    ignore:
+      # Keep webpack and onnxruntime packages at specific versions for compatibility
+      - dependency-name: "webpack"
+      - dependency-name: "onnxruntime-web"
+      - dependency-name: "onnxruntime-node"
