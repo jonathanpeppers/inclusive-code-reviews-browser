@@ -37,7 +37,7 @@ export function getUserId() {
 }
 
 export function telemetryInitializer (envelope) {
-    envelope.tags["ai.application.ver"] = '3.1.4';
+    envelope.tags["ai.application.ver"] = '3.1.5';
     if (appinsights_user_id)
         envelope.tags["ai.user.id"] = appinsights_user_id;
 
