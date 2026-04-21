@@ -42,7 +42,7 @@ export async function getOpenAISuggestions(sentence) {
         body: JSON.stringify(request),
     }).then(response => response.json());
 
-    let json = response.choices[0].message.content;
+    let json = response.content[0].text;
     console.log('OpenAI response: ' + json);
     let result = JSON.parse(json);
     if (result.suggestions) {
