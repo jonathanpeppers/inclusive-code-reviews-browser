@@ -16,9 +16,15 @@ var appinsights_user_id = null;
 
 // Don't enable these in "unit test" mode
 if (!isTests) {
-    retrieveUserId();
-    appinsights.loadAppInsights();
-    appinsights.addTelemetryInitializer(telemetryInitializer);
+    try {
+        retrieveUserId();
+        appinsights.loadAppInsights();
+        appinsights.addTelemetryInitializer(telemetryInitializer);
+    } catch (e) {
+        // Application Insights may fail to initialize in certain frames
+        // (e.g. about:blank iframes) where the DOM is not fully available.
+        console.warn('Failed to initialize Application Insights:', e);
+    }
 }
 
 function retrieveUserId() {
@@ -73,15 +79,23 @@ export function telemetryInitializer (envelope) {
 }
 
 export function trackPageView(url) {
-    if (url) {
-        appinsights.trackPageView(url);
-    } else {
-        appinsights.trackPageView();
+    try {
+        if (url) {
+            appinsights.trackPageView(url);
+        } else {
+            appinsights.trackPageView();
+        }
+    } catch (e) {
+        // Silently ignore tracking failures
     }
 }
 
 export function trackEvent(name, customDimensions) {
-    appinsights.trackEvent({ name: name }, customDimensions);
+    try {
+        appinsights.trackEvent({ name: name }, customDimensions);
+    } catch (e) {
+        // Silently ignore tracking failures
+    }
 }
 
 // For use inside the extension (which isn't using webpack)
