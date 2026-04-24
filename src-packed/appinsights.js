@@ -86,7 +86,7 @@ export function trackPageView(url) {
             appinsights.trackPageView();
         }
     } catch (e) {
-        // Silently ignore tracking failures
+        // Tracking may fail if Application Insights failed to initialize (e.g. in iframes with limited DOM)
     }
 }
 
@@ -94,7 +94,7 @@ export function trackEvent(name, customDimensions) {
     try {
         appinsights.trackEvent({ name: name }, customDimensions);
     } catch (e) {
-        // Silently ignore tracking failures
+        // Tracking may fail if Application Insights failed to initialize (e.g. in iframes with limited DOM)
     }
 }
 
