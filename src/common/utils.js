@@ -751,36 +751,6 @@ const getColorLuminosity = (function () {
 function isCKEditor(t) {
     return t.classList.contains("cke_editable");
 }
-function isSlateEditor(t) {
-    return t.hasAttribute("data-slate-editor");
-}
-function isWriterDuet(t) {
-    return location.href.includes("writerduet.com");
-}
-function isQuillEditor(t) {
-    return t.classList.contains("ql-editor");
-}
-function isOpenXchangeEditor(t) {
-    return !!t.closest("[data-app-name='io.ox/office/text']");
-}
-function isProseMirror(t) {
-    return t.classList.contains("ProseMirror");
-}
-function isGutenberg(t) {
-    return t.classList.contains("editor-rich-text__editable") || t.classList.contains("block-editor-rich-text__editable");
-}
-function isTrixEditor(t) {
-    return "trix-editor" === t.nodeName.toLowerCase();
-}
-function isGoogleDocsEditor(t) {
-    return t.classList.contains("kix-page");
-}
-function isLTEditor(t) {
-    return t.classList.contains("lt-textarea__textarea");
-}
-function isCodeMirror(t) {
-    return t.classList.contains("CodeMirror-code");
-}
 function getCurrentUrl() {
     if ("about:blank" === location.href || "about:srcdoc" === location.href)
         try {
